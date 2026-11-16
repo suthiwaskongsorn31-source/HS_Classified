@@ -1,0 +1,159 @@
+8401: เครื่องปฏิกรณ์นิวเคลียร์, nuclear reactor, fuel elements nuclear
+8402: หม้อไอน้ำ, บอยเลอร์, steam boiler, boiler, waste heat boiler, superheated water boiler
+8403: หม้อต้มน้ำร้อนระบบทำความร้อน, central heating boiler
+8404: อุปกรณ์เสริมหม้อไอน้ำ, economizer, superheater, soot blower, condenser steam
+8405: เครื่องผลิตก๊าซ, acetylene generator, gas generator producer
+8406: กังหันไอน้ำ, steam turbine
+8407: เครื่องยนต์เบนซิน, เครื่องยนต์รถจักรยานยนต์, เครื่องยนต์เรือหางยาว, เครื่องยนต์เอนกประสงค์, petrol engine, gasoline engine, outboard motor, motorcycle engine, small engine, spark ignition engine
+8408: เครื่องยนต์ดีเซล, เครื่องยนต์เรือดีเซล, diesel engine, marine diesel engine, compression ignition engine, truck engine diesel
+8409: ชิ้นส่วนเครื่องยนต์, ลูกสูบ, ฝาสูบ, เสื้อสูบ, ก้านสูบ, หัวฉีด, วาล์วไอดี, ปะเก็นฝาสูบ, คาร์บูเรเตอร์, engine parts, piston, cylinder head, cylinder block, connecting rod, fuel injector nozzle, carburettor, piston ring, engine valve
+8410: กังหันน้ำ, hydraulic turbine, water wheel
+8411: เครื่องยนต์ไอพ่น, กังหันก๊าซ, turbojet, gas turbine, turboprop, turbine parts aircraft
+8412: กระบอกไฮดรอลิก, กระบอกลม, มอเตอร์ไฮดรอลิก, มอเตอร์ลม, hydraulic cylinder, pneumatic cylinder, air cylinder, hydraulic motor, air motor, actuator pneumatic, reaction engine
+8413: ปั๊ม, ปั๊มน้ำ, ปั๊มน้ำมัน, ปั๊มเคมี, ปั๊มหอยโข่ง, ปั๊มจุ่ม, ปั๊มไฮดรอลิก, ปั๊มหัวฉีด, ปั๊มจ่ายน้ำมัน, ปั๊มเฟือง, ปั๊มไดอะแฟรม, pump, water pump, centrifugal pump, submersible pump, hydraulic pump, fuel pump, oil pump, diaphragm pump, gear pump, dosing pump, concrete pump, fuel dispenser, injection pump
+8414: คอมเพรสเซอร์, ปั๊มลม, ปั๊มสุญญากาศ, พัดลม, พัดลมระบายอากาศ, โบลเวอร์, เครื่องดูดควัน, ฮู้ดดูดควัน, คอมเพรสเซอร์แอร์, คอมเพรสเซอร์ตู้เย็น, compressor, air compressor, vacuum pump, fan, ventilation fan, exhaust fan, blower, cooker hood, range hood, refrigeration compressor, AC compressor, turbocharger, ceiling fan, table fan, cooling fan
+841451: พัดลมตั้งโต๊ะ, พัดลมเพดาน, พัดลมตั้งพื้น, พัดลมติดผนัง, table fan, desk fan, ceiling fan, floor fan, wall fan, stand fan
+841430: คอมเพรสเซอร์ตู้เย็น, คอมเพรสเซอร์แอร์, refrigeration compressor, AC compressor, hermetic compressor
+841480: ปั๊มลม, คอมเพรสเซอร์ลม, เทอร์โบชาร์จเจอร์, air compressor, screw compressor, turbocharger, gas compressor
+8415: เครื่องปรับอากาศ, แอร์, แอร์บ้าน, แอร์รถยนต์, แอร์แยกส่วน, คอยล์เย็น, คอยล์ร้อน, แอร์ติดผนัง, ชิลเลอร์แอร์, air conditioner, AC, split type air conditioner, wall mounted AC, car air conditioner, fan coil unit, condensing unit, package AC, cassette type
+8416: หัวเผา, burner, gas burner, oil burner, furnace burner
+8417: เตาอบอุตสาหกรรม, เตาเผา, เตาเผาขยะ, เตาอบขนมปังอุตสาหกรรม, industrial furnace, kiln, incinerator, bakery oven non electric, heat treatment furnace
+8418: ตู้เย็น, ตู้แช่, ตู้แช่แข็ง, ฟรีซเซอร์, ตู้แช่เครื่องดื่ม, ห้องเย็น, เครื่องทำน้ำเย็น, ชิลเลอร์, ฮีทปั๊ม, เครื่องทำน้ำแข็ง, ตู้แช่ไอศกรีม, refrigerator, fridge, freezer, chest freezer, upright freezer, showcase cooler, display cooler, cold room, water chiller, chiller, heat pump, ice maker, ice machine, beverage cooler, water dispenser, evaporator, condenser refrigeration
+841810: ตู้เย็นสองประตู, ตู้เย็นมีช่องแช่แข็งแยกประตู, combined refrigerator freezer, two door refrigerator, side by side refrigerator
+841821: ตู้เย็นแบบคอมเพรสเซอร์, ตู้เย็นประตูเดียว, household refrigerator compression type, one door refrigerator
+841850: ตู้โชว์แช่เย็น, ตู้แช่เค้ก, display cabinet refrigerated, showcase chiller, cake showcase
+841869: ชิลเลอร์, เครื่องทำน้ำเย็น, ตู้กดน้ำเย็น, เครื่องทำน้ำแข็ง, water chiller, chiller unit, cold water dispenser, ice maker, beverage cooler
+8419: เครื่องทำน้ำอุ่น, เครื่องทำน้ำร้อนพลังแสงอาทิตย์, เครื่องอบแห้ง, เครื่องฆ่าเชื้อ, หม้อนึ่งฆ่าเชื้อ, เครื่องแลกเปลี่ยนความร้อน, หอกลั่น, หอหล่อเย็น, เครื่องชงกาแฟอุตสาหกรรม, water heater, solar water heater, instant water heater non electric, dryer industrial, autoclave, sterilizer, heat exchanger, distillation column, cooling tower, pasteurizer, evaporator industrial, freeze dryer
+8420: เครื่องรีด, ลูกรีด, calender, rolling machine non metal, laminating roller
+8421: เครื่องกรอง, เครื่องกรองน้ำ, ไส้กรอง, กรองอากาศ, กรองน้ำมัน, เครื่องฟอกอากาศ, เครื่องหมุนเหวี่ยง, เครื่องปั่นแห้ง, กรองเชื้อเพลิง, เครื่อง RO, filter, water filter, water purifier, air filter, oil filter, fuel filter, air purifier, centrifuge, cream separator, spin dryer, RO system, filter cartridge, dust collector, scrubber, cyclone separator
+842123: ไส้กรองน้ำมันเครื่อง, กรองน้ำมัน, oil filter engine, fuel filter engine
+842131: ไส้กรองอากาศรถยนต์, กรองอากาศเครื่องยนต์, air filter engine, intake air filter
+842139: เครื่องฟอกอากาศ, เครื่องดักฝุ่น, กรองอากาศอุตสาหกรรม, air purifier, dust collector, air filter industrial, HEPA filter unit, scrubber
+842121: เครื่องกรองน้ำ, เครื่องกรองน้ำ RO, water filter, water purifier, RO system, water treatment equipment
+8422: เครื่องล้างจาน, เครื่องบรรจุ, เครื่องปิดฝา, เครื่องห่อ, เครื่องติดฉลาก, เครื่องแพ็ค, เครื่องซีล, เครื่องรัดพาเลท, เครื่องพันฟิล์ม, เครื่องล้างขวด, dishwasher, filling machine, capping machine, packing machine, wrapping machine, labelling machine, sealing machine, stretch wrapper, pallet wrapper, bottle washer, vacuum packing machine, carton sealer
+8423: เครื่องชั่ง, ตาชั่ง, เครื่องชั่งดิจิตอล, เครื่องชั่งรถบรรทุก, ตาชั่งน้ำหนักบุคคล, ตุ้มน้ำหนัก, weighing scale, scale, digital scale, truck scale, weighbridge, bathroom scale, platform scale, checkweigher, weights
+8424: เครื่องพ่นยา, ปืนพ่นสี, เครื่องฉีดน้ำแรงดันสูง, ถังดับเพลิง, หัวสปริงเกอร์, เครื่องพ่นทราย, หัวฉีดสเปรย์, sprayer, spray gun, paint spray gun, pressure washer, high pressure cleaner, fire extinguisher, sprinkler, sandblasting machine, spray nozzle, irrigation sprinkler, knapsack sprayer, drip irrigation
+8425: รอก, รอกโซ่, รอกไฟฟ้า, กว้าน, แม่แรง, แม่แรงยกรถ, hoist, chain hoist, electric hoist, winch, jack, car jack, hydraulic jack, pulley tackle, capstan
+8426: เครน, ปั้นจั่น, เครนเหนือศีรษะ, เครนชายฝั่ง, รถเครน, เครนติดรถบรรทุก, crane, overhead crane, gantry crane, tower crane, mobile crane, truck crane, crawler crane, jib crane, ship to shore crane, straddle carrier
+8427: รถยก, รถโฟล์คลิฟท์, รถยกไฟฟ้า, รถลากพาเลท, รีชทรัค, forklift, fork lift truck, electric forklift, reach truck, pallet stacker, order picker
+8428: ลิฟต์, บันไดเลื่อน, สายพานลำเลียง, ระบบลำเลียง, ลิฟท์ขนของ, กระเช้า, หุ่นยนต์อุตสาหกรรม, แขนกลอุตสาหกรรม, รถเข็นยกพาเลทมือ, แฮนด์ลิฟท์, elevator, lift, escalator, conveyor, belt conveyor, roller conveyor, screw conveyor, bucket elevator, industrial robot, robot arm, dock leveller, cable car, scissor lift, aerial work platform, hand pallet truck
+842870: หุ่นยนต์อุตสาหกรรม, แขนกล, industrial robot, robotic arm, robot manipulator
+8429: รถแทรกเตอร์ตีนตะขาบ, รถดันดิน, รถตักดิน, รถแบคโฮ, รถขุด, รถเกรด, รถบด, bulldozer, excavator, backhoe, wheel loader, grader, road roller, skid steer loader, motor grader
+8430: เครื่องตอกเสาเข็ม, เครื่องเจาะ, เครื่องขุดอุโมงค์, piling machine, pile driver, drilling rig, tunnel boring machine, snow plough, compactor
+8431: ชิ้นส่วนเครน, ชิ้นส่วนรถยก, ชิ้นส่วนลิฟต์, บุ้งกี๋รถขุด, ฟันบุ้งกี๋, งาโฟล์คลิฟท์, ชิ้นส่วนรถขุด, crane parts, forklift parts, elevator parts, excavator bucket, bucket teeth, track shoe, forks forklift, attachment excavator
+8432: ไถ, คราดพรวน, เครื่องหว่านปุ๋ย, เครื่องหยอดเมล็ด, เครื่องตัดหญ้าสนาม, plough, harrow, seeder, planter, fertilizer spreader, rotavator, lawn roller
+8433: เครื่องตัดหญ้า, รถเกี่ยวข้าว, เครื่องนวดข้าว, เครื่องอัดฟาง, lawn mower, grass cutter, combine harvester, thresher, baler, harvester
+8434: เครื่องรีดนมวัว, เครื่องจักรนม, milking machine, dairy machinery
+8435: เครื่องคั้นน้ำผลไม้อุตสาหกรรม, เครื่องบีบไวน์, juice press, wine press
+8436: เครื่องฟักไข่, ระบบให้อาหารสัตว์, เครื่องบดอาหารสัตว์, incubator poultry, hatchery machine, feeding system, poultry equipment, feed mill
+8437: เครื่องสีข้าว, เครื่องคัดเมล็ด, เครื่องโม่แป้ง, rice mill, rice milling machine, seed cleaner, grain sorter, flour mill
+8438: เครื่องจักรแปรรูปอาหาร, เครื่องผสมแป้ง, เครื่องบดเนื้อ, เครื่องหั่น, เครื่องทำขนม, เครื่องจักรโรงงานน้ำตาล, food processing machine, dough mixer, meat grinder industrial, slicer industrial, bakery machinery, confectionery machine, sugar mill machinery, brewery equipment
+8439: เครื่องจักรผลิตกระดาษ, paper machine, pulp making machine
+8441: เครื่องตัดกระดาษ, เครื่องทำกล่อง, เครื่องทำถุงกระดาษ, paper cutting machine, guillotine, box making machine, carton machine, paper bag machine
+8442: เพลทพิมพ์, แม่พิมพ์สิ่งพิมพ์, printing plates prepared, plate making machine
+8443: เครื่องพิมพ์, ปริ้นเตอร์, เครื่องถ่ายเอกสาร, เครื่องพิมพ์ออฟเซ็ท, เครื่องพิมพ์ดิจิตอล, หมึกพิมพ์ตลับ, ตลับหมึก, เครื่องพิมพ์ 3 มิติ, printer, laser printer, inkjet printer, photocopier, multifunction printer, MFP, offset printing machine, flexo printing machine, digital printing machine, ink cartridge, toner cartridge, label printer, thermal printer, printer parts
+844331: เครื่องพิมพ์มัลติฟังก์ชั่น, MFP, multifunction printer, all-in-one printer, copier printer scanner
+844332: ปริ้นเตอร์, เครื่องพิมพ์เลเซอร์, เครื่องพิมพ์อิงค์เจ็ท, เครื่องพิมพ์ฉลาก, printer, laser printer, inkjet printer, label printer, receipt printer, thermal printer
+844399: ตลับหมึก, ตลับโทนเนอร์, ชิ้นส่วนเครื่องพิมพ์, toner cartridge, ink cartridge, printer parts, drum unit
+8444: เครื่องอัดรีดเส้นใย, extruding machine man-made fibres
+8445: เครื่องปั่นด้าย, เครื่องกรอด้าย, spinning machine, winding machine, carding machine
+8446: เครื่องทอผ้า, กี่ทอผ้า, weaving machine, loom, rapier loom, air jet loom
+8447: เครื่องถักนิตติ้ง, knitting machine, circular knitting machine
+8448: อุปกรณ์เครื่องทอ, เข็มเครื่องถัก, loom parts, knitting needles machine, spindles
+8449: เครื่องทำนอนวูฟเวน, nonwoven machinery
+8450: เครื่องซักผ้า, washing machine, laundry washing machine, front load washer, top load washer
+8451: เครื่องซักผ้าอุตสาหกรรม, เครื่องอบผ้า, เครื่องรีดผ้าอุตสาหกรรม, เครื่องย้อมผ้า, dry cleaning machine, tumble dryer, clothes dryer, ironing machine, textile dyeing machine, finishing machine textile
+8452: จักรเย็บผ้า, เข็มจักร, sewing machine, industrial sewing machine, overlock machine, sewing machine needles
+8453: เครื่องจักรฟอกหนัง, เครื่องทำรองเท้า, leather working machine, shoe making machine
+8454: เบ้าเท, แม่พิมพ์แท่งโลหะ, เครื่องหล่อโลหะ, ladle, converter, continuous casting machine, ingot mould
+8455: เครื่องรีดโลหะ, ลูกรีดโลหะ, rolling mill, mill rolls
+8456: เครื่องตัดเลเซอร์, เครื่องตัดพลาสม่า, เครื่องตัดลวด, เครื่อง EDM, เครื่องตัดน้ำ, laser cutting machine, plasma cutting machine, wire EDM, wire cut, electrical discharge machine, waterjet cutting machine, laser engraving machine
+8457: เครื่องแมชชีนนิ่งเซ็นเตอร์, ซีเอ็นซี, เครื่องจักรซีเอ็นซี, machining centre, CNC machining center, VMC, HMC, vertical machining center
+8458: เครื่องกลึง, เครื่องกลึง CNC, lathe, CNC lathe, turning center
+8459: เครื่องเจาะ, เครื่องมิลลิ่ง, เครื่องกัด, เครื่องคว้าน, เครื่องต๊าปเกลียว, drilling machine, milling machine, boring machine, tapping machine, radial drill
+8460: เครื่องเจียร, เครื่องเจียรนัย, เครื่องขัด, เครื่องลับคม, grinding machine, surface grinder, cylindrical grinder, polishing machine, honing machine, deburring machine, bench grinder
+8461: เครื่องไส, เครื่องตัดเฟือง, เครื่องเลื่อยตัดโลหะ, planing machine, gear cutting machine, gear hobbing, band saw metal, sawing machine metal, broaching machine
+8462: เครื่องปั๊มโลหะ, เครื่องพับเหล็ก, เครื่องตัดเหล็ก, เครื่องเพรส, เครื่องม้วนเหล็ก, เครื่องตีขึ้นรูป, เครื่องรีดลอนหลังคา, press machine, stamping press, power press, hydraulic press, press brake, bending machine, shearing machine, punching machine, forging machine, roll forming machine, servo press
+8463: เครื่องดึงลวด, เครื่องทำเกลียว, เครื่องรีดเกลียว, wire drawing machine, thread rolling machine, riveting machine, spring making machine
+8464: เครื่องตัดหิน, เครื่องเจียรกระจก, เครื่องตัดกระเบื้อง, stone cutting machine, glass working machine, tile cutter machine, wafer dicing
+8465: เครื่องจักรงานไม้, เครื่องเลื่อยไม้, เครื่องไสไม้, เครื่อง CNC เราเตอร์, เครื่องเจาะไม้, เครื่องปิดขอบ, woodworking machine, panel saw, wood planer, CNC router, edge banding machine, wood lathe, plastic cutting machine
+8466: หัวจับชิ้นงาน, ชิ้นส่วนเครื่องมือกล, หัวจับดอก, ปากกาจับชิ้นงานเครื่องจักร, tool holder, chuck, collet, jig, fixture, machine tool parts, dividing head, vise machine
+8467: สว่านไฟฟ้า, หินเจียรไฟฟ้า, เลื่อยไฟฟ้า, เลื่อยโซ่, ไขควงไฟฟ้า, บล็อกลม, เครื่องมือลม, เครื่องขัดไฟฟ้า, power tools, electric drill, cordless drill, angle grinder, circular saw, chainsaw, impact wrench, pneumatic tools, air tools, jigsaw, sander, rotary hammer, electric screwdriver
+8468: เครื่องเชื่อมแก๊ส, หัวเชื่อมแก๊ส, gas welding equipment, gas torch, brazing torch
+8470: เครื่องคิดเลข, เครื่องบันทึกเงินสด, calculator, cash register, electronic organizer
+8471: คอมพิวเตอร์, โน้ตบุ๊ก, แล็ปท็อป, แท็บเล็ต, คอมพิวเตอร์ตั้งโต๊ะ, เซิร์ฟเวอร์, ฮาร์ดดิสก์, คีย์บอร์ด, เมาส์, สแกนเนอร์, SSD, ไดร์ฟ, computer, laptop, notebook, tablet, desktop PC, server, hard disk drive, HDD, SSD drive, keyboard, mouse, scanner, storage unit, mini PC, data storage
+847130: โน้ตบุ๊ก, แล็ปท็อป, แท็บเล็ต, laptop, notebook computer, tablet, iPad, chromebook
+847141: คอมพิวเตอร์ตั้งโต๊ะ, desktop computer, all-in-one PC
+847150: เซิร์ฟเวอร์, ซีพียูยูนิต, server, processing unit, CPU unit, rack server
+847160: คีย์บอร์ด, เมาส์, สแกนเนอร์, input unit, keyboard, mouse, scanner, barcode scanner
+847170: ฮาร์ดดิสก์, เอสเอสดี, หน่วยเก็บข้อมูล, NAS, hard disk drive, HDD, SSD, solid state drive, storage unit, NAS
+8472: เครื่องนับธนบัตร, เครื่องทำลายเอกสาร, เครื่องเย็บกระดาษ, ตู้ ATM, เครื่องเจาะกระดาษ, money counter, banknote counter, paper shredder, ATM, stapler office machine, addressing machine
+8473: ชิ้นส่วนคอมพิวเตอร์, เมนบอร์ด, การ์ดจอ, แรม, computer parts, motherboard, graphics card, RAM module, laptop parts, printed circuit assembly computer
+8474: เครื่องโม่หิน, เครื่องย่อย, เครื่องคัดแยก, เครื่องผสมคอนกรีต, รถโม่ปูน, เครื่องร่อน, crusher, jaw crusher, stone crusher, screening machine, vibrating screen, concrete mixer, mortar mixer, ball mill, sand making machine, block making machine
+8475: เครื่องผลิตหลอดไฟ, เครื่องขึ้นรูปแก้ว, glass working machines, lamp assembly machines
+8476: ตู้จำหน่ายสินค้าอัตโนมัติ, ตู้หยอดเหรียญ, vending machine, coin operated machine, money changing machine
+8477: เครื่องฉีดพลาสติก, เครื่องเป่าขวด, เครื่องอัดรีดพลาสติก, เครื่องเป่าฟิล์ม, เครื่องขึ้นรูปสุญญากาศ, injection moulding machine, blow moulding machine, extruder, plastic extruder, film blowing machine, thermoforming machine, rubber machinery, recycling machine plastic
+8478: เครื่องจักรผลิตบุหรี่, tobacco machinery
+8479: เครื่องจักรอื่นๆ, เครื่องผสม, เครื่องกวน, เครื่องเคลือบ, เครื่องบำบัดน้ำเสีย, เครื่องอัดขยะ, เครื่องติดตั้งชิ้นส่วนอิเล็กทรอนิกส์, เครื่อง SMT, เครื่องทำความชื้น, เครื่องทำความสะอาดพื้น, หุ่นยนต์อุตสาหกรรมอื่น, สะพานขึ้นเครื่องบิน, mixer industrial, agitator, kneader, coating machine, waste water treatment, compactor waste, SMT machine, pick and place machine, humidifier industrial, floor scrubber, industrial robot other, passenger boarding bridge, oil press, wire stripping machine, cable making machine, machinery n.e.c.
+8480: แม่พิมพ์, แม่พิมพ์ฉีดพลาสติก, แม่พิมพ์ยาง, แม่พิมพ์หล่อ, แม่พิมพ์โลหะ, mould, mold, injection mould, plastic mould, rubber mould, die casting mould, moulding box, mould base
+8481: วาล์ว, ก๊อกน้ำ, วาล์วน้ำ, บอลวาล์ว, เกทวาล์ว, เช็ควาล์ว, โซลินอยด์วาล์ว, วาล์วลดแรงดัน, วาล์วนิรภัย, วาล์วไฮดรอลิก, ก๊อกผสม, ฝักบัว, valve, faucet, tap, ball valve, gate valve, check valve, butterfly valve, solenoid valve, pressure reducing valve, safety valve, relief valve, hydraulic valve, control valve, mixer tap, shower valve, tyre valve
+8482: ตลับลูกปืน, ลูกปืน, ลูกปืนเม็ดกลม, เม็ดลูกปืน, bearing, ball bearing, roller bearing, taper roller bearing, needle bearing, bearing balls
+8483: เพลา, เกียร์, เฟือง, มู่เล่, คัปปลิ้ง, เกียร์ทด, พูลเลย์, ข้อเหวี่ยง, เสื้อตลับลูกปืน, บอลสกรู, คลัตช์, shaft, gear, gearbox, reducer, speed reducer, pulley, flywheel, coupling, crankshaft, camshaft, bearing housing, pillow block, ball screw, clutch, universal joint, sprocket
+8484: ปะเก็น, ปะเก็นโลหะ, ซีลกลไก, gasket, metal gasket, mechanical seal, gasket set
+8485: เครื่องพิมพ์ 3 มิติ, 3D printer, additive manufacturing machine
+8486: เครื่องผลิตเซมิคอนดักเตอร์, เครื่องผลิตจอแบน, semiconductor manufacturing equipment, wafer processing, lithography, photomask machine, FPD manufacturing
+8487: ชิ้นส่วนเครื่องจักรไม่ใช้ไฟฟ้า, machinery parts non electrical, grease nipple, oil seal ring
+8501: มอเตอร์ไฟฟ้า, มอเตอร์, เจเนอเรเตอร์, ไดนาโม, เซอร์โวมอเตอร์, สเต็ปมอเตอร์, มอเตอร์ DC, แผงโซลาร์เซลล์ประกอบระบบ, electric motor, AC motor, DC motor, servo motor, stepper motor, generator, alternator industrial, brushless motor, induction motor, BLDC
+8502: เครื่องกำเนิดไฟฟ้า, เครื่องปั่นไฟ, ชุดเครื่องกำเนิดไฟฟ้าดีเซล, กังหันลมผลิตไฟฟ้า, generator set, genset, diesel generator, power generator, portable generator, wind turbine generator
+8503: ชิ้นส่วนมอเตอร์, โรเตอร์, สเตเตอร์, motor parts, rotor, stator, generator parts
+8504: หม้อแปลงไฟฟ้า, อะแดปเตอร์, ที่ชาร์จ, พาวเวอร์ซัพพลาย, อินเวอร์เตอร์, เครื่องสำรองไฟ, UPS, บัลลาสต์, คอยล์, โช้ก, ตัวแปลงไฟ, transformer, power transformer, adapter, charger, phone charger, power supply, SMPS, inverter, solar inverter, UPS, ballast, inductor, choke, rectifier, converter, EV charger
+8505: แม่เหล็ก, แม่เหล็กถาวร, แม่เหล็กไฟฟ้า, แม่เหล็กยกของ, magnet, permanent magnet, neodymium magnet, electromagnet, magnetic chuck, lifting magnet, magnetic clutch
+8506: ถ่านไฟฉาย, แบตเตอรี่แห้ง, ถ่านกระดุม, ถ่านอัลคาไลน์, ถ่านลิเทียม, primary battery, dry cell, alkaline battery, button cell, coin cell, lithium primary battery, AA battery, AAA battery
+8507: แบตเตอรี่, แบตเตอรี่รถยนต์, แบตเตอรี่ลิเทียมไอออน, แบตเตอรี่ตะกั่วกรด, แบตเตอรี่แห้งชาร์จได้, แบตเตอรี่สำรอง, พาวเวอร์แบงค์, แบตเตอรี่ EV, แบตเตอรี่โทรศัพท์, battery, rechargeable battery, car battery, lead acid battery, lithium ion battery, li-ion battery, LiFePO4, battery pack, EV battery, power bank, phone battery, NiMH battery, energy storage battery
+850760: แบตเตอรี่ลิเทียมไอออน, พาวเวอร์แบงค์, แบตเตอรี่รถไฟฟ้า, lithium ion battery, li-ion, LiFePO4, power bank, EV battery pack, battery cell lithium
+850710: แบตเตอรี่รถยนต์, แบตเตอรี่ตะกั่วกรดสตาร์ท, car battery, starter battery, lead acid starting battery
+8508: เครื่องดูดฝุ่น, หุ่นยนต์ดูดฝุ่น, vacuum cleaner, robot vacuum, cordless vacuum
+8509: เครื่องปั่น, เครื่องผสมอาหาร, เครื่องคั้นน้ำผลไม้, เครื่องบดอาหาร, เครื่องเตรียมอาหาร, blender, food mixer, juicer, food processor, juice extractor, stand mixer, hand mixer
+8510: เครื่องโกนหนวดไฟฟ้า, ปัตตาเลี่ยน, เครื่องกำจัดขน, shaver, electric shaver, hair clipper, trimmer, epilator
+8511: หัวเทียน, คอยล์จุดระเบิด, มอเตอร์สตาร์ท, ไดชาร์จ, spark plug, ignition coil, starter motor, alternator car, glow plug, magneto
+8512: ไฟหน้ารถ, ไฟท้าย, ไฟเลี้ยว, ที่ปัดน้ำฝน, แตรรถ, ไฟจักรยาน, headlamp, headlight, tail lamp, signal lamp vehicle, wiper motor, windscreen wiper, horn car, bicycle light, defroster
+8513: ไฟฉาย, ไฟฉายคาดหัว, flashlight, torch, headlamp portable, rechargeable lantern
+8514: เตาอบอุตสาหกรรมไฟฟ้า, เตาหลอมเหนี่ยวนำ, เตาไมโครเวฟอุตสาหกรรม, เตาอบฮีตทรีต, industrial electric furnace, induction furnace, induction heating equipment, resistance furnace, reflow oven, electric kiln
+8515: เครื่องเชื่อม, เครื่องเชื่อมไฟฟ้า, เครื่องเชื่อม MIG, เครื่องเชื่อม TIG, เครื่องเชื่อมจุด, เครื่องเชื่อมเลเซอร์, หัวแร้งบัดกรี, เครื่องเชื่อมพลาสติก, welding machine, arc welder, MIG welder, TIG welder, spot welder, laser welding machine, soldering iron, ultrasonic welder, plastic welding machine, welding robot
+8516: เครื่องทำน้ำอุ่นไฟฟ้า, กาต้มน้ำไฟฟ้า, หม้อหุงข้าว, ไมโครเวฟ, เตาอบไฟฟ้า, เตาไฟฟ้า, เตาแม่เหล็กไฟฟ้า, เตารีด, ไดร์เป่าผม, เครื่องหนีบผม, เครื่องชงกาแฟ, เครื่องปิ้งขนมปัง, หม้อทอดไร้น้ำมัน, ฮีตเตอร์, ขดลวดความร้อน, electric water heater, kettle, rice cooker, microwave oven, electric oven, induction cooker, electric stove, iron, hair dryer, hair straightener, coffee maker, coffee machine, toaster, air fryer, heater, heating element, space heater, sandwich maker
+8517: โทรศัพท์มือถือ, สมาร์ทโฟน, เราเตอร์, สวิตช์เครือข่าย, โมเด็ม, อุปกรณ์เครือข่าย, โทรศัพท์บ้าน, อินเตอร์คอม, สมาร์ทวอทช์, หูฟังบลูทูธ, เสาอากาศสถานีฐาน, mobile phone, smartphone, cell phone, router, wifi router, network switch, modem, access point, base station, telephone, intercom, smartwatch, bluetooth earphones, wireless earbuds, ONU, media converter, gateway, IP phone
+851713: สมาร์ทโฟน, โทรศัพท์มือถือ, smartphone, mobile phone, iPhone
+851762: เราเตอร์, สวิตช์, โมเด็ม, สมาร์ทวอทช์, หูฟังไร้สาย, router, switch, modem, access point, smartwatch, wireless earbuds, bluetooth module
+8518: ไมโครโฟน, ลำโพง, หูฟัง, ชุดหูฟัง, เครื่องขยายเสียง, แอมป์, ลำโพงบลูทูธ, ซาวด์บาร์, microphone, speaker, loudspeaker, headphones, earphones, headset, amplifier, audio amplifier, bluetooth speaker, soundbar, PA system
+8519: เครื่องเล่นเพลง, เครื่องเล่นแผ่นเสียง, sound reproducing apparatus, turntable, CD player, MP3 player, voice recorder
+8521: เครื่องเล่นวิดีโอ, เครื่องบันทึกวิดีโอ, DVR, video recorder, DVD player, DVR, NVR
+8522: ชิ้นส่วนเครื่องเสียง, audio parts, pickup cartridge
+8523: แฟลชไดร์ฟ, การ์ดหน่วยความจำ, เมมโมรี่การ์ด, สมาร์ทการ์ด, บัตร RFID, ซอฟต์แวร์, แผ่นซีดี, USB flash drive, memory card, SD card, micro SD, smart card, RFID tag, RFID card, software media, CD, DVD blank, magnetic stripe card
+8524: จอแสดงผลแบบแบน, โมดูลจอ, จอ LCD โมดูล, จอ OLED โมดูล, ทัชสกรีน, flat panel display module, LCD module, OLED module, display panel, touch screen module, LCM
+8525: กล้องวงจรปิด, กล้องดิจิตอล, กล้องวิดีโอ, กล้องติดรถยนต์, เครื่องส่งสัญญาณวิทยุ, วิทยุสื่อสาร, เว็บแคม, กล้องถ่ายภาพความร้อน, กล้องแอคชั่น, CCTV camera, IP camera, security camera, digital camera, video camera, camcorder, dash cam, webcam, action camera, thermal camera, transmitter, walkie talkie, two way radio
+8526: เรดาร์, จีพีเอส, เครื่องนำทาง, รีโมทคอนโทรล, radar, GPS, GNSS receiver, navigation system, remote control, RF remote, sonar, car navigation
+8527: วิทยุ, เครื่องเล่นวิทยุติดรถยนต์, radio receiver, car radio, car stereo, clock radio, radio cassette
+8528: จอมอนิเตอร์, โทรทัศน์, ทีวี, สมาร์ททีวี, โปรเจคเตอร์, จอคอมพิวเตอร์, monitor, computer monitor, LCD monitor, television, TV, smart TV, LED TV, projector, video projector, set top box, digital signage display
+8529: ชิ้นส่วนทีวี, เสาอากาศ, จานดาวเทียม, ชิ้นส่วนโทรศัพท์, antenna, satellite dish, TV parts, phone parts, camera module, LCD panel for TV
+8530: อุปกรณ์สัญญาณรถไฟ, ไฟจราจร, railway signalling, traffic light, traffic control equipment
+8531: สัญญาณกันขโมย, เครื่องตรวจจับควัน, ไซเรน, กริ่งไฟฟ้า, ป้ายไฟ LED, ออดประตู, burglar alarm, smoke detector, fire alarm, siren, electric bell, doorbell, LED display board, buzzer, indicator panel, annunciator
+8532: ตัวเก็บประจุ, คาปาซิเตอร์, capacitor, electrolytic capacitor, ceramic capacitor, MLCC, film capacitor, supercapacitor
+8533: ตัวต้านทาน, รีซิสเตอร์, โพเทนชิโอมิเตอร์, เทอร์มิสเตอร์, resistor, potentiometer, rheostat, thermistor, varistor, shunt resistor
+8534: แผงวงจรพิมพ์, PCB, บอร์ดวงจรเปล่า, printed circuit board, PCB, bare board, FPC, flexible printed circuit
+8535: อุปกรณ์ตัดตอนไฟฟ้าแรงสูง, ฟิวส์แรงสูง, ล่อฟ้า, สวิตช์ตัดตอน, high voltage switchgear, HV circuit breaker, lightning arrester, surge arrester, disconnector, HV fuse
+8536: สวิตช์ไฟ, ปลั๊กไฟ, เต้ารับ, เบรกเกอร์, ฟิวส์, รีเลย์, คอนเนคเตอร์, ขั้วต่อสายไฟ, ขั้วหลอดไฟ, แมกเนติกคอนแทคเตอร์, ลิมิตสวิตช์, เทอร์มินอล, switch, light switch, plug, socket, outlet, circuit breaker, MCB, MCCB, fuse, relay, connector, terminal, terminal block, lamp holder, contactor, limit switch, push button, USB connector, RCD
+8537: ตู้ควบคุมไฟฟ้า, ตู้คอนโทรล, แผงควบคุม, ตู้ MDB, PLC, ตู้สวิตช์บอร์ด, control panel, switchboard, distribution board, control cabinet, PLC, programmable logic controller, MDB, motor control center, CNC controller
+8538: ชิ้นส่วนสวิตช์, ชิ้นส่วนเบรกเกอร์, ตู้เปล่าสำหรับตู้ไฟ, switchgear parts, breaker parts, enclosures for panels
+8539: หลอดไฟ, หลอด LED, หลอดไฟแอลอีดี, หลอดฟลูออเรสเซนต์, หลอดฮาโลเจน, หลอดไฟรถยนต์, light bulb, LED bulb, LED lamp, LED tube, fluorescent lamp, halogen lamp, UV lamp, HID lamp, car bulb, LED module light source
+8540: หลอดสุญญากาศ, แมกนีตรอน, vacuum tube, magnetron, cathode ray tube, x-ray tube electronic
+8541: ไดโอด, ทรานซิสเตอร์, แผงโซลาร์เซลล์, โซลาร์เซลล์, LED ชิป, ไทริสเตอร์, MOSFET, IGBT, เซ็นเซอร์รับแสง, คริสตัลออสซิลเลเตอร์, diode, transistor, solar panel, solar cell, photovoltaic module, PV panel, LED chip, LED diode, thyristor, MOSFET, IGBT, photosensor, crystal oscillator, piezoelectric crystal
+854143: แผงโซลาร์เซลล์, โซลาร์เซลล์ประกอบเป็นแผง, solar panel, PV module, photovoltaic module
+854142: เซลล์แสงอาทิตย์, solar cell, PV cell not assembled
+8542: ไอซี, ชิป, ไมโครคอนโทรลเลอร์, หน่วยความจำ, ซีพียู, integrated circuit, IC, chip, microcontroller, MCU, memory chip, DRAM, NAND flash, CPU processor, GPU chip, ASIC, MCO
+8543: ไฟฟ้าแรงสูงอื่น, เครื่องกำเนิดสัญญาณ, เครื่องเร่งอนุภาค, บุหรี่ไฟฟ้า, ไฟฉุกเฉิน, เครื่องไล่ยุงไฟฟ้า, ไม้ตียุง, electrical machines n.e.c., signal generator, particle accelerator, electronic cigarette, vape, e-cigarette, electroplating machine, mosquito killer, bug zapper, electric fence energizer, ultrasonic cleaner household, LED controller, amplifier RF
+8544: สายไฟ, สายเคเบิล, สายไฟฟ้า, สายแลน, สายไฟเบอร์ออปติก, สาย USB, สายชาร์จ, ชุดสายไฟรถยนต์, ลวดทองแดงอาบน้ำยา, สายโคแอกเชียล, wire, cable, electric cable, power cable, LAN cable, network cable, fiber optic cable, USB cable, charging cable, wire harness, wiring harness, enamelled wire, magnet wire, coaxial cable, HDMI cable, power cord
+8545: แปรงถ่านมอเตอร์, อิเล็กโทรดกราไฟต์, carbon brush, graphite electrode, carbon electrode
+8546: ลูกถ้วยไฟฟ้า, ฉนวนไฟฟ้า, insulator, porcelain insulator, polymer insulator
+8547: ท่อร้อยสายไฟ, ฉนวนประกอบ, conduit insulating, insulating fittings, electrical conduit plastic
+8548: ชิ้นส่วนไฟฟ้าอื่น, electrical parts n.e.c.
+8549: ขยะอิเล็กทรอนิกส์, เศษแบตเตอรี่, e-waste, electronic scrap, battery scrap, PCB scrap

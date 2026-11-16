@@ -1,0 +1,160 @@
+# 6-digit subheading terms — used to pick the right subheading inside a heading
+731811: coach screw, ตะปูเกลียวหัวเหลี่ยม
+731812: wood screw, สกรูเกลียวปล่อยไม้, สกรูไม้
+731813: screw hook, screw ring, ตะขอเกลียว
+731814: self-tapping screw, tapping screw, สกรูเกลียวปล่อย, สกรูปลายสว่าน
+731815: bolt, hex bolt, hexagon bolt, socket bolt, cap screw, machine screw, stud bolt, anchor bolt, u-bolt, โบลท์, สลักเกลียว, น็อตตัวผู้, สกรูหัวจม, สกรูมิล
+731816: nut, hex nut, lock nut, nylon nut, flange nut, น็อตตัวเมีย, หัวน็อต
+731819: threaded rod, สตัดเกลียว
+731821: spring washer, lock washer, แหวนสปริง
+731822: washer, flat washer, แหวนรอง
+731823: rivet, หมุดย้ำ, รีเวท
+731824: cotter pin, split pin, ปิ๊น, สลักผ่า
+392310: box, case, crate, กล่องพลาสติก, ลังพลาสติก
+392321: plastic bag polyethylene, pe bag, ถุงพีอี, ถุงพลาสติกพีอี
+392329: pp bag, opp bag, ถุงพีพี
+392330: bottle, preform, jerry can, ขวดพลาสติก, พรีฟอร์ม, แกลลอน
+392340: spool, bobbin, reel, แกนม้วน
+392350: cap, closure, lid, stopper, ฝาขวด, ฝาพลาสติก
+392390: pallet, plastic pallet, tray, พาเลท, พาเลทพลาสติก, ถาดพลาสติก, พาเลทพีพี
+392410: tableware, kitchenware, ภาชนะบนโต๊ะอาหาร, จานพลาสติก, แก้วพลาสติก
+392490: bucket, basin, household plastic, ถังน้ำพลาสติก, กะละมัง
+392610: office supplies, stationery plastic, เครื่องเขียนพลาสติก
+392620: glove, apron, raincoat, ถุงมือพลาสติก, เสื้อกันฝน
+392690: plastic part, plastic spacer, cable tie, plastic clip, ชิ้นส่วนพลาสติก, เคเบิ้ลไทร์
+841510: wall type air conditioner, split type air conditioner, window air conditioner, แอร์ติดผนัง, แอร์แยกส่วน, แอร์หน้าต่าง, แอร์บ้าน
+841520: car air conditioner, automotive air conditioner, แอร์รถยนต์
+841581: heat pump, reversible air conditioner, inverter heat pump, ฮีทปั๊ม
+841582: package air conditioner, ceiling type air conditioner, แอร์แพ็คเกจ, แอร์ตู้ตั้ง
+841590: air conditioner part, indoor unit, outdoor unit, คอยล์เย็น, คอยล์ร้อน, ชิ้นส่วนแอร์
+841810: refrigerator freezer, two door refrigerator, 2 door refrigerator, ตู้เย็น 2 ประตู, ตู้เย็นสองประตู
+841821: household refrigerator, compression refrigerator, one door refrigerator, ตู้เย็นประตูเดียว, ตู้เย็นบ้าน
+841830: chest freezer, ตู้แช่แข็งแบบนอน, ตู้แช่แข็งแบบฝาบน
+841840: upright freezer, ตู้แช่แข็งแบบตั้ง
+841850: display cabinet, showcase, beverage cooler, ตู้แช่โชว์, ตู้แช่เครื่องดื่ม, ตู้โชว์เย็น
+841861: heat pump water heater, ฮีทปั๊มทำน้ำร้อน
+841869: chiller, water chiller, ice maker, ชิลเลอร์, เครื่องทำน้ำแข็ง
+841891: refrigerator cabinet, ตู้สำหรับเครื่องทำความเย็น
+841899: refrigerator part, evaporator, condenser coil, ชิ้นส่วนตู้เย็น
+841430: refrigeration compressor, air conditioner compressor, คอมเพรสเซอร์ตู้เย็น, คอมเพรสเซอร์แอร์
+841440: air compressor on wheeled chassis, towable compressor, ปั๊มลมลากจูง
+841451: table fan, ceiling fan, wall fan, floor fan, stand fan, พัดลมตั้งโต๊ะ, พัดลมเพดาน, พัดลมติดผนัง, พัดลมตั้งพื้น
+841459: blower, exhaust fan, ventilating fan, พัดลมระบายอากาศ, โบลเวอร์
+841460: range hood, cooker hood, เครื่องดูดควัน
+841480: air compressor, screw compressor, piston compressor, ปั๊มลม, คอมเพรสเซอร์ลม
+841490: compressor part, fan part, ชิ้นส่วนพัดลม
+841311: fuel dispenser, ตู้จ่ายน้ำมัน
+841320: hand pump, ปั๊มมือโยก
+841330: fuel injection pump, oil pump engine, ปั๊มหัวฉีด, ปั๊มน้ำมันเครื่อง
+841350: diaphragm pump, piston pump, reciprocating pump, ปั๊มไดอะแฟรม, ปั๊มลูกสูบ
+841360: gear pump, vane pump, rotary pump, ปั๊มเฟือง, ปั๊มไฮดรอลิก
+841370: centrifugal pump, water pump, submersible pump, ปั๊มหอยโข่ง, ปั๊มน้ำ, ปั๊มจุ่ม, ปั๊มแช่
+841391: pump part, impeller, ชิ้นส่วนปั๊ม
+847130: laptop, notebook, tablet, แล็ปท็อป, โน้ตบุ๊ก, แท็บเล็ต
+847141: desktop computer, pc, คอมพิวเตอร์ตั้งโต๊ะ
+847150: server, processing unit, เซิร์ฟเวอร์
+847160: keyboard, mouse, scanner, คีย์บอร์ด, เมาส์
+847170: hard disk, ssd, storage unit, ฮาร์ดดิสก์
+847330: computer part, motherboard, mainboard, เมนบอร์ด
+850110: small motor, micro motor, มอเตอร์ขนาดเล็ก
+850131: dc motor, มอเตอร์ไฟตรง
+850140: single phase ac motor, มอเตอร์เฟสเดียว
+850151: three phase motor, induction motor, มอเตอร์สามเฟส
+850152: three phase motor, induction motor, มอเตอร์สามเฟส
+850211: diesel generator, generating set, เครื่องปั่นไฟดีเซล, เครื่องกำเนิดไฟฟ้าดีเซล
+850440: power supply, inverter, charger, adapter, ups, พาวเวอร์ซัพพลาย, อินเวอร์เตอร์, ที่ชาร์จ, อะแดปเตอร์
+850421: transformer, หม้อแปลงไฟฟ้า
+850760: lithium ion battery, li-ion battery, battery pack, แบตเตอรี่ลิเธียม
+850710: lead acid battery, car battery, แบตเตอรี่รถยนต์, แบตเตอรี่ตะกั่วกรด
+851713: mobile phone, smartphone, โทรศัพท์มือถือ, สมาร์ทโฟน
+851762: router, switch, modem, access point, เราเตอร์, สวิตช์เครือข่าย, โมเด็ม
+852872: television, led tv, smart tv, ทีวี, โทรทัศน์
+853710: control panel, plc, switchboard, ตู้คอนโทรล, ตู้ควบคุมไฟฟ้า
+853650: switch, push button, limit switch, สวิตช์
+853669: plug, socket, ปลั๊ก, เต้ารับ
+853690: connector, terminal, ขั้วต่อ, คอนเนคเตอร์
+854141: led, light emitting diode, แอลอีดี
+854142: solar cell, solar module, โซลาร์เซลล์, แผงโซลาร์
+854231: microcontroller, processor, ic, ไอซี, ชิป
+854442: power cable with connector, cable assembly, สายไฟพร้อมหัวต่อ, สายชาร์จ
+854449: electric wire, power cable, สายไฟ, สายเคเบิล
+854460: high voltage cable, สายไฟแรงสูง
+854470: optical fibre cable, สายไฟเบอร์ออปติก
+870321: small car, รถยนต์เล็ก
+870323: passenger car, sedan, รถเก๋ง
+870340: hybrid car, รถไฮบริด
+870380: electric car, ev, รถยนต์ไฟฟ้า
+870421: pickup truck, light truck, รถกระบะ
+870899: auto part, car part, ชิ้นส่วนรถยนต์, อะไหล่รถยนต์
+870830: brake, brake pad, ผ้าเบรก, เบรก
+870840: gearbox, transmission, เกียร์
+870870: wheel, rim, ล้อแม็ก, กระทะล้อ
+870880: shock absorber, suspension, โช้คอัพ
+870891: radiator, หม้อน้ำรถยนต์
+870892: muffler, exhaust pipe, ท่อไอเสีย
+401110: car tyre, passenger tyre, ยางรถเก๋ง, ยางรถยนต์นั่ง
+401120: truck tyre, bus tyre, ยางรถบรรทุก, ยางรถบัส
+401140: motorcycle tyre, ยางมอเตอร์ไซค์
+401150: bicycle tyre, ยางจักรยาน
+610910: cotton t-shirt, เสื้อยืดผ้าฝ้าย, เสื้อยืดคอตตอน
+610990: polyester t-shirt, เสื้อยืดโพลีเอสเตอร์
+620342: cotton trousers, jeans, กางเกงยีนส์
+640411: sports shoes, sneakers, รองเท้าผ้าใบ, รองเท้ากีฬา
+640340: safety shoes, steel toe shoes, รองเท้าเซฟตี้, รองเท้านิรภัย
+940161: upholstered wooden chair, เก้าอี้ไม้บุนวม
+940171: upholstered metal chair, เก้าอี้เหล็กบุนวม
+940330: office furniture wooden, desk, โต๊ะทำงานไม้
+940320: metal furniture, steel cabinet, ชั้นเหล็ก, ตู้เหล็ก
+940360: wooden furniture, ตู้ไม้, โต๊ะไม้
+940542: led luminaire, led light fitting, led downlight, led panel light, โคมไฟแอลอีดี, โคมดาวน์ไลท์
+853952: led lamp, led bulb, led tube, หลอดไฟแอลอีดี, หลอดแอลอีดี, หลอดไฟ led
+853951: led module, โมดูลแอลอีดี
+730890: steel structure, scaffolding, โครงสร้างเหล็ก, นั่งร้าน
+732690: steel part, metal bracket, ชิ้นส่วนเหล็ก
+848180: valve, ball valve, gate valve, solenoid valve, วาล์ว, บอลวาล์ว
+848210: ball bearing, ตลับลูกปืนเม็ดกลม
+848230: spherical roller bearing, ตลับลูกปืนเม็ดโค้ง
+848340: gearbox, gear reducer, speed reducer, gear motor, geared motor, เกียร์ทด, เกียร์มอเตอร์
+848410: gasket, ปะเก็น
+848620: semiconductor equipment, เครื่องผลิตเซมิคอนดักเตอร์
+842710: electric forklift, รถยกไฟฟ้า
+842720: diesel forklift, รถยกดีเซล
+842619: overhead crane, gantry crane, เครนเหนือศีรษะ
+842810: elevator, lift, ลิฟต์
+842833: belt conveyor, conveyor, สายพานลำเลียง
+845011: washing machine, เครื่องซักผ้า
+851660: rice cooker, oven, electric stove, หม้อหุงข้าว, เตาอบ, เตาไฟฟ้า
+851650: microwave, microwave oven, ไมโครเวฟ, เตาไมโครเวฟ
+851631: hair dryer, ไดร์เป่าผม, เครื่องเป่าผม
+851640: electric iron, เตารีด
+850940: blender, mixer, เครื่องปั่น
+851610: water heater, เครื่องทำน้ำอุ่น
+847989: machine, industrial machine, robot, เครื่องจักร, หุ่นยนต์อุตสาหกรรม
+902830: electricity meter, มิเตอร์ไฟฟ้า
+902610: flow meter, level meter, โฟลว์มิเตอร์
+902620: pressure gauge, เกจวัดแรงดัน
+903180: sensor, measuring instrument, เซนเซอร์
+901819: patient monitor, เครื่องติดตามสัญญาณชีพ
+330499: cosmetic, skin care, cream, lotion, ครีมบำรุงผิว, โลชั่น
+330410: lipstick, ลิปสติก
+340130: liquid soap, body wash, สบู่เหลว
+340250: detergent, ผงซักฟอก, น้ำยาล้างจาน
+271019: lubricating oil, engine oil, น้ำมันหล่อลื่น, น้ำมันเครื่อง
+381900: brake fluid, hydraulic fluid, น้ำมันเบรก
+390110: ldpe, polyethylene low density, เม็ดพลาสติกพีอี
+390120: hdpe, เม็ดพลาสติกเอชดีพีอี
+390210: polypropylene, pp resin, เม็ดพลาสติกพีพี
+390740: polycarbonate, เม็ดพีซี
+390761: pet resin, เม็ดเพ็ท
+392010: pe film, stretch film, ฟิล์มพีอี, ฟิล์มยืด
+392020: pp film, bopp film, ฟิล์มพีพี
+481910: carton, corrugated box, กล่องลูกฟูก, กล่องกระดาษลูกฟูก
+220300: beer, เบียร์
+220421: wine, ไวน์
+210690: food supplement, อาหารเสริม
+391721: pe pipe, hdpe pipe, ท่อพีอี, ท่อเอชดีพีอี
+391722: pp pipe, ppr pipe, ท่อพีพีอาร์
+391723: pvc pipe, upvc pipe, ท่อพีวีซี, ท่อยูพีวีซี
+391731: flexible hose, plastic hose, สายยาง, ท่ออ่อนพลาสติก
+391740: pipe fitting, elbow, tee, ข้อต่อท่อพลาสติก, ข้องอ
+690721: ceramic floor tile, wall tile, กระเบื้องปูพื้น, กระเบื้องเซรามิก

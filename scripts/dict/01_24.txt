@@ -1,0 +1,169 @@
+# Trade-term dictionary: CODE: term, term, ...  (4-digit heading or 6-digit subheading)
+0101: ม้า, ลา, ล่อ, horse, donkey, mule, pony
+0102: วัว, โค, กระบือ, ควาย, วัวมีชีวิต, cattle, cow, bull, buffalo, ox, calf
+0103: หมู, สุกร, หมูมีชีวิต, pig, swine, hog, piglet
+0104: แกะ, แพะ, sheep, goat, lamb
+0105: ไก่, เป็ด, ห่าน, ไก่งวง, ลูกไก่, ไก่มีชีวิต, chicken, duck, goose, turkey, day-old chick, poultry
+0106: สัตว์เลี้ยง, สุนัข, หมา, แมว, นก, งู, เต่า, กิ้งก่า, กระต่าย, ผึ้ง, dog, cat, bird, parrot, reptile, rabbit, bee, pet animal
+0201: เนื้อวัวสด, เนื้อวัวแช่เย็น, beef chilled, fresh beef, wagyu chilled
+0202: เนื้อวัวแช่แข็ง, frozen beef, beef frozen, wagyu frozen
+0203: เนื้อหมู, สามชั้น, หมูแช่แข็ง, pork, pork belly, frozen pork
+0204: เนื้อแกะ, เนื้อแพะ, lamb meat, mutton, goat meat
+0206: เครื่องใน, ตับ, ลิ้นวัว, offal, liver, tongue, tripe, edible offal
+0207: เนื้อไก่, อกไก่, ปีกไก่, น่องไก่, เป็ดแช่แข็ง, chicken meat, chicken breast, chicken wing, drumstick, frozen chicken, duck meat
+0208: เนื้อกบ, เนื้อกระต่าย, frog legs, rabbit meat
+0209: มันหมู, มันไก่, pork fat, back fat, poultry fat
+0210: แฮม, เบคอน, เนื้อเค็ม, เนื้อรมควัน, ham, bacon, smoked meat, cured meat, jerky
+0301: ปลามีชีวิต, ปลาสวยงาม, ปลาคาร์ป, ปลาทอง, ลูกปลา, live fish, ornamental fish, koi, goldfish, fry, fingerling
+0302: ปลาสด, ปลาแช่เย็น, แซลมอนสด, fresh fish, chilled fish, chilled salmon, chilled tuna
+0303: ปลาแช่แข็ง, ทูน่าแช่แข็ง, แซลมอนแช่แข็ง, ปลาซาบะ, frozen fish, frozen tuna, skipjack, frozen salmon, mackerel, saba
+0304: เนื้อปลา, ฟิลเลปลา, ซูริมิ, fish fillet, fish meat, surimi, minced fish, dory fillet, salmon fillet
+0305: ปลาแห้ง, ปลาเค็ม, ปลารมควัน, dried fish, salted fish, smoked fish, smoked salmon, fish maw
+0306: กุ้ง, ปู, กุ้งมังกร, ล็อบสเตอร์, กุ้งแช่แข็ง, shrimp, prawn, crab, lobster, crayfish, frozen shrimp, vannamei
+0307: หอย, หมึก, ปลาหมึก, หอยนางรม, หอยแมลงภู่, หอยเชลล์, หอยลาย, หอยเป๋าฮื้อ, oyster, mussel, scallop, clam, squid, cuttlefish, octopus, abalone
+0308: ปลิงทะเล, เม่นทะเล, แมงกะพรุน, sea cucumber, sea urchin, jellyfish
+0309: ป่นปลา, fish meal, shrimp meal, fish pellets
+0401: นมสด, นมพาสเจอไรซ์, นม UHT, ครีมสด, fresh milk, UHT milk, cream, whipping cream
+0402: นมผง, นมข้นหวาน, นมข้นจืด, หางนมผง, milk powder, skim milk powder, whole milk powder, condensed milk, evaporated milk
+0403: โยเกิร์ต, นมเปรี้ยว, yogurt, yoghurt, buttermilk, kefir, sour cream
+0404: เวย์, เวย์โปรตีน, whey, whey powder, whey protein
+0405: เนย, เนยสด, บัตเตอร์, butter, ghee, butter oil, dairy spread
+0406: ชีส, เนยแข็ง, cheese, cream cheese, mozzarella, cheddar, parmesan
+0407: ไข่, ไข่ไก่, ไข่เป็ด, ไข่ฟัก, egg, eggs in shell, hatching eggs
+0408: ไข่ผง, ไข่แดง, egg yolk, egg powder, liquid egg
+0409: น้ำผึ้ง, honey
+0410: แมลง, รังนก, insects, edible insects, cricket, bird's nest, royal jelly
+0505: ขนนก, ขนเป็ด, ขนห่าน, feathers, down, duck down, goose down
+0506: กระดูก, bones, bone meal raw
+0508: เปลือกหอย, ปะการัง, shells, coral
+0511: น้ำเชื้อ, น้ำเชื้อวัว, ไข่ไหม, bovine semen, animal semen, artemia cysts
+0601: หัวพันธุ์, หัวว่าน, bulbs, tubers, rhizomes
+0602: ต้นไม้, ต้นกล้า, กิ่งตอน, ไม้ประดับ, กล้วยไม้ทั้งต้น, plants, seedlings, cuttings, live plants, orchid plants, mushroom spawn
+0603: ดอกไม้สด, ดอกกุหลาบ, ดอกกล้วยไม้, cut flowers, roses, orchids cut flower, chrysanthemum
+0604: ใบไม้ประดับ, กิ่งไม้ประดับ, foliage, branches, moss, christmas tree cut
+0701: มันฝรั่ง, potato, potatoes, seed potato
+0702: มะเขือเทศ, tomato, tomatoes
+0703: หอม, หอมใหญ่, หอมแดง, กระเทียม, ต้นหอม, onion, shallot, garlic, leek
+0704: กะหล่ำปลี, กะหล่ำดอก, บรอกโคลี, ผักกาด, cabbage, cauliflower, broccoli, kale, brussels sprouts
+0705: ผักกาดหอม, เลตทูซ, lettuce, chicory
+0706: แครอท, หัวไชเท้า, บีทรูท, carrot, radish, turnip, beetroot
+0707: แตงกวา, cucumber, gherkin
+0708: ถั่วลันเตา, ถั่วฝักยาว, peas, green beans, string beans
+0709: ผักสด, พริก, พริกหวาน, มะเขือ, เห็ดสด, ข้าวโพดหวาน, หน่อไม้ฝรั่ง, ฟักทอง, ผักโขม, chilli, capsicum, eggplant, fresh mushrooms, sweet corn, asparagus, pumpkin, spinach, okra
+0710: ผักแช่แข็ง, frozen vegetables, frozen mixed vegetables, frozen sweet corn, frozen peas
+0711: ผักดองชั่วคราว, vegetables in brine provisional
+0712: ผักแห้ง, เห็ดแห้ง, เห็ดหอมแห้ง, กระเทียมผง, หอมเจียวผง, dried vegetables, dried mushrooms, shiitake dried, garlic powder, onion powder
+0713: ถั่วแห้ง, ถั่วเขียว, ถั่วแดง, ถั่วดำ, ถั่วลูกไก่, ถั่วเลนทิล, dried beans, mung bean, red bean, kidney bean, chickpea, lentil, dried peas
+0714: มันสำปะหลัง, มันเทศ, เผือก, มันสำปะหลังเส้น, cassava, tapioca chips, sweet potato, taro, yam
+0801: มะพร้าว, มะม่วงหิมพานต์, coconut, desiccated coconut, cashew nut
+0802: อัลมอนด์, วอลนัท, พิสตาชิโอ, เฮเซลนัท, แมคคาเดเมีย, เกาลัด, หมาก, almond, walnut, pistachio, hazelnut, macadamia, chestnut, betel nut, areca
+0803: กล้วย, banana, plantain
+0804: สับปะรด, มะม่วง, มังคุด, อะโวคาโด, ฝรั่ง, อินทผลัม, มะเดื่อ, pineapple, mango, mangosteen, avocado, guava, dates, figs
+0805: ส้ม, มะนาว, ส้มโอ, เกรปฟรุต, orange, mandarin, lemon, lime, pomelo, grapefruit
+0806: องุ่น, ลูกเกด, grapes, raisins
+0807: แตงโม, เมลอน, มะละกอ, watermelon, melon, papaya
+0808: แอปเปิ้ล, สาลี่, ลูกแพร์, apple, pear
+0809: เชอร์รี่, พีช, พลัม, แอปริคอต, cherry, peach, nectarine, plum, apricot
+0810: ทุเรียน, ลำไย, ลิ้นจี่, เงาะ, สตรอว์เบอร์รี, กีวี, แก้วมังกร, ทับทิม, ละมุด, durian, longan, lychee, rambutan, strawberry, kiwi, dragon fruit, pomegranate, persimmon, blueberry
+0811: ผลไม้แช่แข็ง, ทุเรียนแช่แข็ง, frozen fruit, frozen durian, frozen mango, frozen berries
+0813: ผลไม้แห้ง, ลำไยอบแห้ง, พรุน, dried fruit, dried longan, prunes, dried apricot
+0814: เปลือกส้ม, citrus peel, orange peel
+0901: กาแฟ, เมล็ดกาแฟ, กาแฟคั่ว, กาแฟดิบ, coffee, coffee beans, green coffee, roasted coffee, ground coffee
+0902: ชา, ใบชา, ชาเขียว, ชาดำ, ชาอู่หลง, tea, green tea, black tea, oolong
+0904: พริกไทย, พริกป่น, พริกแห้ง, ปาปริก้า, pepper, black pepper, white pepper, dried chilli, chili powder, paprika
+0905: วานิลลา, vanilla
+0906: อบเชย, cinnamon
+0907: กานพลู, cloves
+0908: ลูกจันทน์, กระวาน, nutmeg, mace, cardamom
+0909: ยี่หร่า, ผักชีเม็ด, โป๊ยกั๊ก, เทียนข้าวเปลือก, cumin, coriander seed, star anise, fennel seed
+0910: ขิง, ขมิ้น, ผงกะหรี่, หญ้าฝรั่น, ใบกระวาน, ginger, turmeric, curry powder, saffron, thyme, bay leaves, mixed spices
+1001: ข้าวสาลี, wheat, durum wheat
+1003: ข้าวบาร์เลย์, barley, malting barley
+1004: ข้าวโอ๊ต, oats
+1005: ข้าวโพด, ข้าวโพดเลี้ยงสัตว์, maize, corn, feed corn, popcorn kernels
+1006: ข้าว, ข้าวสาร, ข้าวเปลือก, ข้าวหอมมะลิ, ข้าวกล้อง, ปลายข้าว, rice, jasmine rice, paddy, brown rice, broken rice, glutinous rice
+1008: ควินัว, ข้าวฟ่าง, buckwheat, millet, quinoa
+1101: แป้งสาลี, wheat flour, bread flour, all purpose flour
+1102: แป้งข้าวเจ้า, แป้งข้าวโพด, rice flour, corn flour
+1104: ข้าวโอ๊ตบด, rolled oats, oat flakes
+1105: แป้งมันฝรั่ง, potato flakes, potato flour
+1107: มอลต์, malt
+1108: แป้งมันสำปะหลัง, แป้งข้าวโพด, สตาร์ช, starch, tapioca starch, corn starch, potato starch, inulin
+1109: กลูเตน, wheat gluten
+1201: ถั่วเหลือง, soybean, soya beans
+1202: ถั่วลิสง, peanuts, groundnuts
+1207: งา, เมล็ดเจีย, เมล็ดฝ้าย, เมล็ดทานตะวัน, ปาล์ม, sesame, chia seed, cotton seed, palm nuts, mustard seed
+1209: เมล็ดพันธุ์, เมล็ดผัก, seeds for sowing, vegetable seeds, flower seeds, grass seed
+1211: สมุนไพร, กัญชง, กระท่อม, โสม, herbs, medicinal plants, ginseng, hemp, kratom
+1212: สาหร่าย, สาหร่ายทะเล, อ้อย, seaweed, nori, kelp, algae, sugar cane, carob
+1213: ฟาง, แกลบ, straw, husks
+1214: หญ้าแห้ง, อัลฟัลฟา, hay, alfalfa, fodder
+1301: ยางไม้, ครั่ง, กัมอารบิก, gum arabic, shellac, lac, natural gum, resin
+1302: สารสกัดจากพืช, เพกติน, วุ้น, คาราจีแนน, plant extract, pectin, agar, carrageenan, guar gum, licorice extract
+1401: ไม้ไผ่, หวาย, bamboo, rattan, raw bamboo
+1501: น้ำมันหมู, lard
+1504: น้ำมันปลา, fish oil, cod liver oil
+1505: ลาโนลิน, lanolin, wool grease
+1507: น้ำมันถั่วเหลือง, soybean oil
+1509: น้ำมันมะกอก, olive oil
+1511: น้ำมันปาล์ม, palm oil, RBD palm olein, palm stearin, CPO
+1512: น้ำมันทานตะวัน, น้ำมันดอกคำฝอย, sunflower oil, safflower oil, cottonseed oil
+1513: น้ำมันมะพร้าว, น้ำมันเมล็ดในปาล์ม, coconut oil, palm kernel oil
+1514: น้ำมันคาโนลา, canola oil, rapeseed oil, mustard oil
+1515: น้ำมันงา, น้ำมันรำข้าว, น้ำมันข้าวโพด, sesame oil, rice bran oil, corn oil, linseed oil, castor oil, jojoba oil
+1516: ไขมันไฮโดรจีเนต, hydrogenated oil, shortening fat, interesterified fat
+1517: เนยเทียม, มาการีน, ชอร์ตเทนนิ่ง, margarine, shortening, vegetable ghee
+1520: กลีเซอรีนดิบ, crude glycerol
+1521: ขี้ผึ้ง, ไขผึ้ง, beeswax, carnauba wax
+1601: ไส้กรอก, sausage, hot dog, salami
+1602: เนื้อสัตว์บรรจุกระป๋อง, ไก่ทอด, ไก่แปรรูป, แฮมกระป๋อง, canned meat, corned beef, luncheon meat, cooked chicken, chicken nuggets, meat balls
+1603: ซุปสกัด, meat extract, fish extract
+1604: ปลากระป๋อง, ทูน่ากระป๋อง, ซาร์ดีนกระป๋อง, คาเวียร์, canned tuna, canned sardine, canned fish, caviar, fish balls, fish snack
+1605: กุ้งปรุงสุก, ปูอัด, หอยกระป๋อง, cooked shrimp, crab stick, canned crab, prepared shrimp
+1701: น้ำตาลทราย, น้ำตาลอ้อย, น้ำตาลทรายขาว, น้ำตาลทรายดิบ, cane sugar, raw sugar, refined sugar, white sugar
+1702: กลูโคส, ฟรุกโตส, แลคโตส, มอลโตเดกซ์ตริน, น้ำเชื่อม, glucose, dextrose, fructose, lactose, maltodextrin, glucose syrup, maple syrup
+1703: กากน้ำตาล, molasses
+1704: ลูกอม, ทอฟฟี่, หมากฝรั่ง, เยลลี่, มาร์ชเมลโลว์, candy, sweets, toffee, chewing gum, gummy, jelly candy, marshmallow, white chocolate
+1801: เมล็ดโกโก้, cocoa beans
+1803: โกโก้แมส, cocoa paste, cocoa liquor
+1804: โกโก้บัตเตอร์, cocoa butter
+1805: ผงโกโก้, cocoa powder
+1806: ช็อกโกแลต, chocolate, chocolate bar, compound chocolate, cocoa drink powder
+1901: อาหารทารก, นมผงสำหรับเด็ก, ผงทำขนม, malt extract, infant food, baby formula, cake mix, dough mix, milo powder
+1902: บะหมี่, เส้นพาสต้า, มักกะโรนี, สปาเก็ตตี้, บะหมี่กึ่งสำเร็จรูป, เกี๊ยว, pasta, noodles, spaghetti, macaroni, instant noodles, dumplings
+1903: สาคู, tapioca pearls, sago
+1904: ซีเรียล, คอร์นเฟลก, ข้าวเกรียบ, ข้าวพอง, cereal, corn flakes, muesli, granola, puffed rice
+1905: ขนมปัง, เค้ก, คุกกี้, บิสกิต, แครกเกอร์, เวเฟอร์, ขนมปังกรอบ, bread, cake, cookies, biscuits, crackers, wafer, pastry, rice cracker, communion wafer
+2001: ผักดอง, แตงกวาดอง, pickles, pickled vegetables
+2002: ซอสมะเขือเทศเข้มข้น, มะเขือเทศกระป๋อง, tomato paste, canned tomatoes
+2003: เห็ดกระป๋อง, canned mushrooms
+2004: เฟรนช์ฟรายส์, มันฝรั่งแช่แข็ง, french fries, frozen fries
+2005: ข้าวโพดกระป๋อง, ถั่วกระป๋อง, หน่อไม้กระป๋อง, มันฝรั่งทอดกรอบ, canned corn, canned beans, bamboo shoots canned, potato chips
+2007: แยม, เยลลี่ผลไม้, jam, marmalade, fruit jelly, fruit puree
+2008: ผลไม้กระป๋อง, สับปะรดกระป๋อง, ถั่วอบ, เนยถั่ว, ถั่วทอด, canned fruit, canned pineapple, peanut butter, roasted nuts, fruit cocktail
+2009: น้ำผลไม้, น้ำส้ม, น้ำมะพร้าว, fruit juice, orange juice, apple juice, coconut water, juice concentrate
+2101: กาแฟสำเร็จรูป, กาแฟผง, ชาผง, instant coffee, coffee extract, coffee mix 3in1, tea extract
+2102: ยีสต์, ผงฟู, yeast, baking powder, dried yeast
+2103: ซอส, ซอสถั่วเหลือง, ซอสพริก, ซอสหอยนางรม, มายองเนส, เครื่องปรุงรส, ซอสมะเขือเทศ, มัสตาร์ด, sauce, soy sauce, chilli sauce, oyster sauce, ketchup, mayonnaise, seasoning, mustard, salad dressing
+2104: ซุปก้อน, ซุปผง, soup, broth, stock cube, bouillon
+2105: ไอศกรีม, ice cream
+2106: อาหารเสริม, ผงโปรตีน, ผงชงเครื่องดื่ม, หัวเชื้อน้ำหวาน, วิตามินเม็ด, food supplement, protein powder, dietary supplement, flavouring, syrup flavoured, tofu, jelly powder, creamer
+2201: น้ำดื่ม, น้ำแร่, น้ำแข็ง, drinking water, mineral water, sparkling water, ice
+2202: น้ำอัดลม, เครื่องดื่มชูกำลัง, นมถั่วเหลือง, เครื่องดื่มเกลือแร่, soft drink, soda, energy drink, soy milk, sports drink, non-alcoholic beer
+2203: เบียร์, beer, lager, ale
+2204: ไวน์, แชมเปญ, wine, champagne, sparkling wine
+2205: เวอร์มุต, vermouth
+2206: สาเก, ไซเดอร์, ไวน์ผลไม้, sake, cider, mead, fruit wine
+2207: เอทานอล, แอลกอฮอล์, ethanol, ethyl alcohol, denatured alcohol, bioethanol
+2208: สุรา, วิสกี้, วอดก้า, รัม, จิน, บรั่นดี, เหล้า, ลิเคียว, whisky, whiskey, vodka, rum, gin, brandy, liqueur, spirits, soju, tequila
+2209: น้ำส้มสายชู, vinegar
+2301: ป่นเนื้อ, ป่นกระดูก, meat meal, bone meal
+2302: รำข้าว, รำ, rice bran, wheat bran
+2303: กากมันสำปะหลัง, กากน้ำตาลอ้อย, DDGS, bagasse, beet pulp, brewers grains
+2304: กากถั่วเหลือง, soybean meal, SBM
+2306: กากปาล์ม, กากเรพซีด, palm kernel cake, rapeseed meal
+2309: อาหารสัตว์, อาหารสุนัข, อาหารแมว, อาหารปลา, อาหารกุ้ง, พรีมิกซ์, animal feed, dog food, cat food, pet food, fish feed, shrimp feed, premix
+2401: ใบยาสูบ, tobacco leaf, unmanufactured tobacco
+2402: บุหรี่, ซิการ์, cigarettes, cigars
+2403: ยาเส้น, ยาสูบไปป์, บารากู่, pipe tobacco, shisha, hookah tobacco, chewing tobacco
+2404: น้ำยาบุหรี่ไฟฟ้า, บุหรี่ไฟฟ้าแบบใช้ความร้อน, นิโคติน, e-liquid, vape juice, heated tobacco sticks, nicotine pouch

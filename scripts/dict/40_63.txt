@@ -1,0 +1,202 @@
+4001: ยางพารา, ยางแผ่นรมควัน, ยางแท่ง, น้ำยางข้น, natural rubber, RSS, STR 20, latex concentrate, rubber sheet smoked
+4002: ยางสังเคราะห์, SBR, NBR, EPDM, ยางบิวทิล, ยางคลอโรพรีน, synthetic rubber, SBR, NBR, EPDM, butyl rubber, neoprene, BR, latex synthetic
+4003: ยางรีเคลม, reclaimed rubber
+4004: เศษยาง, ผงยาง, rubber scrap, crumb rubber, rubber powder
+4005: ยางคอมพาวด์, compounded rubber, rubber compound, masterbatch rubber
+4006: ยางดิบรูปทรง, unvulcanised rubber profiles, tread rubber
+4007: เส้นยางยืด, rubber thread, elastic thread
+4008: แผ่นยาง, ยางแผ่น, ยางฟองน้ำ, ยางขอบ, rubber sheet, rubber mat sheet, sponge rubber, rubber strip, rubber profile, EPDM foam
+4009: ท่อยาง, สายยาง, สายไฮดรอลิก, rubber hose, hydraulic hose, radiator hose, fuel hose, air hose, rubber tube
+4010: สายพาน, สายพานลำเลียง, สายพานยาง, สายพานไทม์มิ่ง, สายพานร่องวี, conveyor belt, V-belt, timing belt, transmission belt, fan belt, poly-V belt
+4011: ยางรถยนต์, ยางรถจักรยานยนต์, ยางรถบรรทุก, ยางรถจักรยาน, ยางรถฟอร์คลิฟท์, tyre, tire, car tyre, truck tyre, motorcycle tyre, bicycle tyre, radial tyre, OTR tyre
+4012: ยางหล่อดอก, ยางใช้แล้ว, ยางตัน, ยางรองคอ, retreaded tyre, used tyre, solid tyre, tyre flap, tread strip
+4013: ยางใน, inner tube
+4014: ถุงยางอนามัย, จุกนม, ถุงน้ำร้อน, condom, teat, nipple baby bottle, hot water bottle
+4015: ถุงมือยาง, ถุงมือไนไตร, ถุงมือแพทย์, ถุงมือผ่าตัด, ชุดดำน้ำ, rubber gloves, nitrile gloves, latex gloves, examination gloves, surgical gloves, wetsuit
+4016: โอริง, ซีลยาง, ปะเก็นยาง, ยางกันกระแทก, ยางรองแท่นเครื่อง, ลูกยาง, ยางลบ, พื้นยาง, แผ่นรองเมาส์ยาง, กันชนยาง, O-ring, rubber seal, gasket rubber, oil seal, rubber bushing, engine mount rubber, rubber buffer, eraser, rubber mat, fender rubber, wiper blade rubber, rubber parts
+4017: อีโบไนต์, hard rubber, ebonite
+4101: หนังวัวดิบ, raw hides, cow hide raw, wet salted hides
+4104: หนังวัวฟอก, wet blue, tanned bovine leather, crust leather
+4106: หนังจระเข้ฟอก, หนังหมูฟอก, tanned pig skin, crocodile skin tanned
+4107: หนังแท้, หนังวัว, หนังสำเร็จ, finished leather, cow leather, full grain leather, upholstery leather
+4113: หนังแพะ, หนังจระเข้, หนังงู, goat leather, crocodile leather, exotic leather
+4114: หนังชามัวร์, หนังแก้ว, chamois leather, patent leather
+4115: หนังอัด, หนังเทียมจากเศษหนัง, bonded leather, composition leather, leather scraps
+4201: อานม้า, ปลอกคอสุนัข, สายจูง, saddle, harness, dog collar, dog leash
+4202: กระเป๋า, กระเป๋าเดินทาง, กระเป๋าถือ, กระเป๋าสตางค์, เป้, กระเป๋าเป้, กระเป๋าใส่โน้ตบุ๊ก, กล่องเครื่องมือ, เคสกล้อง, bag, handbag, suitcase, luggage, trolley case, wallet, purse, backpack, laptop bag, tool bag, camera case, cosmetic bag, briefcase, phone pouch
+4203: เสื้อหนัง, เข็มขัดหนัง, ถุงมือหนัง, leather jacket, leather belt, leather gloves, leather apparel
+4205: สายนาฬิกาหนัง, หนังบรรจุภัณฑ์, leather articles, leather strap, leather lace
+4302: ขนสัตว์ฟอก, tanned furskins
+4303: เสื้อขนสัตว์, fur coat, fur apparel
+4304: ขนสัตว์เทียม, faux fur, artificial fur
+4401: ฟืน, ไม้สับ, ขี้เลื่อย, เชื้อเพลิงอัดเม็ด, wood pellets, firewood, wood chips, sawdust, wood briquettes
+4402: ถ่านไม้, ถ่านกะลามะพร้าว, charcoal, wood charcoal, coconut shell charcoal, BBQ charcoal
+4403: ไม้ซุง, ซุง, ไม้ท่อน, logs, round wood, timber logs, teak logs
+4404: ไม้ไผ่ผ่า, ไม้เสียบ, split poles, stakes, chopsticks blanks
+4405: ผงไม้, wood flour, wood wool
+4406: หมอนรถไฟไม้, railway sleepers wood
+4407: ไม้แปรรูป, ไม้สัก, ไม้ยาง, ไม้สน, ไม้โอ๊ค, sawn timber, lumber, sawn wood, teak, rubberwood, pine, oak lumber
+4408: ไม้วีเนียร์, ไม้บาง, veneer, wood veneer
+4409: ไม้พื้น, ไม้บัว, ไม้ลิ้น, flooring strips, tongue and groove, moulding wood, decking
+4410: แผ่นปาร์ติเคิล, ไม้อัด OSB, particle board, chipboard, OSB
+4411: ไม้อัด MDF, HDF, ไม้ไฟเบอร์, MDF, HDF, fibreboard, hardboard
+4412: ไม้อัด, ไม้อัดยาง, แผ่นไม้อัด, plywood, marine plywood, LVL, blockboard, film faced plywood
+4414: กรอบรูปไม้, picture frame wood, mirror frame wood
+4415: พาเลทไม้, ลังไม้, กล่องไม้, ม้วนเคเบิลไม้, wooden pallet, wood pallet, wooden crate, wooden box, cable drum wood, pallet collar
+4416: ถังไม้, ถังไวน์, barrels wood, casks
+4417: ด้ามไม้, ด้ามเครื่องมือไม้, tool handles wood, broom handle, shoe tree
+4418: ประตูไม้, หน้าต่างไม้, วงกบ, พื้นไม้สำเร็จ, ไม้ประกอบ, แบบหล่อคอนกรีต, wooden door, door frame, window wood, engineered flooring, glulam, parquet panel, formwork, shuttering
+4419: ตะเกียบไม้, เขียงไม้, จานไม้, ช้อนไม้, chopsticks, cutting board, wooden tableware, wooden spoon
+4420: กล่องเครื่องประดับไม้, งานแกะสลักไม้, jewellery box wood, wooden statuette, marquetry
+4421: ไม้แขวนเสื้อ, ไม้เสียบลูกชิ้น, ไม้จิ้มฟัน, ไม้ไอศกรีม, ไม้ไผ่, เสียบไม้, wooden hangers, skewers, toothpicks, ice cream sticks, bamboo articles, matchsticks blanks, wooden spools
+4503: จุกคอร์ก, cork stopper
+4504: แผ่นคอร์ก, cork board, agglomerated cork, cork gasket
+4601: เสื่อ, เสื่อกก, เสื่อไม้ไผ่, mats plaiting, bamboo mat, straw mat
+4602: ตะกร้า, ตะกร้าหวาย, ตะกร้าไม้ไผ่, ตะกร้าสาน, basket, wicker basket, rattan basket, bamboo basket, woven basket
+4701: เยื่อไม้กล, mechanical pulp
+4702: เยื่อละลาย, dissolving pulp
+4703: เยื่อกระดาษ, เยื่อคราฟต์, เยื่อยูคาลิปตัส, wood pulp, kraft pulp, bleached pulp, BHKP, NBSK, eucalyptus pulp
+4706: เยื่อกระดาษรีไซเคิล, recycled pulp, bamboo pulp, bagasse pulp
+4707: เศษกระดาษ, กระดาษเก่า, กระดาษลังเก่า, waste paper, OCC, recovered paper, scrap paper
+4801: กระดาษหนังสือพิมพ์, newsprint
+4802: กระดาษพิมพ์เขียน, กระดาษ A4, กระดาษถ่ายเอกสาร, กระดาษปอนด์, copy paper, A4 paper, printing paper, writing paper, offset paper, base paper
+4803: กระดาษทิชชูม้วนใหญ่, jumbo roll tissue, tissue parent roll
+4804: กระดาษคราฟต์, กระดาษลูกฟูกผิว, kraft paper, kraft liner, sack kraft
+4805: กระดาษลอน, กระดาษแกน, fluting paper, medium paper, testliner
+4806: กระดาษไข, กระดาษกันน้ำมัน, กระดาษไขรองอบ, greaseproof paper, baking paper, tracing paper, glassine
+4807: กระดาษลามิเนต, composite paper
+4808: กระดาษลูกฟูก, กระดาษลูกฟูกม้วน, corrugated paper, corrugated board roll
+4809: กระดาษคาร์บอน, carbon paper
+4810: กระดาษอาร์ต, กระดาษกล่องแป้ง, กระดาษเคลือบ, art paper, coated paper, ivory board, duplex board, coated paperboard
+4811: กระดาษเคลือบพลาสติก, กระดาษสติ๊กเกอร์, กระดาษเทอร์มอล, กระดาษกาว, กระดาษกันซึม, กระดาษเคลือบ PE, thermal paper, self-adhesive paper, sticker paper, PE coated paper, release paper, gummed paper
+4812: แผ่นกรองเยื่อกระดาษ, filter blocks paper pulp
+4813: กระดาษมวนบุหรี่, cigarette paper, rolling paper
+4814: วอลเปเปอร์กระดาษ, wallpaper
+4817: ซองจดหมาย, envelope
+4818: กระดาษทิชชู, กระดาษชำระ, กระดาษเช็ดหน้า, กระดาษเช็ดมือ, ผ้าอ้อมกระดาษ, ผ้าปูโต๊ะกระดาษ, toilet paper, tissue, facial tissue, paper towel, napkin, kitchen towel
+4819: กล่องกระดาษ, กล่องลูกฟูก, ลังกระดาษ, ถุงกระดาษ, กล่องพัสดุ, กล่องบรรจุภัณฑ์, carton, corrugated box, paper box, paper bag, folding carton, shipping box
+4820: สมุด, สมุดบัญชี, ไดอารี่, แฟ้ม, แบบฟอร์ม, notebook, exercise book, diary, ledger, binder, folder, forms
+4821: ฉลากกระดาษ, ป้ายกระดาษ, paper label, printed label, tag paper
+4822: แกนกระดาษ, หลอดกระดาษ, paper core, paper tube, bobbin paper
+4823: ถ้วยกระดาษ, จานกระดาษ, กระดาษกรอง, ไส้กรองกาแฟ, กระดาษรองไข่, paper cups, paper plates, filter paper, coffee filter, egg tray, paper straw, moulded pulp
+4901: หนังสือ, คู่มือ, แผ่นพับ, โบรชัวร์, books, printed books, brochure, leaflet, manual, catalogue printed
+4902: หนังสือพิมพ์, นิตยสาร, newspaper, magazine, journal
+4903: หนังสือภาพเด็ก, สมุดระบายสี, children's picture book, colouring book
+4905: แผนที่, ลูกโลก, map, atlas, globe printed
+4906: แบบแปลน, plans, drawings
+4907: แสตมป์ใหม่, ธนบัตร, เช็คเปล่า, unused stamps, banknotes, cheque forms, share certificates
+4908: สติ๊กเกอร์ลอกน้ำ, ลายลอก, decals, transfers, water slide decal
+4909: การ์ดอวยพร, โปสการ์ด, greeting cards, postcards
+4910: ปฏิทิน, calendar
+4911: สิ่งพิมพ์, โปสเตอร์, แคตตาล็อก, ใบปลิว, รูปภาพพิมพ์, poster, printed matter, catalogue, flyer, printed pictures, trade advertising material
+5004: ไหม, ด้ายไหม, silk yarn
+5007: ผ้าไหม, silk fabric, Thai silk
+5101: ขนแกะ, wool raw, greasy wool
+5105: ท็อปขนแกะ, wool tops
+5106: ด้ายขนสัตว์, wool yarn
+5111: ผ้าขนสัตว์, woollen fabric
+5112: ผ้าวูลหวี, worsted fabric
+5201: ฝ้าย, ฝ้ายดิบ, raw cotton, cotton fibre, cotton lint
+5202: เศษฝ้าย, cotton waste
+5204: ด้ายเย็บผ้าฝ้าย, cotton sewing thread
+5205: ด้ายฝ้าย, เส้นด้ายฝ้าย, cotton yarn
+5206: ด้ายฝ้ายผสม, cotton blended yarn
+5208: ผ้าฝ้าย, ผ้าคอตตอนบาง, cotton fabric, poplin, voile, cotton woven fabric light
+5209: ผ้ายีนส์, ผ้าเดนิม, ผ้าฝ้ายหนา, ผ้าแคนวาส, denim, canvas cotton, cotton twill heavy, drill
+5210: ผ้าฝ้ายผสมโพลีเอสเตอร์บาง, cotton polyester blend fabric
+5211: ผ้าคอตตอนผสมหนา, cotton blend heavy fabric, denim blend
+5303: ปอกระเจา, jute fibre
+5305: ใยมะพร้าว, ป่านมนิลา, coir fibre, abaca, sisal fibre, ramie
+5307: ด้ายปอ, jute yarn
+5310: ผ้ากระสอบปอ, jute fabric, hessian, burlap
+5401: ด้ายเย็บผ้าโพลีเอสเตอร์, ด้ายเย็บไนลอน, polyester sewing thread, nylon sewing thread
+5402: ด้ายไนลอน, ด้ายโพลีเอสเตอร์, ด้ายฟิลาเมนต์, ด้ายเท็กซ์เจอร์, ด้ายสแปนเด็กซ์, nylon filament yarn, polyester filament yarn, POY, FDY, DTY, spandex yarn, elastane, aramid yarn, high tenacity yarn
+5403: เรยอนฟิลาเมนต์, viscose filament yarn, rayon filament
+5404: โมโนฟิลาเมนต์, เอ็นตกปลา, monofilament, fishing line monofilament, synthetic straw
+5407: ผ้าโพลีเอสเตอร์, ผ้าไนลอน, ผ้าร่ม, ผ้าชีฟอง, ผ้าทอใยสังเคราะห์, ผ้าไฟเบอร์กลาส, polyester fabric, nylon fabric, taffeta, chiffon, woven synthetic fabric, oxford fabric, tent fabric, PP woven fabric
+5408: ผ้าเรยอน, ผ้าวิสโคส, viscose fabric, rayon woven fabric, acetate fabric
+5503: ใยโพลีเอสเตอร์, ใยสั้นสังเคราะห์, polyester staple fibre, PSF, nylon staple fibre, acrylic fibre
+5504: ใยเรยอน, viscose staple fibre, VSF
+5509: ด้ายโพลีเอสเตอร์ปั่น, ด้าย TC, ด้ายอะคริลิก, polyester spun yarn, TC yarn, acrylic yarn
+5510: ด้ายเรยอนปั่น, viscose spun yarn
+5512: ผ้าโพลีเอสเตอร์ใยสั้น, polyester staple woven fabric
+5513: ผ้าทีซี, ผ้า TC บาง, TC fabric, poly-cotton fabric light
+5514: ผ้า TC หนา, poly-cotton heavy fabric
+5516: ผ้าเรยอนใยสั้น, rayon staple woven fabric
+5601: ใยสังเคราะห์บุ, สำลี, ผ้าอนามัย, แพมเพิส, ก้นกรองบุหรี่, wadding, cotton wool, sanitary pads, cigarette filter tow articles, flock
+5602: ผ้าสักหลาด, felt, needle felt
+5603: ผ้านอนวูฟเวน, ผ้าไม่ทอ, สปันบอนด์, nonwoven, non woven fabric, spunbond, meltblown, spunlace
+5604: เส้นยางหุ้มผ้า, elastic cord covered, rubber thread textile covered
+5605: ด้ายเมทัลลิก, ด้ายทอง, metallic yarn, lurex
+5607: เชือก, เชือกไนลอน, เชือกฟาง, เชือกป่าน, ลวดสลิงไฟเบอร์, rope, twine, cordage, nylon rope, PP rope, polyester rope, mooring rope
+5608: แห, อวน, ตาข่าย, ตาข่ายกันนก, fishing net, net, netting, cargo net, safety net, bird net
+5609: สายรัดเชือก, articles of yarn, shoelace twine
+5701: พรมทอมือ, hand knotted carpet
+5702: พรมทอ, woven carpet, rug woven, kilim
+5703: พรมทัฟต์, หญ้าเทียม, tufted carpet, carpet tiles, artificial turf, artificial grass
+5704: พรมสักหลาด, felt carpet
+5705: พรมเช็ดเท้า, พรมอื่น, floor mat textile, needlepunch carpet
+5801: ผ้ากำมะหยี่, velvet, corduroy, chenille, pile fabric
+5802: ผ้าขนหนู, terry fabric, towelling fabric
+5804: ผ้าลูกไม้, ผ้าตาข่าย, lace fabric, tulle, net fabric
+5806: ริบบิ้น, เทปผ้า, ผ้าแถบแคบ, สายรัดผ้า, เวลโครทอ, ribbon, narrow fabric, webbing, tape textile, elastic band woven
+5807: ป้ายผ้า, ป้ายคอเสื้อ, ฉลากผ้า, woven label, textile label, badge woven
+5808: ถักเปีย, ลูกไม้ตกแต่ง, braid, trimming, fringe
+5810: งานปัก, ผ้าปัก, ตัวปัก, embroidery, embroidered patch, embroidered fabric
+5811: ผ้านวม, ผ้าควิลท์, quilted fabric
+5903: ผ้าเคลือบ PVC, หนังเทียม PVC, หนัง PU, ผ้าใบเคลือบ, PVC coated fabric, PU leather, synthetic leather, artificial leather, tarpaulin fabric, coated fabric
+5906: ผ้ายาง, rubberised fabric
+5907: ผ้าใบวาดภาพ, ฉากผ้า, painted canvas, backdrop
+5908: ไส้ตะเกียง, ไส้เทียน, wick
+5909: ท่อผ้าดับเพลิง, fire hose textile
+5910: สายพานผ้า, textile conveyor belt
+5911: ผ้ากรอง, ผ้าโบลต์ติ้ง, ผ้าอุตสาหกรรม, filter cloth, filter bag, bolting cloth, felt for papermaking, gaskets textile
+6001: ผ้าขนปุยถัก, ผ้าฟลีซ, plush, fleece fabric, faux fur knitted, coral fleece
+6002: ผ้าถักยืดผสมสแปนเด็กซ์, knitted fabric with elastane narrow
+6004: ผ้ายืด, ผ้าสแปนเด็กซ์, ผ้าถักผสมอีลาสติก, spandex fabric, lycra fabric, elastic knitted fabric
+6005: ผ้าตาข่ายถัก, ผ้าถักยืนพื้น, warp knit fabric, mesh fabric, tricot
+6006: ผ้าถัก, ผ้ายืดคอตตอน, ผ้าจูติ, knitted fabric, jersey fabric, cotton knit, single jersey, interlock, rib fabric, pique
+6101: แจ็คเก็ตถักชาย, men's knitted jacket, anorak knitted
+6102: แจ็คเก็ตถักหญิง, women's knitted coat
+6103: ชุดสูทถักชาย, กางเกงถักชาย, กางเกงขาสั้นถัก, men's knitted trousers, shorts knitted, jogger pants
+6104: ชุดเดรสถัก, กางเกงเลกกิ้ง, กระโปรงถัก, knitted dress, leggings, women's knitted trousers, skirt knitted
+6105: เสื้อโปโลชาย, เสื้อเชิ้ตถักชาย, polo shirt men, knitted shirt men
+6106: เสื้อเบลาส์ถัก, เสื้อโปโลหญิง, women's knitted blouse, polo shirt women
+6107: กางเกงในชาย, ชุดนอนชายถัก, men's underwear, briefs, boxers, pyjamas men knitted
+6108: กางเกงในหญิง, ชุดนอนหญิง, ชุดชั้นในถัก, panties, women's underwear, nightdress, pyjamas women knitted
+6109: เสื้อยืด, เสื้อกล้าม, เสื้อทีเชิ้ต, t-shirt, tee, singlet, tank top, undershirt
+6110: เสื้อสเวตเตอร์, เสื้อไหมพรม, เสื้อฮู้ด, เสื้อคาร์ดิแกน, sweater, pullover, hoodie, sweatshirt, cardigan, jumper
+6111: เสื้อผ้าเด็กอ่อนถัก, บอดี้สูท, babies garments knitted, romper, onesie
+6112: ชุดวอร์ม, ชุดว่ายน้ำ, ชุดกีฬาถัก, tracksuit, swimwear, swimsuit, bikini, ski suit
+6113: ชุดเคลือบยางถัก, garments coated knitted
+6114: เสื้อผ้าถักอื่น, ชุดเอี๊ยม, ชุดปฏิบัติงานถัก, knitted garments other, coverall knitted
+6115: ถุงเท้า, ถุงน่อง, ถุงน่องเส้นเลือดขอด, socks, stockings, tights, pantyhose, compression stockings
+6116: ถุงมือผ้าถัก, ถุงมือเคลือบยาง, ถุงมือไหมพรม, knitted gloves, work gloves knitted, coated gloves, cotton gloves
+6117: ผ้าพันคอถัก, หมวกไหมพรม, knitted scarf, knitted accessories, headband knitted
+6201: แจ็คเก็ตชาย, เสื้อกันลม, เสื้อโค้ทชาย, men's jacket, windbreaker, parka, overcoat men
+6202: แจ็คเก็ตหญิง, เสื้อโค้ทหญิง, women's jacket, women's coat
+6203: กางเกงยีนส์ชาย, กางเกงขายาวชาย, สูทชาย, กางเกงขาสั้นชาย, men's trousers, jeans men, suit men, shorts men, chinos
+6204: กางเกงยีนส์หญิง, กระโปรง, ชุดเดรส, สูทหญิง, women's trousers, jeans women, skirt, dress, women's suit
+6205: เสื้อเชิ้ตชาย, men's shirt, dress shirt, woven shirt
+6206: เสื้อเบลาส์, เสื้อเชิ้ตหญิง, blouse, women's shirt
+6207: กางเกงในชายผ้าทอ, ชุดนอนชาย, men's pyjamas woven, boxer shorts woven
+6208: ชุดนอนหญิง, ชุดชั้นในหญิงผ้าทอ, nightgown, women's pyjamas woven, negligee
+6209: เสื้อผ้าเด็กอ่อน, babies garments woven
+6210: ชุดป้องกันสารเคมี, ชุด PPE, ชุดกาวน์, ชุดคลุม nonwoven, protective clothing, coverall nonwoven, isolation gown, chemical suit, PPE suit
+6211: ชุดว่ายน้ำผ้าทอ, ชุดวอร์มผ้าทอ, ชุดหมี, ชุดช่าง, เสื้อกั๊กสะท้อนแสง, ชุดทำงาน, swimwear woven, tracksuit woven, overalls, coverall, workwear, reflective vest, uniform
+6212: ยกทรง, เสื้อชั้นใน, สเตย์, สายเอี๊ยม, bra, brassiere, corset, girdle, suspenders
+6213: ผ้าเช็ดหน้า, handkerchief
+6214: ผ้าพันคอ, ผ้าคลุมไหล่, ผ้าคลุมผม, scarf, shawl, hijab, veil
+6215: เนคไท, หูกระต่าย, necktie, tie, bow tie
+6216: ถุงมือผ้า, ถุงมือผ้าทอ, gloves woven, fabric gloves
+6217: อุปกรณ์เสื้อผ้า, แผ่นเสริมไหล่, garment accessories, shoulder pads, collar
+6301: ผ้าห่ม, blanket, throw, travelling rug, electric blanket textile
+6302: ผ้าปูที่นอน, ปลอกหมอน, ผ้าเช็ดตัว, ผ้าขนหนู, ผ้าปูโต๊ะ, ผ้าเช็ดจาน, bed sheet, pillowcase, duvet cover, bath towel, towel, tablecloth, kitchen towel textile, bed linen
+6303: ผ้าม่าน, มู่ลี่ผ้า, curtain, drapes, blinds textile, roller blind fabric
+6304: ผ้าคลุมเตียง, ปลอกหมอนอิง, ผ้าคลุมโซฟา, bedspread, cushion cover, sofa cover, furnishing articles
+6305: กระสอบ, กระสอบพลาสติกสาน, ถุงจัมโบ้, ถุงตาข่าย, sacks, woven bags, PP woven bag, jumbo bag, FIBC, big bag, mesh bag, flexible intermediate bulk container
+6306: ผ้าใบกันน้ำ, เต็นท์, กันสาด, ใบเรือ, ที่นอนเป่าลม, tarpaulin, tent, awning, canopy, sail, camping tent, air mattress textile
+6307: ผ้าถูพื้น, ผ้าเช็ดทำความสะอาด, หน้ากากผ้า, หน้ากากอนามัย, สายคล้องคอ, เข็มขัดนิรภัยผ้า, ธง, ถุงผ้า, สายรัดของ, ซองใส่มือถือผ้า, floor cloth, cleaning cloth, microfiber cloth, face mask, surgical mask, lanyard, flag, tote bag, ratchet strap, cargo lashing strap, safety harness textile, life jacket
+6308: ชุดผ้าทำพรม, sets of fabric and yarn
+6309: เสื้อผ้ามือสอง, worn clothing, second hand clothes, used clothing
+6310: เศษผ้า, ผ้าขี้ริ้ว, rags, textile waste, cotton rags

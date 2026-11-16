@@ -1,0 +1,234 @@
+2501: เกลือ, เกลือแกง, เกลือสมุทร, salt, table salt, sea salt, sodium chloride, rock salt
+2503: กำมะถัน, sulphur, sulfur
+2504: กราไฟต์ธรรมชาติ, natural graphite
+2505: ทราย, ทรายซิลิกา, sand, silica sand, quartz sand
+2506: ควอตซ์, quartz, quartzite
+2507: ดินขาว, เคโอลิน, kaolin, china clay
+2508: ดินเหนียว, เบนโทไนท์, ดินทนไฟ, clay, bentonite, fire clay, ball clay
+2509: ชอล์ก, chalk
+2510: หินฟอสเฟต, rock phosphate, phosphate rock
+2511: แบไรต์, barite, barytes
+2512: ดินเบา, ไดอะตอมไมต์, diatomite, kieselguhr, diatomaceous earth
+2513: หินพัมมิซ, หินขัด, กากเพชร, pumice, emery, corundum natural, garnet abrasive
+2514: หินชนวน, slate
+2515: หินอ่อน, marble, travertine
+2516: หินแกรนิต, หินทราย, granite, basalt, sandstone
+2517: หินกรวด, หินคลุก, หินย่อย, gravel, crushed stone, aggregate, pebbles
+2518: โดโลไมต์, dolomite
+2519: แมกนีไซต์, magnesite, magnesia
+2520: ยิปซัม, ปูนปลาสเตอร์, gypsum, plaster of paris
+2521: หินปูน, limestone
+2522: ปูนขาว, ปูนสุก, quicklime, slaked lime, hydrated lime
+2523: ปูนซีเมนต์, ซีเมนต์, cement, portland cement, clinker, white cement
+2524: แร่ใยหิน, asbestos
+2525: ไมกา, mica
+2526: ทัลก์, หินสบู่, talc, steatite, soapstone
+2528: บอแรกซ์ธรรมชาติ, natural borates
+2529: เฟลด์สปาร์, ฟลูออไรต์, feldspar, fluorspar, nepheline
+2530: เวอร์มิคูไลต์, vermiculite, perlite, mineral substances
+2601: แร่เหล็ก, iron ore, iron ore pellets, iron concentrate
+2602: แร่แมงกานีส, manganese ore
+2603: แร่ทองแดง, copper ore, copper concentrate
+2606: บอกไซต์, bauxite, aluminium ore
+2608: แร่สังกะสี, zinc ore
+2609: แร่ดีบุก, tin ore
+2612: แร่ยูเรเนียม, uranium ore, thorium ore
+2614: อิลเมไนต์, ilmenite, titanium ore, rutile
+2615: เซอร์คอน, zircon sand, zirconium ore
+2618: ตะกรันเหล็ก, slag sand, granulated slag
+2620: ขี้เถ้าโลหะ, ash containing metals, zinc dross, residues
+2621: ขี้เถ้าลอย, fly ash, bottom ash
+2701: ถ่านหิน, coal, bituminous coal, anthracite, steam coal
+2702: ลิกไนต์, lignite
+2703: พีท, peat moss, peat
+2704: ถ่านโค้ก, coke, metallurgical coke
+2707: เบนซอลดิบ, coal tar oils, creosote oil
+2708: พิตช์, pitch, coal tar pitch
+2709: น้ำมันดิบ, crude oil, petroleum crude
+2710: น้ำมันเบนซิน, น้ำมันดีเซล, น้ำมันเครื่อง, น้ำมันหล่อลื่น, น้ำมันไฮดรอลิก, น้ำมันเตา, น้ำมันก๊าด, น้ำมันเกียร์, จาระบี, น้ำมันหม้อแปลง, gasoline, petrol, diesel, engine oil, lubricant, lube oil, hydraulic oil, fuel oil, kerosene, jet fuel, gear oil, grease, transformer oil, base oil, naphtha, white spirit, waste oil
+2711: แก๊ส LPG, ก๊าซหุงต้ม, ก๊าซธรรมชาติ, โพรเพน, บิวเทน, LPG, LNG, natural gas, propane, butane
+2712: วาสลีน, พาราฟิน, ไขพาราฟิน, petroleum jelly, vaseline, paraffin wax, microcrystalline wax
+2713: ยางมะตอย, ปิโตรเลียมโค้ก, bitumen, petroleum coke, petcoke
+2715: ยางมะตอยผสม, bituminous mixtures, asphalt emulsion, cutback
+2716: ไฟฟ้า, electrical energy
+2801: คลอรีน, ไอโอดีน, โบรมีน, chlorine, iodine, bromine, fluorine
+2802: ผงกำมะถัน, sublimed sulphur
+2803: คาร์บอนแบล็ก, ผงถ่านดำ, carbon black
+2804: ไฮโดรเจน, ไนโตรเจน, ออกซิเจน, อาร์กอน, ฮีเลียม, ซิลิคอน, ฟอสฟอรัส, hydrogen, nitrogen, oxygen, argon, helium, neon, silicon metal, polysilicon, phosphorus, selenium, industrial gas
+2805: โซเดียม, แคลเซียม, ลิเทียมโลหะ, แรร์เอิร์ธ, sodium metal, calcium metal, lithium metal, rare earth metals, mercury
+2806: กรดเกลือ, กรดไฮโดรคลอริก, hydrochloric acid, HCl, muriatic acid
+2807: กรดกำมะถัน, กรดซัลฟิวริก, sulphuric acid, sulfuric acid, H2SO4
+2808: กรดไนตริก, nitric acid
+2809: กรดฟอสฟอริก, phosphoric acid
+2810: กรดบอริก, boric acid
+2811: คาร์บอนไดออกไซด์, น้ำแข็งแห้ง, ซิลิกา, กรดไฮโดรฟลูออริก, carbon dioxide, CO2, dry ice, silica, silicon dioxide, fumed silica, hydrofluoric acid
+2812: ฟอสฟอรัสไตรคลอไรด์, ไทโอนิลคลอไรด์, phosphorus trichloride, thionyl chloride
+2814: แอมโมเนีย, ammonia, ammonium hydroxide
+2815: โซดาไฟ, โซเดียมไฮดรอกไซด์, โพแทสเซียมไฮดรอกไซด์, caustic soda, sodium hydroxide, NaOH, caustic potash, KOH
+2816: แมกนีเซียมไฮดรอกไซด์, magnesium hydroxide
+2817: ซิงค์ออกไซด์, zinc oxide
+2818: อะลูมินา, อะลูมิเนียมออกไซด์, alumina, aluminium oxide, aluminium hydroxide, corundum artificial
+2820: แมงกานีสไดออกไซด์, manganese dioxide
+2821: ออกไซด์ของเหล็ก, สีแดงเหล็ก, iron oxide, iron oxide pigment
+2823: ไทเทเนียมไดออกไซด์, titanium dioxide, TiO2
+2825: ลิเทียมไฮดรอกไซด์, ไฮดราซีน, lithium hydroxide, hydrazine
+2826: ฟลูออไรด์, คริโอไลต์, fluorides, cryolite, sodium fluoride
+2827: แคลเซียมคลอไรด์, แมกนีเซียมคลอไรด์, ซิงค์คลอไรด์, เฟอร์ริกคลอไรด์, PAC, calcium chloride, magnesium chloride, zinc chloride, ferric chloride, polyaluminium chloride
+2828: คลอรีนผง, แคลเซียมไฮโปคลอไรต์, โซเดียมไฮโปคลอไรต์, calcium hypochlorite, sodium hypochlorite, bleaching powder
+2829: โซเดียมคลอเรต, เปอร์คลอเรต, sodium chlorate, perchlorate
+2832: โซเดียมซัลไฟต์, โซเดียมไทโอซัลเฟต, sodium sulphite, sodium metabisulphite, thiosulphate
+2833: โซเดียมซัลเฟต, คอปเปอร์ซัลเฟต, สารส้ม, อะลูมิเนียมซัลเฟต, sodium sulphate, copper sulphate, ferrous sulphate, alum, aluminium sulphate, zinc sulphate, magnesium sulphate
+2834: โพแทสเซียมไนเตรต, โซเดียมไนไตรท์, potassium nitrate, sodium nitrate, sodium nitrite, calcium nitrate
+2835: ฟอสเฟต, STPP, ไดแคลเซียมฟอสเฟต, phosphates, sodium tripolyphosphate, dicalcium phosphate, monocalcium phosphate, sodium hexametaphosphate
+2836: โซดาแอช, โซเดียมคาร์บอเนต, เบกกิ้งโซดา, แคลเซียมคาร์บอเนต, ลิเทียมคาร์บอเนต, soda ash, sodium carbonate, sodium bicarbonate, baking soda, calcium carbonate precipitated, lithium carbonate, potassium carbonate
+2837: ไซยาไนด์, cyanide, sodium cyanide
+2839: โซเดียมซิลิเกต, sodium silicate, water glass
+2840: บอแรกซ์, borax
+2841: โพแทสเซียมเปอร์แมงกาเนต, ไดโครเมต, potassium permanganate, dichromate, zincate
+2842: ซีโอไลต์สังเคราะห์, zeolite synthetic, aluminosilicate
+2843: ซิลเวอร์ไนเตรต, silver nitrate, precious metal compounds
+2844: สารกัมมันตรังสี, ไอโซโทป, radioactive isotopes, uranium, cobalt-60
+2846: สารประกอบแรร์เอิร์ธ, ซีเรียมออกไซด์, rare earth compounds, cerium oxide
+2847: ไฮโดรเจนเปอร์ออกไซด์, hydrogen peroxide, H2O2
+2849: แคลเซียมคาร์ไบด์, ซิลิคอนคาร์ไบด์, ทังสเตนคาร์ไบด์, calcium carbide, silicon carbide, tungsten carbide powder
+2850: ไนไตรด์, nitrides, boron nitride
+2901: เอทิลีน, โพรพิลีน, บิวทาไดอีน, เฮกเซน, ethylene, propylene, butadiene, hexane, isoprene
+2902: เบนซีน, โทลูอีน, ไซลีน, สไตรีน, benzene, toluene, xylene, styrene, cyclohexane
+2903: ไดคลอโรมีเทน, คลอโรฟอร์ม, สารทำความเย็น, R134a, R32, R22, ไวนิลคลอไรด์, dichloromethane, methylene chloride, chloroform, refrigerant gas, R-134a, R-32, R-22, vinyl chloride, HFC
+2905: เมทานอล, ไอโซโพรพิลแอลกอฮอล์, IPA, บิวทานอล, กลีเซอรีน, ไกลคอล, เอทิลีนไกลคอล, โพรพิลีนไกลคอล, ซอร์บิทอล, methanol, isopropyl alcohol, butanol, glycerine, glycerol, ethylene glycol, MEG, propylene glycol, sorbitol, mannitol
+2906: เมนทอล, menthol, benzyl alcohol
+2907: ฟีนอล, บิสฟีนอลเอ, phenol, bisphenol A, BPA, cresol
+2909: อีเทอร์, ไกลคอลอีเทอร์, ether, glycol ether, MTBE, butyl glycol
+2910: เอทิลีนออกไซด์, โพรพิลีนออกไซด์, อีพิคลอโรไฮดริน, ethylene oxide, propylene oxide, epichlorohydrin
+2912: ฟอร์มาลดีไฮด์, ฟอร์มาลีน, วานิลลิน, formaldehyde, formalin, vanillin, acetaldehyde
+2914: อะซีโตน, MEK, MIBK, การบูร, acetone, methyl ethyl ketone, MIBK, cyclohexanone, camphor
+2915: กรดอะซิติก, กรดน้ำส้ม, เอทิลอะซีเตต, บิวทิลอะซีเตต, กรดฟอร์มิก, กรดสเตียริก, acetic acid, ethyl acetate, butyl acetate, formic acid, stearic acid, vinyl acetate, sodium acetate
+2916: กรดอะคริลิก, กรดเบนโซอิก, โซเดียมเบนโซเอต, acrylic acid, methyl methacrylate, MMA, benzoic acid, sodium benzoate, oleic acid
+2917: PTA, กรดอะดิปิก, แอนไฮไดรด์, DOP, DOTP, terephthalic acid, PTA, adipic acid, phthalic anhydride, maleic anhydride, DOP, DOTP, dioctyl phthalate
+2918: กรดซิตริก, กรดมะนาว, กรดแลคติก, กรดซาลิไซลิก, citric acid, lactic acid, tartaric acid, salicylic acid, sodium citrate, gluconic acid
+2919: ฟอสเฟตเอสเตอร์, phosphoric esters, TCPP, tributyl phosphate
+2920: ไดเมทิลซัลเฟต, esters of inorganic acids, dimethyl sulphate, phosphite esters
+2921: เอมีน, เมลามีน, อะนิลีน, ethylenediamine, aniline, amines, hexamethylenediamine, melamine
+2922: ไลซีน, ผงชูรส, โมโนโซเดียมกลูตาเมต, ไตรเอทาโนลามีน, lysine, MSG, monosodium glutamate, triethanolamine, ethanolamine, amino acids, glycine
+2923: เลซิติน, โคลีนคลอไรด์, lecithin, choline chloride, quaternary ammonium
+2924: ยูเรียบริสุทธิ์, อะคริลาไมด์, พาราเซตามอล, acrylamide, paracetamol, acetaminophen, aspartame
+2925: แซ็กคาริน, saccharin, imides
+2926: อะคริโลไนไตรล์, acrylonitrile, nitriles
+2929: ไอโซไซยาเนต, TDI, MDI, isocyanates, TDI, MDI
+2930: เมไทโอนีน, ซิสเตอีน, methionine, cysteine, thiocarbamates
+2931: ไกลโฟเสต, สารออร์แกโนฟอสฟอรัส, ไซเลน, glyphosate, organophosphorus compounds, silanes, organotin
+2932: ฟูแรน, วิตามินซีสังเคราะห์, furfural, tetrahydrofuran, THF, coumarin, sucralose
+2933: นิโคติน, คาเฟอีนสังเคราะห์, พิริดีน, เมลามีน, pyridine, nicotine, caprolactam, imidazole, pharmaceutical intermediates
+2934: กรดนิวคลีอิก, nucleic acids, thiazole
+2936: วิตามิน, วิตามินซี, วิตามินอี, วิตามินบี, vitamins, vitamin C, ascorbic acid, vitamin E, vitamin A, vitamin B12, vitamin D3, premix vitamin
+2937: ฮอร์โมน, อินซูลิน, คอร์ติโซน, hormones, insulin, steroids, cortisone
+2938: กลัยโคไซด์, สตีวิโอไซด์, glycosides, stevioside, rutin
+2939: อัลคาลอยด์, คาเฟอีน, เอฟีดรีน, alkaloids, caffeine, ephedrine, codeine, quinine
+2940: น้ำตาลบริสุทธิ์, ไซลิทอล, xylose, chemically pure sugars, trehalose
+2941: ยาปฏิชีวนะ, แอมม็อกซีซิลลิน, เพนิซิลลิน, antibiotics, amoxicillin, penicillin, tetracycline, API antibiotic
+2942: สารประกอบอินทรีย์อื่น, other organic compounds
+3001: ต่อมสกัด, heparin, organ extracts
+3002: วัคซีน, เซรุ่ม, พลาสมา, เลือด, แอนติบอดี, เชื้อจุลินทรีย์, vaccine, serum, plasma, blood products, antibodies, cell culture, probiotics culture, toxins
+3003: ยาไม่ได้บรรจุขายปลีก, ยาเทกอง, medicaments bulk, not in dosage
+3004: ยา, ยาเม็ด, ยาแคปซูล, ยาน้ำ, ยาสามัญ, วิตามินเม็ดที่เป็นยา, ยาสัตว์, medicine, drugs, tablets, capsules, syrup medicine, ointment medicinal, pharmaceuticals, veterinary medicine, paracetamol tablets
+3005: ผ้าก๊อซ, พลาสเตอร์ปิดแผล, ผ้าพันแผล, สำลีทางการแพทย์, gauze, bandage, adhesive plaster, wound dressing, band-aid, cotton wool medical
+3006: ไหมเย็บแผล, ชุดตรวจครรภ์, ซีเมนต์ทันตกรรม, ถุงลำไส้เทียม, sutures, dental cement, blood grouping reagents, first aid kit, ostomy bags, contraceptive gel, pharmaceutical waste
+3101: ปุ๋ยอินทรีย์, ปุ๋ยคอก, มูลไก่, organic fertilizer, manure, compost, guano
+3102: ปุ๋ยยูเรีย, ยูเรีย, แอมโมเนียมซัลเฟต, แอมโมเนียมไนเตรต, urea, ammonium sulphate, ammonium nitrate, nitrogen fertilizer, CAN
+3103: ปุ๋ยฟอสเฟต, ซุปเปอร์ฟอสเฟต, superphosphate, phosphate fertilizer
+3104: ปุ๋ยโพแทช, โพแทสเซียมคลอไรด์, MOP, potash, potassium chloride, potassium sulphate fertilizer
+3105: ปุ๋ยเคมี, ปุ๋ยผสม, ปุ๋ย NPK, DAP, MAP, NPK fertilizer, compound fertilizer, DAP, MAP, diammonium phosphate
+3201: สารสกัดฟอกหนัง, tanning extracts, tannin
+3202: สารฟอกหนังสังเคราะห์, synthetic tanning
+3203: สีจากธรรมชาติ, สีผสมอาหารธรรมชาติ, natural colorants, annatto, caramel color natural, carmine
+3204: สีย้อม, สีย้อมผ้า, สีรีแอคทีฟ, สีดิสเพอร์ส, ผงเรืองแสง, สีผสมอาหารสังเคราะห์, dyes, reactive dyes, disperse dyes, acid dyes, pigment organic, optical brightener, fluorescent brightener, synthetic food color
+3205: colour lakes
+3206: สีพิกเมนต์อนินทรีย์, ไทเทเนียมไดออกไซด์ผสม, ultramarine, pigments inorganic, TiO2 pigment prepared, masterbatch pigment
+3207: สีเคลือบเซรามิก, ฟริต, ceramic glaze, frit, enamel glaze, glass frit
+3208: สีน้ำมัน, สีพ่นรถยนต์, แลคเกอร์, วาร์นิช, สีอีพ็อกซี, สีโพลียูรีเทน, solvent based paint, lacquer, varnish, epoxy paint, PU paint, automotive paint, coating
+3209: สีน้ำ, สีน้ำอะคริลิก, สีทาบ้าน, water based paint, emulsion paint, latex paint, acrylic paint
+3210: สีฝุ่น, distemper, leather finishing pigment
+3211: สารช่วยแห้ง, driers
+3212: สีฟอยล์, stamping foil, hot stamping foil, metallic pigment paste
+3213: สีโปสเตอร์, สีศิลปะ, สีเด็ก, artist colours, poster colours, watercolour set
+3214: ซิลิโคนยาแนว, ยาแนว, พุตตี้, สีโป๊ว, กาวยาแนว, sealant, silicone sealant, putty, caulking, wall putty, grout, mastic, filler
+3215: หมึก, หมึกพิมพ์, หมึกปริ้นเตอร์, หมึกอิงค์เจ็ท, ink, printing ink, inkjet ink, ink cartridge ink, toner liquid
+3301: น้ำมันหอมระเหย, essential oil, peppermint oil, lavender oil, eucalyptus oil
+3302: หัวน้ำหอม, กลิ่นผสมอาหาร, fragrance, fragrance compound, flavour compound, food flavour, perfume oil
+3303: น้ำหอม, perfume, eau de toilette, cologne
+3304: เครื่องสำอาง, ครีมทาผิว, ครีมกันแดด, ลิปสติก, รองพื้น, แป้งพัฟ, เซรั่ม, โลชั่น, ยาทาเล็บ, cosmetics, skin care, cream, sunscreen, lipstick, foundation, makeup, serum, lotion, nail polish, face powder
+3305: แชมพู, ครีมนวด, ครีมย้อมผม, เจลใส่ผม, สเปรย์ฉีดผม, shampoo, conditioner, hair dye, hair gel, hair spray, hair color
+3306: ยาสีฟัน, ไหมขัดฟัน, น้ำยาบ้วนปาก, toothpaste, dental floss, mouthwash
+3307: โฟมโกนหนวด, ยาระงับกลิ่นกาย, สเปรย์ปรับอากาศ, เกลืออาบน้ำ, ธูปหอม, น้ำยาคอนแทคเลนส์, shaving foam, deodorant, antiperspirant, air freshener, room spray, bath salts, incense, contact lens solution
+3401: สบู่, สบู่ก้อน, สบู่เหลว, เจลอาบน้ำ, soap, bar soap, liquid soap, body wash, shower gel, hand wash
+3402: ผงซักฟอก, น้ำยาล้างจาน, น้ำยาซักผ้า, น้ำยาทำความสะอาด, สารลดแรงตึงผิว, LAS, SLES, detergent, washing powder, dishwashing liquid, laundry detergent, cleaning agent, surfactant, LABSA, SLES
+3403: น้ำมันหล่อลื่นสังเคราะห์, น้ำมันตัดกลึง, สารหล่อลื่นแม่พิมพ์, น้ำยาคลายสนิม, cutting oil, coolant, mould release agent, rust preventive, lubricating preparation, WD-40 type
+3404: แว็กซ์สังเคราะห์, PE wax, artificial wax, polyethylene wax
+3405: น้ำยาขัดเงา, ยาขัดรองเท้า, ครีมขัด, แว็กซ์รถ, polish, shoe polish, car wax, metal polish, scouring cream, furniture polish
+3406: เทียน, เทียนหอม, candles, scented candle
+3407: ดินน้ำมัน, แป้งโดว์, ขี้ผึ้งทันตกรรม, modelling clay, play dough, dental wax, plasticine
+3501: เคซีน, casein, caseinate
+3502: อัลบูมิน, ไข่ขาวผง, albumin, egg albumin, whey protein concentrate 80
+3503: เจลาติน, gelatin, gelatine, collagen gelatin
+3504: เพปโทน, คอลลาเจนเปปไทด์, โปรตีนไอโซเลต, peptone, collagen peptide, protein isolate, soy protein isolate
+3505: เดกซ์ตริน, แป้งดัดแปร, modified starch, dextrin, starch glue
+3506: กาว, กาวร้อน, กาวอีพ็อกซี, กาวตราช้าง, กาวลาเท็กซ์, กาวยาง, กาวซิลิโคน, hot melt glue, glue, adhesive, epoxy adhesive, super glue, cyanoacrylate, PVA glue, contact adhesive
+3507: เอนไซม์, enzymes, rennet, amylase, protease, lipase
+3601: ดินปืน, gunpowder, propellant powder
+3602: วัตถุระเบิด, ไดนาไมต์, ANFO, explosives, dynamite, emulsion explosive
+3603: ชนวน, แก๊ปจุดระเบิด, ตัวจุดถุงลมนิรภัย, detonators, safety fuse, detonating cord, airbag initiator, igniters
+3604: ดอกไม้ไฟ, พลุ, ประทัด, พลุสัญญาณ, fireworks, firecrackers, signal flares, sparklers
+3605: ไม้ขีดไฟ, matches
+3606: แก๊สกระป๋องไฟแช็ก, ถ่านไฟแช็ก, เชื้อเพลิงแข็ง, lighter refill gas, lighter flint, solid fuel, fire starter, ferro-cerium
+3701: ฟิล์มเอกซเรย์, เพลทพิมพ์, x-ray film, printing plates, CTP plate, instant film
+3702: ฟิล์มม้วน, photographic film rolls
+3703: กระดาษอัดรูป, photographic paper
+3707: น้ำยาล้างฟิล์ม, photographic chemicals, developer
+3801: กราไฟต์สังเคราะห์, artificial graphite, graphite powder, carbon paste, electrode paste
+3802: ถ่านกัมมันต์, activated carbon, activated charcoal, bleaching earth
+3806: โรซิน, ยางสน, rosin, gum rosin, resin acids
+3808: ยาฆ่าแมลง, ยากำจัดวัชพืช, ยาฆ่าเชื้อรา, ยาฆ่าหญ้า, ยากันยุง, ยาเบื่อหนู, น้ำยาฆ่าเชื้อ, เจลแอลกอฮอล์ล้างมือ, ยาจุดกันยุง, insecticide, pesticide, herbicide, fungicide, rodenticide, disinfectant, sanitizer, hand sanitizer, mosquito coil, insect spray, plant growth regulator
+3809: สารตกแต่งสิ่งทอ, สารช่วยย้อม, textile auxiliaries, finishing agent, softener textile, sizing agent
+3810: ฟลักซ์, ฟลักซ์บัดกรี, ลวดเชื่อมฟลักซ์คอร์, ผงฟลักซ์, น้ำยาล้างโลหะ, soldering flux, welding flux, solder paste flux, pickling preparation
+3811: สารเติมแต่งน้ำมัน, หัวเชื้อน้ำมัน, fuel additive, lubricant additive, anti-knock, oil additive
+3812: สารกันเสื่อม, สารเร่งยาง, พลาสติไซเซอร์, สารคงตัว PVC, rubber accelerator, antioxidant rubber, plasticizer, PVC stabilizer, heat stabilizer, UV stabilizer
+3813: ผงดับเพลิง, สารดับเพลิง, fire extinguishing powder, foam concentrate, fire extinguisher charge
+3814: ทินเนอร์, น้ำยาล้างสี, ตัวทำละลายผสม, thinner, paint remover, solvent mixture, lacquer thinner
+3815: ตัวเร่งปฏิกิริยา, catalyst, catalytic preparation, nickel catalyst
+3816: ปูนทนไฟ, ซีเมนต์ทนไฟ, คาสเทเบิล, refractory cement, refractory mortar, castable, ramming mass
+3818: เวเฟอร์ซิลิคอน, silicon wafer, doped wafer
+3819: น้ำมันเบรก, brake fluid, hydraulic fluid preparation, DOT 4
+3820: น้ำยาหม้อน้ำ, น้ำยากันเยือกแข็ง, coolant, antifreeze, radiator coolant
+3821: อาหารเลี้ยงเชื้อ, culture media, agar media
+3822: ชุดตรวจ, น้ำยาตรวจวินิจฉัย, ชุดตรวจโควิด, แถบตรวจ, รีเอเจนต์, test kit, diagnostic reagent, rapid test kit, reagent, test strip, PCR kit, reference material
+3823: กรดไขมัน, แฟตตี้แอลกอฮอล์, fatty acids, stearic acid industrial, fatty alcohol, acid oil
+3824: ผงเคมีผสม, สารเติมแต่งคอนกรีต, น้ำยากันซึม, ทรายหล่อ, แคลเซียมคาร์บอเนตผสม, น้ำยาบุหรี่ไฟฟ้าไม่มีนิโคติน, concrete admixture, waterproofing agent, foundry binder, chemical preparation, superplasticizer, mixed chemicals, desiccant, silica gel blend, oil absorbent
+3825: ของเสียเคมี, chemical waste, sewage sludge, clinical waste
+3826: ไบโอดีเซล, biodiesel, B100, FAME
+3827: สารทำความเย็นผสม, น้ำยาแอร์, R410A, R404A, R407C, refrigerant mixture, R-410A, R-404A, R-407C
+3901: เม็ดพลาสติก PE, โพลิเอทิลีน, HDPE, LDPE, LLDPE, EVA, polyethylene, PE resin, HDPE, LDPE, LLDPE, EVA resin, plastic pellets PE
+3902: เม็ดพลาสติก PP, โพลิโพรพิลีน, polypropylene, PP resin, PP homopolymer, PP copolymer, polyisobutylene
+3903: เม็ดพลาสติก PS, ABS, โฟม EPS ดิบ, polystyrene, PS resin, EPS beads, ABS resin, SAN, HIPS
+3904: เม็ด PVC, ผง PVC, polyvinyl chloride, PVC resin, PVC compound, PTFE, fluoropolymer
+3905: PVA, กาว PVAc, polyvinyl acetate, polyvinyl alcohol, PVOH
+3906: อะคริลิก, PMMA, โพลิเมอร์อะคริลิก, acrylic polymer, PMMA, acrylic emulsion, acrylic resin
+3907: อีพ็อกซีเรซิน, เม็ด PET, โพลีคาร์บอเนต, โพลีเอสเตอร์เรซิน, POM, epoxy resin, PET resin, PET chips, polycarbonate, PC resin, polyester resin, unsaturated polyester, alkyd resin, POM, polyacetal, PBT, polyether polyol
+3908: ไนลอน, โพลิเอไมด์, nylon resin, polyamide, PA6, PA66
+3909: เรซินเมลามีน, ยูเรียฟอร์มาลดีไฮด์, ฟีนอลิก, PU, โพลิยูรีเทน, melamine resin, urea formaldehyde, phenolic resin, polyurethane, PU resin, TPU
+3910: ซิลิโคน, ซิลิโคนออยล์, ซิลิโคนยาง, silicone, silicone oil, silicone rubber raw, silicone resin
+3911: ปิโตรเลียมเรซิน, petroleum resin, hydrocarbon resin, coumarone resin
+3912: CMC, เซลลูโลส, cellulose acetate, carboxymethyl cellulose, CMC, HPMC, methyl cellulose, nitrocellulose
+3913: กรดอัลจินิก, ไฮยาลูโรนิก, alginate, sodium alginate, hyaluronic acid, chitosan, xanthan modified
+3914: เรซินแลกเปลี่ยนไอออน, ion exchange resin
+3915: เศษพลาสติก, พลาสติกรีไซเคิล, plastic scrap, plastic waste, PET flakes, regrind
+3916: แท่งพลาสติก, เส้นพลาสติก, plastic rods, profiles, monofilament plastic, acrylic rod, PVC profile
+3917: ท่อพีวีซี, ท่อ PE, ท่อ PPR, สายยาง, ข้อต่อท่อพลาสติก, ท่อพลาสติก, ข้องอ, PVC pipe, HDPE pipe, PPR pipe, plastic hose, plastic tube, pipe fittings plastic, elbow, tee, garden hose, sausage casing plastic
+3918: กระเบื้องยาง, พื้นไวนิล, วอลเปเปอร์ไวนิล, vinyl flooring, PVC flooring, SPC flooring, LVT, vinyl tiles, vinyl wallpaper
+3919: เทป, เทปกาว, เทป OPP, สติ๊กเกอร์, ฟิล์มป้องกัน, เทปพันสายไฟ, เทปใส, เทปสองหน้า, ฉลากสติ๊กเกอร์, adhesive tape, packing tape, OPP tape, sticker, label, protective film, masking tape, double-sided tape, electrical tape, insulation tape
+3920: แผ่นพลาสติก, ฟิล์มพลาสติก, ฟิล์ม PET, ฟิล์ม BOPP, แผ่นอะคริลิก, แผ่นโพลีคาร์บอเนต, ฟิล์มยืด, plastic sheet, plastic film, PET film, BOPP film, acrylic sheet, polycarbonate sheet, stretch film, shrink film, PVC sheet, PP sheet
+3921: แผ่นโฟม, โฟม PU แผ่น, แผ่นพลาสติกเสริมแรง, แผ่นลอน, foam sheet, PU foam sheet, EVA foam sheet, cellular plastic sheet, laminated sheet, corrugated plastic sheet, polyfoam
+3922: อ่างอาบน้ำ, อ่างล้างหน้าพลาสติก, ฝาชักโครก, ที่รองนั่งชักโครก, bathtub plastic, toilet seat, sink plastic, shower tray, cistern plastic
+3923: กล่องพลาสติก, ขวดพลาสติก, ถุงพลาสติก, ฝาขวด, พาเลทพลาสติก, ลังพลาสติก, ถาดพลาสติก, พรีฟอร์ม, กระสอบพลาสติก, ถุงจัมโบ้, plastic box, plastic bottle, plastic bag, poly bag, bottle cap, closures, plastic pallet, crate, tray, preform, PET preform, container, jerry can, bulk bag, FIBC
+3924: จานพลาสติก, ชามพลาสติก, ถังน้ำพลาสติก, กล่องข้าว, ขวดนมเด็ก, กระบอกน้ำ, แก้วพลาสติก, ช้อนพลาสติก, plastic tableware, plastic kitchenware, lunch box, food container, water bottle, baby bottle, plastic cup, cutlery plastic, bucket household, basin
+3925: ถังเก็บน้ำพลาสติก, ประตูพลาสติก, หน้าต่าง uPVC, รางน้ำ, water tank plastic, uPVC window, plastic door, gutter, shutters plastic, builders ware
+3926: อุปกรณ์พลาสติก, ชิ้นส่วนพลาสติก, ถุงมือพลาสติก, เสื้อกันฝน, สายรัดพลาสติก, เคเบิ้ลไทร์, ป้ายชื่อพลาสติก, ฟิกเกอร์, กระดุมพลาสติก, ตะขอ, ที่วางมือถือ, plastic parts, plastic articles, plastic gloves, raincoat, cable tie, zip tie, strapping band, name tag, figurine, plastic clips, keychain, face shield, safety glasses frame plastic

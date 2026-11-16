@@ -178,6 +178,8 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:13px}
 @media(prefers-reduced-motion:reduce){.spin{animation:none}.panel{transition:none}}
 @media(max-width:760px){.form{grid-template-columns:minmax(0,1fr)}.box{border-right:0;border-bottom:1px solid var(--ink)}.card{grid-template-columns:minmax(0,1fr);gap:12px}}
 @media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 0}.stack td::before{content:attr(data-l);color:var(--mute);font:400 13px var(--th)}.ln{grid-template-columns:6.4em minmax(0,1fr)}.ln .v{grid-column:2;text-align:left}}
+.whys{margin-top:4px;display:flex;flex-wrap:wrap;gap:4px}.wy{font-size:11.5px;padding:1px 7px;border-radius:9px;background:#eef1f5;color:#445}.wy.ok{background:#e3f4e8;color:#1d6b35}.wy.bad{background:#fbe6e6;color:#a32}
+.wq{margin:14px 0 8px;font-size:16px}.wopt{display:block;width:100%;text-align:left;padding:10px 12px;margin:6px 0;border:1px solid var(--line,#ccd);border-radius:10px;background:transparent;color:inherit;font:inherit;cursor:pointer;position:relative}.wopt:hover{border-color:var(--red)}.wopt small{display:block;opacity:.7;font-size:12.5px}.wopt i{position:absolute;right:10px;top:8px;font-style:normal;font-size:12px;background:#e3f4e8;color:#1d6b35;padding:1px 8px;border-radius:9px}.wopt.best{border-color:#2e8b57;border-width:2px}.wopt.bad{opacity:.6}.wopt.bad i{background:#fbe6e6;color:#a32}
 </style>
 </head>
 <body>
@@ -210,6 +212,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:13px}
   <div class="acts">
     <button class="btn red" id="go">พิจารณาพิกัด</button>
     <button class="btn ghost" id="clr">ล้าง</button>
+    <label class="opt"><input type="checkbox" id="o-off"> ไม่ใช้ AI (ค้นในเครื่อง ฟรี)</label>
     <label class="opt"><input type="checkbox" id="o-rev" checked> ตรวจซ้ำรอบสอง</label>
     <label class="opt"><input type="checkbox" id="o-deep"> โหมดละเอียด (ช้ากว่า แม่นกว่า)</label>
     <span class="note" id="aist">กำลังเชื่อมต่อ AI…</span>
@@ -220,7 +223,7 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:13px}
 
 <section class="view" id="v-sr">
   <div class="sbar"><input id="sq" type="search" placeholder="ชื่อสินค้าไทย/อังกฤษ หรือเลขพิกัด เช่น ตู้เย็น, refrigerator, 8418" autocomplete="off"></div>
-  <p class="note" id="shint">ค้นหาแบบไม่ใช้ AI จากข้อความในตารางพิกัด (ไทยและอังกฤษ) · แตะรายการเพื่อดูอัตราอากรและสิทธิประโยชน์ทั้งหมด</p>
+  <p class="note" id="shint">ค้นหาแบบไม่ใช้ AI — ใช้ถ้อยคำพิกัดไทย/อังกฤษ พจนานุกรมชื่อการค้า 7,700+ คำ สเปกตัวเลข (ลิตร, kW, mm, BTU…) และคลังทีม · แตะรายการเพื่อดูอัตราอากรและสิทธิประโยชน์ทั้งหมด</p>
   <div id="sres"></div>
 </section>
 
@@ -444,7 +447,8 @@ function ctrlHTML(x, ai) {
 async function loadPriv() {
   try {
     const get = f => fetch('data/' + f).then(r => { if (!r.ok) throw new Error(f + ' ' + r.status); return r.json(); });
-    const [rates, HS, R] = await Promise.all([get('rates.json'), get('hs_en.json'), get('permits.json')]);
+    const [rates, HS, R, DC] = await Promise.all([get('rates.json'), get('hs_en.json'), get('permits.json'), get('dict.json').catch(() => ({}))]);
+    DICT = DC; HX = null;
     PV = {...rates, HS, R};
     const H = PV.HS || {};
     items.forEach(x => { x.en = PV.EN[x.c] || ''; x.ke = x.en.toLowerCase(); x.k6 = (H[x.c.slice(0,6)] || '').toLowerCase(); x.k4 = (H[x.c.slice(0,4)] || '').toLowerCase(); });
@@ -455,43 +459,200 @@ async function loadPriv() {
 
 /* ---------- search ---------- */
 const tri = s => { const t = new Set(); for (let i = 0; i < s.length - 2; i++) t.add(s.slice(i, i+3)); return t; };
-function search(q, n = 30) {
-  q = q.trim(); if (!q) return [];
-  const digits = q.replace(/[\s.]/g,'');
-  if (/^\d{2,8}$/.test(digits)) return items.filter(x => x.c.startsWith(digits)).slice(0, 200).map(x => ({x, s: 1}));
-  const raw = q.split(/[\s,;/]+/).filter(t => t.length > 1);
-  const terms = raw.map(key);
-  if (!terms.length) return [];
-  const isEn = raw.map(t => /^[a-z0-9\-.]+$/i.test(t) && /[a-z]/i.test(t));
-  const enStem = raw.map(t => t.toLowerCase().replace(/(ies|es|s)$/,''));
-  const tg = terms.map(tri);
-  const out = [];
-  for (const x of items) {
-    let s = 0, hit = 0;
-    terms.forEach((t, i) => {
-      if (isEn[i]) {
-        const w = enStem[i]; if (w.length < 2) return;
-        if (x.ke && x.ke.includes(w)) { s += 3 * w.length; hit++; }
-        else if (x.k6 && x.k6.includes(w)) { s += 2.2 * w.length; hit++; }
-        else if (x.k4 && x.k4.includes(w)) { s += 1.5 * w.length; hit++; }
-        return;
-      }
-      if (x.kd.includes(t)) { s += 3 * t.length; hit++; }
-      else if (x.kp.includes(t)) { s += 2 * t.length; hit++; }
-      else if (t.length > 3) {
-        let m = 0; for (const g of tg[i]) if (x.kd.includes(g) || x.kp.includes(g)) m++;
-        const f = m / tg[i].size; if (f >= .5) s += f * t.length;
-      }
-    });
-    if (s > 0) { s *= (1 + hit) / (1 + terms.length); if (x.d.startsWith('อื่น')) s *= .9; out.push({x, s}); }
+/* ---------- smart offline search engine ---------- */
+let DICT = {};
+const STOP = new Set(['ที่','และ','ของ','สำหรับ','สาหรับ','ใช้','ชนิด','แบบ','เป็น','ใน','กับ','หรือ','จาก','ทำ','ทา','มี','ได้','ไม่','อื่น','อื่นๆ','ๆ','ตัว','ชุด','อัน','ชิ้น','เครื่อง','the','of','for','and','with','type','new','set','sets','pcs','pc','piece','pieces','unit','units','other','model','brand','made','in','to','a','an','by','size','color','colour','qty','no','item','items']);
+const normEN = s => ' ' + String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim() + ' ';
+const stemEN = w => stem0(w.length > 7 ? w.replace(/(ations?|ators?|ating|ated)$/, 'at') : w);
+const stem0 = w => w.length > 4 && w.endsWith('ies') ? w.slice(0, -3) + 'y' : w.length > 4 && /(ches|shes|sses|xes)$/.test(w) ? w.slice(0, -2) : w.length > 3 && w.endsWith('s') && !w.endsWith('ss') ? w.slice(0, -1) : w;
+const SEG = (() => { try { return new Intl.Segmenter('th', {granularity: 'word'}); } catch { return null; } })();
+const UNITS = [
+  ['L', ['ลิตร','litres','liters','litre','liter','ltr','lt','l'], 1], ['L', ['มิลลิลิตร','มล.','มล','ml'], 0.001],
+  ['W', ['กิโลวัตต์','kw'], 1000], ['W', ['แรงม้า','hp'], 745.7], ['W', ['วัตต์','watts','watt','w'], 1],
+  ['V', ['กิโลโวลต์','kv'], 1000], ['V', ['โวลต์','โวลท์','volts','volt','v'], 1],
+  ['CC', ['ลูกบาศก์เซนติเมตร','ซีซี','cc'], 1],
+  ['MM', ['มิลลิเมตร','มม.','มม','mm'], 1], ['MM', ['เซนติเมตร','ซม.','ซม','cm'], 10], ['MM', ['นิ้ว','inches','inch','"'], 25.4], ['MM', ['เมตร','m'], 1000],
+  ['KG', ['กิโลกรัม','กก.','กก','kg'], 1], ['KG', ['ตัน','tonnes','tons','ton','t'], 1000], ['KG', ['กรัม','g'], 0.001],
+  ['VA', ['kva','กิโลโวลต์แอมแปร์'], 1000], ['A', ['แอมแปร์','แอมป์','amp','a'], 1],
+  ['PCT', ['ร้อยละ','เปอร์เซ็นต์','%'], 1], ['W', ['btu/h','btu/hr','btuh','btu','บีทียู'], 0.29307], ['SEAT', ['ที่นั่ง','seats','seat'], 1],
+];
+const UNIT_LIST = UNITS.flatMap(([g, ws, f]) => ws.map(w => [w, g, f])).sort((a, b) => b[0].length - a[0].length);
+const ULABEL = {L: 'ลิตร', W: 'วัตต์', V: 'โวลต์', CC: 'ซีซี', MM: 'มม.', KG: 'กก.', VA: 'VA', A: 'แอมป์', PCT: '%', BTU: 'BTU', SEAT: 'ที่นั่ง'};
+const toNum = s => parseFloat(String(s).replace(/,/g, ''));
+function readUnit(rest) {
+  const r = rest.replace(/^\s+/, '').toLowerCase();
+  for (const [w, g, f] of UNIT_LIST) if (r.startsWith(w)) { const nx = r[w.length] || ' '; if (/[a-z]/.test(w) && /[a-z0-9]/.test(nx)) continue; return {g, f, len: rest.length - r.length + w.length}; }
+  return null;
+}
+function parseAttrs(text) {
+  const out = []; let clean = String(text || '');
+  const re = /(\d+(?:,\d{3})*(?:\.\d+)?)/g; let m; const cut = [];
+  while ((m = re.exec(text))) {
+    const u = readUnit(text.slice(m.index + m[0].length)); if (!u) continue;
+    out.push({g: u.g, v: toNum(m[1]) * u.f, raw: (m[0] + text.slice(m.index + m[0].length, m.index + m[0].length + u.len)).trim()});
+    cut.push([m.index, m.index + m[0].length + u.len]);
   }
+  const th = String(text).match(/\bM(\d{1,2})(?:\s*[x×]\s*(\d+))?\b/);
+  if (th) out.push({g: 'MM', v: +th[1], raw: 'M' + th[1], thread: true});
+  cut.sort((a, b) => b[0] - a[0]).forEach(([a, b]) => { clean = clean.slice(0, a) + ' ' + clean.slice(b); });
+  return {attrs: out, clean};
+}
+const COND_RE = /(not exceeding|exceeding|not more than|more than|not less than|less than|over|under|at least|ไม่เกิน|ไม่น้อยกว่า|น้อยกว่า|ต่ำกว่า|มากกว่า|ตั้งแต่|เกิน)\s*(\d+(?:,\d{3})*(?:\.\d+)?)/gi;
+const condCache = new Map();
+function condOf(x) {
+  if (condCache.has(x.c)) return condCache.get(x.c);
+  const C = {}, txt = [...x.par, x.d, PV?.HS?.[x.c.slice(0, 6)] || '', x.en || ''].join(' | ');
+  let m; COND_RE.lastIndex = 0;
+  while ((m = COND_RE.exec(txt))) {
+    const u = readUnit(txt.slice(m.index + m[0].length)); if (!u) continue;
+    const v = toNum(m[2]) * u.f, op = m[1].toLowerCase(), c = C[u.g] ||= {};
+    if (/^(not exceeding|not more than|ไม่เกิน)$/.test(op)) { c.hi = v; c.hiInc = true; }
+    else if (/^(less than|under|น้อยกว่า|ต่ำกว่า)$/.test(op)) { c.hi = v; c.hiInc = false; }
+    else if (/^(not less than|at least|ไม่น้อยกว่า|ตั้งแต่)$/.test(op)) { c.lo = v; c.loInc = true; }
+    else { c.lo = v; c.loInc = false; }
+  }
+  condCache.set(x.c, C); return C;
+}
+const fits = (c, v) => (c.lo === undefined || (c.loInc ? v >= c.lo : v > c.lo)) && (c.hi === undefined || (c.hiInc ? v <= c.hi : v < c.hi));
+const condTxt = c => [c.lo !== undefined ? (c.loInc ? '≥' : '>') + c.lo : '', c.hi !== undefined ? (c.hiInc ? '≤' : '<') + c.hi : ''].filter(Boolean).join(' และ ');
+
+/* per-heading / per-subheading indexes, built once data is loaded */
+let HX = null, S6 = null, VOC = null, VMAX = 0;
+function buildIndex() {
+  const H = PV?.HS || {};
+  VOC = new Set();
+  for (const ts of Object.values(DICT)) for (const t of ts) if (/[฀-๿]/.test(t)) { const k = key(t); if (k.length > 1) VOC.add(k); }
+  for (const w of [...Object.keys(SYN), ...Object.values(SYN), 'ผ้า','ไม้','เหล็ก','พลาสติก','ยาง','แก้ว','กระดาษ','อลูมิเนียม','ทองแดง','สแตนเลส','ไฟฟ้า','รถยนต์','เครื่อง','ชิ้นส่วน','อะไหล่','สำหรับ','บ้าน','ผู้ชาย','ผู้หญิง','เด็ก','หนัง','ฝ้าย','ใยสังเคราะห์','ขนาด','ประตู','สอง','หน้า','หลัง','ฝา','ไฟ','หลอด','น้ำ','ลม','มือ','ใหม่','ใช้แล้ว']) if (/[฀-๿]/.test(w)) VOC.add(key(w));
+  VMAX = Math.max(...[...VOC].map(v => v.length));
+  HX = new Map(); S6 = new Map();
+  for (const h of byHead.keys()) {
+    const c4 = h.replace('.', ''), dt = DICT[c4] || [];
+    HX.set(h, {th: key(D.H[h] || ''), en: normEN(H[c4]), dth: dt.filter(t => /[฀-๿]/.test(t)).map(key), den: normEN(dt.filter(t => !/[฀-๿]/.test(t)).join(' ')), dterms: dt.filter(t => !/[฀-๿]/.test(t)).map(t => normEN(t))});
+  }
+  for (const x of items) {
+    const c6 = x.c.slice(0, 6); x.kpar = key(x.par.join(' ')); x.ken = normEN(x.en);
+    if (!S6.has(c6)) { const dt = DICT[c6] || []; S6.set(c6, {en: normEN(H[c6]), dth: dt.filter(t => /[฀-๿]/.test(t)).map(key), den: normEN(dt.filter(t => !/[฀-๿]/.test(t)).join(' ')), dterms: dt.filter(t => !/[฀-๿]/.test(t)).map(t => normEN(t))}); }
+  }
+}
+const SYN = {'ผู้ชาย':'บุรุษ','ชาย':'บุรุษ','ผู้หญิง':'สตรี','หญิง':'สตรี','เด็กผู้ชาย':'เด็กชาย','เด็กผู้หญิง':'เด็กหญิง','สแตนเลส':'เหล็กกล้าไร้สนิม','สเตนเลส':'เหล็กกล้าไร้สนิม','stainless':'stainless','มือสอง':'ใช้แล้ว','ไฟฟ้า':'ไฟฟ้า','แบต':'แบตเตอรี่','คอม':'คอมพิวเตอร์','มอไซค์':'จักรยานยนต์','มอเตอร์ไซค์':'จักรยานยนต์','รถมอเตอร์ไซค์':'จักรยานยนต์','ฝ้าย':'ฝ้าย','คอตตอน':'ฝ้าย','men':'men','ladies':'women','woman':'women','kids':'children','used':'used'};
+function dictSeg(k) {
+  if (!VOC) return null;
+  const out = []; let i = 0, cov = 0, unk = '';
+  while (i < k.length) {
+    let m = '';
+    for (let L = Math.min(VMAX, k.length - i, k.length - 1); L > 1; L--) { const w = k.slice(i, i + L); if (VOC.has(w)) { m = w; break; } }
+    if (m) { if (unk.length > 1) out.push(unk); unk = ''; out.push(m); cov += m.length; i += m.length; } else { unk += k[i]; i++; }
+  }
+  if (unk.length > 1) out.push(unk);
+  return out.length > 1 && cov / k.length >= 0.6 ? out : null;
+}
+function tokenize(q) {
+  const {attrs, clean} = parseAttrs(q);
+  const toks = []; let modEN = false;
+  for (const raw of clean.split(/[\s,;/|()+]+/)) {
+    if (!raw) continue;
+    if (/[a-z]/i.test(raw) && !/[฀-๿]/.test(raw)) {
+      for (const w of raw.toLowerCase().split(/[^a-z0-9]+/)) { if (/^(for|of|used|suitable|with)$/.test(w) && toks.some(o => o.en)) modEN = true; if (w.length > 1 && !STOP.has(w) && !/^\d+$/.test(w)) toks.push({t: stemEN(w), en: true, w: (w.length <= 3 ? 0.6 : 1) * (modEN ? 0.45 : 1), mod: modEN, raw: w}); }
+    } else if (/[฀-๿]/.test(raw)) {
+      const k = key(raw); if (k.length < 2 || STOP.has(raw)) continue;
+      toks.push({t: k, en: false, w: 1, raw});
+      if (!VOC?.has(k)) for (const [a, b] of Object.entries(SYN)) if (/[฀-๿]/.test(a) && raw.includes(a) && !raw.includes(b)) toks.push({t: key(b), en: false, w: 0.8, raw: b, syn: true});
+      if (raw.length > 4 && !SYN[raw]) {
+        let segs = dictSeg(k);
+        if (!segs && SEG) segs = [...SEG.segment(raw)].map(s => s.segment).filter(s => s.length > 1 && !STOP.has(s));
+        const dseg = !!dictSeg(k); segs ||= [];
+        if (segs.length > 1) {
+          if (dseg) { const known = VOC.has(k); toks[toks.length - 1 - toks.slice().reverse().findIndex(o => o.t === k)].w = known ? 1 : 0.3; segs.filter(s => s.length > 1 && !STOP.has(s)).forEach((s, j) => toks.push({t: key(s), en: false, w: known ? (j ? 0.25 : 0.6) : (j ? 0.7 : 1), raw: s, ...(known ? {part: k} : {})})); }
+          else for (const s of segs) { const ks = key(s); if (ks.length > 1 && ks !== k) toks.push({t: ks, en: false, w: 0.45, part: k, raw: s}); }
+        }
+      }
+    }
+  }
+  const ph = key(String(q).replace(/[a-z]+\d*[a-z]*/gi, ' ').replace(/\d+(?:\.\d+)?\s*(?=[฀-๿])/g, m => m.trim()));
+  if (/[฀-๿]/.test(ph) && clean.trim().split(/\s+/).length > 1 && ph.length > 4) toks.push({t: ph, en: false, w: 0.8, phrase: true, raw: q.trim()});
+  const seen = new Set(); return {attrs, toks: toks.filter(o => !seen.has(o.t + o.en) && seen.add(o.t + o.en))};
+}
+function matchTH(t, f) {
+  let s = 0;
+  for (const d of f.dth || []) { if (d === t) { s = Math.max(s, 7); break; } if (d.includes(t) && t.length > 1) s = Math.max(s, 2 + 3.5 * t.length / d.length); else if (t.includes(d) && d.length > 2) s = Math.max(s, 2 + 3 * d.length / t.length); }
+  if (f.th && f.th.includes(t)) s = Math.max(s, 2.5);
+  return s;
+}
+function matchEN(w, f) {
+  let d = 0;
+  if (f.den && f.den.includes(' ' + w)) for (const t of f.dterms) { if (!t.includes(' ' + w)) continue; const nw = t.trim().split(' ').length; d = Math.max(d, nw === 1 ? 5 : 5 / nw + (QW && t.trim().split(' ').every(u => QW.has(stemEN(u)) || QW.has(u)) ? 2.5 : 0)); if (d >= 5) break; }
+  return Math.max(d, f.en && f.en.includes(' ' + w) ? 2.2 : 0);
+}
+let QW = null, PARTQ = false;
+const CTXW = [[/อากาศยาน|aircraft/i, /อากาศยาน|เครื่องบิน|aircraft|aviation|airplane/i], [/ยานยนต์|รถยนต์|ยานพาหนะ|motor vehicles|for persons, in/i, /รถ|ยานยนต์|มอเตอร์ไซค์|จักรยาน|vehicle|car\b|auto|truck|bus|motorcycle|bike/i], [/ทางการแพทย์|ศัลยกรรม|medical|surgical/i, /แพทย์|ศัลย|โรงพยาบาล|medical|surgical|hospital/i], [/ทางทหาร|military/i, /ทหาร|military/i], [/รถไฟ|railway/i, /รถไฟ|railway|train/i], [/เรือ |vessels|ships/i, /เรือ|ship|vessel|boat|marine/i], [/โฟโตวอลตาอิก|photovoltaic/i, /solar|โซลาร์|แสงอาทิตย์|photovoltaic|\bpv\b/i]];
+const GENERIC = new Set('other others kind kinds used use type types with without whether not more than less exceeding including excluding capacity having those which their from into such than form forms parts part articles article goods made similar like thereof electrically operated suitable household'.split(' '));
+function search(q, n = 30) {
+  q = String(q || '').trim(); if (!q) return [];
+  const digits = q.replace(/[\s.]/g, '');
+  if (/^\d{2,8}$/.test(digits)) return items.filter(x => x.c.startsWith(digits)).slice(0, 200).map(x => ({x, s: 1, why: {}}));
+  if (!HX) buildIndex();
+  const {attrs, toks} = tokenize(q);
+  QW = new Set([...toks.filter(o => o.en).map(o => o.t), ...(q.toLowerCase().match(/\b\d+\b/g) || []), ...(/สอง|2/.test(q) ? ['two', '2'] : [])]);
+  PARTQ = /part|spare|accessor|component|cartridge|toner|refill|ตลับหมึก|ชิ้นส่วน|อะไหล่|ส่วนประกอบ|อุปกรณ์|evaporat|condens|คอยล์|coil/i.test(q);
+  const out = [];
+  if (toks.length || attrs.length) {
+    const NH = HX.size, hs = new Map();
+    const DF = toks.map(o => { let df = 0; for (const f of HX.values()) if (o.en ? matchEN(o.t, f) : matchTH(o.t, f)) df++; return df; });
+    toks.forEach((o, i) => { if (!o.en && !o.part && !DF[i] && toks.some(p => p.part === o.t)) { o.w = 0; toks.forEach(p => { if (p.part === o.t) { p.w = 1; p.part = null; } }); } });
+    const idf = DF.map(df => Math.log(1 + NH / (1 + df)));
+    for (const [h, f] of HX) {
+      let s = 0; const hit = [];
+      toks.forEach((o, i) => { const m = o.en ? matchEN(o.t, f) : matchTH(o.t, f); if (m) { s += m * idf[i] * o.w; hit.push(i); } });
+      hs.set(h, {s, hit});
+    }
+    const totalW = toks.reduce((a, o) => a + (o.phrase ? 0 : o.w), 0) || 1;
+    for (const x of items) {
+      const H = hs.get(x.h), f6 = S6.get(x.c.slice(0, 6));
+      let s = H.s; const hit = new Set(H.hit);
+      toks.forEach((o, i) => {
+        if (o.part && H.hit.some(j => toks[j].t === o.part)) return;
+        let m = 0;
+        if (o.en) { const own = x.ken.includes(' ' + o.t) ? 3 : 0; m = Math.max(matchEN(o.t, f6) * 0.9, own) + (own ? 1.2 : 0); }
+        else { const own = x.kd.includes(o.t) ? 3.2 : 0; m = Math.max(matchTH(o.t, f6) * 0.9, own, x.kpar.includes(o.t) ? 2 : 0) + (own ? 1.2 : 0); }
+        if (m) { s += m * idf[i] * o.w * 0.8; hit.add(i); }
+      });
+      if (!s) continue;
+      let cw = 0; hit.forEach(i => cw += toks[i].phrase ? 0 : toks[i].w);
+      toks.forEach((o, i) => { if (o.part && !hit.has(i) && toks.some((p, j) => hit.has(j) && !p.part && p.t === o.part)) cw += o.w; });
+      const cov = Math.min(1, cw / totalW);
+      s *= 0.35 + 0.65 * cov * cov;
+      const why = {terms: [...hit].filter(i => !toks[i].part || !hit.has(toks.findIndex(p => p.t === toks[i].part))).map(i => toks[i].raw || toks[i].t), attrs: []};
+      if (attrs.length) {
+        const C = condOf(x);
+        for (const a of attrs) { const c = C[a.g]; if (!c) continue; const ok = fits(c, a.v); s += ok ? 4 : -12; why.attrs.push({ok, txt: `${a.raw} ${ok ? 'ตรง' : 'ไม่ตรง'}เงื่อนไข ${condTxt(c)} ${ULABEL[a.g]}`}); }
+      }
+      if (/^อื่น/.test(x.d)) s -= 0.4;
+      const isPart = /^ (parts?|evaporators?|condensers?|accessories) /.test(x.ken || '') || [x.d, ...x.par].some(t => /^(ส่วนประกอบ|ชิ้นส่วน|อุปกรณ์ประกอบ)/.test(t)) || /^[^;]*parts\b/i.test(PV?.HS?.[x.c.slice(0, 6)] || '');
+      if (isPart && !PARTQ) s *= 0.7;
+      if (x.ken) { let sp = 0; for (const w of x.ken.trim().split(' ')) if (w.length > 3 && !GENERIC.has(w) && !QW.has(stemEN(w)) && !/^\d/.test(w)) sp++; s -= Math.min(2.5, sp * 0.35); if (sp && /^ (of a kind used|suitable for|for use|of a kind|for ) /.test(x.ken.replace(/^ (other )?/, ' '))) s -= 1.5; }
+      { const m = (x.ken || '').match(/(?:of a kind used (?:for|in|on|with)|for use (?:in|with)|suitable for(?: use)?(?: in| with)?|designed for) ([a-z ]{3,40})/);
+        if (m && !m[1].split(' ').some(w => w.length > 3 && !GENERIC.has(w) && QW.has(stemEN(w)))) s *= 0.85; }
+      { const ctx = x.d + ' ' + x.par.join(' ') + ' ' + (f6.en || '');
+        for (const [re, qre] of CTXW) if (re.test(ctx) && !qre.test(q)) { s *= 0.65; break; } }
+      out.push({x, s, why, cov});
+    }
+  }
+  const lm = typeof libMatch === 'function' ? libMatch(q) : null;
+  if (lm && byCode.has(lm.e.code)) { const x = byCode.get(lm.e.code); const i = out.findIndex(r => r.x === x); const r = {x, s: 1e6 * lm.sc, why: {lib: lm, terms: [], attrs: []}, cov: 1}; if (i >= 0) out.splice(i, 1); out.push(r); }
   return out.sort((a, b) => b.s - a.s).slice(0, n);
 }
+function headingRank(q, n = 6) {
+  const seen = new Map();
+  for (const r of search(q, 300)) { const e = seen.get(r.x.h); if (!e || r.s > e.s) seen.set(r.x.h, {h: r.x.h, s: r.s, best: r}); }
+  return [...seen.values()].sort((a, b) => b.s - a.s).slice(0, n);
+}
+const whyHTML = w => !w ? '' : [w.lib ? `<span class="wy ok">คลังทีม ${Math.round(w.lib.sc * 100)}%</span>` : '', ...(w.terms || []).slice(0, 6).map(t => `<span class="wy">${esc(t)}</span>`), ...(w.attrs || []).map(a => `<span class="wy ${a.ok ? 'ok' : 'bad'}">${esc(a.txt)}</span>`)].join('');
+
 function rowsHTML(list) {
   if (!list.length) return '<p class="empty">ไม่พบรายการที่ตรง ลองใช้คำที่สั้นลง หรือคำเรียกทางเทคนิค เช่น “สลักเกลียว” แทน “น็อต”</p>';
   return `<table class="stack"><thead><tr><th>พิกัด</th><th>รายการ</th><th style="text-align:right">อากรทั่วไป</th><th style="text-align:right">FTA ต่ำสุด</th></tr></thead><tbody>${
-    list.map(({x}) => { const G = genRate(x), b = bestFTA(x, 'ALL');
-      return `<tr class="hit" data-line="${x.c}"><td class="c" data-l="พิกัด">${fmt(x.c)}</td><td data-l="รายการ"><span class="note">${esc(fullPath(x).slice(0,-1).join(' › '))}</span><br>${esc(x.d)}${x.en ? `<span class="note" style="display:block">${esc(x.en)}</span>` : ''}${ctrlBadges(x)}</td><td class="r" data-l="อากรทั่วไป">${esc(G.r)}</td><td class="r" data-l="FTA ต่ำสุด">${b && (G.a === null || b.a < G.a) ? `${esc(showR(b.p[1]))} <span class="note">${b.g.k}</span>` : '–'}</td></tr>`; }).join('')
+    list.map(({x, why}) => { const G = genRate(x), b = bestFTA(x, 'ALL');
+      return `<tr class="hit" data-line="${x.c}"><td class="c" data-l="พิกัด">${fmt(x.c)}</td><td data-l="รายการ"><span class="note">${esc(fullPath(x).slice(0,-1).join(' › '))}</span><br>${esc(x.d)}${x.en ? `<span class="note" style="display:block">${esc(x.en)}</span>` : ''}${ctrlBadges(x)}${why ? `<div class="whys">${whyHTML(why)}</div>` : ''}</td><td class="r" data-l="อากรทั่วไป">${esc(G.r)}</td><td class="r" data-l="FTA ต่ำสุด">${b && (G.a === null || b.a < G.a) ? `${esc(showR(b.p[1]))} <span class="note">${b.g.k}</span>` : '–'}</td></tr>`; }).join('')
   }</tbody></table>`;
 }
 let st;
@@ -673,7 +834,7 @@ let sample = null;
 function setAI() {
   sample = CFG.key ? anthropicSample : null;
   $('#aist').innerHTML = sample ? `AI พร้อม · ${esc(CFG.model || MODELS.default)} <button class="link" data-settings>ตั้งค่า</button>`
-    : `ยังไม่ได้ใส่ Claude API key — <button class="link" data-settings>ตั้งค่า</button> · ระหว่างนี้ใช้การค้นหาคำแทน`;
+    : `ยังไม่ได้ใส่ Claude API key — <button class="link" data-settings>ตั้งค่า</button> · ระหว่างนี้วิเคราะห์ด้วยเครื่องค้นหาในเครื่อง (พจนานุกรม + สเปก + คลังทีม)`;
 }
 const logEl = $('#log');
 const log = t => { logEl.classList.add('on'); logEl.insertAdjacentHTML('beforeend', `<div>${esc(t)}</div>`); logEl.scrollTop = 1e6; };
@@ -691,6 +852,7 @@ const b64e = s => btoa(unescape(encodeURIComponent(s))), b64d = s => decodeURICo
 const GH = () => CFG.ghRepo && CFG.ghToken;
 const LOCAL = () => { try { return JSON.parse(localStorage.getItem('hs-lib-local') || '[]'); } catch { return []; } };
 const setLocal = L => { try { localStorage.setItem('hs-lib-local', JSON.stringify(L)); } catch {} };
+const TGC = new WeakMap();
 function libMatch(...texts) {
   let best = null;
   for (const t of texts.filter(Boolean)) {
@@ -700,7 +862,7 @@ function libMatch(...texts) {
       let sc = 0;
       if (e.key === k) sc = 1;
       else if ((e.key.match(/\d+/g) || []).join(',') !== nums) continue;
-      else { const eg = tri(e.key); let m = 0; for (const g of tg) if (eg.has(g)) m++; sc = m / (tg.size + eg.size - m || 1); }
+      else { let eg = TGC.get(e); if (!eg) TGC.set(e, eg = tri(e.key)); let m = 0; for (const g of tg) if (eg.has(g)) m++; sc = m / (tg.size + eg.size - m || 1); }
       if (sc >= 0.72 && (!best || sc > best.sc)) best = {e, sc};
     }
   }
@@ -744,7 +906,7 @@ async function loadLib() {
 function renderLib() {
   const q = libKey($('#lq').value);
   const L = q ? LIB.filter(e => e.key.includes(q) || e.code.includes(q.replace(/\D/g,'') || '#')) : LIB;
-  $('#lres').innerHTML = `<div class="acts2" style="margin:0 0 10px"><button class="btn ghost sm" id="libexp">ส่งออก library.json</button><label class="btn ghost sm" style="display:inline-flex;align-items:center">นำเข้าไฟล์<input type="file" id="libimp" accept=".json" hidden></label><button class="btn ghost sm" data-settings>ตั้งค่า GitHub</button></div>` +
+  $('#lres').innerHTML = `<div class="acts2" style="margin:0 0 10px"><button class="btn ghost sm" id="libexp">ส่งออก library.json</button><label class="btn ghost sm" style="display:inline-flex;align-items:center">นำเข้า library.json / ใบขนเก่า (Excel, CSV)<input type="file" id="libimp" accept=".json,.xlsx,.xls,.csv" hidden></label><button class="btn ghost sm" data-settings>ตั้งค่า GitHub</button></div>` +
     (L.length ? `<table class="stack"><thead><tr><th>พิกัด</th><th>สินค้า</th><th>บันทึก</th><th></th></tr></thead><tbody>${L.slice(0, 500).map(e => {
     const x = byCode.get(e.code);
     return `<tr><td class="c" data-l="พิกัด"><button class="link" data-line="${e.code}" style="font:700 16px var(--num)">${fmt(e.code)}</button></td><td data-l="สินค้า">${esc(e.th || '')}<span class="note" style="display:block">${esc(clip(e.text || '', 160))}</span>${x ? `<span class="note" style="display:block">${esc(clip(x.d, 90))}</span>` : ''}</td><td data-l="บันทึก"><span class="note">${esc(e.note || '')}${e.by ? ' · ' + esc(e.by) : ''}${e.at ? ' · ' + esc(String(e.at).slice(0, 10)) : ''}</span></td><td><button class="link" data-libdel="${esc(e.id)}">ลบ</button></td></tr>`; }).join('')}</tbody></table>`
@@ -780,12 +942,64 @@ document.addEventListener('click', e => {
 document.addEventListener('change', async e => {
   if (e.target.id !== 'libimp' || !e.target.files[0]) return;
   try {
-    const L = JSON.parse(await e.target.files[0].text()); if (!Array.isArray(L)) throw new Error('ไฟล์ไม่ใช่รายการ');
+    const f = e.target.files[0]; e.target.value = '';
+    if (!/\.json$/i.test(f.name)) { await declImport(f); return; }
+    const L = JSON.parse(await f.text()); if (!Array.isArray(L)) throw new Error('ไฟล์ไม่ใช่รายการ');
     const ok = L.filter(x => x && x.code && x.key).map(x => ({...x, id: x.id || hash(x.key)}));
+    await libAddMany(ok);
+  } catch (err) { $('#lbst').textContent = 'นำเข้าไม่สำเร็จ: ' + err.message; }
+});
+async function libAddMany(ok) {
     if (GH()) await ghEdit(S => { const ids = new Set(ok.map(x => x.id)); return [...ok, ...S.filter(x => !ids.has(x.id))]; }, `library: import ${ok.length}`);
     else { const ids = new Set(ok.map(x => x.id)); setLocal([...ok, ...LOCAL().filter(x => !ids.has(x.id))]); }
     await loadLib();
-  } catch (err) { $('#lbst').textContent = 'นำเข้าไม่สำเร็จ: ' + err.message; }
+}
+/* import past customs declarations: Excel / CSV → team library */
+let DI = null;
+async function declImport(f) {
+  if (!window.XLSX) await loadScript('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js');
+  const wb = XLSX.read(await f.arrayBuffer());
+  let rows = [];
+  for (const s of wb.SheetNames) { const r = XLSX.utils.sheet_to_json(wb.Sheets[s], {header: 1, blankrows: false, raw: false}); if (r.length > rows.length) rows = r; }
+  if (rows.length < 2) throw new Error('ไม่พบข้อมูลในไฟล์');
+  const W = Math.max(...rows.slice(0, 50).map(r => r.length));
+  const isHS = v => /^\d{8}(\d{2,3})?$/.test(String(v ?? '').replace(/[\s.\-]/g, ''));
+  const stat = [...Array(W).keys()].map(c => { const col = rows.slice(0, 300).map(r => r[c]); return {c, hs: col.filter(isHS).length, txt: col.reduce((a, v) => a + (/[฀-๿]{2}|[a-z]{3}/i.test(v || '') ? String(v).length : 0), 0), org: col.filter(v => CN[String(v || '').trim().toUpperCase()] || originOf('made in ' + (v || ''))).length}; });
+  const hsC = stat.reduce((a, s) => s.hs > a.hs ? s : a).c;
+  const dC = stat.filter(s => s.c !== hsC).reduce((a, s) => s.txt > a.txt ? s : a, {txt: -1, c: 0}).c;
+  const hdr = rows.findIndex(r => /^\d{8}/.test(String(r[hsC] ?? '').replace(/[\s.\-]/g, '')));
+  const oC = stat.filter(s => s.c !== hsC && s.c !== dC && s.org > 3).sort((a, b) => b.org - a.org)[0]?.c ?? -1;
+  DI = {rows, W, hsC, dC, oC, hdr: Math.max(0, hdr), name: f.name};
+  diRender(); showPanel();
+}
+function diRows() {
+  const out = [], seen = new Set(); DI.bad = 0;
+  for (const r of DI.rows.slice(DI.hdr)) {
+    const code = String(r[DI.hsC] ?? '').replace(/[\s.\-]/g, '').slice(0, 8), desc = String(r[DI.dC] ?? '').trim();
+    if (/^\d{8}$/.test(code) && !byCode.has(code)) DI.bad++;
+    if (!byCode.has(code) || desc.length < 3) continue;
+    const k = libKey(desc); if (k.length < 3 || seen.has(k + code)) continue; seen.add(k + code);
+    out.push({id: hash(k), key: k, text: desc, th: byCode.get(code).d, code, note: 'นำเข้าจากใบขน ' + DI.name + (DI.oC >= 0 && r[DI.oC] ? ' · ' + r[DI.oC] : ''), by: ME(), at: new Date().toISOString()});
+  }
+  return out;
+}
+function diRender() {
+  panelState = null;
+  const col = (id, v, none) => `<select id="${id}">${none ? '<option value="-1">— ไม่มี —</option>' : ''}${[...Array(DI.W).keys()].map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>คอลัมน์ ${XLSX.utils.encode_col(c)} · ${esc(clip(String(DI.rows[Math.max(0, DI.hdr - 1)]?.[c] ?? DI.rows[DI.hdr]?.[c] ?? ''), 24))}</option>`).join('')}</select>`;
+  const R = diRows();
+  $('#pt').innerHTML = `<span>นำเข้าใบขนเก่า</span>${esc(DI.name)}`;
+  $('#pb').innerHTML = `<p class="note">ระบบเดาคอลัมน์ให้แล้ว ตรวจและแก้ได้ — รายการที่นำเข้าจะเป็น “คลังทีม” ที่เครื่องค้นหาและ AI ใช้ก่อนเสมอ</p>
+    <div class="form" style="grid-template-columns:1fr 1fr 1fr;gap:10px"><label>คอลัมน์รายละเอียดสินค้า ${col('di-d', DI.dC)}</label><label>คอลัมน์พิกัด ${col('di-h', DI.hsC)}</label><label>คอลัมน์ถิ่นกำเนิด ${col('di-o', DI.oC, true)}</label></div>
+    <p><b>พบ ${R.length.toLocaleString()} รายการที่ใช้ได้</b> (ตัดรายการซ้ำออกแล้ว)${DI.bad ? ` · <span class="need" style="display:inline">${DI.bad} แถวใช้พิกัดที่ไม่มีในตารางปัจจุบัน (อาจเป็นพิกัดฉบับเก่า) — ไม่นำเข้า</span>` : ''}</p>
+    <table class="stack"><tbody>${R.slice(0, 12).map(e => `<tr><td class="c">${fmt(e.code)}</td><td>${esc(clip(e.text, 90))}</td></tr>`).join('')}</tbody></table>
+    <div class="acts2"><button class="btn red sm" id="di-go" ${R.length ? '' : 'disabled'}>นำเข้า ${R.length.toLocaleString()} รายการ</button></div>`;
+}
+document.addEventListener('change', e => { if (!DI || !/^di-/.test(e.target.id)) return; DI[{'di-d': 'dC', 'di-h': 'hsC', 'di-o': 'oC'}[e.target.id]] = +e.target.value; diRender(); });
+document.addEventListener('click', async e => {
+  const b = e.target.closest('#di-go'); if (!b || !DI) return;
+  b.disabled = true; b.textContent = 'กำลังนำเข้า…';
+  try { const R = diRows(); await libAddMany(R); $('#pb').innerHTML = `<div class="rv agree"><b>นำเข้า ${R.length.toLocaleString()} รายการแล้ว</b><p>${GH() ? 'บันทึกขึ้น GitHub ให้ทั้งทีมแล้ว' : 'เก็บไว้ในเครื่องนี้ — ตั้งค่า GitHub token เพื่อแชร์ทั้งทีม'}</p></div>`; DI = null; }
+  catch (err) { b.disabled = false; b.textContent = 'ลองอีกครั้ง'; alertBox('นำเข้าไม่สำเร็จ: ' + (err?.message || err)); }
 });
 
 /* ---------- settings panel ---------- */
@@ -885,6 +1099,7 @@ let RES = [];
 
 /* ---------- scoring: confidence from checks the app can verify ---------- */
 function scoreOf(r) {
+  if (r.local) return localScore(r);
   const it = r.it, x = byCode.get(normCode(it.code)), ck = it.checks || {};
   const L = [];
   if (r.lib && x && r.lib.e.code === x.c) return {s: 100, L: [['ok', `ตรงกับพิกัดที่ทีมยืนยันแล้ว (ความเหมือน ${Math.round(r.lib.sc * 100)}%)`]], lib: true};
@@ -937,7 +1152,7 @@ async function runAI() {
     let text = txt0, images = [];
     for (const f of files) { log('อ่านไฟล์ ' + f.name); const r = await readFile(f); if (r.text) text += `\n\n[ไฟล์ ${f.name}]\n` + r.text; if (r.images) images.push(...r.images); }
     text = clip(text, 24000);
-    if (!sample) return fallback(text);
+    if (!sample || $('#o-off').checked) return fallback(text);
     if (images.length) { const lim = await sample.limits?.().catch(() => null); if (!lim?.images) { log('มุมมองนี้ส่งรูปให้ AI ไม่ได้ — ใช้เฉพาะข้อความ'); images = []; } else images = images.slice(0, 4); }
     log('AI เริ่มวิเคราะห์' + ($('#o-deep').checked ? ' (โหมดละเอียด)' : '') + '…');
     RES = await classify(text || '(ดูจากรูปที่แนบ)', images);
@@ -991,7 +1206,8 @@ function renderAll() {
         ${(it.alternatives||[]).length ? `<div class="alts">${it.alternatives.map(a => { const y = byCode.get(normCode(a.code)); return y ? `<button class="chip" data-line="${y.c}"><b>${esc(fmt(y.c))}</b>${esc(a.why || '')}</button>` : ''; }).join('')}</div>` : ''}
         ${cands.length ? `<div class="acts2"><select data-cf="${i}" aria-label="เลือกพิกัดที่จะยืนยัน">${cands.map(c => `<option value="${c}">${fmt(c)}</option>`).join('')}</select>
           <button class="btn sm" data-save="${i}">ยืนยันพิกัด → บันทึกลงคลังทีม</button>
-          <button class="btn ghost sm" data-draft="${i}">ร่างคำขอวินิจฉัยพิกัดล่วงหน้า</button>
+          <button class="btn ghost sm" data-wiz="${i}">ไล่เลือกพิกัดย่อย</button>
+          ${sample ? `<button class="btn ghost sm" data-draft="${i}">ร่างคำขอวินิจฉัยพิกัดล่วงหน้า</button>` : ''}
           ${x ? `<button class="link" data-c="${x.c}">ดูโครงสร้างประเภท ${x.h}</button>` : ''}</div>` : ''}
         ${x ? `${ctrlBadges(x) ? '<br>' + ctrlBadges(x) : ''}${ctrlHTML(x, it)}${privHTML(x, org, 'r' + i)}` : ''}
       </div></article>`;
@@ -1051,10 +1267,138 @@ async function copyRows() {
   try { await navigator.clipboard.writeText(tsv); $('#cp').textContent = 'คัดลอกแล้ว ✓'; }
   catch { $('#cp').textContent = 'คัดลอกไม่ได้ในมุมมองนี้'; }
 }
-function fallback(text) {
-  const lines = text.split(/\n/).map(s => s.trim()).filter(s => /[฀-๿]{2}|\d{4}|[a-z]{3}/i.test(s)).slice(0, 20);
-  $('#res').innerHTML = `<div class="rh"><h2>ผลจากการค้นหาคำ (ไม่ใช้ AI)</h2></div>` + (lines.length ? lines.map(l => { const m = libMatch(l); return `<h3 style="margin:20px 0 6px;font-size:17px">${esc(l)}</h3>${m ? `<p><span class="lib">✓ คลังทีม: ${fmt(m.e.code)}</span> ${esc(m.e.th || '')}</p>` : ''}${rowsHTML(search(l, 6))}`; }).join('') : '<p class="empty">ไม่พบข้อความที่ค้นหาได้</p>');
+function fallback(text) { localAnalyze(text); }
+/* ---------- offline analysis (no AI) ---------- */
+const CNAME = {BN:['brunei','บรูไน'],KH:['cambodia','กัมพูชา'],ID:['indonesia','อินโดนีเซีย'],LA:['laos','lao pdr','lao','ลาว'],MY:['malaysia','มาเลเซีย'],MM:['myanmar','burma','เมียนมา','พม่า'],PH:['philippines','ฟิลิปปินส์'],SG:['singapore','สิงคโปร์'],VN:['vietnam','viet nam','เวียดนาม'],CN:['china','prc','p.r.c','จีน'],HK:['hong kong','ฮ่องกง'],JP:['japan','ญี่ปุ่น'],KR:['korea','south korea','republic of korea','เกาหลี'],IN:['india','อินเดีย'],AU:['australia','ออสเตรเลีย'],NZ:['new zealand','นิวซีแลนด์'],PE:['peru','เปรู'],CL:['chile','ชิลี'],BD:['bangladesh','บังกลาเทศ'],NP:['nepal','เนปาล'],XX:['usa','united states','u.s.a','germany','france','italy','united kingdom','england','taiwan','mexico','canada','turkey','สหรัฐ','เยอรมนี','ไต้หวัน','ฝรั่งเศส','อิตาลี','อังกฤษ']};
+const CPAT = Object.entries(CNAME).flatMap(([k, ws]) => ws.map(w => [w, k])).sort((a, b) => b[0].length - a[0].length);
+function originOf(s) {
+  const t = ' ' + String(s).toLowerCase() + ' ';
+  const m = t.match(/(?:made in|origin(?:\s*country)?|country of origin|c\/o|coo|ผลิตใน|ผลิตจาก|ประเทศ(?:ต้นกำเนิด|ผู้ผลิต)?|ถิ่นกำเนิด)\s*[:：\-]?\s*([a-z.\s]{2,25}|[฀-๿]{2,15})/i);
+  const zone = m ? m[1] : null;
+  for (const [w, k] of CPAT) if ((zone || '').includes(w)) return k;
+  if (!zone) for (const [w, k] of CPAT) if (w.length > 3 && new RegExp('(^|[^a-z])' + w.replace(/[.]/g, '\\.') + '([^a-z]|$)').test(t)) return k;
+  return '';
 }
+const JUNK = /^(country of origin|origin|made in|ผลิตใน|ประเทศ(?:ต้นกำเนิด|ผู้ผลิต)?|ถิ่นกำเนิด|invoice|commercial invoice|packing list|date|no\.?|item|description|qty|quantity|unit price|amount|total|sub ?total|grand total|freight|insurance|bank|swift|account|tel|fax|e-?mail|address|shipper|consignee|notify|port of|vessel|bl no|b\/l|payment|terms|remark|signature|page|รวม|ราคารวม|วันที่|เลขที่|ผู้ส่ง|ผู้รับ)\b/i;
+function splitLines(text) {
+  const out = [];
+  for (let l of String(text).split(/\n/)) {
+    l = l.replace(/^\[(?:ไฟล์|ชีต)[^\]]*\]$/, '').replace(/"/g, '').trim();
+    if (!l) continue;
+    const cells = l.split(/\t|,(?=(?:[^"]*"[^"]*")*[^"]*$)|\s{3,}|\|/).map(s => s.trim()).filter(Boolean);
+    const desc = cells.filter(c => /[฀-๿]{2}|[a-z]{3}/i.test(c) && !/^(pcs|set|sets|kg|kgs|ea|unit|usd|thb|jpy|cny|eur)\.?$/i.test(c)).join(' ') || l;
+    if (JUNK.test(desc) || desc.length < 3) continue;
+    if (!/[฀-๿]{2}|[a-z]{3}/i.test(desc)) continue;
+    out.push({raw: l, desc: desc.replace(/\b(usd|thb|us\$|฿)\s*[\d,.]+/gi, '').replace(/\b\d+(?:\.\d+)?\s*(pcs|pc|sets?|units?|ea|ชิ้น|ตัว|ชุด|เครื่อง|อัน)\b/gi, '').replace(/\s+/g, ' ').trim()});
+  }
+  return out.slice(0, 40);
+}
+function localItem(line, globalOrigin) {
+  const q = line.desc, R = search(q, 400), lm = libMatch(q);
+  const H = new Map(); for (const r of R) { const e = H.get(r.x.h); if (!e || r.s > e.s) H.set(r.x.h, r); }
+  const heads = [...H.values()].sort((a, b) => b.s - a.s);
+  const top = R[0];
+  const it = {input: line.raw, product_th: top ? top.x.d : '', code: top ? top.x.c : '', origin: originOf(line.raw) || globalOrigin, questions: [], alternatives: [],
+    reason: '', checks: {}};
+  if (top) {
+    const p = fullPath(top.x);
+    it.product_th = p[0] && p.length > 1 ? `${p[p.length - 2] && !/^อื่น/.test(p[p.length - 2]) ? p[p.length - 2] + ' › ' : ''}${top.x.d}` : top.x.d;
+    it.reason = `จับคู่คำ ${(top.why.terms || []).map(t => '“' + t + '”').join(' ') || '-'} กับประเภท ${top.x.h} ${clip(D.H[top.x.h] || '', 90)}` + ((top.why.attrs || []).length ? ` · ${top.why.attrs.map(a => a.txt).join(' · ')}` : '');
+    it.alternatives = [...heads.slice(1, 4).map(r => ({code: r.x.c, why: `ประเภท ${r.x.h} ${clip(D.H[r.x.h] || '', 50)}`})),
+      ...R.filter(r => r.x.h === top.x.h && r.x !== top.x).slice(0, 3).map(r => ({code: r.x.c, why: clip(r.x.d, 50)}))];
+  }
+  return {it, q, R: R.slice(0, 60), heads: heads.slice(0, 6), ctx: {opened: new Set(), chapters: new Set()}, answers: {}, local: true, lib: lm};
+}
+function localScore(r) {
+  const it = r.it, x = byCode.get(normCode(it.code)), L = [];
+  if (!x) return {s: 5, L: [['no', 'ไม่พบคำที่ตรงในตารางพิกัด — ลองพิมพ์ชื่อสินค้าให้ชัดขึ้น หรือใช้ AI']]};
+  if (r.lib && r.lib.e.code === x.c) return {s: 100, L: [['ok', `ตรงกับพิกัดที่ทีมยืนยันแล้ว (ความเหมือน ${Math.round(r.lib.sc * 100)}%)`]], lib: true};
+  if (r.wiz) {
+    let s = 70; L.push(['ok', `ผู้ใช้ไล่เลือกตามโครงสร้างประเภท ${x.h} จนถึงพิกัด 8 หลักแล้ว`]);
+    if (r.heads?.[0] && r.heads[0].x.h === x.h) { s += 10; L.push(['ok', 'ประเภท 4 หลักตรงกับผลค้นหาอันดับหนึ่ง']); } else L.push(['mid', 'ประเภทที่เลือกไม่ใช่ผลค้นหาอันดับหนึ่ง — ตรวจหมายเหตุตอนอีกครั้ง']);
+    if (r.lib && r.lib.e.code !== x.c) { s = Math.min(s, 40); L.push(['no', `คลังทีมเคยยืนยันสินค้าคล้ายกันเป็น ${fmt(r.lib.e.code)}`]); }
+    L.push(['mid', 'ไม่ได้ใช้ AI ตรวจหมายเหตุหมวด/ตอน — ถ้าเป็นสินค้าใหม่ควรตรวจซ้ำหรือใช้ AI']);
+    return {s: Math.min(92, s), L};
+  }
+  const top = r.R?.[0], h1 = r.heads?.[0], h2 = r.heads?.[1];
+  let s = 15; L.push(['ok', 'พบรายการที่ตรงกับคำค้นในตารางพิกัด']);
+  if (top && top.cov >= 0.99) { s += 15; L.push(['ok', 'ทุกคำสำคัญของสินค้าตรงกับถ้อยคำพิกัดหรือพจนานุกรมการค้า']); } else L.push(['mid', `ตรงบางคำ (${Math.round((top?.cov || 0) * 100)}%)`]);
+  if (DICT[x.c.slice(0, 4)] && (top?.why.terms || []).length) { s += 10; L.push(['ok', 'ชื่อทางการค้าตรงกับพจนานุกรมของประเภทนี้']); }
+  const m = h1 && h2 ? (h1.s - h2.s) / h1.s : 1;
+  if (m > 0.3) { s += 20; L.push(['ok', `ประเภท ${x.h} นำห่างประเภทอื่นชัดเจน`]); }
+  else if (m > 0.12) { s += 10; L.push(['mid', `ประเภท ${x.h} นำ ${h2.x.h} เล็กน้อย`]); }
+  else L.push(['no', `ใกล้เคียงกับประเภท ${h2.x.h} ${clip(D.H[h2.x.h] || '', 40)} — ต้องแยกให้ชัด`]);
+  const same = (r.R || []).filter(y => y.x.h === x.h);
+  const at = top?.why.attrs || [];
+  if (at.length && at.every(a => a.ok)) { s += 15; L.push(['ok', 'ขนาด/สเปกที่ระบุตรงกับเงื่อนไขประเภทย่อย']); }
+  else if (same.length > 1 && same[1].s > top.s * 0.93) L.push(['no', 'ยังเลือกประเภทย่อย 8 หลักไม่ได้แน่นอน — กด “ไล่เลือกพิกัดย่อย”']);
+  else { s += 8; L.push(['mid', 'ประเภทย่อยเลือกจากคำที่ตรงที่สุด']); }
+  if (r.lib && r.lib.e.code !== x.c) { s = Math.min(s, 40); L.push(['no', `คลังทีมเคยยืนยันสินค้าคล้ายกันเป็น ${fmt(r.lib.e.code)}`]); }
+  L.push(['mid', 'วิเคราะห์ด้วยเครื่องค้นหาในเครื่อง (ไม่ใช้ AI)']);
+  return {s: Math.min(85, s), L};
+}
+function localAnalyze(text) {
+  const lines = splitLines(text), g = originOf(text);
+  logEl.innerHTML = ''; log(`วิเคราะห์ในเครื่อง ${lines.length} รายการ (ไม่ใช้ AI)` + (g ? ` · ถิ่นกำเนิด ${CN[g]}` : ''));
+  RES = lines.map(l => localItem(l, g));
+  renderAll();
+}
+
+/* ---------- guided classification wizard ---------- */
+let WZ = null;
+function openWizard(i, h) {
+  const r = RES[i]; if (!r) return;
+  const q = r.q || r.it.input;
+  r.R ||= search(q, 400); r.heads ||= headingRank(q, 6).map(e => e.best);
+  WZ = {i, q, h: h || null, path: [], sc: new Map(r.R.map(y => [y.x.c, y]))};
+  if (!WZ.h && r.heads.length === 1) WZ.h = r.heads[0].x.h;
+  wizRender();
+}
+function wizRender() {
+  const r = RES[WZ.i]; panelState = null;
+  $('#pt').innerHTML = `<span>ไล่เลือกพิกัดทีละขั้น</span>${esc(clip(r.it.input || '', 90))}`;
+  const attrs = parseAttrs(WZ.q).attrs;
+  let html = attrs.length ? `<p class="note">สเปกที่อ่านได้: ${attrs.map(a => `<span class="wy">${esc(a.raw)}</span>`).join(' ')}</p>` : '';
+  if (!WZ.h) {
+    const hs = [...new Set([...(r.heads || []).map(y => y.x.h), normCode(r.it.code) && hOf(normCode(r.it.code))].filter(Boolean))].slice(0, 6);
+    html += `<h4 class="wq">ขั้นที่ 1 — สินค้านี้ตรงกับประเภท (4 หลัก) ใดที่สุด?</h4>` + hs.map((h, k) => `<button class="wopt${k === 0 ? ' best' : ''}" data-wh="${h}"><b>${h}</b> ${esc(D.H[h] || '')}${PV?.HS?.[h.replace('.', '')] ? `<small>${esc(PV.HS[h.replace('.', '')])}</small>` : ''}${k === 0 ? '<i>แนะนำ</i>' : ''}</button>`).join('')
+      + `<div class="acts2"><input id="wzh" placeholder="หรือพิมพ์ประเภท เช่น 84.18" style="max-width:220px"><button class="btn ghost sm" id="wzgo">ไป</button></div><div id="wzn">${notesHTML(hOf(normCode(r.it.code) || '0000'))}</div>`;
+  } else {
+    const P = x => [...x.par, x.d];
+    const list = (byHead.get(WZ.h) || []).filter(x => WZ.path.every((p, k) => P(x)[k] === p));
+    const depth = WZ.path.length;
+    const leaf = depth ? list.find(x => P(x).length === depth) : (list.length === 1 ? list[0] : null);
+    html += `<p><button class="link" data-wback="1">‹ ย้อนกลับ</button> · <b>${WZ.h}</b> ${esc(D.H[WZ.h] || '')}</p>`
+      + (WZ.path.length ? `<div class="path">${WZ.path.map((p, k) => `${k ? '<br>' : ''}${'– '.repeat(k + 1)}${esc(p)}`).join('')}</div>` : '');
+    if (leaf) {
+      html += `<div class="rv agree"><b>ได้พิกัด ${fmt(leaf.c)}</b><p>${esc(leaf.d)}${leaf.en ? ' · ' + esc(leaf.en) : ''} · อากรทั่วไป ${esc(genRate(leaf).r)}</p></div><div class="acts2"><button class="btn red sm" data-wpick="${leaf.c}">ใช้พิกัดนี้</button><button class="link" data-line="${leaf.c}">ดูอัตราและสิทธิทั้งหมด</button></div>`;
+    } else {
+      const opts = new Map();
+      for (const x of list) { const t = P(x)[depth]; const y = WZ.sc.get(x.c); const o = opts.get(t) || {t, n: 0, s: -1e9, en: '', bad: false, ok: false};
+        o.n++; if (y && y.s > o.s) { o.s = y.s; o.ok = (y.why.attrs || []).some(a => a.ok); o.bad = (y.why.attrs || []).some(a => !a.ok) && !o.ok; }
+        if (P(x).length === depth + 1) o.en = x.en; opts.set(t, o); }
+      const arr = [...opts.values()], best = arr.reduce((a, o) => o.s > a.s ? o : a, arr[0]);
+      html += `<h4 class="wq">ขั้นต่อไป — ข้อใดตรงกับสินค้า?</h4>` + arr.map(o => `<button class="wopt${o === best && o.s > -1e9 ? ' best' : ''}${o.bad ? ' bad' : ''}" data-wp="${esc(o.t)}">${esc(o.t)}${o.en ? `<small>${esc(o.en)}</small>` : ''}${o.n > 1 ? `<small>${o.n} พิกัดย่อย</small>` : ''}${o === best && o.s > -1e9 ? `<i>${o.ok ? 'ตรงสเปก' : 'น่าจะใช่'}</i>` : o.bad ? '<i>ไม่ตรงสเปก</i>' : ''}</button>`).join('');
+    }
+  }
+  $('#pb').innerHTML = html;
+  if (!$('#panel').classList.contains('on')) showPanel();
+}
+document.addEventListener('click', e => {
+  const t = e.target;
+  const wz = t.closest('[data-wiz]'); if (wz) { openWizard(+wz.dataset.wiz); return; }
+  if (!WZ || !t.closest('#pb')) return;
+  const wh = t.closest('[data-wh]'); if (wh) { WZ.h = wh.dataset.wh; WZ.path = []; wizRender(); return; }
+  if (t.closest('#wzgo')) { const v = $('#wzh').value.replace(/\D/g, ''); const h = v.slice(0, 2) + '.' + v.slice(2, 4); if (byHead.has(h)) { WZ.h = h; WZ.path = []; wizRender(); } return; }
+  const wp = t.closest('[data-wp]'); if (wp) { WZ.path.push(wp.dataset.wp); wizRender(); $('#pb').scrollTop = 0; return; }
+  if (t.closest('[data-wback]')) { if (WZ.path.length) WZ.path.pop(); else WZ.h = null; wizRender(); return; }
+  const pk = t.closest('[data-wpick]'); if (pk) {
+    const r = RES[WZ.i], x = byCode.get(pk.dataset.wpick);
+    r.it.code = x.c; r.it.product_th = x.d; r.wiz = true; r.local = true; r.answered = true;
+    r.it.reason = `เลือกตามโครงสร้างประเภท ${x.h}: ${fullPath(x).slice(1).join(' › ')}`;
+    hidePanel(); WZ = null; renderAll(); document.getElementById('card' + RES.indexOf(r))?.scrollIntoView({block: 'start'});
+  }
+});
 
 /* ---------- privileges catalog ---------- */
 const CAT = [

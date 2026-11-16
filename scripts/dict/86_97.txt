@@ -1,0 +1,130 @@
+8601: หัวรถจักรไฟฟ้า, electric locomotive
+8602: หัวรถจักรดีเซล, diesel locomotive
+8603: รถไฟฟ้า, รถไฟฟ้าขับเคลื่อนเอง, EMU, DMU, metro train, self-propelled railcar
+8604: รถซ่อมบำรุงทาง, track maintenance vehicle
+8605: ตู้โดยสารรถไฟ, passenger coach rail
+8606: แคร่ขนสินค้ารถไฟ, ตู้สินค้ารถไฟ, railway wagon, freight wagon, tank wagon
+8607: ชิ้นส่วนรถไฟ, ล้อรถไฟ, โบกี้, railway parts, bogie, wheelset, coupler railway
+8608: อุปกรณ์รางรถไฟ, track fixtures, railway signalling mechanical
+8609: ตู้คอนเทนเนอร์, ตู้สินค้า, ตู้เย็นคอนเทนเนอร์, แท็งก์คอนเทนเนอร์, container, shipping container, ISO container, 20ft container, 40ft container, reefer container, tank container, flat rack
+8701: รถแทรกเตอร์, หัวลาก, รถหัวลาก, รถไถ, tractor, road tractor, prime mover, truck head, agricultural tractor, walking tractor
+8702: รถบัส, รถโดยสาร, รถตู้โดยสาร, รถมินิบัส, bus, coach, minibus, passenger van 10 seats
+8703: รถยนต์, รถเก๋ง, รถ SUV, รถไฟฟ้า, รถยนต์ไฟฟ้า, รถไฮบริด, รถกอล์ฟ, รถ ATV, car, passenger car, sedan, SUV, electric vehicle, EV, hybrid car, PHEV, golf cart, ATV, motor car
+870380: รถยนต์ไฟฟ้า, รถ EV, battery electric vehicle, BEV, electric car
+8704: รถบรรทุก, รถกระบะ, รถปิกอัพ, รถดัมพ์, รถตู้ขนของ, truck, lorry, pickup truck, dump truck, cargo van, delivery van, tipper
+8705: รถเครนติดรถ, รถดับเพลิง, รถผสมคอนกรีต, รถบรรทุกน้ำมันพิเศษ, รถกู้ภัย, crane truck, fire truck, concrete mixer truck, tow truck, mobile workshop, drilling truck, road sweeper
+8706: แชสซีส์พร้อมเครื่องยนต์, chassis with engine
+8707: ตัวถังรถ, ห้องโดยสาร, car body, cab, truck body
+8708: อะไหล่รถยนต์, ชิ้นส่วนรถยนต์, กันชน, เบรก, ผ้าเบรก, จานเบรก, คลัตช์, เพลาขับ, เกียร์รถยนต์, โช้คอัพ, หม้อน้ำรถยนต์, ท่อไอเสีย, พวงมาลัย, ล้อแม็ก, ถุงลมนิรภัย, เข็มขัดนิรภัย, ช่วงล่าง, auto parts, car parts, bumper, brake, brake disc, clutch, drive shaft, gearbox car, shock absorber, radiator car, exhaust pipe, muffler, steering wheel, alloy wheel, wheel rim, airbag, seat belt, suspension parts, axle
+8709: รถลากในโรงงาน, รถลากกระเป๋า, works truck, tow tractor platform, baggage tractor
+8710: รถถัง, armoured vehicle, tank military
+8711: รถจักรยานยนต์, มอเตอร์ไซค์, สกู๊ตเตอร์ไฟฟ้า, จักรยานไฟฟ้า, รถมอเตอร์ไซค์ไฟฟ้า, motorcycle, motorbike, scooter, moped, electric motorcycle, e-bike, electric bicycle, electric scooter
+8712: จักรยาน, bicycle, bike, mountain bike, road bike
+8713: รถเข็นผู้ป่วย, รถเข็นวีลแชร์, wheelchair, electric wheelchair
+8714: อะไหล่มอเตอร์ไซค์, อะไหล่จักรยาน, เฟรมจักรยาน, motorcycle parts, bicycle parts, bicycle frame, wheelchair parts
+8715: รถเข็นเด็ก, baby stroller, pram, pushchair
+8716: รถพ่วง, หางพ่วง, รถกึ่งพ่วง, รถเข็น, รถเข็นของ, รถเข็นมือ, trailer, semi-trailer, caravan, hand cart, trolley, wheelbarrow, platform trolley
+8801: บอลลูน, เครื่องร่อน, balloon, glider, hang glider
+8802: เครื่องบิน, เฮลิคอปเตอร์, aircraft, airplane, helicopter, aeroplane, satellite
+8804: ร่มชูชีพ, parachute, paraglider
+8805: เครื่องฝึกบินจำลอง, flight simulator, aircraft launching gear
+8806: โดรน, อากาศยานไร้คนขับ, drone, UAV, unmanned aircraft, quadcopter
+8807: อะไหล่เครื่องบิน, ชิ้นส่วนอากาศยาน, ใบพัดโดรน, aircraft parts, landing gear, propeller aircraft, drone parts
+8901: เรือสินค้า, เรือโดยสาร, เรือบรรทุก, เรือข้ามฟาก, cargo ship, ferry, barge, tanker, container ship, passenger ship
+8902: เรือประมง, fishing vessel, trawler
+8903: เรือยอทช์, เรือเร็ว, เรือคายัค, เรือยาง, yacht, speedboat, kayak, canoe, inflatable boat, jet ski
+8904: เรือลากจูง, tug, tugboat
+8905: เรือขุด, ปั้นจั่นลอยน้ำ, แท่นขุดเจาะ, dredger, floating crane, drilling platform, FPSO
+8906: เรือรบ, เรือชูชีพ, warship, lifeboat
+8907: แพ, ทุ่นลอย, โป๊ะ, raft, buoy, pontoon, floating dock
+8908: เรือเพื่อแยกชิ้นส่วน, vessels for breaking up
+9001: ไฟเบอร์ออปติก, เลนส์คอนแทค, แผ่นโพลาไรซ์, optical fibre, contact lenses, polarizing film, optical fibre bundle
+9002: เลนส์, เลนส์กล้อง, ฟิลเตอร์เลนส์, ปริซึม, lens, camera lens, objective lens, filter optical, prism, mirror optical
+9003: กรอบแว่น, ขาแว่น, spectacle frames, eyeglass frames
+9004: แว่นตา, แว่นว่ายน้ำ, swimming goggles, แว่นกันแดด, แว่นตานิรภัย, แว่นสายตา, glasses, spectacles, sunglasses, safety goggles, reading glasses, protective eyewear
+9005: กล้องส่องทางไกล, กล้องโทรทรรศน์, binoculars, telescope, monocular
+9006: กล้องถ่ายรูป, แฟลชกล้อง, กล้องอินสแตนท์, photographic camera, film camera, instant camera, camera flash
+9007: กล้องถ่ายภาพยนตร์, cine camera, cinematographic projector
+9008: เครื่องฉายสไลด์, slide projector, image projector
+9010: เครื่องล้างอัดรูป, จอฉายภาพ, photo lab equipment, projection screen
+9011: กล้องจุลทรรศน์, optical microscope, stereo microscope
+9012: กล้องจุลทรรศน์อิเล็กตรอน, electron microscope, SEM
+9013: เลเซอร์, ตัวชี้เลเซอร์, จอ LCD ที่ไม่ใช่สินค้าอื่น, กล้องเล็งปืน, laser, laser pointer, laser module, LCD device n.e.c., telescopic sight, magnifying glass, door viewer
+9014: เข็มทิศ, เครื่องมือนำทาง, compass, navigational instruments, gyrocompass, autopilot
+9015: กล้องสำรวจ, เครื่องวัดระดับ, ประมวลผลสำรวจ, total station, theodolite, level surveying, rangefinder, GPS survey, weather instruments, laser level
+9016: ตาชั่งละเอียด, เครื่องชั่งวิเคราะห์, analytical balance, precision balance
+9017: ไม้บรรทัด, เวอร์เนียร์, ไมโครมิเตอร์, ตลับเมตร, วงเวียน, เครื่องเขียนแบบ, ruler, vernier caliper, micrometer, measuring tape, drafting instruments, protractor, calculating rule, plotter drafting
+9018: เครื่องมือแพทย์, เข็มฉีดยา, กระบอกฉีดยา, สายสวน, เครื่องวัดความดัน, หูฟังแพทย์, เครื่องมือทันตกรรม, เครื่องอัลตราซาวด์, เครื่องตรวจคลื่นหัวใจ, เครื่องมือผ่าตัด, เครื่องวัดออกซิเจนปลายนิ้ว, medical instruments, syringe, needle medical, catheter, blood pressure monitor, stethoscope, dental instruments, ultrasound machine, ECG, surgical instruments, pulse oximeter, endoscope, IV set, dialysis machine, defibrillator, ophthalmic instruments, veterinary instruments
+9019: เครื่องนวด, เก้าอี้นวด, เครื่องช่วยหายใจ, เครื่องพ่นละอองยา, massage chair, massager, massage gun, ventilator, CPAP, oxygen therapy apparatus, nebulizer, physiotherapy equipment
+9020: หน้ากากกันแก๊ส, เครื่องช่วยหายใจ SCBA, gas mask, breathing apparatus, respirator with filter, SCBA
+9021: อุปกรณ์กายอุปกรณ์, ไม้ค้ำยัน, เครื่องช่วยฟัง, ฟันปลอม, ขาเทียม, สเตนท์, ข้อเทียม, เครื่องกระตุ้นหัวใจ, เฝือก, orthopaedic appliances, crutches, hearing aid, dentures, artificial teeth, prosthesis, artificial limb, stent, artificial joint, pacemaker, splint, orthodontic brackets
+9022: เครื่องเอกซเรย์, เครื่อง CT, เครื่องตรวจสัมภาระ, x-ray machine, CT scanner, x-ray baggage scanner, radiotherapy, x-ray tube
+9023: หุ่นจำลองการศึกษา, demonstration models, anatomical models, teaching apparatus
+9024: เครื่องทดสอบความแข็ง, เครื่องทดสอบแรงดึง, hardness tester, tensile testing machine, universal testing machine, material testing
+9025: เทอร์โมมิเตอร์, ไฮโกรมิเตอร์, ไพโรมิเตอร์, thermometer, hygrometer, pyrometer, infrared thermometer, hydrometer, barometer
+9026: เกจวัดแรงดัน, เครื่องวัดอัตราการไหล, เกจวัดระดับ, เซ็นเซอร์แรงดัน, pressure gauge, flow meter, level gauge, level sensor, pressure transmitter, pressure sensor, anemometer, manometer
+9027: เครื่องวิเคราะห์ก๊าซ, เครื่องวัด pH, เครื่องวิเคราะห์ทางเคมี, สเปกโตรมิเตอร์, เครื่องตรวจวัดแอลกอฮอล์, gas analyzer, pH meter, spectrometer, chromatograph, gas detector, breathalyzer, particle counter, lux meter, sound level meter, analyzer laboratory
+9028: มิเตอร์น้ำ, มิเตอร์ไฟฟ้า, มิเตอร์แก๊ส, water meter, electricity meter, kWh meter, gas meter, smart meter
+9029: มาตรวัดรอบ, มาตรวัดความเร็ว, ตัวนับ, tachometer, speedometer, counter, odometer, taximeter
+9030: มัลติมิเตอร์, ออสซิลโลสโคป, เครื่องวัดไฟ, เครื่องทดสอบวงจร, multimeter, oscilloscope, clamp meter, voltage tester, insulation tester, network analyzer, semiconductor tester, power analyzer
+9031: เครื่องวัดพิกัด CMM, เครื่องตรวจสอบ, เซ็นเซอร์, โปรเจคเตอร์วัดชิ้นงาน, เครื่องตรวจสอบด้วยแสง, เครื่องวัดความหนา, measuring instrument, CMM, coordinate measuring machine, inspection machine, optical inspection, AOI, sensor n.e.c., thickness gauge, profile projector, balancing machine, gauge
+9032: เทอร์โมสตัท, เครื่องควบคุมอุณหภูมิ, เครื่องควบคุมอัตโนมัติ, ตัวปรับแรงดัน, เพรสเชอร์สวิตช์, ECU, thermostat, temperature controller, automatic regulator, voltage stabilizer, pressure switch, humidistat, process controller, ECU control unit
+9033: ชิ้นส่วนเครื่องมือวัด, parts for instruments chapter 90
+9101: นาฬิกาข้อมือทอง, precious metal watch
+9102: นาฬิกาข้อมือ, นาฬิกาดิจิตอล, wrist watch, watch, digital watch, quartz watch, smart watch non communication
+9103: นาฬิกาปลุก, alarm clock with watch movement
+9105: นาฬิกาแขวน, นาฬิกาตั้งโต๊ะ, wall clock, table clock, alarm clock
+9106: เครื่องตอกบัตร, time recorder, time attendance machine, parking meter
+9107: ไทม์เมอร์สวิตช์, time switch, timer switch
+9113: สายนาฬิกา, watch strap, watch band
+9114: ชิ้นส่วนนาฬิกา, watch parts, clock parts
+9201: เปียโน, piano, digital piano non electronic
+9202: กีตาร์, ไวโอลิน, guitar, acoustic guitar, violin, ukulele, harp
+9205: ขลุ่ย, แซกโซโฟน, ทรัมเป็ต, หีบเพลง, ฮาร์โมนิกา, flute, saxophone, trumpet, accordion, harmonica
+9206: กลอง, ฉาบ, drum, drum set, cymbals, xylophone
+9207: คีย์บอร์ดไฟฟ้า, กีตาร์ไฟฟ้า, เปียโนไฟฟ้า, electric guitar, keyboard synthesizer, electronic piano
+9209: อุปกรณ์ดนตรี, สายกีตาร์, guitar strings, music instrument parts
+9301: อาวุธสงคราม, military weapons
+9302: ปืนพก, revolver, pistol
+9303: ปืนยาว, ปืนลูกซอง, rifle, shotgun, sporting gun
+9304: ปืนลม, ปืนอัดลม, air gun, airsoft gun, BB gun, taser, baton
+9305: ชิ้นส่วนอาวุธปืน, firearm parts
+9306: กระสุน, กระสุนปืน, ammunition, cartridges, bullets
+9307: ดาบ, sword, bayonet
+9401: เก้าอี้, โซฟา, เบาะนั่งรถยนต์, เก้าอี้สำนักงาน, เก้าอี้พับ, เก้าอี้เด็ก, chair, sofa, office chair, car seat, folding chair, stool, gaming chair, child car seat, seat parts
+940120: เบาะนั่งรถยนต์, car seat, vehicle seat
+9402: เตียงผู้ป่วย, เก้าอี้ทันตกรรม, hospital bed, dental chair, operating table, barber chair
+9403: เฟอร์นิเจอร์, โต๊ะ, ตู้, ชั้นวาง, ตู้เสื้อผ้า, โต๊ะทำงาน, เตียง, ชั้นวางสินค้า, ตู้เหล็ก, ตู้ล็อคเกอร์, ตู้ครัว, furniture, table, desk, cabinet, shelf, shelving, wardrobe, bed frame, rack, storage rack, locker, kitchen cabinet, office furniture, furniture parts
+9404: ที่นอน, หมอน, ผ้านวม, ถุงนอน, mattress, pillow, quilt, duvet, sleeping bag, cushion, spring mattress, latex mattress
+9405: โคมไฟ, ไฟ LED, โคมไฟเพดาน, ไฟถนน, ไฟสปอร์ตไลท์, ไฟประดับ, ป้ายไฟ, โคมไฟตั้งโต๊ะ, ไฟโซลาร์, ไฟคริสต์มาส, lamp, light fitting, luminaire, LED light, ceiling light, street light, floodlight, spotlight, downlight, table lamp, panel light, solar light, string lights, illuminated sign, high bay light, emergency light fixture
+9406: อาคารสำเร็จรูป, ห้องน้ำสำเร็จรูป, ตู้คอนเทนเนอร์ออฟฟิศ, prefabricated building, prefab house, modular building, container house, portable toilet cabin
+9503: ของเล่น, ตุ๊กตา, รถของเล่น, โมเดล, เลโก้, จิ๊กซอว์, รถเด็ก, สกู๊ตเตอร์เด็ก, ของเล่นบังคับวิทยุ, toys, doll, toy car, model kit, building blocks, puzzle, ride-on toy, kids scooter, RC toy, plush toy, stuffed toy, educational toy
+9504: เครื่องเล่นเกม, เกมคอนโซล, ไพ่, โต๊ะพูล, หมากรุก, ลูกเต๋า, game console, video game, playing cards, billiard table, chess, board game, arcade machine, joystick, game controller
+9505: ของตกแต่งเทศกาล, ต้นคริสต์มาส, ของมายากล, christmas decorations, christmas tree artificial, party supplies, halloween costume accessories, magic tricks
+9506: อุปกรณ์กีฬา, ลูกบอล, ไม้แบดมินตัน, ไม้เทนนิส, ไม้กอล์ฟ, ลูกกอล์ฟ, ลู่วิ่งไฟฟ้า, ดัมเบล, เครื่องออกกำลังกาย, สเก็ตบอร์ด, sports equipment, ball, football, badminton racket, tennis racket, golf club, golf ball, treadmill, dumbbell, fitness equipment, gym equipment, skateboard, yoga mat, exercise bike
+9507: เบ็ดตกปลา, คันเบ็ด, ตะขอเบ็ด, รอกตกปลา, fishing rod, fishing hook, fishing reel, fishing tackle, lure
+9508: เครื่องเล่นสวนสนุก, amusement park rides, carousel
+9601: งาช้าง, มุก, ivory articles, mother of pearl articles
+9602: แคปซูลเปล่าเจลาติน, เทียนไขสลัก, empty capsules gelatin, carved wax articles, amber articles
+9603: แปรง, แปรงสีฟัน, ไม้กวาด, ม็อบถูพื้น, แปรงทาสี, ลูกกลิ้งทาสี, แปรงแต่งหน้า, brush, toothbrush, broom, mop, paint brush, paint roller, makeup brush, brush for machines, electric toothbrush head
+9604: ตะแกรงร่อนมือ, hand sieve
+9605: ชุดเดินทาง, travel kit, sewing kit, manicure travel set
+9606: กระดุม, กระดุมแป๊ก, buttons, snap buttons, press studs
+9607: ซิป, ซิปไนลอน, หัวซิป, zipper, zip fastener, slider zipper
+9608: ปากกา, ปากกาลูกลื่น, ปากกาเมจิก, ปากกาไฮไลท์, ไส้ปากกา, pen, ballpoint pen, marker, highlighter, fountain pen, pen refill, gel pen
+9609: ดินสอ, ดินสอสี, สีเทียน, ไส้ดินสอ, pencil, colour pencil, crayon, pencil lead, chalk writing, pastel
+9610: กระดานไวท์บอร์ด, กระดานดำ, whiteboard, blackboard, chalkboard
+9611: ตรายาง, ตราประทับ, rubber stamp, date stamp, self inking stamp
+9612: ผ้าหมึก, ตลับผ้าหมึก, หมึกริบบอน, ink ribbon, typewriter ribbon, thermal transfer ribbon, ink pad
+9613: ไฟแช็ก, lighter, cigarette lighter, gas lighter
+9614: ไปป์, บ้องบารากู่, smoking pipe, hookah pipe, cigarette holder
+9615: หวี, กิ๊บติดผม, ที่ม้วนผม, comb, hair clip, hairpin, hair roller
+9616: ขวดสเปรย์น้ำหอม, พัฟแป้ง, perfume atomizer, scent spray, powder puff
+9617: กระติกน้ำสุญญากาศ, กระบอกน้ำเก็บอุณหภูมิ, vacuum flask, thermos, insulated bottle, tumbler vacuum
+9618: หุ่นโชว์เสื้อ, mannequin, tailors dummy
+9619: ผ้าอ้อม, ผ้าอ้อมสำเร็จรูป, ผ้าอนามัย, ผ้าอ้อมผู้ใหญ่, แผ่นรองซับ, diaper, nappy, baby diaper, sanitary pad, sanitary napkin, tampon, adult diaper, underpad, panty liner
+9620: ขาตั้งกล้อง, ไม้เซลฟี่, tripod, monopod, selfie stick, bipod
+9701: ภาพวาด, painting, oil painting, drawing original
+9703: ประติมากรรม, sculpture original
+9705: ของสะสม, collectors pieces, specimen collections
+9706: ของเก่า, วัตถุโบราณ, antiques

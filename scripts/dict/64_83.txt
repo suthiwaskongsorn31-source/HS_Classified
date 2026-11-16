@@ -1,0 +1,209 @@
+6401: รองเท้าบูทยาง, รองเท้าบูทกันน้ำ, rubber boots, rain boots, gumboots, wellington boots
+6402: รองเท้าแตะ, รองเท้าแตะฟองน้ำ, รองเท้ากีฬาพลาสติก, รองเท้าสกี, flip flops, slippers plastic, sandals plastic, EVA slippers, sports shoes rubber, crocs
+6403: รองเท้าหนัง, รองเท้าเซฟตี้, รองเท้าคัทชู, บูทหนัง, leather shoes, safety shoes, safety boots, leather boots, dress shoes, loafers
+6404: รองเท้าผ้าใบ, รองเท้าวิ่ง, sneakers, canvas shoes, running shoes, trainers, sports shoes textile upper
+6405: รองเท้าอื่น, รองเท้าสักหลาด, other footwear, felt shoes
+6406: พื้นรองเท้า, แผ่นรองเท้า, หนังหน้ารองเท้า, ส้นรองเท้า, shoe soles, insoles, shoe uppers, heels, footwear parts
+6504: หมวกสาน, หมวกฟาง, straw hat, plaited hat
+6505: หมวกแก๊ป, หมวกผ้า, หมวกไหมพรม, ตาข่ายคลุมผม, cap, baseball cap, knitted hat, beanie, hair net, bucket hat
+6506: หมวกนิรภัย, หมวกกันน็อค, หมวกเซฟตี้, หมวกว่ายน้ำ, safety helmet, hard hat, motorcycle helmet, bicycle helmet, swimming cap
+6507: สายรัดคางหมวก, hat linings, chin straps
+6601: ร่ม, ร่มกันแดด, ร่มสนาม, umbrella, sun umbrella, garden umbrella, parasol
+6602: ไม้เท้า, walking stick, cane, whip
+6603: ซี่ร่ม, โครงร่ม, umbrella frame, umbrella ribs
+6702: ดอกไม้ประดิษฐ์, ต้นไม้ปลอม, artificial flowers, artificial plants, fake plants
+6703: ผมคนแปรรูป, human hair processed
+6704: วิก, ผมปลอม, ขนตาปลอม, หนวดปลอม, wig, hair extensions, false eyelashes, toupee
+6801: หินปูถนน, ขอบคันหิน, paving stone, curbstone, setts
+6802: หินอ่อนแปรรูป, หินแกรนิตแผ่น, ท็อปหินแกรนิต, ป้ายหลุมศพ, marble slab, granite slab, granite countertop, stone tiles, tombstone, mosaic stone
+6803: แผ่นหินชนวน, slate tiles
+6804: หินเจียร, ใบเจียร, ล้อเจียร, หินลับมีด, grinding wheel, grinding disc, cutting disc abrasive, whetstone, sharpening stone, millstone
+6805: กระดาษทราย, ผ้าทราย, จานทราย, sandpaper, abrasive paper, abrasive cloth, flap disc, sanding belt, sanding disc
+6806: ฉนวนใยหิน, ร็อควูล, ใยแก้วแร่, เพอร์ไลต์ขยายตัว, rock wool, mineral wool, slag wool, expanded perlite, vermiculite expanded, insulation mineral
+6807: แผ่นยางมะตอย, แผ่นกันซึมบิทูเมน, bitumen membrane, roofing felt, waterproofing membrane
+6808: แผ่นไม้ซีเมนต์, panels of wood wool cement
+6809: แผ่นยิปซัม, ยิปซัมบอร์ด, แผ่นฝ้า, gypsum board, plasterboard, drywall, ceiling board gypsum
+6810: เสาเข็ม, คอนกรีตสำเร็จรูป, อิฐบล็อก, แผ่นพื้นสำเร็จรูป, กระเบื้องคอนกรีต, ท่อคอนกรีต, concrete pile, precast concrete, concrete block, hollow block, concrete pipe, concrete roof tile, terrazzo
+6811: แผ่นไฟเบอร์ซีเมนต์, กระเบื้องลอน, ไม้ฝาเฌอร่า, fiber cement board, fibre cement sheet, corrugated roofing sheet cement, cement board
+6812: ใยหินผลิตภัณฑ์, asbestos articles
+6813: ผ้าเบรก, ผ้าคลัตช์, ผ้าเบรกรถยนต์, brake pads, brake lining, clutch facing, friction material
+6814: แผ่นไมกา, mica sheet, mica insulator
+6815: คาร์บอนไฟเบอร์, แปรงถ่าน, แผ่นกราไฟต์, เส้นใยคาร์บอน, ใยบะซอลต์, carbon fibre, carbon fiber, carbon brush, graphite sheet, graphite gasket, carbon fiber cloth, basalt fibre
+6901: อิฐดินเบา, siliceous bricks
+6902: อิฐทนไฟ, refractory bricks, fire bricks, magnesia bricks
+6903: เบ้าหลอม, ถ้วยทนไฟ, crucible, refractory nozzle, ceramic tube refractory
+6904: อิฐมอญ, อิฐก่อ, building bricks, clay bricks
+6905: กระเบื้องหลังคาดินเผา, roofing tiles clay, chimney pot
+6906: ท่อดินเผา, ceramic pipes
+6907: กระเบื้องปูพื้น, กระเบื้องบุผนัง, กระเบื้องเซรามิก, แกรนิตโต้, โมเสก, floor tiles, wall tiles, ceramic tiles, porcelain tiles, granito, mosaic tiles
+6909: เซรามิกอุตสาหกรรม, ลูกบดเซรามิก, ceramic for laboratory, ceramic balls, ceramic insulators technical, troughs
+6910: สุขภัณฑ์, ชักโครก, อ่างล้างหน้า, โถปัสสาวะ, toilet bowl, sanitary ware, wash basin, urinal, water closet, bidet, ceramic sink
+6911: ชามกระเบื้อง, จานพอร์ซเลน, porcelain tableware, bone china, porcelain cups, porcelain plates
+6912: จานเซรามิก, แก้วมัคเซรามิก, ถ้วยกาแฟ, หม้อดิน, ceramic tableware, stoneware, ceramic mug, coffee cup ceramic, earthenware
+6913: ตุ๊กตาเซรามิก, แจกันเซรามิก, ceramic figurine, ceramic vase, ceramic ornaments
+6914: เซรามิกอื่น, ceramic articles, flower pots ceramic
+7001: เศษแก้ว, cullet, glass scrap
+7003: กระจกลวดลาย, cast glass, rolled glass, wired glass
+7005: กระจกแผ่น, กระจกโฟลต, กระจกใส, float glass, clear glass sheet, tinted glass, reflective glass
+7006: กระจกดัด, กระจกเจียรขอบ, bent glass, edge worked glass
+7007: กระจกนิรภัย, กระจกเทมเปอร์, กระจกลามิเนต, กระจกบังลม, tempered glass, toughened glass, laminated glass, safety glass, windscreen, windshield, car glass
+7008: กระจกฉนวน, กระจกสองชั้น, insulating glass unit, double glazing, IGU
+7009: กระจกเงา, กระจกมองหลัง, mirror, rear view mirror, bathroom mirror
+7010: ขวดแก้ว, โหลแก้ว, หลอดแอมพูล, ขวดยาแก้ว, glass bottle, glass jar, vial, ampoule, perfume bottle glass
+7011: หลอดแก้วเปล่า, glass envelopes, glass bulb blanks, CRT glass
+7013: แก้วน้ำ, จานแก้ว, ภาชนะแก้ว, แก้วไวน์, ชามแก้ว, ภาชนะแก้วทนความร้อน, glassware, drinking glass, wine glass, glass bowl, pyrex, borosilicate cookware, glass vase
+7014: เลนส์ไฟสัญญาณ, signal glassware, optical elements glass unworked
+7015: กระจกนาฬิกา, watch glass, spectacle glass blanks
+7016: บล็อกแก้ว, glass block, glass mosaic
+7017: เครื่องแก้ววิทยาศาสตร์, บีกเกอร์, หลอดทดลอง, laboratory glassware, beaker, test tube, flask lab
+7018: ลูกปัดแก้ว, ไข่มุกเทียม, ลูกแก้ว, glass beads, imitation pearls, glass eyes, glass microspheres
+7019: ใยแก้ว, ไฟเบอร์กลาส, ผ้าใยแก้ว, ฉนวนใยแก้ว, เทปไฟเบอร์กลาส, glass fibre, fiberglass, glass wool, chopped strand mat, fiberglass cloth, glass fibre roving, fiberglass mesh
+7020: แก้วอื่น, หลอดสุญญากาศกระติก, quartz glass articles, vacuum flask inner, glass articles
+7101: ไข่มุก, pearls, cultured pearls
+7102: เพชร, เพชรอุตสาหกรรม, diamonds, rough diamond, polished diamond, industrial diamond
+7103: พลอย, ทับทิม, ไพลิน, มรกต, หยก, ruby, sapphire, emerald, jade, gemstones, precious stones
+7104: เพชรสังเคราะห์, พลอยสังเคราะห์, synthetic diamond, lab grown diamond, cubic zirconia, synthetic gemstones
+7105: ผงเพชร, diamond powder, diamond dust
+7106: เงิน, เงินแท่ง, silver bullion, silver bar, silver powder, silver grain
+7108: ทองคำ, ทองแท่ง, ทองคำเปลว, gold bullion, gold bar, gold powder, gold leaf
+7110: แพลทินัม, แพลเลเดียม, โรเดียม, platinum, palladium, rhodium
+7112: เศษโลหะมีค่า, เศษทอง, precious metal scrap, gold scrap, silver scrap, catalytic converter scrap
+7113: เครื่องประดับทอง, แหวน, สร้อยคอ, ต่างหู, กำไล, เครื่องประดับเงิน, jewellery, gold jewelry, silver jewelry, ring, necklace, earrings, bracelet, pendant
+7114: เครื่องเงิน, เครื่องทอง, silverware, goldsmiths wares
+7116: เครื่องประดับไข่มุก, articles of pearls, gemstone articles
+7117: เครื่องประดับเทียม, เครื่องประดับแฟชั่น, imitation jewellery, costume jewelry, fashion jewelry
+7118: เหรียญ, coins
+7201: เหล็กถลุง, เหล็กหล่อดิบ, pig iron
+7202: เฟอร์โรอัลลอย, เฟอร์โรแมงกานีส, เฟอร์โรซิลิคอน, ferro alloys, ferromanganese, ferrosilicon, ferrochrome, silicomanganese
+7203: เหล็กพรุน, DRI, HBI, sponge iron
+7204: เศษเหล็ก, เศษเหล็กกล้า, เศษสเตนเลส, iron scrap, steel scrap, HMS, stainless steel scrap, shredded scrap
+7205: ผงเหล็ก, iron powder, steel shot, steel grit
+7206: เหล็กแท่งหลอม, ingots iron
+7207: เหล็กแท่งยาว, บิลเล็ต, สแลบ, billet, slab, bloom, semi-finished steel
+7208: เหล็กแผ่นรีดร้อน, เหล็กม้วนรีดร้อน, เหล็กแผ่นดำ, hot rolled coil, HRC, hot rolled sheet, HR plate, chequered plate, steel plate
+7209: เหล็กแผ่นรีดเย็น, เหล็กม้วนรีดเย็น, cold rolled coil, CRC, cold rolled sheet, CR steel
+7210: เหล็กแผ่นเคลือบ, เหล็กชุบสังกะสี, เหล็กกัลวาไนซ์, เหล็กเคลือบสี, เหล็กแผ่นเคลือบดีบุก, ซิงค์อลูม, galvanized steel sheet, GI coil, galvalume, pre-painted steel, PPGI, tinplate, zinc coated steel, electrolytic tinplate
+7211: เหล็กแถบ, เหล็กแผ่นแคบรีดร้อน, steel strip hot rolled narrow
+7212: เหล็กแถบเคลือบ, coated steel strip narrow
+7213: ลวดเหล็กเส้นม้วน, wire rod, steel wire rod
+7214: เหล็กเส้น, เหล็กข้ออ้อย, เหล็กเส้นกลม, rebar, deformed bar, steel round bar, reinforcing bar
+7215: เหล็กเพลา, เหล็กเส้นดึงเย็น, bright bar, cold drawn bar, steel shaft bar
+7216: เหล็กรูปพรรณ, เหล็กฉาก, เหล็กตัวซี, เหล็กไอบีม, เหล็ก H-beam, เหล็กราง, steel angle, H beam, I beam, channel steel, C channel, steel section
+7217: ลวดเหล็ก, ลวดชุบสังกะสี, ลวดผูกเหล็ก, steel wire, galvanized wire, binding wire, spring wire
+7218: สเตนเลสแท่ง, stainless steel billet, stainless ingot
+7219: แผ่นสเตนเลส, สเตนเลสม้วน, stainless steel sheet, stainless coil, SUS304 sheet, 2B finish
+7220: แถบสเตนเลส, stainless steel strip narrow
+7221: ลวดสเตนเลสม้วน, stainless wire rod
+7222: เพลาสเตนเลส, เหล็กฉากสเตนเลส, stainless steel bar, stainless round bar, stainless angle
+7223: ลวดสเตนเลส, stainless steel wire
+7224: เหล็กกล้าผสมแท่ง, alloy steel billet
+7225: เหล็กแผ่นซิลิคอน, เหล็กกล้าผสมแผ่น, electrical steel, silicon steel, alloy steel sheet, CRGO, CRNGO
+7226: เหล็กกล้าผสมแถบ, alloy steel strip, silicon steel strip
+7227: ลวดเหล็กผสมม้วน, alloy wire rod
+7228: เหล็กเครื่องมือ, เหล็กกล้าผสมเส้น, tool steel bar, alloy steel bar, high speed steel bar, SCM440
+7229: ลวดเหล็กกล้าผสม, ลวดเชื่อม MIG แบบตัน, alloy steel wire, solid MIG welding wire, CO2 welding wire
+7301: เข็มพืดเหล็ก, sheet pile
+7302: รางรถไฟ, rail, railway track material, fishplate
+7303: ท่อเหล็กหล่อ, cast iron pipe, ductile iron pipe
+7304: ท่อเหล็กไร้ตะเข็บ, ท่อเหล็กเจาะ, seamless pipe, seamless tube, boiler tube, OCTG, casing tubing
+7305: ท่อเหล็กเชื่อมขนาดใหญ่, line pipe welded large diameter, LSAW, SSAW
+7306: ท่อเหล็ก, ท่อสเตนเลส, ท่อเหล็กกล่อง, ท่อแป๊บ, ท่อประปาเหล็ก, steel pipe, welded pipe, ERW pipe, galvanized pipe, square tube, rectangular hollow section, stainless pipe, stainless tube
+7307: ข้อต่อท่อเหล็ก, ข้องอ, หน้าแปลน, ข้อต่อสเตนเลส, pipe fittings steel, elbow, flange, tee, reducer, coupling, nipple, union, stainless fittings
+7308: โครงสร้างเหล็ก, นั่งร้าน, ประตูเหล็ก, หน้าต่างเหล็ก, แบบหล่อเหล็ก, หลังคาเหล็ก, สะพานเหล็ก, เสาโครงเหล็ก, steel structure, scaffolding, steel door, steel window, formwork steel, roof truss, steel bridge, tower, metal deck, prefabricated steel parts
+7309: ถังเหล็กขนาดใหญ่, แท็งก์เก็บ, ไซโล, storage tank steel, silo, vat, tank over 300 litres
+7310: ถังเหล็ก, ถังน้ำมัน 200 ลิตร, กระป๋อง, ถังสี, กล่องเหล็ก, steel drum, oil drum, can, tin can, paint can, metal box, aerosol can, jerry can steel
+7311: ถังแก๊ส, ถังออกซิเจน, ถัง LPG, ถังแรงดัน, gas cylinder, LPG cylinder, oxygen cylinder, CNG cylinder, pressure cylinder
+7312: ลวดสลิง, สลิงเหล็ก, รอกสลิง, wire rope, steel cable, sling, steel strand, PC strand
+7313: ลวดหนาม, barbed wire, razor wire
+7314: ตะแกรงเหล็ก, ตาข่ายเหล็ก, ลวดตาข่าย, เมทัลชีท, ตะแกรงฉีก, wire mesh, welded mesh, chain link fence, expanded metal, steel grating, gabion
+7315: โซ่, โซ่รถจักรยานยนต์, โซ่ลำเลียง, chain, roller chain, motorcycle chain, conveyor chain, lifting chain, link chain
+7316: สมอเรือ, anchor, grapnel
+7317: ตะปู, หมุด, ลวดเย็บ, nails, tacks, drawing pins, staples steel, roofing nails
+7318: น็อต, สกรู, โบลท์, สลักเกลียว, แหวนรอง, หมุดย้ำ, สปริงวอชเชอร์, พุก, สตัด, ตะปูเกลียว, ปิ๊น, nut, bolt, screw, washer, rivet, spring washer, anchor bolt, stud, self tapping screw, wood screw, hex bolt, cotter pin, dowel pin, threaded rod, fasteners
+7319: เข็มเย็บผ้า, เข็มกลัด, needles sewing, knitting needles, safety pins
+7320: สปริง, แหนบ, สปริงขด, สปริงแผ่น, spring, coil spring, leaf spring, compression spring, torsion spring
+7321: เตาแก๊ส, เตาถ่าน, เตาบาร์บีคิว, gas stove, gas cooker, BBQ grill, charcoal stove, camping stove
+7322: หม้อน้ำทำความร้อน, radiators central heating, air heaters non electric
+7323: หม้อสเตนเลส, กระทะเหล็ก, ภาชนะสเตนเลส, ฝอยขัดหม้อ, เครื่องครัวเหล็ก, ถาดสเตนเลส, stainless steel cookware, pot, pan, wok, kitchenware steel, steel wool, scouring pad, enamel ware, steel tray
+7324: ซิงค์สเตนเลส, อ่างล้างจานสเตนเลส, อ่างอาบน้ำเหล็ก, stainless sink, kitchen sink steel, bathtub steel
+7325: ชิ้นงานหล่อเหล็ก, ฝาท่อเหล็กหล่อ, ลูกบดเหล็ก, iron castings, manhole cover, grinding balls cast, cast steel parts
+7326: ชิ้นส่วนเหล็กปั๊ม, ชิ้นงานเหล็กขึ้นรูป, ขาตั้งเหล็ก, กล่องเหล็ก, ชั้นวางลวด, ไม้แขวนลวด, ลวดดัด, steel parts, metal stamping, forged steel parts, wire products, steel brackets, cable tray, hooks steel, steel articles, pallet steel
+7403: ทองแดงบริสุทธิ์, แคโทดทองแดง, ทองเหลืองแท่ง, copper cathode, refined copper, brass ingot, copper billet
+7404: เศษทองแดง, เศษทองเหลือง, copper scrap, brass scrap
+7406: ผงทองแดง, copper powder
+7407: แท่งทองแดง, บัสบาร์, ทองเหลืองเส้น, copper bar, copper busbar, brass rod, copper profile
+7408: ลวดทองแดง, ลวดอาบน้ำยา, copper wire, enamelled wire base, brass wire
+7409: แผ่นทองแดง, แผ่นทองเหลือง, copper sheet, copper strip, brass sheet
+7410: ฟอยล์ทองแดง, copper foil, copper clad laminate foil
+7411: ท่อทองแดง, ท่อแอร์ทองแดง, copper tube, copper pipe, ACR tube, brass tube
+7412: ข้อต่อทองแดง, ข้อต่อทองเหลือง, copper fittings, brass fittings
+7413: สายทองแดงตีเกลียว, copper stranded wire, copper braid
+7415: สกรูทองเหลือง, copper rivets, brass screws, brass nuts
+7418: เครื่องครัวทองแดง, ภาชนะทองเหลือง, copper cookware, brass household articles, sanitary ware copper
+7419: ชิ้นส่วนทองเหลือง, ชิ้นงานทองแดง, copper articles, brass parts, copper castings
+7502: นิกเกิล, nickel cathode, nickel ingot
+7505: ลวดนิกเกิล, nickel wire, nickel rod
+7506: แผ่นนิกเกิล, nickel strip, nickel sheet, nickel foil
+7508: ชิ้นงานนิกเกิล, nickel articles, nickel anodes, nickel mesh
+7601: อะลูมิเนียมแท่ง, อินกอทอะลูมิเนียม, aluminium ingot, primary aluminium, aluminium alloy ingot, billet aluminium
+7602: เศษอะลูมิเนียม, aluminium scrap, UBC scrap
+7603: ผงอะลูมิเนียม, aluminium powder, aluminium paste flakes
+7604: อะลูมิเนียมโปรไฟล์, อะลูมิเนียมเส้น, เส้นอะลูมิเนียม, aluminium profile, aluminium extrusion, aluminium bar, aluminium rod
+7605: ลวดอะลูมิเนียม, aluminium wire
+7606: แผ่นอะลูมิเนียม, อะลูมิเนียมม้วน, aluminium sheet, aluminium coil, aluminium plate, chequered aluminium
+7607: ฟอยล์อะลูมิเนียม, อะลูมิเนียมฟอยล์, aluminium foil, alu foil, foil laminated, blister foil
+7608: ท่ออะลูมิเนียม, aluminium tube, aluminium pipe
+7609: ข้อต่ออะลูมิเนียม, aluminium fittings
+7610: โครงสร้างอะลูมิเนียม, ประตูอะลูมิเนียม, หน้าต่างอะลูมิเนียม, บันไดอะลูมิเนียม, aluminium door, aluminium window, aluminium structure, curtain wall, aluminium scaffolding
+7611: ถังอะลูมิเนียมใหญ่, aluminium tank
+7612: กระป๋องอะลูมิเนียม, หลอดอะลูมิเนียม, aluminium can, beverage can, aluminium tube collapsible, aerosol can aluminium
+7613: ถังแก๊สอะลูมิเนียม, aluminium gas cylinder
+7614: สายอะลูมิเนียมตีเกลียว, aluminium stranded wire, ACSR not insulated
+7615: หม้ออะลูมิเนียม, ภาชนะอะลูมิเนียม, aluminium cookware, aluminium pot, aluminium tray household
+7616: ชิ้นส่วนอะลูมิเนียม, ชิ้นงานอะลูมิเนียมหล่อ, aluminium parts, aluminium die casting, aluminium articles, aluminium rivets, aluminium mesh
+7801: ตะกั่ว, lead ingot, refined lead
+7802: เศษตะกั่ว, lead scrap
+7806: ชิ้นงานตะกั่ว, lead articles, lead weights
+7901: สังกะสีแท่ง, zinc ingot, zinc alloy ingot
+7903: ผงสังกะสี, zinc dust, zinc powder
+7905: แผ่นสังกะสี, zinc sheet
+7907: ชิ้นงานสังกะสี, zinc die casting, zinc articles, zinc anode
+8001: ดีบุกแท่ง, tin ingot
+8003: ลวดบัดกรี, ตะกั่วบัดกรี, tin wire, solder wire, solder bar
+8007: ชิ้นงานดีบุก, tin articles
+8101: ทังสเตน, ลวดทังสเตน, tungsten, tungsten wire, tungsten electrode
+8102: โมลิบดีนัม, molybdenum
+8104: แมกนีเซียม, magnesium ingot, magnesium alloy
+8105: โคบอลต์, cobalt metal
+8108: ไทเทเนียม, titanium, titanium sheet, titanium bar
+8109: เซอร์โคเนียม, zirconium
+8110: พลวง, antimony
+8111: แมงกานีสโลหะ, manganese metal flakes
+8112: โครเมียม, แกลเลียม, เจอร์เมเนียม, อินเดียม, แคดเมียม, chromium metal, gallium, germanium, indium, beryllium, cadmium, vanadium
+8113: เซอร์เมท, cermets
+8201: จอบ, เสียม, พลั่ว, ขวาน, คราด, กรรไกรตัดกิ่ง, shovel, spade, hoe, axe, rake, pruning shears, garden tools
+8202: เลื่อย, ใบเลื่อย, ใบตัดวงเดือน, ใบเลื่อยสายพาน, saw, hand saw, saw blade, circular saw blade, band saw blade, hacksaw blade
+8203: คีม, ตะไบ, คีมตัด, คีมย้ำ, กรรไกรตัดเหล็ก, pliers, files, rasp, wire cutter, crimping tool, tweezers, pincers, metal shears
+8204: ประแจ, ประแจเลื่อน, ประแจปอนด์, บ๊อกซ์, ลูกบ๊อกซ์, wrench, spanner, adjustable wrench, torque wrench, socket, socket set
+8205: ค้อน, ไขควง, ปากกาจับชิ้นงาน, เกรียง, คัตเตอร์, หัวพ่นไฟ, ทั่ง, hammer, screwdriver, vise, trowel, utility knife, blow torch, anvil, clamp, crowbar, hand tools
+8206: ชุดเครื่องมือช่าง, tool set, tool kit sets
+8207: ดอกสว่าน, ดอกเจาะ, เม็ดมีด, ดอกกัด, ดอกต๊าป, หัวไขควง, แม่พิมพ์ปั๊ม, ดอกเร้าเตอร์, drill bit, end mill, cutting insert, tap, die, router bit, screwdriver bit, punch die, tool holder, reamer, dies for drawing
+8208: ใบมีดเครื่องจักร, ใบมีดตัดกระดาษ, ใบมีดบด, machine knives, cutting blades, shredder blade, granulator blade
+8209: เม็ดมีดคาร์ไบด์, carbide inserts, carbide tips
+8210: เครื่องบดมือ, ที่เปิดกระป๋อง, hand operated kitchen appliances, can opener mechanical, juicer manual, meat grinder manual
+8211: มีด, มีดทำครัว, มีดพับ, knife, kitchen knife, folding knife, pocket knife, table knife
+8212: มีดโกน, ใบมีดโกน, razor, razor blade, disposable razor
+8213: กรรไกร, scissors, shears
+8214: กรรไกรตัดเล็บ, ปัตตาเลี่ยนมือ, มีดสับ, nail clipper, manicure set, hair clipper manual, cleaver, pencil sharpener blade
+8215: ช้อน, ส้อม, ทัพพี, spoon, fork, ladle, cutlery set, stainless cutlery
+8301: กุญแจ, แม่กุญแจ, ล็อค, กุญแจรถ, ลูกบิด, กลอนไฟฟ้า, padlock, lock, door lock, key, electronic lock, car lock, cylinder lock
+8302: บานพับ, มือจับประตู, รางลิ้นชัก, ล้อเฟอร์นิเจอร์, ลูกล้อ, โช้คอัพประตู, ขายึด, hinge, door handle, drawer slide, castor wheel, door closer, furniture fittings, brackets, cabinet hardware
+8303: ตู้เซฟ, safe, strongbox, safe deposit
+8304: ถาดเอกสาร, ตู้เอกสารโลหะ, filing tray metal, desk organizer metal
+8305: คลิปหนีบกระดาษ, ลวดเย็บกระดาษ, ห่วงแฟ้ม, paper clips, staples office, binder clips, ring binder mechanism
+8306: กระดิ่ง, รูปปั้นโลหะ, กรอบรูปโลหะ, bells, gongs, metal statuettes, ornaments metal, photo frame metal, trophy
+8307: ท่ออ่อนโลหะ, ท่อเฟล็กซ์, flexible metal tube, flexible hose metal, bellows
+8308: หัวเข็มขัด, ตาไก่, ตะขอ, กระดุมโลหะ, buckle, eyelets, hooks, clasps, rivets tubular, beads metal
+8309: ฝาจีบ, ฝาเกลียวโลหะ, ฝากระป๋อง, crown cork, metal cap, screw cap, can end, bottle cap metal
+8310: ป้ายโลหะ, ป้ายทะเบียน, ป้ายชื่อโลหะ, sign plate, name plate, number plate, metal labels
+8311: ลวดเชื่อม, ลวดเชื่อมไฟฟ้า, ลวดเชื่อมฟลักซ์คอร์, ลวดพ่นโลหะ, welding electrode, welding rod, welding wire, flux cored wire, brazing rod, thermal spray wire
