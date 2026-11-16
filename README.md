@@ -1,1 +1,75 @@
-# HS_Classified
+# พิจารณาพิกัดศุลกากร อัตโนมัติ (Thai HS Classifier)
+
+เว็บแอปสำหรับพิจารณาพิกัดศุลกากรไทย (AHTN 2022) จากชื่อสินค้าไทย/อังกฤษ หรือ Invoice / Packing List พร้อมอัตราอากร สิทธิ FTA ข้อห้าม/ข้อกำกัด DUI และ DG — ทำงานบน GitHub Pages โดยไม่ต้องมีเซิร์ฟเวอร์
+
+## ความสามารถ
+
+- **AI พิจารณาพิกัด** ผ่าน Claude API: ค้นและเปิดตารางพิกัดจริง อ่านหมายเหตุตอน ถามกลับเมื่อข้อมูลไม่พอ และตรวจซ้ำรอบสอง
+- **ความมั่นใจแบบตรวจได้**: คิดจากรายการตรวจจริง (เปิดประเภทย่อยแล้ว อ่านหมายเหตุแล้ว ข้อมูลพอเลือกพิกัดย่อย ผู้ตรวจรอบสองเห็นด้วย)
+- **คลังพิกัดของทีม** (`data/library.json`) — AI ค้นคลังก่อนทุกครั้ง บันทึกผ่าน GitHub API
+- **อัตราอากรทั่วไป (ม.12)** และอัตราเพดานตาม พ.ร.ก.
+- **อัตรา FTA ทุกความตกลง** (ATIGA, ACFTA, RCEP, AKFTA, AJCEP, JTEPA, AIFTA, AANZFTA, TAFTA, TNZCEP, AHKFTA, TPCEP, TCFTA ฯลฯ) พร้อมเลือกประเทศถิ่นกำเนิด
+- **ของต้องห้าม / ของต้องกำกัด** (ใบอนุญาต 23 หน่วยงาน) **DUI** และ **DG**
+- ร่างคำขอวินิจฉัยพิกัดล่วงหน้า · คัดลอกผลเป็นตารางไปวางใน Excel · ค้นหาแบบไม่ใช้ AI ได้ (ไทย/อังกฤษ)
+
+## ติดตั้งบน GitHub Pages
+
+1. สร้าง repository ใหม่บน GitHub (Public หรือ Private ก็ได้ — Private ต้องใช้แพ็กเกจที่รองรับ Pages)
+2. อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้ (`index.html`, `data/`, `scripts/`, `.nojekyll`, `README.md`) ขึ้น branch `main`
+3. ไปที่ **Settings → Pages** → Source: **Deploy from a branch** → Branch: `main` / `(root)` → Save
+4. รอ 1–2 นาที แอปจะอยู่ที่ `https://<ชื่อผู้ใช้>.github.io/<ชื่อ repo>/`
+
+> ต้องเปิดผ่านเว็บ (GitHub Pages หรือ `python3 -m http.server`) — การดับเบิลคลิกเปิด `index.html` ตรง ๆ จะโหลดฐานข้อมูลไม่ได้
+
+## ตั้งค่า (ปุ่ม “ตั้งค่า” ในแอป — เก็บในเบราว์เซอร์แต่ละเครื่อง)
+
+**Claude API key** — สร้างที่ [console.anthropic.com](https://console.anthropic.com) → API Keys
+- คีย์ถูกเก็บใน `localStorage` ของเบราว์เซอร์นั้น และส่งตรงไปที่ `api.anthropic.com` เท่านั้น ไม่ได้อยู่ใน repo
+- แนะนำให้แต่ละคนใช้คีย์ของตัวเอง และตั้ง **spending limit** ใน Console
+- ไม่ควรใส่คีย์บนเครื่องสาธารณะ ใช้ปุ่ม “ลบค่าทั้งหมดออกจากเครื่องนี้” เมื่อเลิกใช้
+
+**คลังพิกัดของทีม (ไม่บังคับ)** — ใส่ `owner/repo`, branch และ GitHub token
+- สร้าง **Fine-grained personal access token** ที่ GitHub → Settings → Developer settings → Fine-grained tokens
+  - Repository access: เฉพาะ repo นี้ · Permissions: **Contents: Read and write**
+- เมื่อกด “ยืนยันพิกัด” แอปจะ commit ลง `data/library.json` ให้ทั้งทีมเห็น
+- ถ้าไม่ใส่ token: บันทึกไว้ในเครื่อง แล้วใช้ปุ่ม “ส่งออก library.json” ไปอัปโหลดขึ้น repo เอง
+
+## โครงสร้าง
+
+```
+index.html            แอปทั้งหมด (HTML/CSS/JS ไฟล์เดียว)
+data/tariff.json      พิกัด 11,414 ประเภทย่อย โครงสร้าง หมายเหตุหมวด/ตอน อัตราตาม พ.ร.ก.
+data/rates.json       อัตราอากรทั่วไป (ม.12) อัตรา FTA และสิทธิ ม.12 แบบมีเงื่อนไข รายพิกัด + คำอธิบายภาษาอังกฤษ
+data/permits.json     ของต้องกำกัด: หน่วยงาน กรณีนำเข้า/ส่งออก/ผ่านแดน เลขประกาศ ขอบเขต
+data/hs_en.json       ชื่อหมวด/ประเภท/ประเภทย่อย HS 2022 ภาษาอังกฤษ
+data/library.json     คลังพิกัดที่ทีมยืนยันแล้ว
+scripts/              สคริปต์สร้างข้อมูลใหม่จากแหล่งต้นฉบับ
+```
+
+## อัปเดตฐานข้อมูล
+
+```bash
+sudo apt install poppler-utils     # สำหรับ pdftotext
+git clone --depth 1 https://github.com/Soe-Moe/thai-customs-tariff-json.git
+git clone --depth 1 https://github.com/datasets/harmonized-system.git
+python3 scripts/make_data.py \
+  --pdf  <ไฟล์ PDF พ.ร.ก. พิกัดอัตราศุลกากร (ฉบับที่ 7) พ.ศ. 2564> \
+  --itd  thai-customs-tariff-json/src/raw-data \
+  --hs   harmonized-system/data/harmonized-system.csv \
+  --date 20261116
+```
+
+อัตราจะถูกคำนวณ ณ วันที่ `--date` (อัตรา FTA หลายรายการลดเป็นขั้นบันไดทุกปี — ควรรันใหม่ทุกต้นปี) ถ้ามีไฟล์ ITD ใหม่จาก [itd.customs.go.th](http://itd.customs.go.th/) ให้วางแทนใน `--itd` ได้เลย
+
+## แหล่งข้อมูล
+
+- พระราชกำหนดพิกัดอัตราศุลกากร (ฉบับที่ 7) พ.ศ. 2564 — ราชกิจจานุเบกษา
+- Thai Customs Integrated Tariff Database (ITD) — กรมศุลกากร ผ่าน [Soe-Moe/thai-customs-tariff-json](https://github.com/Soe-Moe/thai-customs-tariff-json)
+- HS 2022 nomenclature — [datasets/harmonized-system](https://github.com/datasets/harmonized-system) (ODC-PDDL)
+
+## ข้อจำกัด
+
+- ผลจาก AI เป็นข้อเสนอประกอบการพิจารณา ผู้นำเข้าต้องตรวจสินค้าจริงและยืนยันกับกรมศุลกากร (ขอคำวินิจฉัยพิกัดล่วงหน้าได้)
+- ข้อมูลอัตรามาจากแฟ้ม ITD ชุดปี 2565 รวมอัตราลดหลั่นของ FTA ประกาศที่ออกภายหลังอาจยังไม่รวม — ตรวจซ้ำที่ itd.customs.go.th ก่อนใช้สิทธิ
+- ป้าย DUI และ DG เป็นสัญญาณเสี่ยงตามกลุ่มพิกัด + การประเมินของ AI ไม่ใช่คำวินิจฉัย — DUI ตรวจที่ e-Classification (etcwmd.dft.go.th) / DG ยืนยันจาก SDS ข้อ 14
+- ข้อความภาษาไทยบางส่วนแปลงจาก PDF อาจมีตัวสะกดคลาดเคลื่อนเล็กน้อย

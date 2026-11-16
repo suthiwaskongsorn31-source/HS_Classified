@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>พิจารณาพิกัดศุลกากร</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,600;112,800&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: precise, official, calm — a customs officer's desk tool.
+   IDEA: the customs declaration form — boxed fields, ruled lines, a red rubber-stamp HS code.
+   PICTURE: the working form itself; each result is a stamped declaration line with a huge code.
+   COLOUR and TYPE: paper white, ink black, stamp red #d0021b, one grey; night #0e0e0e. Archivo wide numerals + IBM Plex Sans Thai.
+   LAYOUT: strict left edge, thick top rule, codes hanging in a wide left column, one column below 600px. */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#0e0e0e);--ink:light-dark(#111111,#f2f2f2);--mute:light-dark(#6b6b6b,#9a9a9a);
+--line:light-dark(#d9d9d9,#2c2c2c);--soft:light-dark(#f4f4f4,#181818);--red:light-dark(#d0021b,#ff4d5e);--redbg:light-dark(#fff0f1,#2a1114);
+--th:"IBM Plex Sans Thai","Noto Sans Thai",system-ui,sans-serif;--num:"Archivo","IBM Plex Sans Thai",system-ui,sans-serif}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--th);overflow-x:clip}
+.band{padding:clamp(20px,3.4vw,44px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+header{border-top:10px solid var(--ink)}
+h1{font:800 clamp(30px,4.4vw,48px)/1.08 var(--th);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1 b{color:var(--red);font-weight:800}
+.sub{color:var(--mute);margin:8px 0 0;font-size:15px}
+nav{display:flex;flex-wrap:wrap;gap:0;border-bottom:2px solid var(--ink);margin-top:22px}
+nav button{font:600 16px var(--th);background:none;border:0;color:var(--mute);padding:12px 18px;min-height:46px;cursor:pointer;border-bottom:4px solid transparent;margin-bottom:-2px}
+nav button[aria-selected=true]{color:var(--ink);border-color:var(--red)}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.view{display:none}.view.on{display:block}
+.form{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:0;border:2px solid var(--ink)}
+.box{padding:14px 16px;border-right:1px solid var(--ink)}
+.box:last-child{border-right:0}
+.lab{font-size:13px;color:var(--mute);display:block;margin-bottom:6px}
+textarea{width:100%;min-height:190px;border:0;background:transparent;resize:vertical;font-size:16px;line-height:1.6;padding:0}
+textarea:focus{outline:none}
+.drop{border:2px dashed var(--line);display:grid;place-items:center;text-align:center;min-height:150px;padding:14px;cursor:pointer;color:var(--mute);font-size:15px}
+.drop.hot{border-color:var(--red);color:var(--ink);background:var(--redbg)}
+.files{font-size:14px;margin-top:8px}
+.files span{display:inline-flex;gap:6px;align-items:center;background:var(--soft);padding:2px 8px;margin:2px 4px 2px 0}
+.files button{border:0;background:none;cursor:pointer;color:var(--red);font-weight:700;min-height:24px}
+.acts{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.btn{background:var(--ink);color:var(--bg);border:0;padding:0 22px;min-height:48px;font-weight:600;cursor:pointer}
+.btn.red{background:var(--red);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn:disabled{opacity:.45;cursor:default}
+.note{font-size:13px;color:var(--mute)}
+.log{font-size:14px;color:var(--mute);margin-top:12px;border-left:3px solid var(--red);padding-left:12px;max-height:150px;overflow:auto;display:none}
+.log.on{display:block}
+.log div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.res{margin-top:26px}
+.rh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.rh h2{font:700 22px var(--th);margin:0}
+.card{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px;border-bottom:1px solid var(--line);padding:22px 0}
+.stamp{align-self:start}
+.code{font:800 clamp(30px,4vw,44px)/1 var(--num);font-stretch:112%;color:var(--red);letter-spacing:.01em;white-space:nowrap;font-variant-numeric:tabular-nums;border:3px solid var(--red);padding:10px 12px 8px;display:inline-block;transform:rotate(-1.2deg)}
+.code.warn{color:var(--mute);border-color:var(--mute)}
+.rate{margin-top:12px;font:600 15px var(--th)}
+.rate b{font:800 26px var(--num);font-stretch:112%;margin-right:4px}
+.conf{margin-top:10px;font-size:13px;color:var(--mute)}
+.meter{height:6px;background:var(--soft);margin-top:4px;max-width:220px}
+.meter i{display:block;height:100%;background:var(--ink)}
+.inp{font-size:13px;color:var(--mute)}
+.pname{font:700 20px/1.35 var(--th);margin:2px 0 8px}
+.path{font-size:15px;background:var(--soft);padding:10px 12px;border-left:3px solid var(--ink)}
+.path .h{font-weight:600}
+.path .s{color:var(--mute)}
+.why{margin:10px 0 0;font-size:15px;max-width:70ch}
+.need{margin-top:8px;font-size:14px;color:var(--red)}
+.alts{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--ink);background:none;padding:4px 10px;min-height:34px;cursor:pointer;font-size:14px;text-align:left}
+.chip b{font-family:var(--num);font-weight:700;margin-right:6px}
+.link{background:none;border:0;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:6px 0;font-size:14px;min-height:34px}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;color:var(--mute);font-weight:500;border-bottom:2px solid var(--ink)}
+td.c{font:700 16px var(--num);white-space:nowrap;font-variant-numeric:tabular-nums}
+td.r{white-space:nowrap;text-align:right}
+tr.hit{cursor:pointer}tr.hit:hover td{background:var(--soft)}
+.sbar{display:flex;gap:0;border:2px solid var(--ink)}
+.sbar input{flex:1;border:0;padding:0 16px;min-height:54px;font-size:18px;background:transparent}
+.sbar input:focus{outline:none}
+.tree .sec{border-top:2px solid var(--ink);padding:14px 0 6px}
+.tree .sec>h3{font:700 18px var(--th);margin:0 0 6px}
+.tree .sec>h3 span{font-family:var(--num);color:var(--red);margin-right:8px}
+.chs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:0 24px}
+.ch{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);background:none;border-left:0;border-right:0;border-top:0;text-align:left;cursor:pointer;font-size:15px;min-height:44px}
+.ch b{font:800 18px var(--num);min-width:2.2em}
+.ch:hover{color:var(--red)}
+.panel{position:fixed;inset:0 0 0 auto;width:min(760px,100%);background:var(--bg);border-left:10px solid var(--ink);transform:translateX(105%);transition:transform .25s ease;display:flex;flex-direction:column;z-index:10}
+.panel.on{transform:none;box-shadow:-20px 0 60px rgba(0,0,0,.25)}
+.ph{display:flex;justify-content:space-between;gap:12px;align-items:start;padding:18px 20px;border-bottom:2px solid var(--ink)}
+.ph h3{margin:0;font:700 19px/1.35 var(--th)}
+.ph h3 span{display:block;font:800 30px var(--num);color:var(--red)}
+.x{border:2px solid var(--ink);background:none;min-width:44px;min-height:44px;font-size:22px;cursor:pointer;line-height:1}
+.pb{overflow:auto;padding:8px 20px 30px}
+.ln{display:grid;grid-template-columns:7.2em minmax(0,1fr) auto;gap:10px;padding:6px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.ln.g{grid-template-columns:7.2em minmax(0,1fr);color:var(--mute);border-bottom:0;padding-bottom:0}
+.ln.sel{background:var(--redbg);outline:2px solid var(--red)}
+.ln .k{font:700 15px var(--num);white-space:nowrap}
+.ln .v{white-space:nowrap;text-align:right;font-weight:600}
+details{margin:10px 0;border:1px solid var(--line);padding:8px 12px}
+summary{cursor:pointer;font-weight:600;min-height:32px}
+.notes{white-space:pre-wrap;font-size:14px;max-height:380px;overflow:auto}
+.empty{padding:28px 0;color:var(--mute)}
+.warnbox{border:2px solid var(--red);padding:12px 14px;margin-top:14px;font-size:15px}
+footer{border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+.pv{margin-top:14px;border-top:2px solid var(--ink);padding-top:10px}
+.pvh{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+.pvh h4{margin:0;font:700 16px var(--th)}
+.pvh select{min-height:40px;border:2px solid var(--ink);background:var(--bg);padding:0 10px;font-size:15px}
+.pvt{width:100%;margin-top:8px}
+.pvt td{padding:6px 8px;font-size:14px}
+.pvt td.rt{font:700 16px var(--num);white-space:nowrap;text-align:right}
+.pvt tr.best td{background:var(--redbg)}
+.pvt tr.best td.rt{color:var(--red)}
+.pvt tr.off td{opacity:.42}
+.pvt .sm{display:block;font-size:12.5px;color:var(--mute);line-height:1.4}
+.save{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:2px 10px;font-size:14px}
+.gen{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:14px;color:var(--mute);margin-top:6px}
+.gen b{color:var(--ink);font:700 15px var(--num)}
+.cat{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:0 28px}
+.ci{border-top:1px solid var(--line);padding:14px 0}
+.ci h4{margin:0 0 4px;font:700 17px/1.35 var(--th)}
+.ci p{margin:4px 0;font-size:15px}
+.ci .tag{font:600 12.5px var(--num);border:1px solid var(--ink);padding:1px 6px;margin-right:4px;white-space:nowrap}
+.catsec{margin-top:26px}
+.catsec>h3{font:700 22px var(--th);margin:0 0 4px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.bds{display:inline-flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.bd{font:600 12px var(--th);padding:1px 7px;border:1.5px solid currentColor;white-space:nowrap}
+.bd.pro{color:#fff;background:var(--red);border-color:var(--red)}
+.bd.res{color:light-dark(#8a5a00,#f0b44c)}
+.bd.dui{color:light-dark(#5a2ca0,#b99af0)}
+.bd.dg{color:light-dark(#b34700,#ff9a52)}
+.ctl{margin-top:14px;border-top:2px solid var(--ink);padding-top:10px}
+.ctl h4{margin:0 0 6px;font:700 16px var(--th)}
+.ctl.ok{font-size:14px;color:var(--mute)}
+.cb{border-left:4px solid currentColor;padding:6px 0 6px 12px;margin:8px 0}
+.cb>b{font-size:15px}.cb p{margin:4px 0;font-size:14.5px;color:var(--ink)}
+.cb.pro{color:var(--red)}.cb.res{color:light-dark(#8a5a00,#f0b44c)}.cb.dui{color:light-dark(#5a2ca0,#b99af0)}.cb.dg{color:light-dark(#b34700,#ff9a52)}
+.cb .pvt td{color:var(--ink)}
+.ln.hit{cursor:pointer}.ln.hit:hover{background:var(--soft)}
+.ln .v small{display:block;font:500 12px var(--th);color:var(--red)}
+.opt{display:inline-flex;gap:6px;align-items:center;font-size:15px;min-height:44px;cursor:pointer}
+.opt input{width:20px;height:20px;accent-color:var(--red)}
+.score{margin-top:10px}
+.score .big{font:800 30px var(--num);font-stretch:112%}
+.ck{list-style:none;padding:0;margin:6px 0 0;font-size:13.5px}
+.ck li{display:flex;gap:6px;align-items:flex-start;line-height:1.4;margin:3px 0}
+.ck li:before{content:'✓';font-weight:800;color:light-dark(#137a3a,#5fd38a);flex:none;width:14px}
+.ck li.no:before{content:'✗';color:var(--red)}
+.ck li.mid:before{content:'~';color:light-dark(#8a5a00,#f0b44c)}
+.qbox{border:2px solid var(--ink);padding:12px 14px;margin-top:12px;background:var(--soft)}
+.qbox h4{margin:0 0 6px;font:700 16px var(--th)}
+.qq{margin:10px 0 0}.qq p{margin:0 0 6px;font-weight:600}
+.qo{display:flex;flex-wrap:wrap;gap:6px}
+.qo button{border:1.5px solid var(--ink);background:var(--bg);padding:6px 12px;min-height:40px;cursor:pointer;font-size:14.5px}
+.qo button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.qo input{flex:1 1 200px;min-height:40px;border:1.5px solid var(--line);padding:0 10px;background:var(--bg);font-size:15px}
+.rv{margin-top:10px;padding:8px 12px;border-left:4px solid currentColor;font-size:14.5px}
+.rv.agree{color:light-dark(#137a3a,#5fd38a)}.rv.disagree{color:var(--red)}.rv.uncertain{color:light-dark(#8a5a00,#f0b44c)}
+.rv p{margin:2px 0;color:var(--ink)}
+.lib{display:inline-block;background:light-dark(#137a3a,#2f9e5c);color:#fff;font-weight:700;font-size:13px;padding:2px 10px;margin-bottom:6px}
+.lib.warn{background:var(--red)}
+.acts2{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+.acts2 select{min-height:44px;border:2px solid var(--ink);background:var(--bg);padding:0 8px;font:600 15px var(--num)}
+.btn.sm{min-height:44px;padding:0 14px;font-size:14.5px}
+.draft{white-space:pre-wrap;font-size:15px;line-height:1.7;background:var(--soft);padding:14px;border:1px solid var(--line);max-height:60vh;overflow:auto}
+.setf h4{margin:18px 0 6px;font:700 17px var(--th)}
+.fld{display:block;margin:10px 0}.fld span{display:block;font-size:14px;font-weight:600;margin-bottom:4px}
+.fld input{width:100%;min-height:46px;border:2px solid var(--ink);background:var(--bg);padding:0 12px;font-size:16px}
+.fld small{display:block;margin-top:4px}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:r .8s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes r{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.spin{animation:none}.panel{transition:none}}
+@media(max-width:760px){.form{grid-template-columns:minmax(0,1fr)}.box{border-right:0;border-bottom:1px solid var(--ink)}.card{grid-template-columns:minmax(0,1fr);gap:12px}}
+@media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 0}.stack td::before{content:attr(data-l);color:var(--mute);font:400 13px var(--th)}.ln{grid-template-columns:6.4em minmax(0,1fr)}.ln .v{grid-column:2;text-align:left}}
+</style>
+</head>
+<body>
+<header class="band"><div class="wrap">
+  <h1>พิจารณา<b>พิกัดศุลกากร</b> อัตโนมัติ</h1>
+  <p class="sub">อ้างอิงพิกัดอัตราอากรขาเข้า ตามพระราชกำหนดพิกัดอัตราศุลกากร (ฉบับที่ 7) พ.ศ. 2564 · AHTN 2022 · <span id="cnt">11,414</span> ประเภทย่อย</p>
+  <nav role="tablist">
+    <button role="tab" id="t-ai" aria-selected="true" data-v="ai">ให้ AI พิจารณา</button>
+    <button role="tab" id="t-sr" aria-selected="false" data-v="sr">ค้นหาในตารางพิกัด</button>
+    <button role="tab" id="t-br" aria-selected="false" data-v="br">เปิดดูตามหมวด / ตอน</button>
+    <button role="tab" id="t-lb" aria-selected="false" data-v="lb">คลังพิกัดของทีม</button>
+    <button role="tab" id="t-pv" aria-selected="false" data-v="pv">สิทธิประโยชน์ · ข้อห้าม · DUI · DG</button>
+  </nav>
+</div></header>
+
+<main class="band" style="padding-top:8px"><div class="wrap">
+<section class="view on" id="v-ai">
+  <div class="form">
+    <div class="box">
+      <label class="lab" for="q">รายการสินค้า — ภาษาไทยหรืออังกฤษ วางข้อความจาก Invoice / Packing List ได้เลย (บรรทัดละ 1 รายการ)</label>
+      <textarea id="q" placeholder="เช่น&#10;ตู้เย็น 2 ประตู ใช้ในบ้าน ความจุ 350 ลิตร&#10;Compressor for household refrigerator, 220V&#10;Stainless steel hex bolt M12x50&#10;PP plastic pallet 1200x1000 mm"></textarea>
+    </div>
+    <div class="box">
+      <span class="lab">หรือแนบไฟล์ Invoice / Packing List</span>
+      <label class="drop" id="drop" for="file">ลากไฟล์มาวาง หรือแตะเพื่อเลือก<br>PDF · Excel · CSV · รูปภาพ · ข้อความ</label>
+      <input type="file" id="file" multiple accept=".pdf,.xlsx,.xls,.csv,.txt,.png,.jpg,.jpeg,.webp" hidden>
+      <div class="files" id="files"></div>
+    </div>
+  </div>
+  <div class="acts">
+    <button class="btn red" id="go">พิจารณาพิกัด</button>
+    <button class="btn ghost" id="clr">ล้าง</button>
+    <label class="opt"><input type="checkbox" id="o-rev" checked> ตรวจซ้ำรอบสอง</label>
+    <label class="opt"><input type="checkbox" id="o-deep"> โหมดละเอียด (ช้ากว่า แม่นกว่า)</label>
+    <span class="note" id="aist">กำลังเชื่อมต่อ AI…</span>
+  </div>
+  <div class="log" id="log"></div>
+  <div class="res" id="res"></div>
+</section>
+
+<section class="view" id="v-sr">
+  <div class="sbar"><input id="sq" type="search" placeholder="ชื่อสินค้าไทย/อังกฤษ หรือเลขพิกัด เช่น ตู้เย็น, refrigerator, 8418" autocomplete="off"></div>
+  <p class="note" id="shint">ค้นหาแบบไม่ใช้ AI จากข้อความในตารางพิกัด (ไทยและอังกฤษ) · แตะรายการเพื่อดูอัตราอากรและสิทธิประโยชน์ทั้งหมด</p>
+  <div id="sres"></div>
+</section>
+
+<section class="view" id="v-br"><div class="tree" id="tree"></div></section>
+
+<section class="view" id="v-lb">
+  <h2 style="font:700 28px/1.2 var(--th);margin:10px 0 4px">คลังพิกัดที่ทีมยืนยันแล้ว</h2>
+  <p class="note" id="lbst">พิกัดที่กดยืนยันจากผลการพิจารณาจะเก็บที่นี่ ใช้ร่วมกันทั้งทีม และ AI จะค้นคลังนี้ก่อนทุกครั้ง</p>
+  <div class="sbar"><input id="lq" type="search" placeholder="ค้นหาสินค้าหรือพิกัดในคลัง" autocomplete="off"></div>
+  <div id="lres"></div>
+</section>
+
+<section class="view" id="v-pv"><div id="cat"></div></section>
+</div></main>
+
+<footer class="band"><div class="wrap">
+  ผลจาก AI เป็นข้อเสนอเพื่อประกอบการพิจารณาเท่านั้น ผู้นำเข้าต้องตรวจสอบสินค้าจริงและยืนยันกับกรมศุลกากรก่อนสำแดง (สามารถขอคำวินิจฉัยพิกัดล่วงหน้าได้) ·
+  อัตราอากรทั่วไปและสิทธิพิเศษมาจากแฟ้มข้อมูล ITD ของกรมศุลกากร (ชุด REFDRT 2565 รวมอัตราลดหลั่นของ FTA) คำนวณ ณ วันที่ <span id="asof"></span> — ประกาศที่ออกภายหลังอาจยังไม่รวมอยู่ ควรตรวจซ้ำที่ itd.customs.go.th ก่อนใช้สิทธิ · ข้อความบางส่วนแปลงจาก PDF อาจมีตัวสะกดคลาดเคลื่อนเล็กน้อย
+</div></footer>
+
+<aside class="panel" id="panel" aria-hidden="true">
+  <div class="ph"><h3 id="pt"></h3><button class="x" id="px" aria-label="ปิด">×</button></div>
+  <div class="pb" id="pb"></div>
+</aside>
+
+<script>
+(async () => {
+const D = await (await fetch('data/tariff.json')).json();
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt = c => c.length === 8 ? c.slice(0,4)+'.'+c.slice(4,6)+'.'+c.slice(6) : c;
+const hOf = c => c.slice(0,2)+'.'+c.slice(2,4);
+const key = s => String(s).toLowerCase().replace(/[็-๎]/g,'').replace(/ำ/g,'า').replace(/[\s\-–,.()“”"']/g,'');
+const items = D.I.map(([c, d, p, r]) => {
+  const h = hOf(c);
+  const par = p.map(i => D.N[i]);
+  return {c, d, par, r, h, kd: key(d), kp: key((D.H[h]||'') + ' ' + par.join(' '))};
+});
+const byCode = new Map(items.map(x => [x.c, x]));
+const byHead = new Map();
+items.forEach(x => { if (!byHead.has(x.h)) byHead.set(x.h, []); byHead.get(x.h).push(x); });
+$('#cnt').textContent = items.length.toLocaleString('en');
+const rateTxt = r => r === 'ยกเว้น' ? 'ยกเว้นอากร' : r;
+const fullPath = x => [D.H[x.h], ...x.par, x.d].filter(Boolean);
+const normCode = s => String(s||'').replace(/\D/g,'');
+
+/* ---------- privileges (ITD data) ---------- */
+let PV = null;
+const ASEAN = ['BN','KH','ID','LA','MY','MM','PH','SG','VN'];
+const CN = {BN:'บรูไน',KH:'กัมพูชา',ID:'อินโดนีเซีย',LA:'ลาว',MY:'มาเลเซีย',MM:'เมียนมา',PH:'ฟิลิปปินส์',SG:'สิงคโปร์',VN:'เวียดนาม',CN:'จีน',HK:'ฮ่องกง',JP:'ญี่ปุ่น',KR:'เกาหลีใต้',IN:'อินเดีย',AU:'ออสเตรเลีย',NZ:'นิวซีแลนด์',PE:'เปรู',CL:'ชิลี',BD:'บังกลาเทศ',NP:'เนปาล',XX:'ประเทศอื่น (ไม่มี FTA)'};
+const FTA = [
+  {k:'ATIGA', c:['ATG','ASC'], n:'อาเซียน (ATIGA)', f:'Form D / e-Form D', cc:ASEAN},
+  {k:'ACFTA', c:['ACN'], n:'อาเซียน–จีน (ACFTA)', f:'Form E', cc:['CN']},
+  {k:'RCEP', c:['R1C','R1D','R2C','R2D','R3C','R3D'], n:'RCEP', f:'Form RCEP หรือคำรับรองถิ่นกำเนิด', cc:[...ASEAN,'CN','JP','KR','AU','NZ']},
+  {k:'AKFTA', c:['AK1','AK2','AK3'], n:'อาเซียน–เกาหลี (AKFTA)', f:'Form AK', cc:['KR']},
+  {k:'AJCEP', c:['AJ1','AJ3','AJ4'], n:'อาเซียน–ญี่ปุ่น (AJCEP)', f:'Form AJ', cc:['JP']},
+  {k:'JTEPA', c:['TJ1','TJ3','TJ6'], n:'ไทย–ญี่ปุ่น (JTEPA)', f:'หนังสือรับรองถิ่นกำเนิด JTEPA', cc:['JP']},
+  {k:'AIFTA', c:['AIN'], n:'อาเซียน–อินเดีย (AIFTA)', f:'Form AI', cc:['IN']},
+  {k:'TIFTA', c:['TIN'], n:'ไทย–อินเดีย (TIFTA เก็บเกี่ยวล่วงหน้า)', f:'หนังสือรับรองถิ่นกำเนิดตามความตกลง', cc:['IN']},
+  {k:'AANZFTA', c:['AAN'], n:'อาเซียน–ออสเตรเลีย–นิวซีแลนด์ (AANZFTA)', f:'Form AANZ หรือคำรับรองถิ่นกำเนิด', cc:['AU','NZ']},
+  {k:'TAFTA', c:['TAU'], n:'ไทย–ออสเตรเลีย (TAFTA)', f:'หนังสือรับรองถิ่นกำเนิดตามความตกลง', cc:['AU']},
+  {k:'TNZCEP', c:['TNZ'], n:'ไทย–นิวซีแลนด์ (TNZCEP)', f:'หนังสือรับรองถิ่นกำเนิดตามความตกลง', cc:['NZ']},
+  {k:'AHKFTA', c:['AHK'], n:'อาเซียน–ฮ่องกง (AHKFTA)', f:'Form AHK', cc:['HK']},
+  {k:'TPCEP', c:['TPE'], n:'ไทย–เปรู (TPCEP)', f:'หนังสือรับรองถิ่นกำเนิดตามความตกลง', cc:['PE']},
+  {k:'TCFTA', c:['TC1','TC2'], n:'ไทย–ชิลี (TCFTA)', f:'Form TC', cc:['CL']},
+  {k:'TCN', c:['TCN'], n:'ไทย–จีน (ผัก ผลไม้ ตอนที่ 07–08)', f:'Form E', cc:['CN']},
+  {k:'TSG', c:['TSG'], n:'สิทธิไทย–สิงคโปร์ (รหัส TSG)', f:'ตรวจเงื่อนไขในประกาศ', cc:['SG']},
+  {k:'LDC', c:['LDC'], n:'ประเทศพัฒนาน้อยที่สุด (LDC)', f:'เฉพาะประเทศตามบัญชีท้ายประกาศ', cc:['KH','LA','MM','BD','NP']},
+  {k:'BORDER', c:['LA1','LA2','TMM'], n:'การค้าชายแดน ไทย–ลาว / ไทย–เมียนมา (ดอยตุง)', f:'ตามเงื่อนไขประกาศเฉพาะ', cc:['LA','MM']},
+  {k:'GSTP', c:['GS1'], n:'GSTP (สิทธิพิเศษระหว่างประเทศกำลังพัฒนา)', f:'หนังสือรับรอง GSTP', cc:null},
+  {k:'ITA', c:['ITA'], n:'สินค้าเทคโนโลยีสารสนเทศ (WTO ITA)', f:'ไม่ต้องใช้หนังสือรับรองถิ่นกำเนิด', cc:null},
+  {k:'WTO', c:['WTO'], n:'อัตราในโควตา WTO (สินค้าโควตาภาษี)', f:'ต้องได้รับจัดสรรโควตา', cc:null},
+];
+const SUB = {ASC:'แสดงเอกสารตามข้อ 4(1) ของประกาศ', R1C:'CO', R1D:'คำรับรองถิ่นกำเนิด (DO)', R2C:'อัตราแยกกลุ่มประเทศ บัญชี 2 · CO', R2D:'บัญชี 2 · DO', R3C:'อัตราแยกกลุ่มประเทศ บัญชี 3 · CO', R3D:'บัญชี 3 · DO', AK2:'บัญชี 2', AK3:'บัญชี 3', AJ3:'บัญชี 3', AJ4:'OEM ผู้ผลิตรถยนต์', TJ3:'บัญชี 3', TJ6:'OEM ผู้ผลิตรถยนต์', TC2:'บัญชี 2', LA1:'ไทย–ลาว', LA2:'ไทย–ลาว', TMM:'ดอยตุง'};
+const STAR = new Set(['ATG','ACN','AK1']);
+const codeGroup = {}; FTA.forEach(g => g.c.forEach(c => codeGroup[c] = g));
+const adv = r => r === '0' ? 0 : (r.match(/^([\d.]+)%/) ? parseFloat(r) : (r.includes('บ./') ? null : null));
+const showR = r => r === '0' ? 'ยกเว้นอากร' : r;
+const privOf = c => PV?.P[c] || [];
+function genRate(x) {
+  const g = privOf(x.c).filter(p => p[0] === '000');
+  if (!g.length) return {r: x.r, a: adv(x.r === 'ยกเว้น' ? '0' : x.r), multi: false, rows: []};
+  const main = g.find(p => !p[2]) || g[g.length - 1];
+  return {r: showR(main[1]), a: adv(main[1]), multi: g.length > 1, rows: g};
+}
+function bestFTA(x, origin) {
+  let best = null;
+  for (const p of privOf(x.c)) {
+    const g = codeGroup[p[0]]; if (!g) continue;
+    if (origin && origin !== 'ALL' && !(g.cc === null || g.cc.includes(origin))) continue;
+    if (['WTO','ITA','GSTP'].includes(g.k) && origin === 'ALL') continue;
+    const a = adv(p[1]); if (a === null) continue;
+    if (!best || a < best.a) best = {a, p, g};
+  }
+  return best;
+}
+function privHTML(x, origin = 'ALL', uid = '') {
+  if (!PV) return `<div class="pv note">กำลังโหลดข้อมูลสิทธิประโยชน์…</div>`;
+  const G = genRate(x), rows = privOf(x.c);
+  const fta = rows.filter(p => codeGroup[p[0]]).map(p => ({p, g: codeGroup[p[0]], a: adv(p[1])}));
+  const ok = f => origin === 'ALL' || f.g.cc === null || f.g.cc.includes(origin);
+  fta.sort((a, b) => (ok(b) - ok(a)) || (a.a ?? 999) - (b.a ?? 999) || FTA.indexOf(a.g) - FTA.indexOf(b.g));
+  const best = bestFTA(x, origin);
+  const saving = best && G.a !== null && best.a < G.a ? G.a - best.a : 0;
+  const s12 = rows.filter(p => !codeGroup[p[0]] && p[0] !== '000');
+  const opts = Object.entries({ALL:'ทุกประเทศต้นทาง', ...CN}).map(([k, v]) => `<option value="${k}"${k === origin ? ' selected' : ''}>${v}</option>`).join('');
+  return `<div class="pv" data-pv="${x.c}">
+    <div class="pvh"><h4>สิทธิประโยชน์ทางภาษี ${saving ? `<span class="save">ประหยัดได้ ${+saving.toFixed(2)} จุด%</span>` : ''}</h4>
+      <label class="note">ถิ่นกำเนิดสินค้า <select data-origin="${x.c}" data-uid="${uid}">${opts}</select></label></div>
+    <div class="gen"><span>อัตราทั่วไป (ม.12) <b>${esc(G.r)}</b></span><span>เพดานตาม พ.ร.ก. <b>${esc(rateTxt(x.r))}</b></span>${G.multi ? `<span>มีอัตราแยกตามชนิดสินค้า ${G.rows.length} แบบ</span>` : ''}</div>
+    ${G.multi ? `<table class="pvt"><tbody>${G.rows.map(p => `<tr><td>${esc(p[2] || 'อื่น ๆ')}</td><td class="rt">${esc(showR(p[1]))}</td></tr>`).join('')}</tbody></table>` : ''}
+    ${fta.length ? `<table class="pvt"><thead><tr><th>ความตกลง / สิทธิ · เอกสารที่ใช้</th><th style="text-align:right">อากร</th></tr></thead><tbody>${fta.map(f => {
+      const isBest = best && f.p === best.p, sub = SUB[f.p[0]] || '';
+      const extra = [sub, f.p[2], f.p[3] ? 'ปรับเป็น ' + f.p[3] : '', STAR.has(f.p[0]) ? 'ตรวจประเทศที่ได้สิทธิในบัญชีท้ายประกาศ' : ''].filter(Boolean).join(' · ');
+      return `<tr class="${isBest ? 'best' : ''}${ok(f) ? '' : ' off'}"><td>${esc(f.g.n)} <span class="tag">${f.p[0]}</span><span class="sm">${esc(f.g.f)}${extra ? ' · ' + esc(extra) : ''}</span></td><td class="rt">${esc(showR(f.p[1]))}</td></tr>`; }).join('')}</tbody></table>` : '<p class="note">ไม่มีสิทธิ FTA สำหรับรายการนี้ในข้อมูล</p>'}
+    ${s12.length ? `<details><summary>สิทธิตามมาตรา 12 แบบมีเงื่อนไข (${s12.length} รายการ) — ต้องเข้าเงื่อนไขการใช้ตามประกาศกระทรวงการคลัง</summary><table class="pvt"><tbody>${s12.map(p => `<tr><td><span class="tag">${p[0]}</span> ${esc(PV.T[p[0]] || '')}${p[2] ? `<span class="sm">${esc(p[2])}</span>` : ''}</td><td class="rt">${esc(showR(p[1]))}</td></tr>`).join('')}</tbody></table></details>` : ''}
+    <p class="note" style="margin:8px 0 0">สิทธิอื่นที่ใช้ได้กับทุกพิกัดเมื่อเข้าเงื่อนไข เช่น BOI, คืนอากร ม.29, คลังสินค้าทัณฑ์บน, เขตปลอดอากร <button class="link" data-goto="pv">ดูทั้งหมด</button></p>
+  </div>`;
+}
+document.addEventListener('change', e => {
+  const s = e.target.closest('select[data-origin]'); if (!s) return;
+  const x = byCode.get(s.dataset.origin); const box = s.closest('.pv');
+  box.outerHTML = privHTML(x, s.value, s.dataset.uid);
+  const ns = document.querySelector(`select[data-origin="${x.c}"][data-uid="${s.dataset.uid}"]`); ns?.focus();
+});
+/* ---------- controls: prohibited / restricted / DUI / DG ---------- */
+const PROHIB = [
+  [['854340','240411','240412','240419'], 'บุหรี่ไฟฟ้า บารากู่ไฟฟ้า และน้ำยา/ตัวยาสำหรับเติม', 'ห้ามนำเข้าตามประกาศกระทรวงพาณิชย์ และห้ามขายตามคำสั่งคณะกรรมการคุ้มครองผู้บริโภคที่ 9/2558 — ตรวจว่าสินค้าเป็นอุปกรณ์/น้ำยาสำหรับบุหรี่ไฟฟ้าหรือไม่'],
+  [['240311'], 'ยาสูบสำหรับบารากู่ (ยาสูบไปป์น้ำ)', 'ห้ามนำเข้าบารากู่และตัวยาบารากู่ตามประกาศกระทรวงพาณิชย์'],
+];
+const DUIR = [
+  [['2612','2844','2845','8401'], '0', 'วัสดุ สิ่งติดตั้ง และอุปกรณ์นิวเคลียร์'],
+  [['842870','847950'], '0/2', 'หุ่นยนต์อุตสาหกรรม แขนกล'],
+  [['2811','2812','2853','2920','2921','2930','2931','3002'], '1', 'สารเคมี/ชีวภาพที่อาจเป็นสารตั้งต้น (Chemical/Biological)'],
+  [['681511','681512','681513','681519','540211','8108','8112'], '1', 'วัสดุพิเศษ (คาร์บอนไฟเบอร์ อะรามิด ไทเทเนียม เบริลเลียม ฯลฯ)'],
+  [['8456','8457','8458','8459','8460','8461','8462','8463','8464','8466','841410','842119'], '2', 'เครื่องจักรแปรรูปวัสดุ เครื่องมือกล CNC ปั๊มสุญญากาศ เครื่องหมุนเหวี่ยง'],
+  [['8486','8541','8542','9030'], '3', 'อิเล็กทรอนิกส์ เซมิคอนดักเตอร์ เครื่องวัดทดสอบ'],
+  [['8471','847330'], '4', 'คอมพิวเตอร์'],
+  [['851762','851769','8525','8529'], '5', 'โทรคมนาคมและความปลอดภัยสารสนเทศ'],
+  [['9013','9027','9031'], '6', 'เซนเซอร์ เลเซอร์ อุปกรณ์วัดเชิงแสง'],
+  [['8526','9014'], '7', 'ระบบนำทางและอากาศยาน (เรดาร์ GNSS เครื่องนำร่อง)'],
+  [['8901','8902','8905','8906','8907','840810'], '8', 'เรือและอุปกรณ์ทางทะเล'],
+  [['8802','8805','8806','8807','8411','841210'], '9', 'อากาศยาน โดรน (UAV) เครื่องยนต์ไอพ่น การขับเคลื่อน'],
+];
+const DGR = [
+  [['2710'], '3', 'UN1202/1203/1223 ฯลฯ', 'น้ำมันเชื้อเพลิง (น้ำมันหล่อลื่นหลายชนิดไม่เป็น DG)'],
+  [['2711'], '2.1', 'UN1075/1965/1971', 'ก๊าซปิโตรเลียม / ก๊าซธรรมชาติ'],
+  [['2804'], '2', '—', 'ก๊าซ (ไฮโดรเจน ออกซิเจน ไนโตรเจน อาร์กอน) ในภาชนะอัดความดัน'],
+  [['281121'], '9', 'UN1845', 'น้ำแข็งแห้ง / คาร์บอนไดออกไซด์'],
+  [['2801'], '2.3 / 8', '—', 'ฮาโลเจน (คลอรีน ฯลฯ)'],
+  [['2806','2807','2808','2809','2811'], '8', '—', 'กรดอนินทรีย์'],
+  [['2814'], '2.3 / 8', 'UN1005/2672', 'แอมโมเนีย'],
+  [['2815'], '8', 'UN1823/1813/1824', 'โซดาไฟ / โพแทสเซียมไฮดรอกไซด์'],
+  [['2828','2829','2834','2847','310230'], '5.1', '—', 'สารออกซิไดซ์ (ไฮโปคลอไรต์ คลอเรต ไนเตรต ไฮโดรเจนเปอร์ออกไซด์ แอมโมเนียมไนเตรต)'],
+  [['2805','2849'], '4.3', '—', 'สารที่ทำปฏิกิริยากับน้ำแล้วให้ก๊าซไวไฟ (โลหะอัลคาไล แคลเซียมคาร์ไบด์)'],
+  [['2844'], '7', '—', 'วัสดุกัมมันตรังสี'],
+  [['2901','2902','2905','2909','2912','2914','2915','220710','220720'], '3', '—', 'ตัวทำละลาย/สารเคมีอินทรีย์ไวไฟ (ตรวจ SDS)'],
+  [['2903','3827'], '2.2 / 6.1', '—', 'สารทำความเย็น / ฮาโลเจเนเต็ดไฮโดรคาร์บอน'],
+  [['3208','3210','3814'], '3', 'UN1263/1993', 'สี วาร์นิช ทินเนอร์ ที่มีตัวทำละลาย'],
+  [['3303','3307'], '3 / 2.1', 'UN1266/1950', 'น้ำหอม สเปรย์'],
+  [['3506'], '3', 'UN1133', 'กาวที่มีตัวทำละลาย'],
+  [['3601','3602','3603','3604','9306'], '1', '—', 'วัตถุระเบิด ดอกไม้เพลิง กระสุน'],
+  [['3605','3606'], '4.1 / 2.1', 'UN1944/1945', 'ไม้ขีดไฟ เชื้อเพลิงไฟแช็ก'],
+  [['3808'], '6.1 / 3 / 9', '—', 'สารกำจัดศัตรูพืช ยาฆ่าแมลง'],
+  [['2208'], '3', 'UN3065', 'เครื่องดื่มแอลกอฮอล์เกิน 24% (เกิน 70% เป็น DG เต็มรูปแบบ)'],
+  [['850650'], '9', 'UN3090/3091', 'แบตเตอรี่ลิเทียมโลหะ'],
+  [['850760'], '9', 'UN3480/3481', 'แบตเตอรี่ลิเทียมไอออน'],
+  [['850710','850720'], '8', 'UN2794/2800', 'แบตเตอรี่ตะกั่วกรด'],
+  [['850730'], '8', 'UN2795', 'แบตเตอรี่นิกเกิล-แคดเมียม'],
+  [['850750'], '9', 'UN3496', 'แบตเตอรี่นิกเกิลเมทัลไฮไดรด์ (ทางเรือ)'],
+  [['850780'], '9 / 4.3', '—', 'แบตเตอรี่ชนิดอื่น (เช่น โซเดียมไอออน)'],
+  [['8703','8704','8711'], '9', 'UN3166/3171', 'ยานยนต์/รถไฟฟ้า (ขนส่งทางเรือหรืออากาศ)'],
+  [['8407','8408'], '9', 'UN3528/3530', 'เครื่องยนต์สันดาปภายใน'],
+  [['842410'], '2.2', 'UN1044', 'เครื่องดับเพลิง'],
+  [['9613'], '2.1', 'UN1057', 'ไฟแช็ก'],
+  [['760310','760320','810430'], '4.1 / 4.3', '—', 'ผงโลหะ (อะลูมิเนียม แมกนีเซียม)'],
+  [['847130','847141','847149','851713','851714','851830','950450'], '9', 'UN3481', 'อาจมีแบตเตอรี่ลิเทียมติดตั้งในเครื่อง (มักเข้าข้อยกเว้นแบบมีเงื่อนไข)'],
+];
+const CASEN = {I:'นำเข้า', E:'ส่งออก', T:'ผ่านแดน', IE:'นำเข้าและส่งออก'};
+const hit = (rules, c) => rules.filter(r => r[0].some(p => c.startsWith(p)));
+function ctrlOf(x) {
+  const R = PV?.R?.[x.c] || [];
+  return {pro: hit(PROHIB, x.c), per: R, dui: hit(DUIR, x.c), dg: hit(DGR, x.c),
+    mil: R.some(p => /อุตสาหกรรมทหาร|ปรมาณู/.test(p[0]))};
+}
+function ctrlBadges(x) {
+  if (!PV) return '';
+  const c = ctrlOf(x), b = [];
+  if (c.pro.length) b.push('<span class="bd pro">ของต้องห้าม</span>');
+  const imp = c.per.filter(p => p[1] !== 'E').length, exp = c.per.filter(p => p[1] === 'E' || p[1] === 'IE').length;
+  if (imp) b.push(`<span class="bd res">ต้องกำกัด นำเข้า ${imp}</span>`);
+  if (exp) b.push(`<span class="bd res">ต้องกำกัด ส่งออก ${exp}</span>`);
+  if (c.dui.length || c.mil) b.push(`<span class="bd dui">DUI ${[...new Set(c.dui.map(d => d[1]))].join(',') || 'ตรวจ'}</span>`);
+  if (c.dg.length) b.push(`<span class="bd dg">DG ${esc(c.dg[0][1])}</span>`);
+  return b.length ? `<span class="bds">${b.join('')}</span>` : '';
+}
+function ctrlHTML(x, ai) {
+  if (!PV) return '';
+  const c = ctrlOf(x);
+  const aiDg = ai?.dg && ai.dg.status && ai.dg.status !== 'no', aiDui = ai?.dui && ai.dui.status && ai.dui.status !== 'no';
+  if (!c.pro.length && !c.per.length && !c.dui.length && !c.dg.length && !c.mil && !aiDg && !aiDui)
+    return `<div class="ctl ok"><b>การควบคุม:</b> ไม่พบข้อห้าม/ข้อกำกัดของพิกัดนี้ในข้อมูล และไม่เข้ากลุ่มเสี่ยง DUI/DG — ยังควรตรวจตามลักษณะสินค้าจริง</div>`;
+  return `<div class="ctl">
+    <h4>ข้อห้าม ข้อกำกัด และการควบคุม</h4>
+    ${c.pro.map(p => `<div class="cb pro"><b>ของต้องห้าม — ${esc(p[1])}</b><p>${esc(p[2])}</p></div>`).join('')}
+    ${c.per.length ? `<div class="cb res"><b>ของต้องกำกัด — ต้องมีใบอนุญาต/หนังสือรับรองจากหน่วยงาน (${c.per.length})</b>
+      <table class="pvt"><tbody>${c.per.map(p => `<tr><td><b>${esc(p[0])}</b> <span class="tag">${esc(CASEN[p[1]] || p[1])}</span>${p[2] ? ` <span class="note">ประกาศกรมศุลกากร ${esc(p[2])}</span>` : ''}${p[4].length ? `<span class="sm">ครอบคลุม: ${esc(p[4].join(' · '))}</span>` : ''}</td></tr>`).join('')}</tbody></table>
+      <p class="note">หน่วยงานควบคุมระบุเฉพาะบางชนิดในพิกัด — ดูรายการ “ครอบคลุม” ว่าสินค้าตรงหรือไม่</p></div>` : ''}
+    ${c.dui.length || c.mil || aiDui ? `<div class="cb dui"><b>สินค้าที่ใช้ได้สองทาง (DUI) — ควบคุมการส่งออก/ส่งกลับ</b>
+      ${c.dui.map(d => `<p>อยู่ในกลุ่มพิกัดที่เสี่ยง <span class="tag">หมวด ${esc(d[1])}</span> ${esc(d[2])}</p>`).join('')}
+      ${c.mil ? `<p>พิกัดนี้มีการควบคุมโดยกรมการอุตสาหกรรมทหาร/สำนักงานปรมาณูเพื่อสันติ (ยุทธภัณฑ์ สารเคมีควบคุม หรือวัสดุนิวเคลียร์)</p>` : ''}
+      ${aiDui ? `<p><b>AI ประเมิน:</b> ${esc(ai.dui.category ? 'หมวด ' + ai.dui.category + ' — ' : '')}${esc(ai.dui.note || '')}</p>` : ''}
+      <p class="note">การเป็น DUI ขึ้นกับคุณสมบัติทางเทคนิค ไม่ใช่พิกัดอย่างเดียว — ตรวจที่ระบบ e-Classification (etcwmd.dft.go.th) ก่อนส่งออก ถ้าเข้าข่ายพิกัดแต่ไม่เข้าเกณฑ์ใช้รหัสยกเว้น EXEMPT99</p></div>` : ''}
+    ${c.dg.length || aiDg ? `<div class="cb dg"><b>สินค้าอันตราย (Dangerous Goods)</b>
+      ${c.dg.map(d => `<p><span class="tag">Class ${esc(d[1])}</span> ${d[2] !== '—' ? `<span class="tag">${esc(d[2])}</span> ` : ''}${esc(d[3])}</p>`).join('')}
+      ${aiDg ? `<p><b>AI ประเมิน:</b> ${esc([ai.dg.class && 'Class ' + ai.dg.class, ai.dg.un, ai.dg.note].filter(Boolean).join(' · '))}</p>` : ''}
+      <p class="note">ยืนยันจาก SDS ข้อ 14 (UN No., Class, Packing Group) ก่อนจองระวาง — ต้องใช้ DG Declaration ตาม IMDG (ทางเรือ) / IATA DGR (ทางอากาศ)</p></div>` : ''}
+  </div>`;
+}
+
+async function loadPriv() {
+  try {
+    const get = f => fetch('data/' + f).then(r => { if (!r.ok) throw new Error(f + ' ' + r.status); return r.json(); });
+    const [rates, HS, R] = await Promise.all([get('rates.json'), get('hs_en.json'), get('permits.json')]);
+    PV = {...rates, HS, R};
+    const H = PV.HS || {};
+    items.forEach(x => { x.en = PV.EN[x.c] || ''; x.ke = x.en.toLowerCase(); x.k6 = (H[x.c.slice(0,6)] || '').toLowerCase(); x.k4 = (H[x.c.slice(0,4)] || '').toLowerCase(); });
+    const d = String(PV.date); $('#asof').textContent = `${d.slice(6)}/${d.slice(4,6)}/${d.slice(0,4)}`;
+    document.dispatchEvent(new Event('privready'));
+  } catch (err) { console.warn(err); $('#asof').textContent = '(โหลดข้อมูลสิทธิประโยชน์ไม่สำเร็จ)'; }
+}
+
+/* ---------- search ---------- */
+const tri = s => { const t = new Set(); for (let i = 0; i < s.length - 2; i++) t.add(s.slice(i, i+3)); return t; };
+function search(q, n = 30) {
+  q = q.trim(); if (!q) return [];
+  const digits = q.replace(/[\s.]/g,'');
+  if (/^\d{2,8}$/.test(digits)) return items.filter(x => x.c.startsWith(digits)).slice(0, 200).map(x => ({x, s: 1}));
+  const raw = q.split(/[\s,;/]+/).filter(t => t.length > 1);
+  const terms = raw.map(key);
+  if (!terms.length) return [];
+  const isEn = raw.map(t => /^[a-z0-9\-.]+$/i.test(t) && /[a-z]/i.test(t));
+  const enStem = raw.map(t => t.toLowerCase().replace(/(ies|es|s)$/,''));
+  const tg = terms.map(tri);
+  const out = [];
+  for (const x of items) {
+    let s = 0, hit = 0;
+    terms.forEach((t, i) => {
+      if (isEn[i]) {
+        const w = enStem[i]; if (w.length < 2) return;
+        if (x.ke && x.ke.includes(w)) { s += 3 * w.length; hit++; }
+        else if (x.k6 && x.k6.includes(w)) { s += 2.2 * w.length; hit++; }
+        else if (x.k4 && x.k4.includes(w)) { s += 1.5 * w.length; hit++; }
+        return;
+      }
+      if (x.kd.includes(t)) { s += 3 * t.length; hit++; }
+      else if (x.kp.includes(t)) { s += 2 * t.length; hit++; }
+      else if (t.length > 3) {
+        let m = 0; for (const g of tg[i]) if (x.kd.includes(g) || x.kp.includes(g)) m++;
+        const f = m / tg[i].size; if (f >= .5) s += f * t.length;
+      }
+    });
+    if (s > 0) { s *= (1 + hit) / (1 + terms.length); if (x.d.startsWith('อื่น')) s *= .9; out.push({x, s}); }
+  }
+  return out.sort((a, b) => b.s - a.s).slice(0, n);
+}
+function rowsHTML(list) {
+  if (!list.length) return '<p class="empty">ไม่พบรายการที่ตรง ลองใช้คำที่สั้นลง หรือคำเรียกทางเทคนิค เช่น “สลักเกลียว” แทน “น็อต”</p>';
+  return `<table class="stack"><thead><tr><th>พิกัด</th><th>รายการ</th><th style="text-align:right">อากรทั่วไป</th><th style="text-align:right">FTA ต่ำสุด</th></tr></thead><tbody>${
+    list.map(({x}) => { const G = genRate(x), b = bestFTA(x, 'ALL');
+      return `<tr class="hit" data-line="${x.c}"><td class="c" data-l="พิกัด">${fmt(x.c)}</td><td data-l="รายการ"><span class="note">${esc(fullPath(x).slice(0,-1).join(' › '))}</span><br>${esc(x.d)}${x.en ? `<span class="note" style="display:block">${esc(x.en)}</span>` : ''}${ctrlBadges(x)}</td><td class="r" data-l="อากรทั่วไป">${esc(G.r)}</td><td class="r" data-l="FTA ต่ำสุด">${b && (G.a === null || b.a < G.a) ? `${esc(showR(b.p[1]))} <span class="note">${b.g.k}</span>` : '–'}</td></tr>`; }).join('')
+  }</tbody></table>`;
+}
+let st;
+$('#sq').addEventListener('input', e => {
+  clearTimeout(st);
+  st = setTimeout(() => {
+    const q = e.target.value;
+    $('#sres').innerHTML = q.trim() ? rowsHTML(search(q, 60)) : '';
+  }, 160);
+});
+document.addEventListener('click', e => {
+  const go = e.target.closest('[data-goto]');
+  if (go) { hidePanel(); document.getElementById('t-' + go.dataset.goto).click(); window.scrollTo(0, 0); return; }
+  const ln = e.target.closest('[data-line]');
+  if (ln) { openLine(ln.dataset.line); return; }
+  const tr = e.target.closest('[data-c]');
+  if (tr) openHead(hOf(tr.dataset.c), tr.dataset.c);
+  const hb = e.target.closest('[data-h]');
+  if (hb) openHead(hb.dataset.h);
+  const cb = e.target.closest('[data-ch]');
+  if (cb) openChapter(cb.dataset.ch);
+});
+
+/* ---------- panel ---------- */
+function headHTML(h, sel) {
+  const list = byHead.get(h) || [];
+  let prev = [], html = '';
+  for (const x of list) {
+    x.par.forEach((p, i) => { if (prev[i] !== p) { html += `<div class="ln g" style="padding-left:${4+i*14}px"><span></span><span>${'– '.repeat(i+1)}${esc(p)}</span></div>`; prev = prev.slice(0, i); } prev[i] = p; });
+    prev = prev.slice(0, x.par.length);
+    const G = genRate(x), b = PV ? bestFTA(x, 'ALL') : null;
+    html += `<div class="ln hit${x.c === sel ? ' sel' : ''}" id="L${x.c}" data-line="${x.c}" tabindex="0"><span class="k">${fmt(x.c)}</span><span style="padding-left:${x.par.length*14}px">${x.par.length ? '– '.repeat(x.par.length+1) : ''}${esc(x.d)}${ctrlBadges(x)}</span><span class="v">${esc(G.r)}${b && G.a !== null && b.a < G.a ? `<small>FTA ${esc(showR(b.p[1]))}</small>` : ''}</span></div>`;
+  }
+  return html;
+}
+function notesHTML(ch) {
+  const c = D.C[ch]; if (!c) return '';
+  const s = D.S[c[1]];
+  return `<p class="note">หมวด ${c[1]} ${esc(s)} · ตอนที่ ${+ch} ${esc(c[0])}</p>${c[2] ? `<details><summary>หมายเหตุของตอนที่ ${+ch}</summary><div class="notes">${esc(c[2])}</div></details>` : ''}`;
+}
+function openHead(h, sel) {
+  panelState = ['head', h, sel];
+  const he = PV?.HS?.[h.replace('.','')];
+  $('#pt').innerHTML = `<span>${h}</span>${esc(D.H[h] || '')}${he ? `<small class="note" style="display:block;font-weight:400">${esc(he)}</small>` : ''}`;
+  $('#pb').innerHTML = notesHTML(h.slice(0,2)) + headHTML(h, sel);
+  showPanel();
+  if (sel) setTimeout(() => document.getElementById('L'+sel)?.scrollIntoView({block:'center'}), 60);
+}
+let panelState = null;
+function openLine(c, origin = 'ALL') {
+  const x = byCode.get(c); if (!x) return;
+  panelState = ['line', c];
+  const path = fullPath(x);
+  $('#pt').innerHTML = `<span>${fmt(x.c)}</span>${esc(x.d)}`;
+  $('#pb').innerHTML = `<button class="link" data-h="${x.h}">‹ ดูประเภท ${x.h} ทั้งหมด</button>
+    <div class="path"><span class="h">${x.h} ${esc(path[0])}</span>${path.slice(1).map((p, i, a) => `<br><span class="${i < a.length-1 ? 's' : ''}">${'– '.repeat(i+1)}${esc(p)}</span>`).join('')}</div>
+    ${x.en ? `<p class="note">${esc([PV?.HS?.[x.c.slice(0,6)], x.en].filter(Boolean).join(' › '))}</p>` : ''}${ctrlHTML(x)}${privHTML(x, origin, 'panel')}`;
+  showPanel();
+}
+function openChapter(ch) {
+  panelState = null;
+  const c = D.C[ch];
+  $('#pt').innerHTML = `<span>ตอนที่ ${+ch}</span>${esc(c[0])}`;
+  const hs = Object.keys(D.H).filter(h => h.startsWith(ch)).sort();
+  $('#pb').innerHTML = notesHTML(ch) + hs.map(h => `<div class="ln hit" data-h="${h}" style="cursor:pointer;grid-template-columns:5em minmax(0,1fr)"><span class="k">${h}</span><span>${esc(D.H[h])}</span></div>`).join('');
+  showPanel();
+}
+let lastFocus;
+function showPanel() { lastFocus = document.activeElement; $('#panel').classList.add('on'); $('#panel').setAttribute('aria-hidden','false'); $('#pb').scrollTop = 0; $('#px').focus(); }
+function hidePanel() { $('#panel').classList.remove('on'); $('#panel').setAttribute('aria-hidden','true'); lastFocus?.focus?.(); }
+$('#px').onclick = hidePanel;
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') hidePanel();
+  if (e.key === 'Enter' && e.target.matches?.('[data-line]')) openLine(e.target.dataset.line);
+});
+document.addEventListener('privready', () => {
+  if ($('#sq').value.trim()) $('#sq').dispatchEvent(new Event('input'));
+  if ($('#panel').classList.contains('on') && panelState) panelState[0] === 'line' ? openLine(panelState[1]) : openHead(panelState[1], panelState[2]);
+  if (RES.length) renderAll();
+  renderCat();
+});
+
+/* ---------- browse ---------- */
+const secs = {};
+Object.entries(D.C).forEach(([ch, c]) => (secs[c[1]] ||= []).push(ch));
+$('#tree').innerHTML = Object.keys(D.S).sort((a,b)=>a-b).map(s => `<div class="sec"><h3><span>หมวด ${s}</span>${esc(D.S[s])}</h3><div class="chs">${
+  (secs[s]||[]).sort().map(ch => `<button class="ch" data-ch="${ch}"><b>${ch}</b><span>${esc(D.C[ch][0])}</span></button>`).join('')}</div></div>`).join('');
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('nav button').forEach(x => x.setAttribute('aria-selected', x === b));
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('on', v.id === 'v-' + b.dataset.v));
+  if (b.dataset.v === 'sr') $('#sq').focus();
+});
+
+/* ---------- files ---------- */
+let files = [];
+const drop = $('#drop');
+function addFiles(fl) { files.push(...fl); renderFiles(); }
+function renderFiles() { $('#files').innerHTML = files.map((f, i) => `<span>${esc(f.name)} <button data-rm="${i}" aria-label="เอาออก">×</button></span>`).join(''); }
+$('#files').onclick = e => { const b = e.target.closest('[data-rm]'); if (b) { files.splice(+b.dataset.rm, 1); renderFiles(); } };
+$('#file').onchange = e => { addFiles([...e.target.files]); e.target.value = ''; };
+['dragenter','dragover'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add('hot'); }));
+['dragleave','drop'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.remove('hot'); }));
+drop.addEventListener('drop', e => addFiles([...e.dataTransfer.files]));
+const loadScript = src => new Promise((ok, no) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = no; document.head.appendChild(s); });
+async function readFile(f) {
+  const n = f.name.toLowerCase();
+  if (/\.(png|jpe?g|webp)$/.test(n)) return {images: [f]};
+  if (/\.(xlsx|xls)$/.test(n)) {
+    if (!window.XLSX) await loadScript('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js');
+    const wb = XLSX.read(await f.arrayBuffer());
+    return {text: wb.SheetNames.map(s => `[ชีต ${s}]\n` + XLSX.utils.sheet_to_csv(wb.Sheets[s], {blankrows: false})).join('\n')};
+  }
+  if (n.endsWith('.pdf')) {
+    if (!window.pdfjsLib) { await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'); pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; }
+    const pdf = await pdfjsLib.getDocument({data: await f.arrayBuffer()}).promise;
+    let text = '';
+    for (let p = 1; p <= Math.min(pdf.numPages, 15); p++) {
+      const tc = await (await pdf.getPage(p)).getTextContent();
+      text += tc.items.map(i => i.str + (i.hasEOL ? '\n' : ' ')).join('') + '\n';
+    }
+    if (text.replace(/\s/g,'').length > 40) return {text};
+    const images = [];
+    for (let p = 1; p <= Math.min(pdf.numPages, 3); p++) {
+      const pg = await pdf.getPage(p), vp = pg.getViewport({scale: 1.6});
+      const cv = document.createElement('canvas'); cv.width = vp.width; cv.height = vp.height;
+      await pg.render({canvasContext: cv.getContext('2d'), viewport: vp}).promise;
+      images.push(await new Promise(r => cv.toBlob(r, 'image/png')));
+    }
+    return {images};
+  }
+  return {text: await f.text()};
+}
+
+/* ---------- settings (stored in this browser only) ---------- */
+const CFG = (() => { try { return JSON.parse(localStorage.getItem('hs-cfg') || '{}'); } catch { return {}; } })();
+const saveCfg = () => { try { localStorage.setItem('hs-cfg', JSON.stringify(CFG)); } catch {} };
+const MODELS = {default: 'claude-sonnet-5-5', complex: 'claude-opus-5-5'};
+
+/* ---------- Claude API adapter (tool-use loop, called straight from the browser) ---------- */
+async function blobB64(b) { const u = new Uint8Array(await b.arrayBuffer()); let s = ''; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); }
+async function callApi(body) {
+  const res = await fetch('https://api.anthropic.com/v1/messages', {method: 'POST',
+    headers: {'content-type': 'application/json', 'x-api-key': CFG.key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true'},
+    body: JSON.stringify(body)});
+  if (!res.ok) {
+    const t = await res.text().catch(() => '');
+    const e = new Error(`Claude API ${res.status}: ${t.slice(0, 300)}`);
+    e.code = res.status === 401 || res.status === 403 ? 'not_granted' : res.status === 429 || res.status === 529 ? 'rate_limited' : 'api';
+    throw e;
+  }
+  return res.json();
+}
+async function anthropicSample(input, opts = {}) {
+  const content = [];
+  for (const b of opts.images || []) content.push({type: 'image', source: {type: 'base64', media_type: b.type || 'image/png', data: await blobB64(b)}});
+  content.push({type: 'text', text: input});
+  const messages = [{role: 'user', content}];
+  const tools = (opts.tools || []).map(t => ({name: t.name, description: t.description, input_schema: t.inputSchema || {type: 'object', properties: {}}}));
+  const model = opts.modelTier === 'complex' ? (CFG.deep || MODELS.complex) : (CFG.model || MODELS.default);
+  for (let turn = 0; turn < 40; turn++) {
+    const r = await callApi({model, max_tokens: 16000, messages, ...(tools.length ? {tools} : {})});
+    messages.push({role: 'assistant', content: r.content});
+    if (r.stop_reason !== 'tool_use') return {text: r.content.filter(c => c.type === 'text').map(c => c.text).join('\n')};
+    const results = [];
+    for (const c of r.content.filter(c => c.type === 'tool_use')) {
+      const tool = (opts.tools || []).find(t => t.name === c.name);
+      let out, isErr = false;
+      try { out = tool ? await tool.execute(c.input || {}) : 'unknown tool'; } catch (e) { out = String(e?.message || e); isErr = true; }
+      results.push({type: 'tool_result', tool_use_id: c.id, content: typeof out === 'string' ? out : JSON.stringify(out), ...(isErr ? {is_error: true} : {})});
+    }
+    messages.push({role: 'user', content: results});
+  }
+  throw new Error('AI เรียกใช้เครื่องมือหลายรอบเกินไป ลองแบ่งรายการให้น้อยลง');
+}
+anthropicSample.limits = async () => ({images: true});
+let sample = null;
+function setAI() {
+  sample = CFG.key ? anthropicSample : null;
+  $('#aist').innerHTML = sample ? `AI พร้อม · ${esc(CFG.model || MODELS.default)} <button class="link" data-settings>ตั้งค่า</button>`
+    : `ยังไม่ได้ใส่ Claude API key — <button class="link" data-settings>ตั้งค่า</button> · ระหว่างนี้ใช้การค้นหาคำแทน`;
+}
+const logEl = $('#log');
+const log = t => { logEl.classList.add('on'); logEl.insertAdjacentHTML('beforeend', `<div>${esc(t)}</div>`); logEl.scrollTop = 1e6; };
+const clip = (s, n) => s.length > n ? s.slice(0, n) + '…' : s;
+const privTxt = x => { if (!PV) return ''; const G = genRate(x);
+  const f = privOf(x.c).filter(p => codeGroup[p[0]]).map(p => `${p[0]}(${codeGroup[p[0]].k})=${showR(p[1])}`).join(', ');
+  return `ทั่วไป ${G.r}; FTA: ${f || '-'}`; };
+
+/* ---------- team library: data/library.json in the GitHub repo ---------- */
+let LIB = [];
+const ME = () => CFG.name || '';
+const hash = s => { let h = 5381; for (const ch of s) h = ((h << 5) + h + ch.charCodeAt(0)) >>> 0; return h.toString(36); };
+const libKey = s => key(String(s || '')).slice(0, 300);
+const b64e = s => btoa(unescape(encodeURIComponent(s))), b64d = s => decodeURIComponent(escape(atob(s.replace(/\s/g, ''))));
+const GH = () => CFG.ghRepo && CFG.ghToken;
+const LOCAL = () => { try { return JSON.parse(localStorage.getItem('hs-lib-local') || '[]'); } catch { return []; } };
+const setLocal = L => { try { localStorage.setItem('hs-lib-local', JSON.stringify(L)); } catch {} };
+function libMatch(...texts) {
+  let best = null;
+  for (const t of texts.filter(Boolean)) {
+    const k = libKey(t); if (k.length < 3) continue;
+    const tg = tri(k), nums = (k.match(/\d+/g) || []).join(',');
+    for (const e of LIB) {
+      let sc = 0;
+      if (e.key === k) sc = 1;
+      else if ((e.key.match(/\d+/g) || []).join(',') !== nums) continue;
+      else { const eg = tri(e.key); let m = 0; for (const g of tg) if (eg.has(g)) m++; sc = m / (tg.size + eg.size - m || 1); }
+      if (sc >= 0.72 && (!best || sc > best.sc)) best = {e, sc};
+    }
+  }
+  return best;
+}
+async function ghGet() {
+  const r = await fetch(`https://api.github.com/repos/${CFG.ghRepo}/contents/data/library.json?ref=${encodeURIComponent(CFG.ghBranch || 'main')}`,
+    {headers: {Authorization: 'Bearer ' + CFG.ghToken, Accept: 'application/vnd.github+json'}, cache: 'no-store'});
+  if (r.status === 404) return {list: [], sha: null};
+  if (!r.ok) throw new Error('GitHub ' + r.status);
+  const j = await r.json();
+  return {list: JSON.parse(b64d(j.content) || '[]'), sha: j.sha};
+}
+async function ghPut(list, sha, msg) {
+  const r = await fetch(`https://api.github.com/repos/${CFG.ghRepo}/contents/data/library.json`, {method: 'PUT',
+    headers: {Authorization: 'Bearer ' + CFG.ghToken, Accept: 'application/vnd.github+json'},
+    body: JSON.stringify({message: msg, content: b64e(JSON.stringify(list, null, 1)), branch: CFG.ghBranch || 'main', ...(sha ? {sha} : {})})});
+  if (r.status === 409 || r.status === 422) { const e = new Error('conflict'); e.conflict = true; throw e; }
+  if (!r.ok) throw new Error('GitHub ' + r.status + ' ' + (await r.text()).slice(0, 200));
+}
+async function ghEdit(fn, msg) {
+  for (let i = 0; i < 3; i++) {
+    const {list, sha} = await ghGet();
+    try { const nl = fn(list); await ghPut(nl, sha, msg); return nl; }
+    catch (e) { if (!e.conflict) throw e; }
+  }
+  throw new Error('มีคนแก้คลังพร้อมกัน ลองใหม่อีกครั้ง');
+}
+const sortLib = L => L.filter(e => e && e.code && e.key).sort((a, b) => String(b.at).localeCompare(String(a.at)));
+async function loadLib() {
+  try {
+    let shared = [];
+    if (GH()) shared = (await ghGet()).list;
+    else { const r = await fetch('data/library.json', {cache: 'no-store'}); if (r.ok) shared = await r.json(); }
+    const ids = new Set(shared.map(e => e.id));
+    LIB = sortLib([...shared, ...LOCAL().filter(e => !ids.has(e.id))]);
+    $('#lbst').textContent = `${LIB.length.toLocaleString('en')} รายการ · ${GH() ? 'ซิงก์กับ GitHub ' + CFG.ghRepo : 'อ่านจาก data/library.json + รายการที่บันทึกในเครื่องนี้ (' + LOCAL().length + ')'} · AI จะค้นคลังนี้ก่อนทุกครั้ง`;
+  } catch (e) { LIB = sortLib(LOCAL()); $('#lbst').textContent = 'โหลดคลังจาก GitHub ไม่สำเร็จ (' + e.message + ') — แสดงเฉพาะรายการในเครื่องนี้'; }
+  renderLib(); if (RES.length) renderAll();
+}
+function renderLib() {
+  const q = libKey($('#lq').value);
+  const L = q ? LIB.filter(e => e.key.includes(q) || e.code.includes(q.replace(/\D/g,'') || '#')) : LIB;
+  $('#lres').innerHTML = `<div class="acts2" style="margin:0 0 10px"><button class="btn ghost sm" id="libexp">ส่งออก library.json</button><label class="btn ghost sm" style="display:inline-flex;align-items:center">นำเข้าไฟล์<input type="file" id="libimp" accept=".json" hidden></label><button class="btn ghost sm" data-settings>ตั้งค่า GitHub</button></div>` +
+    (L.length ? `<table class="stack"><thead><tr><th>พิกัด</th><th>สินค้า</th><th>บันทึก</th><th></th></tr></thead><tbody>${L.slice(0, 500).map(e => {
+    const x = byCode.get(e.code);
+    return `<tr><td class="c" data-l="พิกัด"><button class="link" data-line="${e.code}" style="font:700 16px var(--num)">${fmt(e.code)}</button></td><td data-l="สินค้า">${esc(e.th || '')}<span class="note" style="display:block">${esc(clip(e.text || '', 160))}</span>${x ? `<span class="note" style="display:block">${esc(clip(x.d, 90))}</span>` : ''}</td><td data-l="บันทึก"><span class="note">${esc(e.note || '')}${e.by ? ' · ' + esc(e.by) : ''}${e.at ? ' · ' + esc(String(e.at).slice(0, 10)) : ''}</span></td><td><button class="link" data-libdel="${esc(e.id)}">ลบ</button></td></tr>`; }).join('')}</tbody></table>`
+    : `<p class="empty">${LIB.length ? 'ไม่พบในคลัง' : 'ยังไม่มีรายการ — กด “ยืนยันพิกัด” ในผลการพิจารณาเพื่อเริ่มสร้างคลัง'}</p>`);
+}
+$('#lq').addEventListener('input', renderLib);
+const alertBox = m => { $('#res').insertAdjacentHTML('afterbegin', `<div class="warnbox">${esc(m)}</div>`); };
+async function libSave(r, code, note) {
+  const text = [r.it.input, r.it.product_th].filter(Boolean).join(' | ');
+  const k = libKey(r.it.input || r.it.product_th);
+  const doc = {id: hash(k), key: k, text, th: r.it.product_th || '', code, note: note || '', by: ME(), at: new Date().toISOString()};
+  try {
+    if (GH()) await ghEdit(L => [doc, ...L.filter(e => e.id !== doc.id)], `library: ${fmt(code)} ${clip(doc.th || text, 50)}`);
+    else { setLocal([doc, ...LOCAL().filter(e => e.id !== doc.id)]); }
+    r.saved = code; await loadLib();
+    if (!GH()) alertBox('บันทึกไว้ในเครื่องนี้แล้ว — ตั้งค่า GitHub token เพื่อแชร์ให้ทั้งทีม หรือกด “ส่งออก library.json” แล้วอัปโหลดขึ้น repo');
+  } catch (e) { alertBox('บันทึกไม่สำเร็จ: ' + (e?.message || e)); }
+}
+async function libDel(id) {
+  try {
+    if (GH()) await ghEdit(L => L.filter(e => e.id !== id), 'library: delete ' + id);
+    setLocal(LOCAL().filter(e => e.id !== id)); await loadLib();
+  } catch (e) { $('#lbst').textContent = 'ลบไม่สำเร็จ: ' + e.message; }
+}
+document.addEventListener('click', e => {
+  if (e.target.closest('#libexp')) {
+    const blob = new Blob([JSON.stringify(LIB, null, 1)], {type: 'application/json'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'library.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+  if (e.target.closest('[data-settings]')) openSettings();
+  const ld = e.target.closest('[data-libdel]'); if (ld) libDel(ld.dataset.libdel);
+});
+document.addEventListener('change', async e => {
+  if (e.target.id !== 'libimp' || !e.target.files[0]) return;
+  try {
+    const L = JSON.parse(await e.target.files[0].text()); if (!Array.isArray(L)) throw new Error('ไฟล์ไม่ใช่รายการ');
+    const ok = L.filter(x => x && x.code && x.key).map(x => ({...x, id: x.id || hash(x.key)}));
+    if (GH()) await ghEdit(S => { const ids = new Set(ok.map(x => x.id)); return [...ok, ...S.filter(x => !ids.has(x.id))]; }, `library: import ${ok.length}`);
+    else { const ids = new Set(ok.map(x => x.id)); setLocal([...ok, ...LOCAL().filter(x => !ids.has(x.id))]); }
+    await loadLib();
+  } catch (err) { $('#lbst').textContent = 'นำเข้าไม่สำเร็จ: ' + err.message; }
+});
+
+/* ---------- settings panel ---------- */
+function openSettings() {
+  panelState = null;
+  $('#pt').innerHTML = '<span>ตั้งค่า</span>เก็บไว้ในเบราว์เซอร์นี้เท่านั้น';
+  const f = (id, label, val, type = 'text', ph = '', help = '') => `<label class="fld"><span>${label}</span><input id="${id}" type="${type}" value="${esc(val || '')}" placeholder="${esc(ph)}" autocomplete="off">${help ? `<small class="note">${help}</small>` : ''}</label>`;
+  $('#pb').innerHTML = `<form id="setf" class="setf">
+    <h4>Claude API</h4>
+    ${f('s-key', 'API key', CFG.key, 'password', 'sk-ant-…', 'สร้างได้ที่ console.anthropic.com → API Keys · ส่งตรงไปที่ api.anthropic.com เท่านั้น ควรตั้งวงเงินใช้จ่ายสูงสุดใน Console')}
+    ${f('s-model', 'โมเดลปกติ', CFG.model, 'text', MODELS.default)}
+    ${f('s-deep', 'โมเดลโหมดละเอียด', CFG.deep, 'text', MODELS.complex)}
+    <h4>คลังพิกัดของทีม (GitHub)</h4>
+    ${f('s-name', 'ชื่อของคุณ (แสดงในคลัง)', CFG.name, 'text', 'เช่น Mai')}
+    ${f('s-repo', 'Repository', CFG.ghRepo, 'text', 'owner/repo', 'repo ที่เก็บแอปนี้ คลังอยู่ที่ data/library.json')}
+    ${f('s-branch', 'Branch', CFG.ghBranch, 'text', 'main')}
+    ${f('s-tok', 'GitHub token', CFG.ghToken, 'password', 'github_pat_…', 'Fine-grained token ที่ให้สิทธิ์ Contents: Read and write เฉพาะ repo นี้ — ไม่ใส่ก็ได้ (บันทึกในเครื่องแทน)')}
+    <div class="acts2"><button class="btn red" type="submit">บันทึก</button><button class="btn ghost" type="button" id="s-clear">ลบค่าทั้งหมดออกจากเครื่องนี้</button></div></form>`;
+  showPanel();
+}
+document.addEventListener('submit', e => {
+  if (e.target.id !== 'setf') return; e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  Object.assign(CFG, {key: v('s-key'), model: v('s-model'), deep: v('s-deep'), name: v('s-name'), ghRepo: v('s-repo').replace(/^https?:\/\/github\.com\//, '').replace(/\/$/, ''), ghBranch: v('s-branch'), ghToken: v('s-tok')});
+  saveCfg(); setAI(); hidePanel(); loadLib();
+});
+document.addEventListener('click', e => {
+  if (e.target.id !== 's-clear') return;
+  try { localStorage.removeItem('hs-cfg'); } catch {}
+  Object.keys(CFG).forEach(k => delete CFG[k]); setAI(); hidePanel(); loadLib();
+});
+setAI();
+loadLib();
+
+/* ---------- AI tools (per-run context records what the AI actually checked) ---------- */
+function makeTools(ctx) { return [
+  {name: 'library_search', description: 'ค้นคลังพิกัดที่ทีมเคยยืนยันแล้ว (ใช้ก่อนทุกรายการ) ด้วยชื่อสินค้า/รุ่น/ข้อความจาก Invoice',
+   inputSchema: {type: 'object', properties: {query: {type: 'string'}}, required: ['query']},
+   execute: ({query}) => { log('ค้นคลังทีม: ' + query); const m = libMatch(query); return m ? `พบ (ความเหมือน ${Math.round(m.sc * 100)}%): ${fmt(m.e.code)} | ${m.e.th} | ${m.e.text} | หมายเหตุ ${m.e.note || '-'}` : 'ไม่พบในคลัง'; }},
+  {name: 'search_tariff', description: 'ค้นหาในตารางพิกัดศุลกากรไทย ด้วยคำสำคัญภาษาไทยหรืออังกฤษ หรือเลขพิกัดขึ้นต้น เช่น "8418". คืนรายการพิกัด 8 หลัก โครงสร้าง และอัตราอากรทั่วไป',
+   inputSchema: {type: 'object', properties: {query: {type: 'string'}}, required: ['query']},
+   execute: ({query}) => { log('ค้นหา: ' + query); const r = search(query, 18); return r.length ? r.map(({x}) => `${fmt(x.c)} | ทั่วไป ${genRate(x).r} | ${clip(fullPath(x).join(' › '), 220)}${x.en ? ' | ' + x.en : ''}`).join('\n') : 'ไม่พบ ลองคำอื่นหรือคำทางเทคนิค'; }},
+  {name: 'open_heading', description: 'เปิดดูประเภท 4 หลัก (เช่น "84.18") ทั้งหมด แสดงทุกประเภทย่อย 8 หลักเรียงตามโครงสร้าง — ต้องเปิดก่อนเลือกรหัสสุดท้ายทุกครั้ง',
+   inputSchema: {type: 'object', properties: {heading: {type: 'string'}}, required: ['heading']},
+   execute: ({heading}) => { const d = normCode(heading).slice(0,4); const h = hOf(d); log('เปิดประเภท ' + h); ctx.opened.add(h);
+     const l = byHead.get(h); if (!l) return 'ไม่มีประเภทนี้';
+     let prev = [], out = [`${h} ${D.H[h]}${PV?.HS?.[d] ? ' (' + PV.HS[d] + ')' : ''}`];
+     for (const x of l) { x.par.forEach((p, i) => { if (prev[i] !== p) { out.push('  '.repeat(i+1) + '- ' + p); prev = prev.slice(0, i); } prev[i] = p; }); prev = prev.slice(0, x.par.length);
+       out.push(`${'  '.repeat(x.par.length+1)}${fmt(x.c)} - ${x.d}${x.en ? ' (' + x.en + ')' : ''} [ทั่วไป ${genRate(x).r}]`); }
+     return clip(out.join('\n'), 11000); }},
+  {name: 'chapter_info', description: 'ดูชื่อตอน รายชื่อประเภท 4 หลักในตอน และหมายเหตุของตอนและหมวด (ข้อยกเว้น/นิยาม) เช่น chapter "84" — ต้องตรวจหมายเหตุก่อนสรุป',
+   inputSchema: {type: 'object', properties: {chapter: {type: 'string'}}, required: ['chapter']},
+   execute: ({chapter}) => { const ch = normCode(chapter).padStart(2,'0').slice(0,2); const c = D.C[ch]; log('อ่านหมายเหตุตอนที่ ' + +ch); ctx.chapters.add(ch); if (!c) return 'ไม่มีตอนนี้';
+     const hs = Object.keys(D.H).filter(h => h.startsWith(ch)).sort().map(h => `${h} ${clip(D.H[h], 140)}`).join('\n');
+     const sn = D.SN?.[c[1]] ? `\n\nหมายเหตุหมวด ${c[1]}:\n${clip(D.SN[c[1]], 3000)}` : '';
+     return `ตอนที่ ${ch} ${c[0]}\nประเภท:\n${hs}\n\nหมายเหตุตอน:\n${clip(c[2] || '-', 6000)}${sn}`; }},
+  {name: 'controls', description: 'ดูข้อห้าม/ข้อกำกัด และสัญญาณเสี่ยง DUI / DG ตามพิกัดของรหัส 8 หลัก',
+   inputSchema: {type: 'object', properties: {code: {type: 'string'}}, required: ['code']},
+   execute: ({code}) => { const x = byCode.get(normCode(code)); log('ตรวจข้อห้าม/ข้อกำกัด ' + code); if (!x || !PV) return 'ไม่พบรหัส'; const c = ctrlOf(x);
+     return JSON.stringify({prohibited: c.pro.map(p => p[1]), permits: c.per.map(p => ({agency: p[0], case: CASEN[p[1]], scope: p[4]})), dui_hs_risk: c.dui.map(d => 'หมวด ' + d[1] + ' ' + d[2]), dg_hs_risk: c.dg.map(d => `Class ${d[1]} ${d[2]} ${d[3]}`)}); }},
+  {name: 'privileges', description: 'ดูอัตราอากรทั่วไปและอัตรา FTA ทุกความตกลงของพิกัด 8 หลัก',
+   inputSchema: {type: 'object', properties: {code: {type: 'string'}}, required: ['code']},
+   execute: ({code}) => { const x = byCode.get(normCode(code)); log('ดูสิทธิประโยชน์ ' + code); return x ? privTxt(x) : 'ไม่พบรหัส'; }},
+]; }
+const newCtx = () => ({opened: new Set(), chapters: new Set()});
+
+const PROMPT = (txt) => `คุณคือผู้เชี่ยวชาญพิกัดศุลกากรไทยและสิทธิประโยชน์ทางภาษี ใช้หลักเกณฑ์การตีความพิกัดฯ (GIR 1–6) และหมายเหตุหมวด/ตอน
+ข้อมูลที่ได้รับอาจเป็นรายการสินค้า หรือข้อความจาก Invoice / Packing List (ภาษาไทย/อังกฤษ/อื่น ๆ)
+ขั้นตอน (ทำครบทุกข้อสำหรับทุกรายการ):
+1) แยกรายการสินค้าที่แตกต่างกัน (ไม่เกิน 25 รายการ) ข้ามบรรทัดที่ไม่ใช่สินค้า ระบุประเทศถิ่นกำเนิดเป็นรหัส ISO 2 ตัวถ้าทราบ
+2) เรียก library_search ก่อน ถ้าพบสินค้าเดียวกันที่ทีมยืนยันแล้ว ให้ใช้รหัสนั้น เว้นแต่ข้อมูลขัดแย้งชัดเจน และใส่ from_library เป็น true
+3) ใช้ search_tariff ค้น (ไทยหรืออังกฤษ) เลือกประเภท 4 หลักตาม GIR 1
+4) เรียก chapter_info ของตอนที่เลือก ตรวจหมายเหตุตอน/หมวดว่าไม่มีข้อยกเว้นที่ส่งสินค้าไปตอนอื่น
+5) เรียก open_heading ของประเภทที่เลือกทุกครั้ง แล้วเลือกประเภทย่อย 8 หลักที่ปรากฏจริงเท่านั้น ห้ามแต่งรหัสเอง
+6) ถ้าข้อมูลสินค้าไม่พอจะเลือกระหว่างประเภทย่อย (เช่น วัสดุ ความจุ กำลังไฟ การใช้งาน สภาพประกอบ) ให้ตั้งคำถาม 1–3 ข้อใน questions พร้อมตัวเลือกที่ตรงกับเงื่อนไขของแต่ละประเภทย่อยจริง และยังคงเลือกรหัสที่น่าจะเป็นที่สุดไว้ก่อน
+7) เรียก controls แล้วประเมิน DG (Class/UN No.) และ DUI (หมวด 0–9) จากลักษณะสินค้าจริง status ใช้ "yes" "maybe" หรือ "no"
+8) เรียก privileges แล้วสรุปสิทธิที่ควรใช้ใน benefit
+9) กรอก checks ตามจริง: heading_wording = ถ้อยคำประเภท 4 หลักครอบคลุมสินค้าโดยตรง (ไม่ใช่ "อื่น ๆ" แบบกว้าง); notes_ok = อ่านหมายเหตุแล้วไม่มีข้อยกเว้น; sub_complete = ข้อมูลพอเลือกประเภทย่อยได้โดยไม่ต้องเดา; gir = กฎที่ใช้
+ตอบกลับเป็น JSON อย่างเดียว ไม่มีข้อความอื่น รูปแบบ:
+{"items":[{"input":"ข้อความต้นฉบับสั้น ๆ","product_th":"ชื่อสินค้าภาษาไทย","origin":"CN","code":"8418.10.31","confidence":85,"from_library":false,"reason":"เหตุผลภาษาไทย 1–3 ประโยค อ้าง GIR/หมายเหตุ","checks":{"heading_wording":true,"notes_ok":true,"sub_complete":false,"gir":"1, 6"},"questions":[{"q":"ความจุเกิน 230 ลิตรหรือไม่","options":["ไม่เกิน 230 ลิตร","เกิน 230 ลิตร"]}],"benefit":"สิทธิที่แนะนำ 1–2 ประโยค","dg":{"status":"no","class":"","un":"","note":""},"dui":{"status":"no","category":"","note":""},"need_info":"","alternatives":[{"code":"8418.10.32","why":"กรณีความจุเกิน 230 ลิตร"}]}]}
+
+ข้อมูลสินค้า:
+"""
+${txt}
+"""`;
+const REVIEW = (items) => `คุณคือผู้ตรวจสอบพิกัดศุลกากรอิสระ (Customs classification reviewer) หน้าที่คือพยายามหักล้างผลการจำแนกด้านล่าง
+สำหรับแต่ละรายการ: จำแนกใหม่ด้วยตัวเองโดยใช้เครื่องมือ (search_tariff, chapter_info เพื่ออ่านหมายเหตุ, open_heading เพื่อดูประเภทย่อยจริง) โดยพิจารณาประเภทคู่แข่งอย่างน้อย 1 ประเภท แล้วเทียบกับรหัสที่เสนอ
+verdict: "agree" ถ้ารหัสถูกต้อง, "disagree" ถ้าควรเป็นรหัสอื่น (ใส่ code ที่ถูก), "uncertain" ถ้าข้อมูลสินค้าไม่พอตัดสิน (ระบุว่าขาดข้อมูลอะไร)
+ตอบ JSON อย่างเดียว: {"reviews":[{"idx":0,"verdict":"agree","code":"8418.10.31","reason":"เหตุผลสั้น ๆ ภาษาไทย อ้าง GIR/หมายเหตุ"}]}
+
+รายการที่ต้องตรวจ:
+${JSON.stringify(items.map((it, idx) => ({idx, input: it.input, product_th: it.product_th, extra_info: it.answers || '', proposed_code: it.code, reason: it.reason})), null, 1)}`;
+
+const tierOpts = () => ({modelTier: $('#o-deep').checked ? 'complex' : 'default', cache: false});
+const parseJ = t => { const m = String(t || '').match(/\{[\s\S]*\}/); if (!m) throw new Error('bad'); return JSON.parse(m[0]); };
+let RES = [];
+
+/* ---------- scoring: confidence from checks the app can verify ---------- */
+function scoreOf(r) {
+  const it = r.it, x = byCode.get(normCode(it.code)), ck = it.checks || {};
+  const L = [];
+  if (r.lib && x && r.lib.e.code === x.c) return {s: 100, L: [['ok', `ตรงกับพิกัดที่ทีมยืนยันแล้ว (ความเหมือน ${Math.round(r.lib.sc * 100)}%)`]], lib: true};
+  if (!x) return {s: 5, L: [['no', 'รหัสที่เสนอไม่มีในตารางพิกัด']]};
+  let s = 10; L.push(['ok', 'รหัสมีอยู่จริงในตารางพิกัด']);
+  if (r.ctx.opened.has(x.h)) { s += 15; L.push(['ok', `AI เปิดดูประเภทย่อยทั้งหมดของ ${x.h} แล้ว`]); } else L.push(['no', `AI ไม่ได้เปิดดูประเภท ${x.h}`]);
+  if (r.ctx.chapters.has(x.c.slice(0, 2)) && ck.notes_ok !== false) { s += 10; L.push(['ok', `ตรวจหมายเหตุตอนที่ ${+x.c.slice(0, 2)} แล้ว ไม่พบข้อยกเว้น`]); }
+  else L.push([ck.notes_ok === false ? 'no' : 'mid', ck.notes_ok === false ? 'หมายเหตุตอนอาจมีข้อยกเว้น' : 'ยังไม่ได้ตรวจหมายเหตุตอน']);
+  if (ck.heading_wording) { s += 15; L.push(['ok', 'ถ้อยคำประเภท 4 หลักครอบคลุมสินค้าโดยตรง' + (ck.gir ? ` (GIR ${ck.gir})` : '')]); } else L.push(['mid', 'จัดเข้าประเภทแบบกว้าง/โดยอนุโลม' + (ck.gir ? ` (GIR ${ck.gir})` : '')]);
+  const openQ = (it.questions || []).length && !r.answered;
+  if (ck.sub_complete && !openQ) { s += 20; L.push(['ok', 'ข้อมูลครบพอเลือกประเภทย่อย 8 หลักโดยไม่ต้องเดา']); }
+  else if (r.answered) { s += 15; L.push(['ok', 'ได้ข้อมูลเพิ่มจากคำตอบของคุณแล้ว']); }
+  else L.push(['no', 'ข้อมูลยังไม่พอเลือกประเภทย่อย — ตอบคำถามด้านล่างเพื่อเพิ่มความมั่นใจ']);
+  const rv = r.review;
+  if (!rv) L.push(['mid', r.reviewing ? 'กำลังตรวจซ้ำรอบสอง…' : 'ยังไม่ได้ตรวจซ้ำรอบสอง']);
+  else if (rv.verdict === 'agree' && normCode(rv.code || it.code) === x.c) { s += 30; L.push(['ok', 'ผู้ตรวจรอบสองได้ผลตรงกัน']); }
+  else if (rv.verdict === 'uncertain') { s += 10; L.push(['mid', 'ผู้ตรวจรอบสองยังไม่แน่ใจ']); }
+  else L.push(['no', `ผู้ตรวจรอบสองเสนอ ${rv.code ? fmt(normCode(rv.code)) : 'รหัสอื่น'}`]);
+  if (r.lib && r.lib.e.code !== x.c) { s = Math.min(s, 40); L.push(['no', `คลังทีมเคยยืนยันสินค้าคล้ายกันเป็น ${fmt(r.lib.e.code)}`]); }
+  return {s: Math.min(99, s), L};
+}
+
+/* ---------- pipeline ---------- */
+async function classify(text, images) {
+  const ctx = newCtx();
+  const opts = {tools: makeTools(ctx), ...tierOpts()};
+  if (images?.length) opts.images = images;
+  const r = await sample(PROMPT(text), opts);
+  const items = parseJ(r.text).items || [];
+  return items.map(it => ({it, ctx, review: null, answers: {}, answered: false, saved: null}));
+}
+async function review(rs) {
+  if (!$('#o-rev').checked || !rs.length) return;
+  rs.forEach(r => r.reviewing = true); renderAll();
+  log('ตรวจซ้ำรอบสอง ' + rs.length + ' รายการ…');
+  const ctx = newCtx();
+  try {
+    const out = await sample(REVIEW(rs.map(r => ({...r.it, answers: qaText(r)}))), {tools: makeTools(ctx), ...tierOpts()});
+    (parseJ(out.text).reviews || []).forEach(v => { const r = rs[v.idx]; if (r) r.review = v; });
+  } catch (e) { log('ตรวจซ้ำไม่สำเร็จ: ' + (e?.message || e?.code || e)); }
+  rs.forEach(r => r.reviewing = false); renderAll();
+}
+const qaText = r => Object.entries(r.answers).filter(([, a]) => a).map(([i, a]) => `${r.it.questions?.[i]?.q || ''}: ${a}`).join('; ');
+async function runAI() {
+  const txt0 = $('#q').value.trim();
+  if (!txt0 && !files.length) { $('#q').focus(); return; }
+  const go = $('#go'); go.disabled = true; go.innerHTML = '<span class="spin"></span>กำลังพิจารณา…';
+  logEl.innerHTML = ''; $('#res').innerHTML = ''; RES = [];
+  try {
+    let text = txt0, images = [];
+    for (const f of files) { log('อ่านไฟล์ ' + f.name); const r = await readFile(f); if (r.text) text += `\n\n[ไฟล์ ${f.name}]\n` + r.text; if (r.images) images.push(...r.images); }
+    text = clip(text, 24000);
+    if (!sample) return fallback(text);
+    if (images.length) { const lim = await sample.limits?.().catch(() => null); if (!lim?.images) { log('มุมมองนี้ส่งรูปให้ AI ไม่ได้ — ใช้เฉพาะข้อความ'); images = []; } else images = images.slice(0, 4); }
+    log('AI เริ่มวิเคราะห์' + ($('#o-deep').checked ? ' (โหมดละเอียด)' : '') + '…');
+    RES = await classify(text || '(ดูจากรูปที่แนบ)', images);
+    RES.forEach(r => r.lib = libMatch(r.it.input, r.it.product_th));
+    renderAll();
+    await review(RES);
+  } catch (e) { aiErr(e); }
+  finally { go.disabled = false; go.textContent = 'พิจารณาพิกัด'; }
+}
+function aiErr(e) {
+  const msg = e?.code === 'not_granted' ? 'API key ไม่ถูกต้องหรือไม่มีสิทธิ์ — ตรวจในตั้งค่า (ระหว่างนี้ใช้การค้นหาคำแทน)' : e?.code === 'rate_limited' ? 'ใช้งาน AI ถี่เกินไป กรุณารอสักครู่แล้วลองใหม่' : e?.message === 'bad' ? 'AI ตอบกลับในรูปแบบที่อ่านไม่ได้ ลองใหม่อีกครั้ง' : 'เกิดข้อผิดพลาด: ' + (e?.message || e);
+  alertBox(msg);
+  if (e?.code === 'not_granted') fallback($('#q').value);
+}
+async function rerun(i) {
+  const r = RES[i]; if (!r || !sample) return;
+  r.busy = true; renderAll();
+  try {
+    const text = `${r.it.input}\n${r.it.product_th ? 'ชื่อสินค้า: ' + r.it.product_th + '\n' : ''}${r.it.origin ? 'ถิ่นกำเนิด: ' + r.it.origin + '\n' : ''}ข้อมูลเพิ่มเติมจากผู้ใช้ (ใช้ตัดสินประเภทย่อย ไม่ต้องถามซ้ำถ้าตอบแล้ว): ${qaText(r)}\n(สินค้ารายการเดียว)`;
+    log('วิเคราะห์ใหม่: ' + clip(r.it.input || '', 60));
+    const [n] = await classify(text);
+    if (n) { n.answers = r.answers; n.answered = true; n.lib = libMatch(n.it.input, n.it.product_th); RES[i] = n; renderAll(); await review([n]); }
+  } catch (e) { r.busy = false; aiErr(e); renderAll(); }
+}
+
+/* ---------- render ---------- */
+function renderAll() {
+  const cards = RES.map((r, i) => {
+    r.lib = libMatch(r.it.input, r.it.product_th);
+    const it = r.it, x = byCode.get(normCode(it.code));
+    const org = CN[String(it.origin || '').toUpperCase()] ? String(it.origin).toUpperCase() : 'ALL';
+    const G = x ? genRate(x) : null, b = x && PV ? bestFTA(x, org) : null;
+    const sc = scoreOf(r), path = x ? fullPath(x) : [], rnum = G ? G.r : '';
+    const rv = r.review, qs = it.questions || [];
+    const cands = [...new Set([x?.c, rv?.code && normCode(rv.code), ...(it.alternatives || []).map(a => normCode(a.code)), r.lib?.e.code].filter(c => c && byCode.has(c)))];
+    return `<article class="card" id="card${i}">
+      <div class="stamp"><div class="code${x ? '' : ' warn'}">${esc(x ? fmt(x.c) : (it.code || '—'))}</div>
+        ${x ? `<div class="rate"><b>${esc(/^[\d.]+%$/.test(rnum) ? rnum.replace('%','') : rnum)}</b>${/^[\d.]+%$/.test(rnum) ? '% อากรทั่วไป' : ''}</div>
+          ${b && G.a !== null && b.a < G.a ? `<div class="rate" style="color:var(--red)"><b style="font-size:22px">${esc(showR(b.p[1]))}</b> ด้วย ${esc(b.g.k)}</div>` : ''}` : '<div class="need">ไม่พบรหัสนี้ในตารางพิกัด — ต้องตรวจสอบ</div>'}
+        <div class="score"><span class="note">ความมั่นใจ</span> <span class="big">${sc.s}%</span><div class="meter"><i style="width:${sc.s}%;background:${sc.s >= 80 ? 'light-dark(#137a3a,#5fd38a)' : sc.s >= 55 ? 'light-dark(#8a5a00,#f0b44c)' : 'var(--red)'}"></i></div>
+          <ul class="ck">${sc.L.map(([k, t]) => `<li class="${k === 'ok' ? '' : k}">${esc(t)}</li>`).join('')}</ul></div></div>
+      <div>${r.saved ? `<span class="lib">✓ บันทึกลงคลังทีมแล้ว ${fmt(r.saved)}</span>` : sc.lib ? '<span class="lib">✓ พิกัดที่ทีมยืนยันแล้ว</span>' : r.lib && x && r.lib.e.code !== x.c ? `<span class="lib warn">คลังทีมเคยใช้ ${fmt(r.lib.e.code)} กับสินค้าคล้ายกัน</span>` : ''}
+        <div class="inp">${esc(it.input)}${org !== 'ALL' ? ` · ถิ่นกำเนิด ${esc(CN[org])}` : ''}</div><div class="pname">${esc(it.product_th)}</div>
+        ${x ? `<div class="path"><span class="h">${x.h} ${esc(path[0])}</span>${path.slice(1).map((p, j, a) => `<br><span class="${j < a.length-1 ? 's' : ''}">${'– '.repeat(j+1)}${esc(p)}</span>`).join('')}</div>` : ''}
+        <p class="why">${esc(it.reason)}</p>
+        ${rv ? `<div class="rv ${esc(rv.verdict)}"><b>ตรวจซ้ำรอบสอง: ${rv.verdict === 'agree' ? 'เห็นด้วย' : rv.verdict === 'disagree' ? 'ไม่เห็นด้วย — เสนอ ' + esc(fmt(normCode(rv.code || ''))) : 'ยังไม่แน่ใจ'}</b><p>${esc(rv.reason || '')}</p></div>` : r.reviewing ? '<p class="note"><span class="spin"></span>กำลังตรวจซ้ำรอบสอง…</p>' : ''}
+        ${qs.length && !r.answered ? `<div class="qbox"><h4>ตอบเพื่อให้ได้พิกัดที่แน่นอนขึ้น</h4>${qs.map((q, qi) => `<div class="qq"><p>${esc(q.q)}</p><div class="qo">${(q.options || []).map(o => `<button data-qa="${i}|${qi}" data-v="${esc(o)}" aria-pressed="${r.answers[qi] === o}">${esc(o)}</button>`).join('')}<input data-qt="${i}|${qi}" placeholder="หรือพิมพ์คำตอบ" value="${esc((q.options || []).includes(r.answers[qi]) ? '' : r.answers[qi] || '')}"></div></div>`).join('')}
+          <div class="acts2"><button class="btn red sm" data-rerun="${i}" ${r.busy ? 'disabled' : ''}>${r.busy ? '<span class="spin"></span>กำลังวิเคราะห์ใหม่…' : 'ตอบแล้ว วิเคราะห์ใหม่'}</button></div></div>` : ''}
+        ${it.benefit ? `<p class="why"><b>สิทธิที่แนะนำ:</b> ${esc(it.benefit)}</p>` : ''}
+        ${it.need_info ? `<div class="need">ควรตรวจสอบ: ${esc(it.need_info)}</div>` : ''}
+        ${(it.alternatives||[]).length ? `<div class="alts">${it.alternatives.map(a => { const y = byCode.get(normCode(a.code)); return y ? `<button class="chip" data-line="${y.c}"><b>${esc(fmt(y.c))}</b>${esc(a.why || '')}</button>` : ''; }).join('')}</div>` : ''}
+        ${cands.length ? `<div class="acts2"><select data-cf="${i}" aria-label="เลือกพิกัดที่จะยืนยัน">${cands.map(c => `<option value="${c}">${fmt(c)}</option>`).join('')}</select>
+          <button class="btn sm" data-save="${i}">ยืนยันพิกัด → บันทึกลงคลังทีม</button>
+          <button class="btn ghost sm" data-draft="${i}">ร่างคำขอวินิจฉัยพิกัดล่วงหน้า</button>
+          ${x ? `<button class="link" data-c="${x.c}">ดูโครงสร้างประเภท ${x.h}</button>` : ''}</div>` : ''}
+        ${x ? `${ctrlBadges(x) ? '<br>' + ctrlBadges(x) : ''}${ctrlHTML(x, it)}${privHTML(x, org, 'r' + i)}` : ''}
+      </div></article>`;
+  }).join('');
+  const avg = RES.length ? Math.round(RES.reduce((a, r) => a + scoreOf(r).s, 0) / RES.length) : 0;
+  $('#res').innerHTML = RES.length ? `<div class="rh"><h2>ผลการพิจารณา ${RES.length} รายการ <span class="note" style="font-size:15px">ความมั่นใจเฉลี่ย ${avg}%</span></h2><button class="btn ghost" id="cp">คัดลอกตาราง (วางใน Excel)</button></div>${cards}` : '<p class="empty">ไม่พบรายการสินค้าในข้อมูลที่ให้มา</p>';
+  $('#cp')?.addEventListener('click', copyRows);
+}
+document.addEventListener('click', e => {
+  const qa = e.target.closest('[data-qa]');
+  if (qa) { const [i, qi] = qa.dataset.qa.split('|').map(Number); RES[i].answers[qi] = RES[i].answers[qi] === qa.dataset.v ? '' : qa.dataset.v; renderAll(); document.querySelector(`[data-qa="${i}|${qi}"][data-v="${CSS.escape(qa.dataset.v)}"]`)?.focus(); return; }
+  const rr = e.target.closest('[data-rerun]'); if (rr) { rerun(+rr.dataset.rerun); return; }
+  const sv = e.target.closest('[data-save]'); if (sv) { const i = +sv.dataset.save; libSave(RES[i], $(`[data-cf="${i}"]`).value, RES[i].review?.verdict === 'agree' ? 'AI 2 รอบตรงกัน' : 'ยืนยันโดยผู้ใช้'); return; }
+  const dr = e.target.closest('[data-draft]'); if (dr) { draftRuling(+dr.dataset.draft); return; }
+  const cpd = e.target.closest('#cpdraft'); if (cpd) { navigator.clipboard.writeText($('#drafttext').textContent).then(() => cpd.textContent = 'คัดลอกแล้ว ✓', () => cpd.textContent = 'คัดลอกไม่ได้ในมุมมองนี้'); }
+});
+document.addEventListener('input', e => {
+  const t = e.target.closest('[data-qt]'); if (!t) return;
+  const [i, qi] = t.dataset.qt.split('|').map(Number); RES[i].answers[qi] = t.value;
+});
+
+/* ---------- advance ruling draft ---------- */
+async function draftRuling(i) {
+  const r = RES[i], x = byCode.get($(`[data-cf="${i}"]`).value) || byCode.get(normCode(r.it.code));
+  if (!x) return;
+  panelState = null;
+  $('#pt').innerHTML = `<span>ร่างคำขอวินิจฉัยพิกัด</span>${esc(r.it.product_th || r.it.input)}`;
+  $('#pb').innerHTML = '<p class="note"><span class="spin"></span>AI กำลังร่างเอกสาร…</p>'; showPanel();
+  if (!sample) { $('#pb').innerHTML = '<p class="warnbox">ต้องใส่ Claude API key ในตั้งค่าก่อนใช้การร่าง</p>'; return; }
+  const alts = [...new Set([...(r.it.alternatives || []).map(a => normCode(a.code)), r.review?.code && normCode(r.review.code)].filter(c => c && c !== x.c && byCode.has(c)))];
+  const ctxt = `สินค้า: ${r.it.input}\nชื่อไทย: ${r.it.product_th}\nข้อมูลเพิ่มเติม: ${qaText(r) || '-'}\nพิกัดที่ขอ: ${fmt(x.c)} — ${fullPath(x).join(' › ')}\nเหตุผลเดิม: ${r.it.reason}\nผลตรวจรอบสอง: ${r.review ? r.review.verdict + ' ' + r.review.reason : '-'}\nพิกัดทางเลือกที่พิจารณา: ${alts.map(c => fmt(c) + ' — ' + fullPath(byCode.get(c)).join(' › ')).join('\n') || '-'}\nหมายเหตุตอนที่ ${+x.c.slice(0,2)} (บางส่วน): ${clip(D.C[x.c.slice(0,2)]?.[2] || '-', 3000)}`;
+  try {
+    const out = await sample(`ร่างเอกสารประกอบคำร้องขอคำวินิจฉัยพิกัดอัตราศุลกากรล่วงหน้าต่อกรมศุลกากร เป็นภาษาไทยทางการ ใช้ข้อมูลด้านล่างเท่านั้น ห้ามแต่งข้อเท็จจริงของสินค้าเพิ่ม ส่วนที่ไม่มีข้อมูลให้เว้น [ ] ไว้ให้ผู้ใช้กรอก
+โครงสร้าง:
+1. ข้อมูลผู้ยื่นคำขอ [เว้นว่าง]
+2. รายละเอียดสินค้า (ชื่อทางการค้า รุ่น ลักษณะ วัสดุ หน้าที่การทำงาน วิธีใช้ ส่วนประกอบ) — ใส่เท่าที่มีและเว้น [ ] ส่วนที่ต้องเพิ่ม
+3. พิกัดที่ขอให้วินิจฉัยและเหตุผลตามหลักเกณฑ์การตีความพิกัดอัตราศุลกากร (GIR) ถ้อยคำประเภท และหมายเหตุหมวด/ตอนที่เกี่ยวข้อง
+4. พิกัดอื่นที่ได้พิจารณาและเหตุผลที่ไม่จัดเข้า
+5. รายการเอกสารแนบที่ควรมี (แค็ตตาล็อก รูปถ่าย Datasheet สูตรส่วนผสม/MSDS ตัวอย่างสินค้า ฯลฯ ตามความเหมาะสมกับสินค้า)
+ตอบเป็นข้อความเอกสารอย่างเดียว ไม่ต้องมีคำนำ
+
+ข้อมูล:
+${ctxt}`, {...tierOpts()});
+    $('#pb').innerHTML = `<p class="note">ร่างนี้ใช้ประกอบการยื่นขอคำวินิจฉัยพิกัดล่วงหน้า — ตรวจและเติมช่อง [ ] ก่อนยื่นจริง</p><div class="acts2" style="margin-bottom:10px"><button class="btn sm" id="cpdraft">คัดลอกร่าง</button></div><div class="draft" id="drafttext">${esc(out.text.trim())}</div>`;
+  } catch (e) { $('#pb').innerHTML = `<p class="warnbox">ร่างไม่สำเร็จ: ${esc(e?.message || e?.code || e)}</p>`; }
+}
+
+async function copyRows() {
+  const rows = RES.map(r => { const it = r.it, x = byCode.get(normCode(it.code)); const org = String(it.origin || '').toUpperCase();
+    const G = x ? genRate(x) : null, b = x && PV ? bestFTA(x, CN[org] ? org : 'ALL') : null, C = x && PV ? ctrlOf(x) : null;
+    return [it.input || '', it.product_th || '', x ? fmt(x.c) : it.code, scoreOf(r).s + '%', r.review ? r.review.verdict : '', G ? G.r : '', b ? `${b.g.k} ${showR(b.p[1])}` : '', CN[org] || '',
+      C ? [...C.pro.map(p => 'ต้องห้าม: ' + p[1]), ...C.per.map(p => `${p[0]} (${CASEN[p[1]]})`)].join('; ') : '',
+      [C?.dui.length ? 'หมวด ' + C.dui.map(d => d[1]).join(',') : '', it.dui?.status && it.dui.status !== 'no' ? 'AI: ' + (it.dui.note || it.dui.status) : ''].filter(Boolean).join(' | '),
+      [C?.dg.length ? C.dg.map(d => `Class ${d[1]} ${d[2] !== '—' ? d[2] : ''}`).join(', ') : '', it.dg?.status && it.dg.status !== 'no' ? 'AI: ' + [it.dg.class, it.dg.un].filter(Boolean).join(' ') : ''].filter(Boolean).join(' | '),
+      it.reason || '', it.benefit || '']; });
+  const tsv = [['รายการต้นฉบับ','ชื่อสินค้า (ไทย)','พิกัด','ความมั่นใจ','ตรวจรอบสอง','อากรทั่วไป','FTA ที่ดีที่สุด','ถิ่นกำเนิด','ต้องห้าม/ต้องกำกัด','DUI','DG','เหตุผล','สิทธิที่แนะนำ'], ...rows].map(r => r.map(c => String(c).replace(/[\t\n]/g,' ')).join('\t')).join('\n');
+  try { await navigator.clipboard.writeText(tsv); $('#cp').textContent = 'คัดลอกแล้ว ✓'; }
+  catch { $('#cp').textContent = 'คัดลอกไม่ได้ในมุมมองนี้'; }
+}
+function fallback(text) {
+  const lines = text.split(/\n/).map(s => s.trim()).filter(s => /[฀-๿]{2}|\d{4}|[a-z]{3}/i.test(s)).slice(0, 20);
+  $('#res').innerHTML = `<div class="rh"><h2>ผลจากการค้นหาคำ (ไม่ใช้ AI)</h2></div>` + (lines.length ? lines.map(l => { const m = libMatch(l); return `<h3 style="margin:20px 0 6px;font-size:17px">${esc(l)}</h3>${m ? `<p><span class="lib">✓ คลังทีม: ${fmt(m.e.code)}</span> ${esc(m.e.th || '')}</p>` : ''}${rowsHTML(search(l, 6))}`; }).join('') : '<p class="empty">ไม่พบข้อความที่ค้นหาได้</p>');
+}
+
+/* ---------- privileges catalog ---------- */
+const CAT = [
+  ['สิทธิตามกฎหมายศุลกากร (กรมศุลกากร)', [
+    ['คืนอากรตามมาตรา 29 — ผลิตเพื่อส่งออก', 'นำวัตถุดิบเข้ามาผลิต ผสม ประกอบ หรือบรรจุ แล้วส่งออกภายใน 1 ปี ขอคืนอากรขาเข้าตามสูตรการผลิตได้ (รวมภาษีสรรพสามิต/มหาดไทยที่เกี่ยวข้อง)', 'พ.ร.บ.ศุลกากร 2560 ม.29', 'ผู้ผลิตเพื่อส่งออก'],
+    ['คืนอากรตามมาตรา 28 — ส่งกลับออกไปในสภาพเดิม (Re-export)', 'ของที่เสียอากรขาเข้าแล้วและส่งกลับออกไปนอกราชอาณาจักร ขอคืนอากรได้ตามเงื่อนไขของมาตรา 28', 'พ.ร.บ.ศุลกากร 2560 ม.28', 'ผู้นำเข้า-ส่งกลับ'],
+    ['คลังสินค้าทัณฑ์บน (Bonded Warehouse)', 'เก็บ ผลิต หรือประกอบสินค้าในคลังทัณฑ์บนโดยยังไม่ต้องชำระอากรขาเข้า ถ้าส่งออกไม่ต้องเสียอากร ถ้านำออกจำหน่ายในประเทศจึงชำระตามสภาพ', 'พ.ร.บ.ศุลกากร 2560 หมวด 5', 'ผู้ผลิต / คลังสินค้า'],
+    ['เขตปลอดอากร (Free Zone)', 'ของที่นำเข้าไปในเขตปลอดอากรเพื่ออุตสาหกรรมหรือพาณิชยกรรม (เครื่องจักร อุปกรณ์ วัตถุดิบ) ได้รับยกเว้นอากรขาเข้าและภาษีภายใน และยกเว้นอากรขาออกเมื่อส่งออก', 'พ.ร.บ.ศุลกากร 2560 หมวด 6', 'ผู้ประกอบการในเขตปลอดอากร'],
+    ['ภาค 4 ของที่ได้รับยกเว้นอากร', 'ยกเว้นอากรของที่ไม่ได้นำเข้าเพื่อการค้า เช่น ของที่ส่งออกไปแล้วนำกลับเข้ามา (Re-import) ของใช้ส่วนตัวผู้เดินทาง และของอื่นตามเงื่อนไขในภาค 4 ของ พ.ร.ก. พิกัดฯ', 'พ.ร.ก. พิกัดอัตราศุลกากร ภาค 4', 'ทุกคน (ตามเงื่อนไข)'],
+    ['สิทธิตามมาตรา 12 แบบมีเงื่อนไข', 'ประกาศกระทรวงการคลังลดหรือยกเว้นอากรเป็นรายกรณี เช่น ของใช้ผลิตชิ้นส่วนยานยนต์ อุตสาหกรรมไฟฟ้าและอิเล็กทรอนิกส์ เครื่องจักรประหยัดพลังงาน ของเพื่อการวิจัย — ดูรายการที่ใช้ได้กับแต่ละพิกัดในหน้ารายละเอียด', 'พ.ร.ก. พิกัดฯ ม.12', 'ตามเงื่อนไขแต่ละข้อ'],
+    ['บัตรภาษีอิเล็กทรอนิกส์ (ชดเชยค่าภาษีอากร)', 'ผู้ส่งออกยื่นขอภายใน 1 ปีนับจากวันส่งออก ใช้วงเงินชำระภาษีกับกรมศุลกากร กรมสรรพากร หรือกรมสรรพสามิตได้ แต่ใช้ซ้ำซ้อนกับการคืนอากร ม.29 ไม่ได้', 'ประกาศชดเชยค่าภาษีอากร', 'ผู้ส่งออก'],
+  ]],
+  ['สิทธิจากการส่งเสริมการลงทุน (BOI)', [
+    ['มาตรา 28 / 29 — เครื่องจักร', 'ยกเว้นหรือลดหย่อนอากรขาเข้าเครื่องจักร', 'พ.ร.บ.ส่งเสริมการลงทุน', 'โครงการที่ได้รับส่งเสริม'],
+    ['มาตรา 30 — วัตถุดิบเพื่อผลิตขายในประเทศ', 'ลดหย่อนอากรขาเข้าวัตถุดิบหรือวัสดุจำเป็น (ไม่เกินร้อยละ 90 ของอัตราปกติ)', 'พ.ร.บ.ส่งเสริมการลงทุน', 'โครงการที่ได้รับส่งเสริม'],
+    ['มาตรา 30/1 — วิจัยและพัฒนา', 'ยกเว้นอากรขาเข้าของที่นำเข้ามาเพื่อใช้ในการวิจัยและพัฒนา และการทดสอบที่เกี่ยวข้อง', 'พ.ร.บ.ส่งเสริมการลงทุน', 'โครงการที่ได้รับส่งเสริม'],
+    ['มาตรา 36 — วัตถุดิบเพื่อผลิตส่งออก', 'ยกเว้นอากรขาเข้าวัตถุดิบหรือวัสดุจำเป็นที่ใช้ผลิตเพื่อการส่งออก ถ้าจำหน่ายในประเทศต้องเสียอากรตามสภาพ ณ วันนำเข้า พร้อมเงินเพิ่ม', 'พ.ร.บ.ส่งเสริมการลงทุน', 'โครงการที่ได้รับส่งเสริม'],
+  ]],
+  ['พื้นที่พิเศษ', [
+    ['เขตประกอบการเสรี (IEAT Free Zone) / EEC', 'ในเขตประกอบการเสรีของการนิคมอุตสาหกรรมฯ มีการยกเว้นอากรขาเข้า อากรขาออก ภาษีมูลค่าเพิ่ม และภาษีสรรพสามิต สำหรับของเพื่อการส่งออก ส่วน EEC มีสิทธิเพิ่มเติมตามประกาศ กพอ.', 'กนอ. / สกพอ.', 'ผู้ประกอบการในพื้นที่'],
+  ]],
+];
+const SRC = [
+  ['ITD กรมศุลกากร — ค้นหาอัตราอากรและสิทธิพิเศษรายพิกัด', 'http://itd.customs.go.th/'],
+  ['BOI — สิทธิประโยชน์ทางภาษีอากร (มาตรา 28–36)', 'https://www.boi.go.th/th/faqs-16'],
+  ['Free Zones and their advantages (thailand.go.th)', 'https://thailand.go.th/event-detail/001_03_170-2-2-2'],
+  ['บัตรภาษีอิเล็กทรอนิกส์สำหรับผู้ส่งออก (ฐานเศรษฐกิจ ส.ค. 2569)', 'https://www.thansettakij.com/economy/trade-agriculture/667626'],
+  ['FTA ไทย–EFTA คาดมีผลต้นปี 2570 (ไทยรัฐ ก.ย. 2569)', 'https://www.thairath.co.th/news/politic/2957358'],
+  ['DUI: ประกาศบัญชีสินค้า 83 + 315 รายการ (ฐานเศรษฐกิจ พ.ค. 2569)', 'https://www.thansettakij.com/general-news/659652'],
+  ['DUI: Licensing หมวด 0 และแผนขยาย (กรุงเทพธุรกิจ ก.ย. 2569)', 'https://www.bangkokbiznews.com/economics/1253061'],
+  ['DUI: e-Classification และรหัส EXEMPT99 (กระทรวงพาณิชย์)', 'https://www.moc.go.th/th/gallery/category/detail/id/5/iid/1416'],
+  ['DUI: หมวดสินค้าและระยะบังคับใช้ (DHL)', 'https://www.dhl.com/discover/th-th/logistics-advice/import-export-advice/dual-use-items'],
+  ['ของต้องห้าม-ต้องกำกัด (กรมประชาสัมพันธ์)', 'https://www.prd.go.th/th/content/category/detail/id/31/iid/483534'],
+  ['ห้ามขายบารากู่/บุหรี่ไฟฟ้า คำสั่ง สคบ. 9/2558 (iLaw)', 'https://www.ilaw.or.th/articles/5155'],
+  ['RCEP: ไทยมีตารางร่วม + อัตราแยกกลุ่มประเทศ 98 รายการ (WTO Center VN)', 'https://wtocenter.vn/rcep-market/30009-thailands-tariff-commitments-for-imports-under-rcep'],
+];
+function ctrlCat() {
+  const ag = {}; if (PV) Object.values(PV.R).forEach(L => L.forEach(p => { ag[p[0]] = (ag[p[0]] || 0) + 1; }));
+  const agl = Object.entries(ag).sort((a, b) => b[1] - a[1]);
+  return `<div class="catsec"><h3>ของต้องห้าม และของต้องกำกัด</h3><div class="cat">
+    <div class="ci"><h4>ของต้องห้าม (ห้ามนำเข้าเด็ดขาด)</h4><p>วัตถุลามก สินค้าปลอมแปลงเครื่องหมายการค้า/ละเมิดลิขสิทธิ์ ธนบัตรหรือเหรียญกษาปณ์ปลอม ยาเสพติด รวมถึงบารากู่ บุหรี่ไฟฟ้า และน้ำยา</p><p class="note">แอปจะติดป้าย “ของต้องห้าม” ให้พิกัดบุหรี่ไฟฟ้า/บารากู่โดยตรง ส่วนข้อห้ามอื่นขึ้นกับลักษณะสินค้า ไม่ผูกกับพิกัด</p></div>
+    <div class="ci"><h4>ของต้องกำกัด (ต้องมีใบอนุญาตก่อนนำเข้า/ส่งออก)</h4><p>นำเข้าได้แต่ต้องได้รับอนุญาตจากหน่วยงานก่อน ถ้าไม่มีใบอนุญาตถือเป็นการลักลอบหนีศุลกากร — ข้อมูลรายพิกัดจากแฟ้ม REFPMG ของกรมศุลกากร ${PV ? Object.keys(PV.R).length.toLocaleString('en') + ' พิกัด' : ''}</p></div>
+    <div class="ci"><h4>หน่วยงานที่ควบคุม (จำนวนรายการ)</h4><p class="note">${agl.map(([a, n]) => `${esc(a)} ${n.toLocaleString('en')}`).join(' · ')}</p></div></div></div>
+  <div class="catsec"><h3>สินค้าที่ใช้ได้สองทาง (Dual-Use Items: DUI)</h3><div class="cat">
+    <div class="ci"><h4>ควบคุมการส่งออกและส่งกลับ</h4><p>สินค้าที่ใช้ได้ทั้งทางพลเรือนและอาจใช้ผลิตอาวุธที่มีอานุภาพทำลายล้างสูง (WMD) ตาม พ.ร.บ.ควบคุมสินค้าที่เกี่ยวข้องกับการแพร่ขยายอาวุธที่มีอานุภาพทำลายล้างสูง พ.ศ. 2562 — ผู้รับผิดชอบคือกรมการค้าต่างประเทศ</p></div>
+    <div class="ci"><h4>บัญชีควบคุมปี 2569</h4><p>ประกาศกระทรวงพาณิชย์ ลงวันที่ 30 เม.ย. 2569: บัญชี 1 สินค้าที่ใช้ได้สองทาง 83 รายการ และบัญชี 2 สินค้าที่มีเหตุอันควรสงสัย 315 รายการ แบ่ง 10 หมวด (0 นิวเคลียร์ · 1 วัสดุพิเศษ · 2 แปรรูปวัสดุ · 3 อิเล็กทรอนิกส์ · 4 คอมพิวเตอร์ · 5 โทรคมนาคม · 6 เซนเซอร์/เลเซอร์ · 7 นำทาง/อากาศยาน · 8 ทางทะเล · 9 อากาศยาน/ขับเคลื่อน)</p></div>
+    <div class="ci"><h4>ระยะการบังคับใช้</h4><p>เริ่มบังคับใช้ใบอนุญาตกับหมวด 0 (นิวเคลียร์) แล้วในปี 2569 และจะขยายไปหมวด 7–9 แล้วจึงหมวด 1–6 — ตรวจสินค้าที่ e-Classification (etcwmd.dft.go.th) ถ้าพิกัดเข้าข่ายแต่คุณสมบัติไม่เข้าเกณฑ์ใช้รหัส EXEMPT99 · สายด่วน 1385</p></div>
+    <div class="ci"><h4>ป้าย DUI ในแอป</h4><p class="note">บัญชีรายพิกัดอย่างเป็นทางการยังไม่มีให้ดาวน์โหลด แอปจึงติดป้ายตามกลุ่มพิกัดที่ตรงกับ 10 หมวดของบัญชีควบคุม และตามการควบคุมของกรมการอุตสาหกรรมทหาร/สำนักงานปรมาณูเพื่อสันติ ร่วมกับการประเมินของ AI — เป็นสัญญาณให้ตรวจ ไม่ใช่คำวินิจฉัย</p></div></div></div>
+  <div class="catsec"><h3>สินค้าอันตราย (Dangerous Goods)</h3><div class="cat">
+    <div class="ci"><h4>9 Class ตามข้อกำหนด UN</h4><p>1 วัตถุระเบิด · 2 ก๊าซ · 3 ของเหลวไวไฟ · 4 ของแข็งไวไฟ · 5 สารออกซิไดซ์/เปอร์ออกไซด์ · 6 สารพิษ/ติดเชื้อ · 7 กัมมันตรังสี · 8 สารกัดกร่อน · 9 เบ็ดเตล็ด (เช่น แบตเตอรี่ลิเทียม รถยนต์)</p></div>
+    <div class="ci"><h4>ป้าย DG ในแอป</h4><p class="note">พิกัดศุลกากรไม่ได้บอก UN No. โดยตรง แอปจึงติดป้ายเมื่อพิกัดอยู่ในกลุ่มที่มักเป็น DG และให้ AI ประเมินจากรายละเอียดสินค้า — ต้องยืนยันจาก SDS ข้อ 14 และจัดทำ DG Declaration ตาม IMDG/IATA ก่อนจองระวาง</p></div>
+    <div class="ci"><h4>วัตถุอันตรายตามกฎหมายไทย</h4><p class="note">สารเคมีที่เป็นวัตถุอันตรายตาม พ.ร.บ.วัตถุอันตราย จะปรากฏเป็น “ของต้องกำกัด” ของกรมโรงงานอุตสาหกรรม/กรมวิชาการเกษตร/อย. ในหน้ารายละเอียดพิกัด</p></div></div></div>`;
+}
+function renderCat() {
+  const cnt = k => PV ? Object.values(PV.P).filter(L => L.some(p => codeGroup[p[0]]?.k === k)).length : 0;
+  $('#cat').innerHTML = `<h2 style="font:700 28px/1.2 var(--th);margin:10px 0 4px">สิทธิประโยชน์ทางภาษี และการควบคุมสินค้า</h2>
+  <p class="note">อัตราของแต่ละความตกลงต่อพิกัดดูได้เมื่อแตะรายการพิกัด หรือในผลการพิจารณาของ AI · เลือกประเทศถิ่นกำเนิดเพื่อหาอัตราที่ดีที่สุด</p>
+  <div class="catsec"><h3>ความตกลงการค้าเสรี (FTA) และสิทธิพิเศษ — อยู่ในข้อมูล</h3><div class="cat">${FTA.map(g => `<div class="ci"><h4>${esc(g.n)}</h4>
+    <p>${g.cc ? 'ถิ่นกำเนิด: ' + esc(g.cc.map(c => CN[c]).join(' ')) : 'ใช้ได้โดยไม่จำกัดประเทศ (ตามเงื่อนไข)'}</p>
+    <p class="note">เอกสาร: ${esc(g.f)} · รหัสสิทธิในใบขน ${g.c.map(c => `<span class="tag">${c}</span>`).join('')}${PV ? ` · ${cnt(g.k).toLocaleString('en')} พิกัด` : ''}</p></div>`).join('')}</div></div>
+  <div class="catsec"><h3>ความตกลงที่ยังไม่มีผล / อยู่ระหว่างดำเนินการ</h3><div class="cat">
+    <div class="ci"><h4>ไทย–EFTA (สวิตเซอร์แลนด์ นอร์เวย์ ไอซ์แลนด์ ลิกเตนสไตน์)</h4><p>รัฐบาลคาดว่าจะมีผลใช้บังคับช่วงต้นปี 2570</p></div>
+    <div class="ci"><h4>ไทย–ศรีลังกา</h4><p>ลงนามแล้ว (ก.พ. 2567) รัฐสภาเห็นชอบ มี.ค. 2567 — ตรวจสถานะการมีผลก่อนใช้สิทธิ</p></div>
+    <div class="ci"><h4>ไทย–ภูฏาน และ ACFTA 3.0</h4><p>อยู่ระหว่างขั้นตอนเพื่อให้มีผลใช้บังคับ</p></div></div></div>
+  ${ctrlCat()}
+  ${CAT.map(([h, L]) => `<div class="catsec"><h3>${esc(h)}</h3><div class="cat">${L.map(([t, d, law, who]) => `<div class="ci"><h4>${esc(t)}</h4><p>${esc(d)}</p><p class="note">${esc(law)} · ${esc(who)}</p></div>`).join('')}</div></div>`).join('')}
+  <div class="catsec"><h3>แหล่งข้อมูล</h3><ul>${SRC.map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('')}</ul>
+  <p class="note">อัตราอากรรายพิกัดมาจากแฟ้มข้อมูลเปิด ITD ของกรมศุลกากร (REFDRT / REFTRC / REFPRV) — ประกาศที่ออกหลังจากชุดข้อมูลนี้อาจยังไม่รวมอยู่</p></div>`;
+}
+renderCat();
+loadPriv();
+$('#go').onclick = runAI;
+$('#clr').onclick = () => { $('#q').value = ''; files = []; renderFiles(); $('#res').innerHTML = ''; logEl.innerHTML = ''; logEl.classList.remove('on'); };
+})().catch(err => { console.error(err); document.getElementById('cnt').textContent = '(โหลดฐานข้อมูลไม่สำเร็จ — เปิดผ่าน GitHub Pages หรือเว็บเซิร์ฟเวอร์ ไม่ใช่เปิดไฟล์ตรง)'; });
+</script>
+</body>
+</html>
