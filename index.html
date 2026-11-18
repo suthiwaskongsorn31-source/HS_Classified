@@ -212,6 +212,14 @@ html.offline .offl{display:inline-block}
   .ph{padding:14px 16px}.pb{padding:8px 16px 40px}
   .btn{min-height:44px}
 }
+.dform{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin-bottom:14px}.dform label{display:flex;flex-direction:column;gap:4px;font-size:13.5px;color:var(--mute)}.dform input,.dform textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--ink);padding:8px 10px}.dform .wide{grid-column:1/-1}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}.dcol{border:1px solid var(--line);padding:12px;min-width:0}.dtag{font-size:12.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.03em}.dcode{font:700 24px var(--num)}
+.dt{width:100%;font-size:13.5px;margin:8px 0;border-collapse:collapse}.dt th{text-align:left;font-weight:400;color:var(--mute);padding:3px 8px 3px 0;vertical-align:top;width:42%}.dt td{padding:3px 0}
+.dlvl{background:var(--soft);padding:10px 12px;margin:10px 0;font-size:14.5px}.dlvl p{margin:4px 0 0}.dlvl.hot{border-left:4px solid var(--red)}
+.dnote{font-size:13.5px;border-left:3px solid var(--line);padding:4px 10px;margin:6px 0}.dnote small{display:block;color:var(--mute)}.dnote.ex{border-color:var(--red)}
+.dl{margin:4px 0;padding-left:18px;font-size:14px}.lib.dsp{background:light-dark(#fff4e0,#3a2a10);color:light-dark(#8a5a00,#f0b44c)}
+@media(max-width:600px){.dform,.dgrid{grid-template-columns:1fr}#pt span{font-size:24px!important}#pt{font-size:15px!important}}
+.dform textarea{min-height:64px!important;height:auto;resize:vertical}
 </style>
 </head>
 <body>
@@ -942,15 +950,15 @@ function renderLib() {
   $('#lres').innerHTML = `<div class="acts2" style="margin:0 0 10px"><button class="btn ghost sm" id="libexp">ส่งออก library.json</button><label class="btn ghost sm" style="display:inline-flex;align-items:center">นำเข้า library.json / ใบขนเก่า (Excel, CSV)<input type="file" id="libimp" accept=".json,.xlsx,.xls,.csv" hidden></label><button class="btn ghost sm" data-settings>ตั้งค่า GitHub</button></div>` +
     (L.length ? `<table class="stack"><thead><tr><th>พิกัด</th><th>สินค้า</th><th>บันทึก</th><th></th></tr></thead><tbody>${L.slice(0, 500).map(e => {
     const x = byCode.get(e.code);
-    return `<tr><td class="c" data-l="พิกัด"><button class="link" data-line="${e.code}" style="font:700 16px var(--num)">${fmt(e.code)}</button></td><td data-l="สินค้า">${esc(e.th || '')}<span class="note" style="display:block">${esc(clip(e.text || '', 160))}</span>${x ? `<span class="note" style="display:block">${esc(clip(x.d, 90))}</span>` : ''}</td><td data-l="บันทึก"><span class="note">${esc(e.note || '')}${e.by ? ' · ' + esc(e.by) : ''}${e.at ? ' · ' + esc(String(e.at).slice(0, 10)) : ''}</span></td><td><button class="link" data-libdel="${esc(e.id)}">ลบ</button></td></tr>`; }).join('')}</tbody></table>`
+    return `<tr><td class="c" data-l="พิกัด"><button class="link" data-line="${e.code}" style="font:700 16px var(--num)">${fmt(e.code)}</button></td><td data-l="สินค้า">${esc(e.th || '')}<span class="note" style="display:block">${esc(clip(e.text || '', 160))}</span>${x ? `<span class="note" style="display:block">${esc(clip(x.d, 90))}</span>` : ''}</td><td data-l="บันทึก">${e.dispute ? `<span class="lib dsp" style="display:inline-block;margin:0 0 4px">⚖ ${fmt(e.dispute.a)} vs ${fmt(e.dispute.b)} → ${fmt(e.dispute.final)}</span><br>` : ''}<span class="note">${esc(e.note || '')}${e.by ? ' · ' + esc(e.by) : ''}${e.at ? ' · ' + esc(String(e.at).slice(0, 10)) : ''}</span></td><td><button class="link" data-libdel="${esc(e.id)}">ลบ</button></td></tr>`; }).join('')}</tbody></table>`
     : `<p class="empty">${LIB.length ? 'ไม่พบในคลัง' : 'ยังไม่มีรายการ — กด “ยืนยันพิกัด” ในผลการพิจารณาเพื่อเริ่มสร้างคลัง'}</p>`);
 }
 $('#lq').addEventListener('input', renderLib);
 const alertBox = m => { $('#res').insertAdjacentHTML('afterbegin', `<div class="warnbox">${esc(m)}</div>`); };
-async function libSave(r, code, note) {
+async function libSave(r, code, note, extra) {
   const text = [r.it.input, r.it.product_th].filter(Boolean).join(' | ');
   const k = libKey(r.it.input || r.it.product_th);
-  const doc = {id: hash(k), key: k, text, th: r.it.product_th || '', code, note: note || '', by: ME(), at: new Date().toISOString()};
+  const doc = {id: hash(k), key: k, text, th: r.it.product_th || '', code, note: note || '', by: ME(), at: new Date().toISOString(), ...(extra || {})};
   try {
     if (GH()) await ghEdit(L => [doc, ...L.filter(e => e.id !== doc.id)], `library: ${fmt(code)} ${clip(doc.th || text, 50)}`);
     else { setLocal([doc, ...LOCAL().filter(e => e.id !== doc.id)]); }
@@ -1227,7 +1235,7 @@ function renderAll() {
           ${b && G.a !== null && b.a < G.a ? `<div class="rate" style="color:var(--red)"><b style="font-size:22px">${esc(showR(b.p[1]))}</b> ด้วย ${esc(b.g.k)}</div>` : ''}` : '<div class="need">ไม่พบรหัสนี้ในตารางพิกัด — ต้องตรวจสอบ</div>'}
         <div class="score"><span class="note">ความมั่นใจ</span> <span class="big">${sc.s}%</span><div class="meter"><i style="width:${sc.s}%;background:${sc.s >= 80 ? 'light-dark(#137a3a,#5fd38a)' : sc.s >= 55 ? 'light-dark(#8a5a00,#f0b44c)' : 'var(--red)'}"></i></div>
           <ul class="ck">${sc.L.map(([k, t]) => `<li class="${k === 'ok' ? '' : k}">${esc(t)}</li>`).join('')}</ul></div></div>
-      <div>${r.saved ? `<span class="lib">✓ บันทึกลงคลังทีมแล้ว ${fmt(r.saved)}</span>` : sc.lib ? '<span class="lib">✓ พิกัดที่ทีมยืนยันแล้ว</span>' : r.lib && x && r.lib.e.code !== x.c ? `<span class="lib warn">คลังทีมเคยใช้ ${fmt(r.lib.e.code)} กับสินค้าคล้ายกัน</span>` : ''}
+      <div>${r.lib?.e?.dispute ? `<span class="lib dsp">⚖ เคยแย้งพิกัด: ${fmt(r.lib.e.dispute.a)} vs ${fmt(r.lib.e.dispute.b)}${r.lib.e.dispute.by ? ' (' + esc(r.lib.e.dispute.by) + ')' : ''} → ข้อยุติ ${fmt(r.lib.e.dispute.final)}</span>` : ''}${r.saved ? `<span class="lib">✓ บันทึกลงคลังทีมแล้ว ${fmt(r.saved)}</span>` : sc.lib ? '<span class="lib">✓ พิกัดที่ทีมยืนยันแล้ว</span>' : r.lib && x && r.lib.e.code !== x.c ? `<span class="lib warn">คลังทีมเคยใช้ ${fmt(r.lib.e.code)} กับสินค้าคล้ายกัน</span>` : ''}
         <div class="inp">${esc(it.input)}${org !== 'ALL' ? ` · ถิ่นกำเนิด ${esc(CN[org])}` : ''}</div><div class="pname">${esc(it.product_th)}</div>
         ${x ? `<div class="path"><span class="h">${x.h} ${esc(path[0])}</span>${path.slice(1).map((p, j, a) => `<br><span class="${j < a.length-1 ? 's' : ''}">${'– '.repeat(j+1)}${esc(p)}</span>`).join('')}</div>` : ''}
         <p class="why">${esc(it.reason)}</p>
@@ -1239,6 +1247,7 @@ function renderAll() {
         ${(it.alternatives||[]).length ? `<div class="alts">${it.alternatives.map(a => { const y = byCode.get(normCode(a.code)); return y ? `<button class="chip" data-line="${y.c}"><b>${esc(fmt(y.c))}</b>${esc(a.why || '')}</button>` : ''; }).join('')}</div>` : ''}
         ${cands.length ? `<div class="acts2"><select data-cf="${i}" aria-label="เลือกพิกัดที่จะยืนยัน">${cands.map(c => `<option value="${c}">${fmt(c)}</option>`).join('')}</select>
           <button class="btn sm" data-save="${i}">ยืนยันพิกัด → บันทึกลงคลังทีม</button>
+          <button class="btn ghost sm dspbtn" data-dsp="${i}">⚖ แย้งพิกัด / เทียบความเห็น</button>
           <button class="btn ghost sm" data-wiz="${i}">ไล่เลือกพิกัดย่อย</button>
           ${sample ? `<button class="btn ghost sm" data-draft="${i}">ร่างคำขอวินิจฉัยพิกัดล่วงหน้า</button>` : ''}
           ${x ? `<button class="link" data-c="${x.c}">ดูโครงสร้างประเภท ${x.h}</button>` : ''}</div>` : ''}
@@ -1287,6 +1296,164 @@ ${ctxt}`, {...tierOpts()});
     $('#pb').innerHTML = `<p class="note">ร่างนี้ใช้ประกอบการยื่นขอคำวินิจฉัยพิกัดล่วงหน้า — ตรวจและเติมช่อง [ ] ก่อนยื่นจริง</p><div class="acts2" style="margin-bottom:10px"><button class="btn sm" id="cpdraft">คัดลอกร่าง</button></div><div class="draft" id="drafttext">${esc(out.text.trim())}</div>`;
   } catch (e) { $('#pb').innerHTML = `<p class="warnbox">ร่างไม่สำเร็จ: ${esc(e?.message || e?.code || e)}</p>`; }
 }
+
+/* ---------- classification dispute: compare two opinions (app/AI vs customs specialist) ---------- */
+let DS = null;
+const HD = h => h.slice(0, 2) + '.' + h.slice(2, 4);
+function openDispute(i) {
+  const r = RES[i]; if (!r) return;
+  const a = normCode($(`[data-cf="${i}"]`)?.value || r.it.code);
+  const prev = r.lib?.e?.dispute;
+  DS = {i, a: byCode.has(a) ? a : '', b: '', who: CFG.specialist || '', why: '', val: '', ai: null, busy: false};
+  if (prev && prev.final && prev.final !== DS.a) DS.b = prev.final;
+  dsRender(); showPanel();
+}
+function notesRef(chA, chB, hB) {
+  const out = [];
+  const scan = (txt, label) => {
+    if (!txt) return;
+    const pats = [hB, hB.replace('.', ''), ...(chA !== chB ? [`ตอนที่ ${+chB}`, `ตอน ${+chB}`, `Chapter ${+chB}`] : [])];
+    for (const s of String(txt).split(/\n+|(?<=\.)\s+(?=\(|[ก-ฮ]\))/)) {
+      const t = s.trim(); if (t.length < 8) continue;
+      if (pats.some(p => t.includes(p))) out.push({label, t: clip(t, 420), ex: /ไม่รวม|ไม่ครอบคลุม|ยกเว้น|does not cover|excluding|except/i.test(t)});
+    }
+  };
+  const C = D.C[chA]; if (C) { scan(C[2], `หมายเหตุตอนที่ ${+chA}`); if (C[1] && D.SN?.[C[1]]) scan(D.SN[C[1]], `หมายเหตุหมวด ${C[1]}`); }
+  return out.slice(0, 8);
+}
+function dsLevel(a, b) {
+  if (a.slice(0, 2) !== b.slice(0, 2)) return {k: 'ตอน', t: `ต่างตอน (${+a.slice(0, 2)} กับ ${+b.slice(0, 2)}) — ตัดสินที่ GIR 1: ถ้อยคำประเภท + หมายเหตุหมวด/ตอน ถ้ายังได้ทั้งคู่ใช้ GIR 3 (ก) เฉพาะเจาะจงกว่า → (ข) ลักษณะสำคัญ → (ค) ประเภทท้ายสุด`};
+  if (a.slice(0, 4) !== b.slice(0, 4)) return {k: 'ประเภท', t: `ตอนเดียวกันแต่ต่างประเภท (${HD(a)} กับ ${HD(b)}) — ตัดสินที่ถ้อยคำประเภทและหมายเหตุตอน (GIR 1) แล้วจึง GIR 3`};
+  if (a.slice(0, 6) !== b.slice(0, 6)) return {k: 'ประเภทย่อย 6 หลัก', t: 'ประเภทเดียวกัน ต่างประเภทย่อยระดับ HS 6 หลัก — ตัดสินด้วย GIR 6 เทียบเฉพาะประเภทย่อยระดับเดียวกัน และหมายเหตุประเภทย่อย'};
+  return {k: 'ประเภทย่อย 8 หลัก', t: 'ต่างเฉพาะระดับประเทศ (AHTN 8 หลัก) — มักตัดสินด้วยสเปก/เงื่อนไขตัวเลขหรือการใช้งาน (GIR 6)'};
+}
+function dutyOf(x, val, org) {
+  const G = genRate(x), b = PV ? bestFTA(x, org) : null;
+  const ad = a => (a === null || a === undefined || isNaN(a)) ? null : val * a / 100;
+  const d = ad(G.a), f = b && b.a !== null && G.a !== null && b.a < G.a ? ad(b.a) : null;
+  return {G, b, d, f, vat: d === null ? null : (val + d) * 0.07, vatf: f === null ? null : (val + f) * 0.07};
+}
+const baht = n => n === null || n === undefined ? '—' : Math.round(n).toLocaleString('en') + ' ฿';
+function dsCol(c, tag, q, org, val) {
+  const x = byCode.get(c); if (!x) return `<div class="dcol"><p class="need">ไม่พบรหัส ${esc(c)} ในตารางพิกัด</p></div>`;
+  const C = PV ? ctrlOf(x) : null, du = dutyOf(x, val || 0, org);
+  const R = (DS.fit || []).find(y => y.x.c === c), rank = R ? (DS.fit.indexOf(R) + 1) : 0;
+  const hr = DS.hrank?.findIndex(e => e.h === x.h);
+  return `<div class="dcol"><div class="dtag">${tag}</div><div class="dcode">${fmt(c)}</div>
+    <div class="path" style="margin:6px 0"><span class="h">${x.h} ${esc(D.H[x.h] || '')}</span>${fullPath(x).slice(1).map((p, j) => `<br>${'– '.repeat(j + 1)}${esc(p)}`).join('')}</div>
+    ${x.en ? `<p class="note">${esc(x.en)}</p>` : ''}
+    <table class="dt"><tr><th>อากรทั่วไป</th><td>${esc(du.G.r)}</td></tr>
+      <tr><th>FTA ดีที่สุด${org !== 'ALL' ? ' (' + esc(CN[org]) + ')' : ''}</th><td>${du.b ? esc(du.b.g.k + ' ' + showR(du.b.p[1])) : '—'}</td></tr>
+      ${val ? `<tr><th>อากรขาเข้า</th><td>${baht(du.d)}${du.f !== null ? ` <small>(FTA ${baht(du.f)})</small>` : ''}</td></tr><tr><th>VAT 7%</th><td>${baht(du.vat)}</td></tr><tr><th>รวมภาษี</th><td><b>${du.d === null ? '—' : baht(du.d + du.vat)}</b></td></tr>` : ''}
+      <tr><th>ใบอนุญาต/ข้อกำกัด</th><td>${C ? (C.pro.length ? '<b style="color:var(--red)">ต้องห้าม</b> ' : '') + (C.per.length ? C.per.length + ' หน่วยงาน' : 'ไม่มี') : '—'}</td></tr>
+      <tr><th>DUI / DG ตามพิกัด</th><td>${C ? [C.dui.length ? 'DUI หมวด ' + C.dui.map(d => d[1]).join(',') : '', C.dg.length ? 'DG ' + C.dg.map(d => d[1]).join(',') : ''].filter(Boolean).join(' · ') || 'ไม่มี' : '—'}</td></tr>
+      <tr><th>เครื่องค้นหาในเครื่อง</th><td>${rank ? `อันดับ ${rank}` : 'ไม่ติด 300 อันดับแรก'}${hr >= 0 ? ` · ประเภทอันดับ ${hr + 1}` : ''}${R?.why?.attrs?.length ? '<br>' + R.why.attrs.map(a => `<span class="wy ${a.ok ? 'ok' : 'bad'}">${esc(a.txt)}</span>`).join(' ') : ''}</td></tr>
+    </table>${C?.per.length ? `<p class="note">${C.per.slice(0, 4).map(p => esc(p[0]) + ' (' + CASEN[p[1]] + ')').join(' · ')}${C.per.length > 4 ? ' …' : ''}</p>` : ''}
+    <button class="link" data-line="${c}">ดูอัตราและสิทธิทั้งหมด</button></div>`;
+}
+function dsRender() {
+  const r = RES[DS.i], it = r.it, q = [it.input, it.product_th, qaText(r)].filter(Boolean).join(' ');
+  const org = CN[String(it.origin || '').toUpperCase()] ? String(it.origin).toUpperCase() : 'ALL';
+  const val = +String(DS.val).replace(/[^\d.]/g, '') || 0;
+  if (!DS.fit) { DS.fit = search(q, 300); DS.hrank = headingRank(q, 12); }
+  $('#pt').innerHTML = `<span>แย้งพิกัด / เทียบความเห็น</span>${esc(clip(it.product_th || it.input || '', 80))}`;
+  const a = DS.a, b = normCode(DS.b), ok = byCode.has(a) && byCode.has(b) && a !== b;
+  let html = `<div class="dform">
+    <label>พิกัด A (ผลจากแอป/AI)<input id="ds-a" inputmode="numeric" value="${a ? fmt(a) : ''}"></label>
+    <label>พิกัด B (ความเห็นผู้เชี่ยวชาญ)<input id="ds-b" inputmode="numeric" placeholder="เช่น 8415.90.19" value="${esc(DS.b)}"></label>
+    <label>ชื่อผู้เชี่ยวชาญ<input id="ds-who" placeholder="Customs Specialist" value="${esc(DS.who)}"></label>
+    <label>มูลค่า CIF (บาท) — ไม่บังคับ<input id="ds-val" inputmode="decimal" placeholder="เช่น 250000" value="${esc(DS.val)}"></label>
+    <label class="wide">เหตุผลของผู้เชี่ยวชาญ (ถ้ามี)<textarea id="ds-why" rows="2" placeholder="เช่น สินค้าเป็นชุดคอยล์เย็นยังไม่ประกอบ จัดเป็นส่วนประกอบตามหมายเหตุ…">${esc(DS.why)}</textarea></label>
+    <div class="wide acts2"><button class="btn red sm" id="ds-go">เปรียบเทียบ</button></div></div>`;
+  if (ok) {
+    const xa = byCode.get(a), xb = byCode.get(b), L = dsLevel(a, b);
+    const da = dutyOf(xa, val, org), db = dutyOf(xb, val, org);
+    const nA = notesRef(a.slice(0, 2), b.slice(0, 2), HD(b)), nB = notesRef(b.slice(0, 2), a.slice(0, 2), HD(a));
+    const la = LIB.filter(e => e.code === a).length, lb = LIB.filter(e => e.code === b).length;
+    const sim = q ? libMatch(q) : null;
+    html += `<div class="dlvl"><b>ระดับที่ความเห็นต่างกัน: ${L.k}</b><p>${L.t}</p></div>
+      <div class="dgrid">${dsCol(a, 'A · แอป/AI', q, org, val)}${dsCol(b, 'B · ' + esc(DS.who || 'ผู้เชี่ยวชาญ'), q, org, val)}</div>`;
+    if (val && da.d !== null && db.d !== null) {
+      const diff = (db.d + db.vat) - (da.d + da.vat);
+      html += `<div class="dlvl ${Math.abs(diff) > 0 ? 'hot' : ''}"><b>ผลต่างภาษี: ${diff === 0 ? 'เท่ากัน' : (diff > 0 ? 'B สูงกว่า A ' : 'A สูงกว่า B ') + baht(Math.abs(diff))}</b><p>คิดจากอากรทั่วไป + VAT 7% บนมูลค่า ${baht(val)} (ไม่รวมภาษีสรรพสามิต/อากรพิเศษ) — ถ้าสำแดงพิกัดที่อากรต่ำกว่าแล้วศุลกากรไม่เห็นด้วย อาจต้องชำระอากรที่ขาดพร้อมเงินเพิ่มและเบี้ยปรับ</p></div>`;
+    }
+    const ref = [...nA.map(n => ({...n, side: 'A'})), ...nB.map(n => ({...n, side: 'B'}))];
+    html += `<h4 class="wq">หมายเหตุที่อ้างถึงกันและกัน</h4>` + (ref.length ? ref.map(n => `<div class="dnote ${n.ex ? 'ex' : ''}"><small>${esc(n.label)} (ฝั่ง ${n.side})${n.ex ? ' · ข้อยกเว้น' : ''}</small>${esc(n.t)}</div>`).join('') : `<p class="note">ไม่พบหมายเหตุตอน/หมวดที่อ้างถึงพิกัดฝั่งตรงข้ามโดยตรง — ตัดสินที่ถ้อยคำประเภทและลักษณะสินค้า</p>`);
+    html += `<h4 class="wq">คลังทีม</h4><p class="note">เคยยืนยัน ${fmt(a)} ${la} รายการ · ${fmt(b)} ${lb} รายการ${sim ? ` · สินค้าคล้ายที่สุดในคลังใช้ <b>${fmt(sim.e.code)}</b> (${Math.round(sim.sc * 100)}%)${sim.e.dispute ? ' — เป็นข้อยุติจากการแย้งพิกัด' : ''}` : ''}</p>`;
+    html += `<h4 class="wq">วิเคราะห์ข้อโต้แย้งด้วย AI</h4>` + (DS.ai ? dsAIHTML(DS.ai, a, b) : DS.busy ? '<p class="note"><span class="spin"></span>AI กำลังพิจารณาทั้งสองฝั่ง อ่านหมายเหตุ และเปิดดูประเภทย่อย…</p>'
+      : sample ? `<p class="note">AI จะวิเคราะห์ทั้งสองฝั่งแบบเป็นกลางตาม GIR อ่านหมายเหตุหมวด/ตอน และบอกว่าข้อเท็จจริงใดของสินค้าที่จะชี้ขาด</p><div class="acts2"><button class="btn sm" id="ds-ai">ให้ AI วิเคราะห์ข้อโต้แย้ง</button></div>`
+      : `<p class="note">ต้องใช้ AI — ใส่ API key ในตั้งค่า หรือ <a href="https://claude.ai/artifact/MM26iD4gwHV27tx1VSQYt1" target="_blank" rel="noopener">เปิดในเวอร์ชัน Claude</a></p>`);
+    html += `<h4 class="wq">บันทึกข้อยุติ</h4><p class="note">บันทึกลงคลังทีมพร้อมประวัติการแย้ง — ครั้งหน้าสินค้าคล้ายกันจะใช้ข้อยุตินี้ก่อนเสมอ</p>
+      <div class="acts2"><button class="btn sm" data-dsfinal="${a}">สรุปใช้ A ${fmt(a)}</button><button class="btn sm" data-dsfinal="${b}">สรุปใช้ B ${fmt(b)}</button>
+      ${DS.ai && DS.ai.code && ![a, b].includes(normCode(DS.ai.code)) && byCode.has(normCode(DS.ai.code)) ? `<button class="btn sm" data-dsfinal="${normCode(DS.ai.code)}">ใช้ตาม AI ${fmt(normCode(DS.ai.code))}</button>` : ''}
+      <button class="btn ghost sm" id="ds-copy">คัดลอกบันทึกเปรียบเทียบ</button>${sample ? `<button class="btn ghost sm" data-draft="${DS.i}">ยังไม่ยุติ → ร่างคำขอวินิจฉัยล่วงหน้า</button>` : ''}</div>`;
+  } else if (DS.b && !byCode.has(b)) html += `<p class="need">ไม่พบพิกัด B ${esc(DS.b)} ในตารางพิกัด — ตรวจตัวเลข 8 หลัก</p>`;
+  else if (a && b && a === b) html += `<p class="note">พิกัด A และ B เหมือนกัน</p>`;
+  $('#pb').innerHTML = html;
+}
+function dsAIHTML(v, a, b) {
+  const W = {A: `เห็นด้วยกับ A ${fmt(a)}`, B: `เห็นด้วยกับ B ${fmt(b)}`, other: `ทั้งคู่ไม่ใช่ — เสนอ ${v.code ? fmt(normCode(v.code)) : 'รหัสอื่น'}`, depends: 'ขึ้นกับข้อเท็จจริงของสินค้า'}[v.verdict] || v.verdict;
+  const li = arr => (arr || []).map(s => `<li>${esc(s)}</li>`).join('') || '<li>—</li>';
+  return `<div class="rv ${v.verdict === 'depends' ? 'uncertain' : 'agree'}"><b>${esc(W)}${v.confidence ? ` · มั่นใจ ${+v.confidence}%` : ''}</b><p>${esc(v.summary || '')}${v.gir ? ` (GIR ${esc(v.gir)})` : ''}</p></div>
+    <div class="dgrid"><div class="dcol"><div class="dtag">เหตุผลสนับสนุน A</div><ul class="dl">${li(v.a_for)}</ul><div class="dtag" style="margin-top:8px">จุดอ่อนของ A</div><ul class="dl">${li(v.a_against)}</ul></div>
+      <div class="dcol"><div class="dtag">เหตุผลสนับสนุน B</div><ul class="dl">${li(v.b_for)}</ul><div class="dtag" style="margin-top:8px">จุดอ่อนของ B</div><ul class="dl">${li(v.b_against)}</ul></div></div>
+    ${(v.decisive || []).length ? `<div class="qbox"><h4>ข้อเท็จจริงที่ชี้ขาด — ถามผู้ส่งสินค้า/ดู Datasheet</h4>${v.decisive.map(d => `<p>• ${esc(d.q)}${d.then ? ` <span class="note">→ ${esc(d.then)}</span>` : ''}</p>`).join('')}</div>` : ''}
+    ${(v.notes || []).length ? `<p class="note"><b>หมายเหตุที่ใช้:</b> ${v.notes.map(esc).join(' · ')}</p>` : ''}
+    ${v.risk ? `<div class="need">ความเสี่ยง: ${esc(v.risk)}</div>` : ''}${v.recommendation ? `<p class="why"><b>ข้อแนะนำ:</b> ${esc(v.recommendation)}</p>` : ''}`;
+}
+async function dsAI() {
+  const r = RES[DS.i], a = DS.a, b = normCode(DS.b), xa = byCode.get(a), xb = byCode.get(b);
+  DS.busy = true; dsRender();
+  const ctx = newCtx();
+  const prompt = `คุณคือผู้ชี้ขาดข้อโต้แย้งพิกัดศุลกากรไทยที่เป็นกลาง (AHTN 2022 / พ.ร.ก. พิกัดฯ ฉบับที่ 7) มีความเห็นสองฝ่ายสำหรับสินค้าเดียวกัน:
+สินค้า: ${r.it.input}
+ชื่อไทย: ${r.it.product_th || '-'}
+ข้อมูลเพิ่มเติม: ${qaText(r) || '-'}
+A (แอป/AI): ${fmt(a)} — ${fullPath(xa).join(' › ')}${r.it.reason ? '\nเหตุผล A: ' + r.it.reason : ''}
+B (${DS.who || 'Customs Specialist ของบริษัท'}): ${fmt(b)} — ${fullPath(xb).join(' › ')}${DS.why ? '\nเหตุผล B: ' + DS.why : ''}
+
+ขั้นตอน: เรียก chapter_info ของตอนทั้งสองฝั่ง (อ่านหมายเหตุหมวด/ตอนและข้อยกเว้น), เรียก open_heading ของประเภททั้งสอง, เรียก library_search, แล้วใช้ GIR 1→6 ตามลำดับ
+ให้น้ำหนักทั้งสองฝ่ายเท่ากัน อย่าเข้าข้าง A เพราะเป็นผลของแอป ถ้าเหตุผลของ B ถูกต้องให้บอกตรง ๆ
+ถ้าข้อมูลสินค้าไม่พอตัดสิน ให้ verdict = "depends" และระบุข้อเท็จจริงที่ชี้ขาดใน decisive
+ตอบ JSON อย่างเดียว:
+{"verdict":"A|B|other|depends","code":"รหัส 8 หลักที่ถูกต้องที่สุด","confidence":0-100,"gir":"1, 3(b)","summary":"สรุป 2–3 ประโยค","a_for":["..."],"a_against":["..."],"b_for":["..."],"b_against":["..."],"decisive":[{"q":"คำถามข้อเท็จจริง","then":"ถ้าใช่ → A / ถ้าไม่ → B"}],"notes":["หมายเหตุ 1 ตอนที่ 84 ..."],"risk":"ความเสี่ยงถ้าสำแดงผิด 1 ประโยค","recommendation":"ควรทำอะไรต่อ 1–2 ประโยค"}`;
+  try { const out = await sample(prompt, {tools: makeTools(ctx), ...tierOpts()}); DS.ai = parseJ(out.text); }
+  catch (e) { DS.ai = {verdict: 'depends', summary: 'วิเคราะห์ไม่สำเร็จ: ' + (e?.message || e?.code || e)}; }
+  DS.busy = false; if ($('#panel').classList.contains('on')) dsRender();
+}
+function dsMemo() {
+  const r = RES[DS.i], a = DS.a, b = normCode(DS.b), xa = byCode.get(a), xb = byCode.get(b), L = dsLevel(a, b);
+  const org = CN[String(r.it.origin || '').toUpperCase()] ? String(r.it.origin).toUpperCase() : 'ALL', val = +String(DS.val).replace(/[^\d.]/g, '') || 0;
+  const line = (x, tag) => { const du = dutyOf(x, val, org), C = PV ? ctrlOf(x) : null;
+    return `${tag}: ${fmt(x.c)}\n  ${fullPath(x).join(' › ')}\n  อากรทั่วไป ${du.G.r}${du.b ? ' · FTA ' + du.b.g.k + ' ' + showR(du.b.p[1]) : ''}${val && du.d !== null ? ` · อากร ${baht(du.d)} + VAT ${baht(du.vat)}` : ''}\n  ใบอนุญาต: ${C?.per.length ? C.per.map(p => p[0]).join(', ') : 'ไม่มี'}`; };
+  const v = DS.ai;
+  return `บันทึกเปรียบเทียบพิกัดศุลกากร (${new Date().toLocaleDateString('th-TH')})
+สินค้า: ${r.it.input}${r.it.product_th ? '\nชื่อไทย: ' + r.it.product_th : ''}${qaText(r) ? '\nข้อมูลเพิ่มเติม: ' + qaText(r) : ''}
+
+${line(xa, 'A (แอป/AI)')}${r.it.reason ? '\n  เหตุผล: ' + r.it.reason : ''}
+${line(xb, 'B (' + (DS.who || 'Customs Specialist') + ')')}${DS.why ? '\n  เหตุผล: ' + DS.why : ''}
+
+ระดับที่ต่างกัน: ${L.k} — ${L.t}${v && v.summary ? `\n\nความเห็น AI: ${v.verdict}${v.code ? ' ' + fmt(normCode(v.code)) : ''} — ${v.summary}${(v.decisive || []).length ? '\nข้อเท็จจริงที่ชี้ขาด:\n' + v.decisive.map(d => '- ' + d.q + (d.then ? ' → ' + d.then : '')).join('\n') : ''}` : ''}
+
+หมายเหตุ: เป็นข้อมูลประกอบการพิจารณา ข้อยุติสุดท้ายเป็นของกรมศุลกากร (ขอคำวินิจฉัยพิกัดล่วงหน้าได้)`;
+}
+document.addEventListener('click', async e => {
+  const t = e.target;
+  const d = t.closest('[data-dsp]'); if (d) { openDispute(+d.dataset.dsp); return; }
+  if (!DS || !t.closest('#pb')) return;
+  if (t.closest('#ds-go')) { DS.a = normCode($('#ds-a').value); DS.b = $('#ds-b').value.trim(); DS.who = $('#ds-who').value.trim(); DS.why = $('#ds-why').value.trim(); DS.val = $('#ds-val').value.trim(); DS.ai = null;
+    if (DS.who) { CFG.specialist = DS.who; saveCfg(); }
+    dsRender(); return; }
+  if (t.closest('#ds-ai')) { dsAI(); return; }
+  if (t.closest('#ds-copy')) { try { await navigator.clipboard.writeText(dsMemo()); t.textContent = 'คัดลอกแล้ว ✓'; } catch { $('#pb').insertAdjacentHTML('beforeend', `<div class="draft">${esc(dsMemo())}</div>`); } return; }
+  const f = t.closest('[data-dsfinal]'); if (f) {
+    const r = RES[DS.i], fin = f.dataset.dsfinal, a = DS.a, b = normCode(DS.b);
+    const dispute = {a, b, by: DS.who || '', why: DS.why || '', final: fin, ai: DS.ai ? (DS.ai.verdict + (DS.ai.code ? ' ' + normCode(DS.ai.code) : '')) : '', at: new Date().toISOString()};
+    const note = `ข้อยุติจากการแย้งพิกัด: A ${fmt(a)} vs B ${fmt(b)}${DS.who ? ' (' + DS.who + ')' : ''} → ${fmt(fin)}${DS.why ? ' · ' + DS.why : ''}`;
+    await libSave(r, fin, clip(note, 400), {dispute});
+    r.it.code = fin; r.dispute = dispute; DS = null; hidePanel(); renderAll();
+  }
+});
 
 async function copyRows() {
   const rows = RES.map(r => { const it = r.it, x = byCode.get(normCode(it.code)); const org = String(it.origin || '').toUpperCase();
