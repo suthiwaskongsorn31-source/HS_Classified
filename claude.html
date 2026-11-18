@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>พิกัด AI</title>
+<meta name="apple-mobile-web-app-title" content="พิกัด AI">
+<link rel="apple-touch-icon" href="icons/claude-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/claude-touch-icon.png">
+<meta name="theme-color" content="#d0021b">
+<script>
+  // Opened from the home-screen icon (URL has ?go=1) → jump straight to the Claude version.
+  var ART = 'https://claude.ai/artifact/MM26iD4gwHV27tx1VSQYt1';
+  if (/[?&]go=1/.test(location.search)) location.replace(ART);
+</script>
+<style>
+  :root{color-scheme:light dark}
+  body{margin:0;font:16px/1.6 "IBM Plex Sans Thai",system-ui,-apple-system,sans-serif;background:light-dark(#fff,#0e0e0e);color:light-dark(#111,#f2f2f2);padding:calc(24px + env(safe-area-inset-top)) 22px 40px}
+  .w{max-width:520px;margin:0 auto}
+  img{width:84px;height:84px;border-radius:20px;display:block;margin-bottom:14px}
+  h1{font-size:26px;line-height:1.25;margin:0 0 6px}
+  p{margin:0 0 14px;color:light-dark(#555,#aaa)}
+  ol{padding-left:22px;margin:0 0 22px}li{margin:8px 0}
+  b{color:light-dark(#d0021b,#ff4d5e)}
+  a.btn{display:inline-block;padding:12px 18px;border:2px solid currentColor;border-radius:12px;text-decoration:none;color:inherit;font-weight:600}
+  .note{font-size:13.5px;margin-top:22px}
+</style>
+</head>
+<body><div class="w">
+  <img src="icons/claude-touch-icon.png" alt="">
+  <h1>ไอคอน “พิกัด AI” บนหน้าจอโฮม</h1>
+  <p>แตะไอคอนนี้แล้วจะเปิดเวอร์ชันบน Claude ทันที — ใช้ AI ผ่านบัญชี Claude ไม่ต้องใส่ API key</p>
+  <ol>
+    <li>เปิดหน้านี้ใน <b>Safari</b></li>
+    <li>แตะปุ่ม <b>แชร์ ⬆︎</b> ด้านล่าง</li>
+    <li>เลือก <b>“เพิ่มไปยังหน้าจอโฮม”</b> → <b>เพิ่ม</b></li>
+  </ol>
+  <a class="btn" href="https://claude.ai/artifact/MM26iD4gwHV27tx1VSQYt1">เปิดเวอร์ชัน Claude ตอนนี้</a>
+  <p class="note">ต้องลงชื่อเข้าใช้ claude.ai ใน Safari ไว้ก่อน (ครั้งเดียว) · ถ้าไอคอนเปิดหน้านี้แทนที่จะไปที่ Claude ให้ลบไอคอนแล้วเพิ่มใหม่จากหน้านี้</p>
+</div>
+<script>
+  // Make the saved bookmark carry ?go=1 so the home-screen icon redirects.
+  if (!/[?&]go=1/.test(location.search)) history.replaceState(null, '', location.pathname + '?go=1');
+</script>
+</body>
+</html>

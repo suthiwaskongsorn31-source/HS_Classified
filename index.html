@@ -1530,7 +1530,7 @@ $('#clr').onclick = () => { $('#q').value = ''; files = []; renderFiles(); $('#r
   let seen = false; try { seen = localStorage.getItem('hs-a2hs') === '1'; } catch {}
   if (ios && !standalone && !seen) {
     const b = document.createElement('div'); b.className = 'iosbar';
-    b.innerHTML = 'ติดตั้งเป็นแอปบน iPhone/iPad: แตะ <b>แชร์ ⬆︎</b> แล้วเลือก <b>“เพิ่มไปยังหน้าจอโฮม”</b> — เปิดได้แม้ไม่มีเน็ต<button aria-label="ปิด">×</button>';
+    b.innerHTML = 'ติดตั้งเป็นแอปบน iPhone/iPad: แตะ <b>แชร์ ⬆︎</b> แล้วเลือก <b>“เพิ่มไปยังหน้าจอโฮม”</b> — เปิดได้แม้ไม่มีเน็ต · <a href="claude.html" style="color:inherit">ไอคอนเวอร์ชัน Claude</a><button aria-label="ปิด">×</button>';
     b.querySelector('button').onclick = () => { b.remove(); try { localStorage.setItem('hs-a2hs', '1'); } catch {} };
     setTimeout(() => document.body.appendChild(b), 1500);
   }

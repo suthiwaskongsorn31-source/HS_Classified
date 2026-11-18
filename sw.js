@@ -1,7 +1,7 @@
 /* Service worker: lets the app open and search with no internet (offline mode).
    Bump VERSION whenever index.html or data/*.json change. */
-const VERSION = 'v2026-11-18b';
-const CORE = ['./', './index.html', './manifest.webmanifest', './icons/apple-touch-icon.png', './icons/icon-192.png',
+const VERSION = 'v2026-11-18c';
+const CORE = ['./', './index.html', './claude.html', './icons/claude-touch-icon.png', './manifest.webmanifest', './icons/apple-touch-icon.png', './icons/icon-192.png',
   './data/tariff.json', './data/rates.json', './data/hs_en.json', './data/permits.json', './data/dict.json'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(CORE)));
