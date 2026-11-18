@@ -2,7 +2,16 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#d0021b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="พิกัด HS">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <title>พิจารณาพิกัดศุลกากร</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,600;112,800&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -179,13 +188,33 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:13px}
 @media(max-width:760px){.form{grid-template-columns:minmax(0,1fr)}.box{border-right:0;border-bottom:1px solid var(--ink)}.card{grid-template-columns:minmax(0,1fr);gap:12px}}
 @media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 0}.stack td::before{content:attr(data-l);color:var(--mute);font:400 13px var(--th)}.ln{grid-template-columns:6.4em minmax(0,1fr)}.ln .v{grid-column:2;text-align:left}}
 .whys{margin-top:4px;display:flex;flex-wrap:wrap;gap:4px}.wy{font-size:11.5px;padding:1px 7px;border-radius:9px;background:#eef1f5;color:#445}.wy.ok{background:#e3f4e8;color:#1d6b35}.wy.bad{background:#fbe6e6;color:#a32}
-.wq{margin:14px 0 8px;font-size:16px}.wopt{display:block;width:100%;text-align:left;padding:10px 12px;margin:6px 0;border:1px solid var(--line,#ccd);border-radius:10px;background:transparent;color:inherit;font:inherit;cursor:pointer;position:relative}.wopt:hover{border-color:var(--red)}.wopt small{display:block;opacity:.7;font-size:12.5px}.wopt i{position:absolute;right:10px;top:8px;font-style:normal;font-size:12px;background:#e3f4e8;color:#1d6b35;padding:1px 8px;border-radius:9px}.wopt.best{border-color:#2e8b57;border-width:2px}.wopt.bad{opacity:.6}.wopt.bad i{background:#fbe6e6;color:#a32}
+.wq{margin:14px 0 8px;font-size:16px}.wopt{display:block;width:100%;text-align:left;padding:10px 12px;margin:6px 0;border:1px solid var(--line,#ccd);border-radius:10px;background:transparent;color:inherit;font:inherit;cursor:pointer;position:relative}.wopt:hover{border-color:var(--red)}.wopt small{display:block;opacity:.7;font-size:12.5px}.wopt i{position:absolute;right:10px;top:8px;font-style:normal;font-size:12px;background:#e3f4e8;color:#1d6b35;padding:1px 8px;border-radius:9px}.wopt.best,.wopt.bad{padding-right:84px}.wopt.best{border-color:#2e8b57;border-width:2px}.wopt.bad{opacity:.6}.wopt.bad i{background:#fbe6e6;color:#a32}
+
+/* iOS / installed-app */
+html{-webkit-text-size-adjust:100%}
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);padding-bottom:env(safe-area-inset-bottom);-webkit-tap-highlight-color:transparent}
+header.band{padding-top:env(safe-area-inset-top)}
+.panel{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+.pb{-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.iosbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:9;background:var(--ink);color:var(--bg);border-radius:14px;padding:12px 44px 12px 14px;font-size:14.5px;line-height:1.5;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.iosbar b{color:var(--red)}.iosbar button{position:absolute;right:6px;top:6px;background:none;border:0;color:inherit;font-size:22px;width:36px;height:36px;cursor:pointer}
+.offl{display:none;background:var(--redbg);color:var(--red);font-size:13.5px;padding:6px 12px;border-radius:8px;margin-top:10px}
+html.offline .offl{display:inline-block}
+@media(display-mode:standalone){h1{font-size:clamp(24px,6vw,48px)}}
+@media(max-width:760px){
+  nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}nav::-webkit-scrollbar{display:none}
+  nav button{white-space:nowrap;padding:12px 14px;flex:none}
+  input,select,textarea{font-size:16px!important}
+  .panel{border-left:0;width:100%}
+  .ph{padding:14px 16px}.pb{padding:8px 16px 40px}
+  .btn{min-height:44px}
+}
 </style>
 </head>
 <body>
 <header class="band"><div class="wrap">
   <h1>พิจารณา<b>พิกัดศุลกากร</b> อัตโนมัติ</h1>
-  <p class="sub">อ้างอิงพิกัดอัตราอากรขาเข้า ตามพระราชกำหนดพิกัดอัตราศุลกากร (ฉบับที่ 7) พ.ศ. 2564 · AHTN 2022 · <span id="cnt">11,414</span> ประเภทย่อย</p>
+  <p class="sub"><span class="offl">ออฟไลน์ — ใช้การค้นหาในเครื่อง</span> อ้างอิงพิกัดอัตราอากรขาเข้า ตามพระราชกำหนดพิกัดอัตราศุลกากร (ฉบับที่ 7) พ.ศ. 2564 · AHTN 2022 · <span id="cnt">11,414</span> ประเภทย่อย</p>
   <nav role="tablist">
     <button role="tab" id="t-ai" aria-selected="true" data-v="ai">ให้ AI พิจารณา</button>
     <button role="tab" id="t-sr" aria-selected="false" data-v="sr">ค้นหาในตารางพิกัด</button>
@@ -1152,7 +1181,7 @@ async function runAI() {
     let text = txt0, images = [];
     for (const f of files) { log('อ่านไฟล์ ' + f.name); const r = await readFile(f); if (r.text) text += `\n\n[ไฟล์ ${f.name}]\n` + r.text; if (r.images) images.push(...r.images); }
     text = clip(text, 24000);
-    if (!sample || $('#o-off').checked) return fallback(text);
+    if (!sample || $('#o-off').checked || !navigator.onLine) { if (!navigator.onLine && sample) log('ไม่มีอินเทอร์เน็ต — ใช้การวิเคราะห์ในเครื่อง'); return fallback(text); }
     if (images.length) { const lim = await sample.limits?.().catch(() => null); if (!lim?.images) { log('มุมมองนี้ส่งรูปให้ AI ไม่ได้ — ใช้เฉพาะข้อความ'); images = []; } else images = images.slice(0, 4); }
     log('AI เริ่มวิเคราะห์' + ($('#o-deep').checked ? ' (โหมดละเอียด)' : '') + '…');
     RES = await classify(text || '(ดูจากรูปที่แนบ)', images);
@@ -1473,6 +1502,33 @@ loadPriv();
 $('#go').onclick = runAI;
 $('#clr').onclick = () => { $('#q').value = ''; files = []; renderFiles(); $('#res').innerHTML = ''; logEl.innerHTML = ''; logEl.classList.remove('on'); };
 })().catch(err => { console.error(err); document.getElementById('cnt').textContent = '(โหลดฐานข้อมูลไม่สำเร็จ — เปิดผ่าน GitHub Pages หรือเว็บเซิร์ฟเวอร์ ไม่ใช่เปิดไฟล์ตรง)'; });
+</script>
+
+<script>
+/* PWA: offline cache + iOS "Add to Home Screen" hint */
+(() => {
+  const setNet = () => document.documentElement.classList.toggle('offline', !navigator.onLine);
+  addEventListener('online', setNet); addEventListener('offline', setNet); setNet();
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    navigator.serviceWorker.register('sw.js').then(reg => {
+      reg.addEventListener('updatefound', () => { const w = reg.installing; w && w.addEventListener('statechange', () => {
+        if (w.state === 'installed' && navigator.serviceWorker.controller) {
+          const b = document.createElement('div'); b.className = 'iosbar'; b.innerHTML = 'มีเวอร์ชันใหม่ <button style="position:static;width:auto;height:auto;font-size:14.5px;text-decoration:underline;color:inherit">แตะเพื่ออัปเดต</button>';
+          b.querySelector('button').onclick = () => { w.postMessage('skip'); }; document.body.appendChild(b);
+        } }); });
+    }).catch(() => {});
+    let rl = false; navigator.serviceWorker.addEventListener('controllerchange', () => { if (!rl) { rl = true; location.reload(); } });
+  }
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const standalone = navigator.standalone || matchMedia('(display-mode: standalone)').matches;
+  let seen = false; try { seen = localStorage.getItem('hs-a2hs') === '1'; } catch {}
+  if (ios && !standalone && !seen) {
+    const b = document.createElement('div'); b.className = 'iosbar';
+    b.innerHTML = 'ติดตั้งเป็นแอปบน iPhone/iPad: แตะ <b>แชร์ ⬆︎</b> แล้วเลือก <b>“เพิ่มไปยังหน้าจอโฮม”</b> — เปิดได้แม้ไม่มีเน็ต<button aria-label="ปิด">×</button>';
+    b.querySelector('button').onclick = () => { b.remove(); try { localStorage.setItem('hs-a2hs', '1'); } catch {} };
+    setTimeout(() => document.body.appendChild(b), 1500);
+  }
+})();
 </script>
 </body>
 </html>

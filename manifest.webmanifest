@@ -1,0 +1,17 @@
+{
+  "name": "พิจารณาพิกัดศุลกากร",
+  "short_name": "พิกัด HS",
+  "description": "พิจารณาพิกัดศุลกากรไทย อัตราอากร สิทธิ FTA ข้อห้าม/ข้อกำกัด DUI และ DG",
+  "lang": "th",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#d0021b",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
